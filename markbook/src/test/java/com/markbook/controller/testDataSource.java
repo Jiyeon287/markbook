@@ -27,7 +27,7 @@ public class testDataSource {
         	Connection conn = ds.getConnection();
             System.out.println("success : "+conn);
             System.out.println("hello");
-            System.out.println("test-sj");
+            System.out.println("안녕");
             
         } catch(Exception e){
             System.out.println("fail : "+e.getMessage());
