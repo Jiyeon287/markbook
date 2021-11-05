@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/mk_booktest/*")
-public class booktestController {
+public class mk_booktestController {
 
 	private static final Logger logger = LoggerFactory.getLogger(testController.class);
 	
