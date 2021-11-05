@@ -1,5 +1,5 @@
 package com.markbook.persistence;
 
-public interface mk_memberDAO {
+public interface mk_member_DAO {
 
 }
