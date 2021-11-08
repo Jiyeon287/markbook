@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/mk_booktest/*")
 public class mk_booktestController {
 
-	private static final Logger logger = LoggerFactory.getLogger(testController.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(mk_booktestController.class);
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public void check() throws Exception {
