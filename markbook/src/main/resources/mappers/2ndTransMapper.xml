@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.markbook.mapper.2ndTransMapper">
+ 
+ <!-- 관리자 메인 페이지 출력 정보  -->
+	
+ <!-- 최근 주문 목록 7개 조회 -->
+ <select id="getlist">
+	select * from 2ndhand_book
+	order by 2b_regdate desc
+ </select>
+
+
+	
+ </mapper>
