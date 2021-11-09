@@ -12,7 +12,7 @@ public class mk_booktestController {
 
 	private static final Logger logger = LoggerFactory.getLogger(mk_booktestController.class);
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/booktest", method=RequestMethod.GET)
 	public void check() throws Exception {
 		logger.info("hello world");
 		
