@@ -4,7 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
  <mapper namespace="com.markbook.mapper.requestBoardMapper">
-
-
+ 
+	    <!-- 요청 게시판 글 등록 -->
+	<insert id="addBoard">
+		insert into book_request(r_name,r_writer,r_content,r_image,r_result,r_id_num)
+		values(#{r_name},#{r_writer},#{r_content},#{r_image},#{r_result},#{r_id_num})
+	</insert>
+	
+	<!-- 게시판 총 글 갯수 -->
+	<select id="requestCount" resultType="com.markbook.domain.mk_requestBoardVO">
+	select count(r_num) from book_request
+	</select>
 	
  </mapper>
