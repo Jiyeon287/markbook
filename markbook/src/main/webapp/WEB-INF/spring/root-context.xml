@@ -46,4 +46,8 @@
 		</constructor-arg>  
 	</bean>
 	
+	<!-- 디비처리, 서비스처리 사용 연결  -->
+	<context:component-scan base-package="com.markbook.persistence" />
+	<context:component-scan base-package="com.markbook.service" />
+	
 </beans>
