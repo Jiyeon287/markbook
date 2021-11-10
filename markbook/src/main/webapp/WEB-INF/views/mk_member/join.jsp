@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/slick.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/join.css">
 </head>
 <body>
     <!-- header end -->
@@ -48,10 +50,20 @@
                      <div class="single-input-fields">
                         <input type="text" placeholder="이름">
                     </div>
-                    <div class="form-floating mb-3">
-					 	<input type="text" class="form-control" id="floatingInput" placeholder="주민등록번호" style="float:left; width:50%;"> 
-						<input type="password" class="form-control" id="floatingPassword" style="width:50%;">
+                  
+					<div class="single-input-fields">
+						<table style="width:100%">
+							<tr>
+								<td>
+									<input type="text" placeholder="주민등록번호">
+								</td>
+								<td>
+									<input type="password">
+								</td>
+							</tr>
+						</table>
 					</div>
+					
                     <div class="single-input-fields">
                     	<table style="width:100%">
                     		<tr>
@@ -65,13 +77,13 @@
 				                        <option>daum.net</option>
 				                        <option>gmail.com</option>
 				                    </select>
-				                    <div class="nice-select" tabindex="0" style="">
+				                    <div class="nice-select" tabindex="0" style="margin-top:8px; border-radius:0px; height:50px; color:rgb(139,139,139)">
 					                    <span class="current">선택하세요</span>
 					                    <ul class="list">
-						                    <li data-value="선택하세요" class="option selected focus">선택하세요</li>
-						                    <li data-value="naver.com" class="option">naver.com</li>
-						                    <li data-value="daum.net" class="option">daum.net</li>
-						                    <li data-value="gmail.com" class="option">gmail.com</li>
+						                    <li data-value="none" class="option selected focus">선택하세요</li>
+						                    <li data-value="naver.com" class="option">@naver.com</li>
+						                    <li data-value="daum.net" class="option">@daum.net</li>
+						                    <li data-value="gmail.com" class="option">@gmail.com</li>
 					                    </ul>
 				                    </div>
 			                    </td>
@@ -80,8 +92,13 @@
                     </div>
                     <!-- 주소 -->
                     <div class="single-input-fields">
-                        <input type="password" placeholder="나머지 주소">
+                        <input type="text" placeholder="주소" style="width:85%; float:left;">
+						<a class="joinBtn">검색</a>
                     </div>
+                    <div class="single-input-fields">
+                        <input type="text" placeholder="상세 주소">
+                    </div>
+                    
                 </div>
                 <!-- form Footer -->
                 <div class="register-footer">

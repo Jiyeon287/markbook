@@ -18,8 +18,9 @@ public class mk_adminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(mk_adminController.class);
 	
-	@Inject
-	private mk_adminService service;
+	
+	// @Inject private mk_adminService service;
+	
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String adminMainGET(HttpSession session, Model model) throws Exception {
