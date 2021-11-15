@@ -1,6 +1,7 @@
 package com.markbook.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.markbook.domain.mk_memberVO;
 import com.markbook.service.mk_memberService;
 
 @Controller
@@ -30,5 +32,10 @@ public class mk_memberController {
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public void memberJoinGET() throws Exception {
 		System.out.println("회원가입");
+	}
+	
+	@RequestMapping(value="/join", method=RequestMethod.POST)
+	public void memberJoinPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
+		System.out.println("mvo : "+mvo);
 	}
 }
