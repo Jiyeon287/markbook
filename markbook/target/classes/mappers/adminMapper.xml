@@ -6,6 +6,18 @@
   <mapper namespace="com.markbook.mapper.adminMapper">
  
  
+ 	<!-- 도서 등록 -->
+ 	<insert id="bookRegister">
+ 		insert into book (b_num,b_name,b_category,b_image,b_content,b_count,
+ 		b_writer,b_publisher,b_regdate,b_able,b_amount) 
+ 		values (#{b_num},#{b_name},#{b_category},#{b_image},#{b_content},#{b_count},
+ 		#{b_writer},#{b_publisher},#{b_regdate},#{b_able},#{b_amount})
+ 	</insert>
+ 
+ 
+ 
+ 
+ 
  
  
   </mapper>
