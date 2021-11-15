@@ -41,7 +41,9 @@
                 <form method="post" name="joinFr" action="/markbook/mk_member/join" onsubmit="return inpChk()">
 	                <div class="input-box">
 	                    <div class="single-input-fields">
-	                        <input type="text" placeholder="아이디" name="m_id">
+	                        <input type="text" placeholder="아이디" name="m_id" style="width:80%; float:left;">
+	                        <a href="#" class="genric-btn danger" style="margin-top:5px;">중복체크</a>
+	                        
 	                    </div>
 	                    <div class="single-input-fields">
 	                        <input type="password" placeholder="비밀번호" name="m_pw">
@@ -69,31 +71,31 @@
 	                    	<table style="width:100%">
 	                    		<tr>
 	                    			<td style="width:50%">
-			                        	<input type="text" placeholder="이메일 주소를 입력하세요" name="emailAddr" id="in">
+			                        	<input type="text" placeholder="이메일 주소를 입력하세요" name="emailAddr">
 			                        </td>
 			                        <td style="width:50%">
-					                    <select style="display:none;" name="domain" id="dom">
+					                    <select style="display:none;" name="domain">
 					                    	<option value="none">선택하세요</option>
-					                        <option value="@naver.com">naver.com</option>
-					                        <option value="@daum.net">daum.net</option>
-					                        <option value="@gmail.com">gmail.com</option>
+					                        <option value="naver.com">@naver.com</option>
+					                        <option value="daum.net">@daum.net</option>
+					                        <option value="gmail.com">@gmail.com</option>
 					                    </select>
 					                    <div class="nice-select" tabindex="0" style="margin-top:8px; border-radius:0px; height:50px; color:rgb(139,139,139)">
 						                    <span class="current">선택하세요</span>
 						                    <ul class="list">
 							                    <li data-value="none" class="option selected focus">선택하세요</li>
-							                    <li data-value="@naver.com" class="option">@naver.com</li>
-							                    <li data-value="@daum.net" class="option">@daum.net</li>
-							                    <li data-value="@gmail.com" class="option">@gmail.com</li>
+							                    <li data-value="naver.com" class="option">@naver.com</li>
+							                    <li data-value="daum.net" class="option">@daum.net</li>
+							                    <li data-value="gmail.com" class="option">@gmail.com</li>
 						                    </ul>
 					                    </div>
 				                    </td>
 			                    </tr>
 		                    </table>
-		                    <input type="text" name="e_email" id="out" value=""/> 
+		                    <input type="hidden" name="m_email" id="in" value=""/> 
 	                    </div>
 	                    <!-- 주소 -->
-	                    <div class="single-input-fields">
+	                    <div class="single-input-fields"> 
 	                        <input type="text" placeholder="주소" style="width:85%; float:left;" name="m_addr1" id="addr" readonly>
 							<a class="joinBtn" id="addr_search" onclick="findAddr()">검색</a>
 	                    </div>
