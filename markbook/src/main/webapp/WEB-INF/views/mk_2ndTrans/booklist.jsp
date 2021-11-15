@@ -10,7 +10,7 @@
                 <div class="slider-area">
                     <div class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
                         <div class="hero-caption hero-caption2">
-                            <h2>Secondhand_books</h2>
+                            <h2>Secondhand_book_Deals</h2>
                         </div>
                     </div>
                 </div>

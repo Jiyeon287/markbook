@@ -3,6 +3,7 @@ package com.markbook.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,10 +25,11 @@ public class mk_2ndtransController {
 	private mk_2ndtransService service;
 	
 	// 중고책 거래 메인 페이지 호출
-	@RequestMapping(value = "/mainlist", method = RequestMethod.GET)
+	// http://localhost:8088/markbook/mk_2nd/booklist
+	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String mainGET(Model model) throws Exception {
 		
-		logger.info(" C: mainGET() 호출 ");
+		logger.info(" C: booklistGET() 호출 ");
 	
 		int pageNum = 1;
 
@@ -38,6 +40,30 @@ public class mk_2ndtransController {
 		return "/mk_2ndTrans/booklist";
 
 	}
+	
+	// 중고책 거래 매물 등록 페이지 호출
+	// 중고책 매물 등록(GET)
+	@RequestMapping(value = "/bookregister", method = RequestMethod.GET)
+	public String RegisterGET(HttpSession session, Model model) throws Exception {
+
+		logger.info("C: RegisterGET() 호출");
+		
+		String m_id = (String) session.getAttribute("m_id");
+		//임시 아이디 설정
+		m_id = "tempId";
+
+		/*
+		 * if (m_id == null) { return "redirect:/login"; }
+		 */
+		
+	
+		
+		model.addAttribute("m_id", m_id);
+
+		return  "/mk_2ndTrans/bookregister";
+	}
+	
+	// 중고책 거래 매물 
 	
 	
 	
