@@ -25,21 +25,27 @@ public class mk_requestBoardController {
 	@RequestMapping(value="/add",method = RequestMethod.GET)
 	public void addGET(Model model) throws Exception{
 		Integer count=service.countBoard();
-		if(count ==null) {
+		if(count == null) {
 			count =1;
+		}
+		else if (count >= 1) {
+			count = count+1;
+			
 		}
 		model.addAttribute("r_num",count);
 		
 		logger.info("add.jsp");
+		System.out.println("갯수"+count);
 	}
 	
 	@RequestMapping(value="/add",method =RequestMethod.POST)
 	public String addPOST(mk_requestBoardVO rbvo)throws Exception{
-
+    System.out.println(rbvo);
 	
 		
 		logger.info("확인");
 		service.addBoard(rbvo);
+		
 		return "redirect:/mk_requestBoard/list";
 	}
 }

@@ -7,8 +7,8 @@
  
 	    <!-- 요청 게시판 글 등록 -->
 	<insert id="addBoard">
-		insert into book_request(r_name,r_writer,r_content,r_image,r_result,r_id_num)
-		values(#{r_name},#{r_writer},#{r_content},#{r_image},#{r_result},#{r_id_num})
+		insert into book_request(r_num,r_name,r_writer,r_content,r_result,r_category)
+		values(#{r_num},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_category})
 	</insert>
 	
 	<!-- 게시판 총 글 갯수 -->

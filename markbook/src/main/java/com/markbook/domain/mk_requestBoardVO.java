@@ -9,9 +9,16 @@ public class mk_requestBoardVO {
 	private String r_image;
 	private int r_result;
 	private int r_id_num;
+	private String r_category;
 	
 	public int getR_num() {
 		return r_num;
+	}
+	public String getR_category() {
+		return r_category;
+	}
+	public void setR_category(String r_category) {
+		this.r_category = r_category;
 	}
 	public void setR_num(int r_num) {
 		this.r_num = r_num;
@@ -55,7 +62,9 @@ public class mk_requestBoardVO {
 	@Override
 	public String toString() {
 		return "mk_requestBoardVO [r_num=" + r_num + ", r_name=" + r_name + ", r_writer=" + r_writer + ", r_content="
-				+ r_content + ", r_image=" + r_image + ", r_result=" + r_result + ", r_id_num=" + r_id_num + "]";
+				+ r_content + ", r_image=" + r_image + ", r_result=" + r_result + ", r_id_num=" + r_id_num
+				+ ", r_category=" + r_category + "]";
 	}
+
 	
 }
