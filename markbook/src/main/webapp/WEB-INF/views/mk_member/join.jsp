@@ -24,6 +24,31 @@
     
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/join.css">
 </head>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+	// 주소 검색
+	var width = 500; // 팝업 너비 / 높이
+	var height = 600;
+	function findAddr(){
+		new daum.Postcode({
+			width: width,
+        	height : height,
+	        oncomplete: function(data) {
+	        	// console.log(data);
+	        	
+	            var roadAddr = data.roadAddress; // 도로명 주소
+	            var jibunAddr = data.jibunAddress; // 지번 주소
+	            
+	            if(roadAddr != '') document.getElementById("addr").value = roadAddr;
+	            else if(jibunAddr != '') document.getElementById("addr").value = jibunAddr;
+	        }
+	    }).open({
+	    	left: (window.screen.width / 2) - (width / 2),
+	    	top : (window.screen.height / 2) - (height / 2)
+	    });
+	}
+</script>
 <body>
     <!-- header end -->
     <main class="login-bg">
@@ -36,75 +61,76 @@
                     <p>Create your account to get full access</p>
                 </div>
                 <!-- Single Input Fields -->
-                
-                <div class="input-box">
-                    <div class="single-input-fields">
-                        <input type="text" placeholder="아이디">
-                    </div>
-                    <div class="single-input-fields">
-                        <input type="password" placeholder="비밀번호">
-                    </div>
-                    <div class="single-input-fields">
-                        <input type="password" placeholder="비밀번호 확인">
-                    </div>
-                     <div class="single-input-fields">
-                        <input type="text" placeholder="이름">
-                    </div>
-                  
-					<div class="single-input-fields">
-						<table style="width:100%">
-							<tr>
-								<td>
-									<input type="text" placeholder="주민등록번호">
-								</td>
-								<td>
-									<input type="password">
-								</td>
-							</tr>
-						</table>
-					</div>
-					
-                    <div class="single-input-fields">
-                    	<table style="width:100%">
-                    		<tr>
-                    			<td style="width:50%">
-		                        	<input type="email" placeholder="이메일 주소를 입력하세요" style="">
-		                        </td>
-		                        <td style="width:50%">
-				                    <select style="display:none;">
-				                    	<option>선택하세요</option>
-				                        <option>naver.com</option>
-				                        <option>daum.net</option>
-				                        <option>gmail.com</option>
-				                    </select>
-				                    <div class="nice-select" tabindex="0" style="margin-top:8px; border-radius:0px; height:50px; color:rgb(139,139,139)">
-					                    <span class="current">선택하세요</span>
-					                    <ul class="list">
-						                    <li data-value="none" class="option selected focus">선택하세요</li>
-						                    <li data-value="naver.com" class="option">@naver.com</li>
-						                    <li data-value="daum.net" class="option">@daum.net</li>
-						                    <li data-value="gmail.com" class="option">@gmail.com</li>
-					                    </ul>
-				                    </div>
-			                    </td>
-		                    </tr>
-	                    </table>
-                    </div>
-                    <!-- 주소 -->
-                    <div class="single-input-fields">
-                        <input type="text" placeholder="주소" style="width:85%; float:left;">
-						<a class="joinBtn">검색</a>
-                    </div>
-                    <div class="single-input-fields">
-                        <input type="text" placeholder="상세 주소">
-                    </div>
-                    
-                </div>
-                <!-- form Footer -->
-                <div class="register-footer">
-                    <p> Already have an account? <a href="login.html"> Login</a> here</p>
-                    <button class="submit-btn3">Sign Up</button>
-                </div>
+                <form method="post" action="/mk_member/join">
+	                <div class="input-box">
+	                    <div class="single-input-fields">
+	                        <input type="text" placeholder="아이디" name="m_id">
+	                    </div>
+	                    <div class="single-input-fields">
+	                        <input type="password" placeholder="비밀번호" name="m_pw">
+	                    </div>
+	                    <div class="single-input-fields">
+	                        <input type="password" placeholder="비밀번호 확인" name="m_pw_chk">
+	                    </div>
+	                     <div class="single-input-fields">
+	                        <input type="text" placeholder="이름" name="m_name">
+	                    </div>
+	                  
+						<div class="single-input-fields">
+							<table style="width:100%">
+								<tr>
+									<td>
+										<input type="text" placeholder="주민등록번호" name="m_idnum1">
+									</td>
+									<td>
+										<input type="password" name="m_idnum2">
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+	                    <div class="single-input-fields">
+	                    	<table style="width:100%">
+	                    		<tr>
+	                    			<td style="width:50%">
+			                        	<input type="email" placeholder="이메일 주소를 입력하세요" name="m_email">
+			                        </td>
+			                        <td style="width:50%">
+					                    <select style="display:none;" name="mail_addr">
+					                    	<option value="none">선택하세요</option>
+					                        <option value="naver.com">naver.com</option>
+					                        <option value="daum.net">daum.net</option>
+					                        <option value="gmail.com">gmail.com</option>
+					                    </select>
+					                    <div class="nice-select" tabindex="0" style="margin-top:8px; border-radius:0px; height:50px; color:rgb(139,139,139)">
+						                    <span class="current">선택하세요</span>
+						                    <ul class="list">
+							                    <li data-value="none" class="option selected focus">선택하세요</li>
+							                    <li data-value="naver.com" class="option">@naver.com</li>
+							                    <li data-value="daum.net" class="option">@daum.net</li>
+							                    <li data-value="gmail.com" class="option">@gmail.com</li>
+						                    </ul>
+					                    </div>
+				                    </td>
+			                    </tr>
+		                    </table>
+	                    </div>
+	                    <!-- 주소 -->
+	                    <div class="single-input-fields">
+	                        <input type="text" placeholder="주소" style="width:85%; float:left;" name="m_addr1" id="addr">
+							<a class="joinBtn" id="addr_search" onclick="findAddr()">검색</a>
+	                    </div>
+	                    <div class="single-input-fields">
+	                        <input type="text" placeholder="상세 주소" name="m_addr2">
+	                    </div>
+	                    
+	                </div>
+	                <!-- form Footer -->
+	                <div class="register-footer">
+	                    <p> Already have an account? <a href="login.html"> Login</a> here</p>
+	                    <button class="submit-btn3">Sign Up</button>
+	                </div>
+                </form>
             </div>
         </div>
         <!-- Register Area End -->
