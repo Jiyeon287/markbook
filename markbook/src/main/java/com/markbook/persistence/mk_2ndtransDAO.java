@@ -9,5 +9,8 @@ public interface mk_2ndtransDAO {
 	// 중고거래 메인 리스트 조회
 	public List<mk_2ndhand_bookVO> getBookList() throws Exception;
 	
+	// 중고거래 매물 등록
+	public void bookRegister(mk_2ndhand_bookVO bvo) throws Exception;
+	
 
 }

@@ -21,7 +21,7 @@
 	<!--  Hero area End -->
 
 	<!-- 책 등록 폼  -->
-	<form action="#">
+	<form action="" method="post" id="2ndbookRegister" name="2ndbookRegister">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-8">
@@ -40,15 +40,8 @@
 								class="single-input">
 						</div>
 						<div class="mt-10">
-							<h4 class="mb-30">Book Price</h4>
-							<input type="text" name="b2_price" placeholder="책 가격을 입력해주세요."
-								onfocus="this.placeholder = ''"
-								onblur="this.placeholder = '책 가격을 입력해주세요.'" required=""
-								class="single-input">
-						</div>
-						<div class="mt-10">
 							<h4 class="mb-30">Book Description</h4>
-							<textarea class="single-textarea">책 설명을 입력해 주세요.</textarea>
+							<textarea name="b2_content" class="single-textarea">책 설명을 입력해 주세요.</textarea>
 						</div>
 						<div class="mt-10">
 							<h4 class="mb-30">Book Image</h4>
@@ -60,7 +53,7 @@
 					<div class="single-element-widget mt-30">
 						<h3 class="mb-30">Book Category</h3>
 						<div class="default-select" id="default-select""="">
-							<select style="display: none;">
+							<select name="b2_category" style="display: none;">
 								<option value="문학">문학</option>
 								<option value="비문학">비문학</option>
 								<option value="자기계발서">자기계발서</option>
@@ -112,44 +105,16 @@
 							</div>
 						</div>
 					</div>
-					<div class="single-element-widget mt-30">
-						<h3 class="mb-30">Radios</h3>
-						<div class="switch-wrap d-flex justify-content-between">
-							<p>01. Sample radio</p>
-							<div class="primary-radio">
-								<input type="checkbox" id="default-radio"> <label
-									for="default-radio"></label>
-							</div>
-						</div>
-						<div class="switch-wrap d-flex justify-content-between">
-							<p>02. Primary Color radio</p>
-							<div class="primary-radio">
-								<input type="checkbox" id="primary-radio" checked=""> <label
-									for="primary-radio"></label>
-							</div>
-						</div>
-						<div class="switch-wrap d-flex justify-content-between">
-							<p>03. Confirm Color radio</p>
-							<div class="confirm-radio">
-								<input type="checkbox" id="confirm-radio" checked=""> <label
-									for="confirm-radio"></label>
-							</div>
-						</div>
-						<div class="switch-wrap d-flex justify-content-between">
-							<p>04. Disabled radio</p>
-							<div class="disabled-radio">
-								<input type="checkbox" id="disabled-radio" disabled="">
-								<label for="disabled-radio"></label>
-							</div>
-						</div>
-						<div class="switch-wrap d-flex justify-content-between">
-							<p>05. Disabled radio active</p>
-							<div class="disabled-radio">
-								<input type="checkbox" id="disabled-radio-active" checked=""
-									disabled=""> <label for="disabled-radio-active"></label>
-							</div>
-						</div>
+					<div class="mt-10">
+							<h4 class="mb-30">Book Price</h4>
+							<input type="text" name="b2_price" placeholder="책 가격을 입력해주세요."
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '책 가격을 입력해주세요.'" required=""
+								class="single-input">
 					</div>
+					<div class="form-group mt-3">
+                         <button type="submit" class="button button-contactForm boxed-btn">판매등록</button>
+                    </div>
 				</div>
 			</div>
 		</div>

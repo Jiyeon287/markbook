@@ -25,5 +25,16 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		
 		return bookList;
 	}
+	
+	// 중고책 매물 등록
+	@Override
+	public void bookRegister(mk_2ndhand_bookVO bvo) throws Exception {
+		
+		System.out.println("S : bookRegister(bvo) 호출! ");
+		
+		tdao.bookRegister(bvo);
+		
+		System.out.println("S : bookRegister(bvo) 등록완료 ");
+	}
 
 }
