@@ -36,7 +36,7 @@ public class mk_adminController {
 	
 	
 	// 도서 등록 (GET)
-	// http://localhost:8088/mk_admin/bookList
+	// http://localhost:8088/markbook/mk_admin/bookRegister
 	@RequestMapping(value = "/bookRegister", method = RequestMethod.GET)
 	public String bookRegisterGET(HttpSession session) throws Exception {
 		
@@ -44,7 +44,7 @@ public class mk_adminController {
 		
 		String admin_id = (String) session.getAttribute("m_id");
 		
-		return "/mk_admin/bookList";
+		return "/mk_admin/bookRegister";
 	}
 	
 	// 도서 등록 (POST)
@@ -55,7 +55,7 @@ public class mk_adminController {
 		
 		service.bookRegister(bvo);
 		
-		return "/mk_admin/bookList";
+		return "/mk_admin/bookRegister";
 	}
 	
 	
