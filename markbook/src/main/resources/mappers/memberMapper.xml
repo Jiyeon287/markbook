@@ -5,6 +5,11 @@
 
  <mapper namespace="com.markbook.mapper.memberMapper">
 
-
+	<!-- 아이디 중복체크 -->
+	<select id="idChk" resultType="Boolean">
+		select count(*) 
+		from member_info
+		where m_id = #{m_id}
+	</select>
 	
  </mapper>

@@ -24,7 +24,14 @@
     
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/join.css">
 </head>
-
+<script type="text/javascript">
+	function duplicateCheck() {
+		var id = document.joinFr.m_id.value;
+			
+		if(id == "") alert("아이디를 입력하세요");
+		else $("#idChk").attr("href","/markbook/mk_member/idchk?m_id="+id);
+	}
+</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <body>
     <!-- header end -->
@@ -42,8 +49,7 @@
 	                <div class="input-box">
 	                    <div class="single-input-fields">
 	                        <input type="text" placeholder="아이디" name="m_id" style="width:80%; float:left;">
-	                        <a href="#" class="genric-btn danger" style="margin-top:5px;">중복체크</a>
-	                        
+	                        <a href="javascript:void(0);" onclick="duplicateCheck();" id="idChk" class="genric-btn danger" style="margin-top:5px;">중복체크</a>
 	                    </div>
 	                    <div class="single-input-fields">
 	                        <input type="password" placeholder="비밀번호" name="m_pw">
@@ -54,7 +60,6 @@
 	                     <div class="single-input-fields">
 	                        <input type="text" placeholder="이름" name="m_name">
 	                    </div>
-	                  
 						<div class="single-input-fields">
 							<table style="width:100%">
 								<tr>
