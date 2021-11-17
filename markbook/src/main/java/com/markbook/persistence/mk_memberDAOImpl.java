@@ -5,6 +5,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.markbook.domain.mk_memberVO;
+
 @Repository
 public class mk_memberDAOImpl implements mk_memberDAO {
 
@@ -17,6 +19,19 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 	public int memberIdChk(String m_id) throws Exception {
 
 		return sqlSession.selectOne(namespace + ".idChk", m_id);
+	}
+
+	@Override
+	public void memberInsert(mk_memberVO mvo) throws Exception {
+		
+		String tmp = sqlSession.selectOne(namespace + ".maxNum");
+		int max = 999;
+		if (tmp != null) max = Integer.parseInt(tmp);
+		
+		System.out.println("최대값 : "+max);
+		mvo.setM_num(++max);
+		
+		sqlSession.insert(namespace + ".insertMember", mvo);
 	}
 
 }

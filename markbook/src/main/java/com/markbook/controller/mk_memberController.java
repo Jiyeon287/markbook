@@ -39,7 +39,14 @@ public class mk_memberController {
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public void memberJoinPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
-		System.out.println("회원가입 진행중");
+		System.out.println("회원가입 진행중 "+mvo);
+		
+		service.memberInsert(mvo);
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.print("<script>alert('회원가입 완료'); location.href='/markbook/mk_member/login';</script>");
+		out.flush();
 	}
 	
 	@ResponseBody

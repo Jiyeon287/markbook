@@ -91,6 +91,9 @@
 				                    </td>
 			                    </tr>
 		                    </table>
+		                    <div class="single-input-fields">
+	                        	<input type="text" placeholder="휴대폰 번호 (-없이 입력 해주세요)" name="m_phone">
+	                    	</div>
 		                    <input type="hidden" name="m_email" id="in" value=""/> 
 	                    </div>
 	                    <!-- 주소 -->

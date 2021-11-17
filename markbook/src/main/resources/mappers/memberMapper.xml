@@ -12,4 +12,18 @@
 		where m_id = #{m_id}
 	</select>
 	
+	<!-- 회원번호 검색 -->
+	<select id="maxNum" resultType="String">
+		select max(m_num)
+		from member_info
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		insert into member_info 
+		values (#{m_num}, #{m_id}, #{m_pw}, #{m_addr1}, #{m_addr2}, 
+		#{m_email}, #{m_phone}, #{m_image}, now(), #{m_idnum1}, #{m_idnum2}, 
+		0, 0, #{m_name})
+	</insert>
+	
  </mapper>

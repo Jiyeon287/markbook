@@ -69,6 +69,14 @@ function inpChk() {
 		alert("도메인 주소를 선택하세요.");
 		return false;
 	}
+	if (document.joinFr.m_phone.value == "") {
+		alert("휴대폰 번호를 입력하세요.");
+		return false;
+	}
+	if (document.joinFr.m_phone.value.search("-") > 0) {
+		alert("-없이 숫자만 입력하세요.");
+		return false;
+	}
 	if(document.joinFr.m_addr1.value == "" || document.joinFr.m_addr2.value == "") {
 		alert("주소를 입력하세요.");
 		return false;
