@@ -14,7 +14,7 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 	private static String namespace = "com.markbook.mapper.memberMapper";
 	
 	@Override
-	public boolean memberIdChk(String m_id) throws Exception {
+	public int memberIdChk(String m_id) throws Exception {
 
 		return sqlSession.selectOne(namespace + ".idChk", m_id);
 	}

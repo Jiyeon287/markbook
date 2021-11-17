@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.markbook.domain.mk_memberVO;
 import com.markbook.service.mk_memberService;
@@ -41,23 +42,12 @@ public class mk_memberController {
 		System.out.println("회원가입 진행중");
 	}
 	
-	@RequestMapping(value="/idchk", method=RequestMethod.GET)
-	public void memberIdCheck(@RequestParam("m_id") String m_id, HttpServletResponse response, Model model) throws Exception {
+	@ResponseBody
+	@RequestMapping(value="/idchk", method=RequestMethod.POST)
+	public int memberIdCheck(mk_memberVO mvo, Model model) throws Exception {
 		
-		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
+		System.out.println("아이디 중복체크");
 		
-		boolean chk = service.memberIdChk(m_id);
-		
-		if(!chk) {
-			// model.addAttribute("checkId", );
-			out.print("<script>alert('사용 가능한 아이디입니다'); history.back();</script>");
-			out.flush();
-		}
-		else {
-			out.print("<script>alert('중복된 아이디입니다'); history.back();</script>");
-			out.flush();
-		}
-		
+		return service.memberIdChk(mvo.getM_id());
 	}
 }

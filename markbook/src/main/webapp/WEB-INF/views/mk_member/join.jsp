@@ -1,4 +1,5 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -24,14 +25,6 @@
     
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/join.css">
 </head>
-<script type="text/javascript">
-	function duplicateCheck() {
-		var id = document.joinFr.m_id.value;
-			
-		if(id == "") alert("아이디를 입력하세요");
-		else $("#idChk").attr("href","/markbook/mk_member/idchk?m_id="+id);
-	}
-</script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <body>
     <!-- header end -->
@@ -46,6 +39,7 @@
                 </div>
                 <!-- Single Input Fields -->
                 <form method="post" name="joinFr" action="/markbook/mk_member/join" onsubmit="return inpChk()">
+                	<input type="hidden" id="isCheck" name="isCheck" value="0"/>
 	                <div class="input-box">
 	                    <div class="single-input-fields">
 	                        <input type="text" placeholder="아이디" name="m_id" style="width:80%; float:left;">

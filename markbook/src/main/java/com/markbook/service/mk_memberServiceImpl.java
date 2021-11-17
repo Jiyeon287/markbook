@@ -13,7 +13,7 @@ public class mk_memberServiceImpl implements mk_memberService {
 	private mk_memberDAO mdao;
 	
 	@Override
-	public boolean memberIdChk(String m_id) throws Exception {
+	public int memberIdChk(String m_id) throws Exception {
 		
 		return mdao.memberIdChk(m_id);
 		
