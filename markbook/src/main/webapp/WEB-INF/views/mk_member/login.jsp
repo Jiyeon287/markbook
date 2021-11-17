@@ -1,3 +1,4 @@
+<%@ page contentType = "text/html;charset=utf-8" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -35,22 +36,29 @@
                 <!-- Single Input Fields -->
                 <div class="input-box">
                     <div class="single-input-fields">
-                        <label>Username or Email Address</label>
-                        <input type="text" placeholder="Username / Email address">
+                        <label>ID</label>
+                        <input type="text" placeholder="아이디">
                     </div>
                     <div class="single-input-fields">
                         <label>Password</label>
-                        <input type="password" placeholder="Enter Password">
+                        <input type="password" placeholder="비밀번호">
                     </div>
                     <div class="single-input-fields login-check">
-                        <input type="checkbox" id="fruit1" name="keep-log">
-                        <label for="fruit1">Keep me logged in</label>
+                        <input type="hidden" id="fruit1" name="keep-log">
+                        <label for="fruit1">&nbsp;</label>
                     <a href="#" class="f-right">Forgot Password?</a>
                     </div>
+                    <!-- social login -->
+	                <div style="text-align:center; padding-top:50px;">
+	                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer;"/><br>
+	                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer;"/><br>
+	                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer;"/>
+	                </div>
                 </div>
+                
                 <!-- form Footer -->
                 <div class="login-footer">
-                    <p>Donât have an account? <a href="register.html">Sign Up</a>  here</p>
+                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
                     <button class="submit-btn3">Login</button>
                 </div>
             </div>
