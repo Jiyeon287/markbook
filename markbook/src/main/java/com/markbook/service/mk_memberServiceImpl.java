@@ -25,4 +25,11 @@ public class mk_memberServiceImpl implements mk_memberService {
 		mdao.memberInsert(mvo);
 	}
 
+	@Override
+	public boolean memberLoginChk(mk_memberVO mvo) throws Exception {
+
+		return mdao.memberLoginChk(mvo);
+	}
+
+
 }

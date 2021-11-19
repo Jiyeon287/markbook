@@ -9,4 +9,7 @@ public interface mk_memberService {
 	
 	// 회원가입
 	public void memberInsert(mk_memberVO mvo) throws Exception;
+	
+	// 로그인 체크
+	public boolean memberLoginChk(mk_memberVO mvo) throws Exception;
 }

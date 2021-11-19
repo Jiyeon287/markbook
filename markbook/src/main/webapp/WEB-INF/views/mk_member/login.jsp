@@ -34,33 +34,35 @@
                     <p>Enter Login details to get access</p>
                 </div>
                 <!-- Single Input Fields -->
-                <div class="input-box">
-                    <div class="single-input-fields">
-                        <label>ID</label>
-                        <input type="text" placeholder="아이디">
-                    </div>
-                    <div class="single-input-fields">
-                        <label>Password</label>
-                        <input type="password" placeholder="비밀번호">
-                    </div>
-                    <div class="single-input-fields login-check">
-                        <input type="hidden" id="fruit1" name="keep-log">
-                        <label for="fruit1">&nbsp;</label>
-                    <a href="#" class="f-right">Forgot Password?</a>
-                    </div>
-                    <!-- social login -->
-	                <div style="text-align:center; padding-top:50px;">
-	                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer;"/><br>
-	                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer;"/><br>
-	                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer;"/>
+                <form method="post" action="/markbook/mk_member/login" name="loginFr" onsubmit="return loginChk();">
+	                <div class="input-box">
+	                    <div class="single-input-fields">
+	                        <label>ID</label>
+	                        <input type="text" placeholder="아이디" name="m_id">
+	                    </div>
+	                    <div class="single-input-fields">
+	                        <label>Password</label>
+	                        <input type="password" placeholder="비밀번호" name="m_pw">
+	                    </div>
+	                    <div class="single-input-fields login-check">
+	                        <input type="hidden" id="fruit1" name="keep-log">
+	                        <label for="fruit1">&nbsp;</label>
+	                    <a href="#" class="f-right">Forgot Password?</a>
+	                    </div>
+	                    <!-- social login -->
+		                <div style="text-align:center; padding-top:50px;">
+		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer;"/><br>
+		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer;"/><br>
+		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer;"/>
+		                </div>
 	                </div>
-                </div>
-                
-                <!-- form Footer -->
-                <div class="login-footer">
-                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
-                    <button class="submit-btn3">Login</button>
-                </div>
+	                
+	                <!-- form Footer -->
+	                <div class="login-footer">
+	                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
+	                    <button class="submit-btn3">Login</button>
+	                </div>
+                </form>
             </div>
         </div>
         <!-- login Area End -->
@@ -96,5 +98,8 @@
     <!--  Plugins, main-Jquery -->	
     <script src="${pageContext.request.contextPath }/resources//assets/js/plugins.js"></script>
     <script src="${pageContext.request.contextPath }/resources/assets/js/main.js"></script>
+    
+    <!-- 유효성 검사 -->
+    <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
     </body>
 </html>

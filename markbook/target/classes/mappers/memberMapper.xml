@@ -26,4 +26,10 @@
 		0, 0, #{m_name})
 	</insert>
 	
+	<!-- 로그인 체크 -->
+	<select id="loginChk" resultType="Boolean">
+		select count(*) from member_info
+		where m_id = #{m_id} and m_pw = #{m_pw}
+	</select>
+	
  </mapper>

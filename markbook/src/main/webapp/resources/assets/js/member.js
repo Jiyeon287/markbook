@@ -1,3 +1,5 @@
+
+//----------------------------- 회원가입 -----------------------------//
 function findAddr(){
 	
 	// 주소 검색
@@ -127,3 +129,17 @@ $(document).ready(function() {
 		findAddr();
 	});
 });
+
+
+//----------------------------- 로그인 -----------------------------//
+
+function loginChk() {
+	if (document.loginFr.m_id.value == "") {
+		alert("아이디를 입력하세요");
+		return false;
+	}
+	if (document.loginFr.m_pw.value == "") {
+		alert("비밀번호를 입력하세요");
+		return false;
+	}
+}

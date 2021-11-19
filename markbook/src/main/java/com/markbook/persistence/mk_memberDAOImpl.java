@@ -34,4 +34,12 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		sqlSession.insert(namespace + ".insertMember", mvo);
 	}
 
+	@Override
+	public boolean memberLoginChk(mk_memberVO mvo) throws Exception {
+				
+		boolean flag = sqlSession.selectOne(namespace + ".loginChk", mvo);
+		
+		return flag;
+	}
+
 }

@@ -148,6 +148,6 @@
     <script src="${pageContext.request.contextPath }/resources//assets/js/main.js"></script>
     
     <!-- 유효성 검사 -->
-    <script src="${pageContext.request.contextPath }/resources//assets/js/join.js"></script>
+    <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
     </body>
 </html>

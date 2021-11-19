@@ -31,6 +31,25 @@ public class mk_memberController {
 		System.out.println("로그인");
 	}
 	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public void memberLoginPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
+		System.out.println("로그인 진행중");
+		
+		boolean flag = service.memberLoginChk(mvo);
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		if (flag) {
+			out.print("<script>location.href='/markbook/index';</script>");
+			out.flush();
+		}
+		else {
+			out.print("<script>alert('아이디 또는 비밀번호가 틀립니다.'); history.back();</script>");
+			out.flush();
+		}
+	}
+	
 	// http://localhost:8088/markbook/mk_member/join
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public void memberJoinGET() throws Exception {
