@@ -22,7 +22,7 @@
 
 	<!-- 책 등록 폼  -->
 	<form action="" method="post" id="2ndbookRegister" name="2ndbookRegister">
-		<div class="container">
+		<div class="container" style="padding-left: 100px;">
 			<div class="row">
 				<div class="col-lg-8 col-md-8">
 					<div class="single-element-widget mt-30">
@@ -39,12 +39,19 @@
 								onblur="this.placeholder = '책 제목을 입력해주세요.'" required=""
 								class="single-input">
 						</div>
-						<div class="mt-10">
-							<h4 class="mb-30">Book Description</h4>
-							<textarea name="b2_content" class="single-textarea">책 설명을 입력해 주세요.</textarea>
+						<div class="mt-5">
+							<h4 class="mb-15">Writer</h4>
+							<input type="text" name="b2_writer" placeholder="책 저자를 입력해주세요."
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '책 저자을 입력해주세요.'" required=""
+								class="single-input">
 						</div>
-						<div class="mt-10">
-							<h4 class="mb-30">Book Image</h4>
+						<div class="mt-5">
+							<h4 class="mb-15">Book Description</h4>
+							<textarea name="b2_content" class="single-textarea"></textarea>
+						</div>
+						<div class="mt-5" style="padding-bottom: 30px;">
+							<h4 class="mb-15">Book Image</h4>
 							<input type="file" name="b2_image">
 						</div>
 					</div>
@@ -105,8 +112,15 @@
 							</div>
 						</div>
 					</div>
+					<div class="mt-5">
+							<h3 class="mb-30">Book Publisher</h3>
+							<input type="text" name="b2_publisher" placeholder="출판사를 입력해주세요."
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '출판사를 입력해주세요.'" required=""
+								class="single-input">
+					</div>
 					<div class="mt-10">
-							<h4 class="mb-30">Book Price</h4>
+							<h3 class="mb-30">Book Price</h3>
 							<input type="text" name="b2_price" placeholder="책 가격을 입력해주세요."
 								onfocus="this.placeholder = ''"
 								onblur="this.placeholder = '책 가격을 입력해주세요.'" required=""
@@ -114,6 +128,7 @@
 					</div>
 					<div class="form-group mt-3">
                          <button type="submit" class="button button-contactForm boxed-btn">판매등록</button>
+                         <button type="button" id="btntest" name="btntest" class="button">목록으로</button>
                     </div>
 				</div>
 			</div>
@@ -122,4 +137,10 @@
 	<!-- 책 등록 폼  -->
 </main>
 
+
+
 <%@ include file="../include/footer.jsp" %>
+
+	<!-- 등록 유효성 체크 -->
+    <script src="${pageContext.request.contextPath }/resources/assets/js/2ndbookregister.js"></script>
+    
