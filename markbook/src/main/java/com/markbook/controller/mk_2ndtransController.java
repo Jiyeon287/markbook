@@ -46,7 +46,7 @@ public class mk_2ndtransController {
 	}
 	
 	// 중고책 거래 매물 등록 페이지 호출
-	// 중고책 매물 등록(GET)
+	// 중고책 매물 등록 페이지 (GET)
 	@RequestMapping(value = "/bookregister", method = RequestMethod.GET)
 	public String RegisterGET(HttpSession session, Model model) throws Exception {
 
@@ -62,23 +62,14 @@ public class mk_2ndtransController {
 		
 		model.addAttribute("m_id", m_id);
 
-		return  "/mk_2ndTrans/bookregister";
+		return "/mk_2ndTrans/bookregister";
 	}
 	
-	// 중고책 거래 매물 
-	
-	// 중고책 거래 등록(POST)
+	// 중고책 매물 페이지 등록(POST)
 	@RequestMapping(value = "/bookregister", method = RequestMethod.POST)
 	public String bookRegisterPOST(mk_2ndhand_bookVO bvo) throws Exception {
 
 		logger.info("C: bookRegisterPOST() 호출");
-		
-		
-		bvo.setB2_num(1);
-		bvo.setSeller_m_num(1);
-		bvo.setB2_image("ddd");
-		bvo.setB2_publisher("publisher");
-		bvo.setB2_writer("writer");
 
 		System.out.println(bvo);
 		service.bookRegister(bvo);
