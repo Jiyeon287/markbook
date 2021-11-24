@@ -82,9 +82,15 @@ public class mk_2ndtransController {
 	public void imgRegisterPOST(MultipartFile b2_image, HttpServletRequest request) throws Exception {
 
 		logger.info("imgRegisterPOST() 실행");
-
+		
+		logger.info("파일 이름 : " + b2_image.getOriginalFilename());
+		logger.info("파일 타입 : " + b2_image.getContentType());
+		logger.info("파일 크기 : " + b2_image.getSize());
+				
+		
 		ServletContext servletContext = request.getSession().getServletContext();
 		String uploadFolder = servletContext.getRealPath("./resources/upload");
+		 
 		logger.info(uploadFolder);
 
 		// 폴더생성

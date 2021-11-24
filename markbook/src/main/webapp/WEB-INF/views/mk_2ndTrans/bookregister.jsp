@@ -52,7 +52,7 @@
 						</div>
 						<div class="mt-5" style="padding-bottom: 30px;">
 							<h4 class="mb-15">Book Image</h4>
-							<input type="file" name="b2_image" id="b2_image">
+							<input type="file" name="b2_image" id="b2_image" multiple="multiple">
 						</div>
 					</div>
 				</div>
@@ -128,7 +128,7 @@
 					</div>
 					<div class="form-group mt-3">
                          <button type="submit" class="button button-contactForm boxed-btn">판매등록</button>
-                         <button type="button" id="btntest" name="btntest" class="button">목록으로</button>
+                         <button type="submit" class="button button-contactForm boxed-btn" onclick="location.href='./booklist';">목록으로</button>   
                     </div>
 				</div>
 			</div>
@@ -142,16 +142,14 @@
 <%@ include file="../include/footer.jsp"%>
 
 <!-- 등록 유효성 체크 -->
-<script
-	src="${pageContext.request.contextPath }/resources/assets/js/2ndbookregister.js"></script>
+<script src="${pageContext.request.contextPath }/resources/assets/js/2ndbookregister.js"></script>
 	
-	<script type="text/javascript">
-	
+<script type="text/javascript">	
 	
 	  /* 중고책 등록 이미지 업로드 */
 	$("input[type='file']").on("change", function(){
 		
-		alert("작동1");
+		//alert("작동1");
 		
 		let formData = new FormData();
 		let fileInput = $("input[name='b2_image']");
@@ -161,35 +159,30 @@
 		console.log("fileList : " + fileList);
 		console.log("fileObj : " + fileObj);
 		console.log("fileType(MimeType) : " + fileObj.type);
-		
-		alert("작동2");
+		console.log("fileName : " + fileObj.name);
+		console.log("fileSize : " + fileObj.size);
+		console.log("fileType(MimeType) : " + fileObj.type);
 		
 		if(!fileCheck(fileObj.name, fileObj.size)){	
 			return false;
 		}		
 
 		formData.append("b2_image", fileObj);
-		
-		alert("작동3"+formData);
+
+		//alert("통과");
 		
 		$.ajax({
-				url : '/mk_2nd/imgRegister',
+				url : '/markbook/mk_2nd/imgRegister',
 				processData : false,
 				contentType : false,
 				data : formData,
 				type : 'POST',
-				dataType : 'json',
-				success : function(arg) {
-					alert("통신성공");
-				},
-				error : function(arg) {
-					alert("통신실패");
-				}
+				dataType : 'json'
 			});
 		});
 
-		/* var, method related with attachFile */
-		let regex = new RegExp("(.*?)\.(jpg|png)$");
+		/* 사진 업로드 유효성 검사 */
+		let regex = new RegExp("(.*?)\.(jpg|png|jpeg|JPG)$");
 		let maxSize = 1048576; //10MB	
 
 		function fileCheck(fileName, fileSize) {
