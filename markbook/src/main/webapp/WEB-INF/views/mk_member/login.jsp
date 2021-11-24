@@ -21,9 +21,55 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/slick.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
+    
+    <!-- Social login -->
+    <meta name ="google-signin-client_id" content="314033518196-l5iehs2o5u2quhq3teme41obc54vi568.apps.googleusercontent.com">
+    
 </head>
+<style type="text/css">
+	.submit-btn3:hover, img:hover {
+		filter:brightness(90%);
+	}
+</style>
+<script type="text/javascript">
+	function init() {
+		gapi.load('auth2', function() {
+			gapi.auth2.init();
+			options = new gapi.auth2.SigninOptionsBuilder();
+			options.setPrompt('select_account');
+			options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+			gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+		})
+	}
+	
+	function onSignIn(googleUser) {
+		var access_token = googleUser.getAuthResponse().access_token
+		$.ajax({
+			url: 'https://people.googleapis.com/v1/people/me'
+			, data: {personFields:'birthdays', key:'AIzaSyD-b76m82Lvq3lQddzZ3wLRVuemFLM61WI', 'access_token': access_token}
+			, method:'GET'
+		})
+		.done(function(e){
+			var profile = googleUser.getBasicProfile();
+			
+			console.log(profile.getName()); // 아이디
+			
+/* 			$.ajax({
+				url: "/markbook/mk_member/gg_login",
+				type: "post",
+				dataType: "json",
+				data:
+			}) */
+		})
+		.fail(function(e){
+			console.log(e);
+		})
+	}
+	function onSignInFailure(t){		
+		console.log(t);
+	}
+</script>
 <body>
-
     <main class="login-bg">
         <!-- login Area Start -->
         <div class="login-form-area">
@@ -47,20 +93,24 @@
 	                    <div class="single-input-fields login-check">
 	                        <input type="hidden" id="fruit1" name="keep-log">
 	                        <label for="fruit1">&nbsp;</label>
-	                    <a href="#" class="f-right">Forgot Password?</a>
+	                    <a href="#" class="f-right">Forgot Information?</a>
+	                    </div>
+	                    
+	                    <div style="margin-top:25px; text-align:center;">
+	                    	<button class="submit-btn3">Login</button>
 	                    </div>
 	                    <!-- social login -->
 		                <div style="text-align:center; padding-top:50px;">
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer;"/><br>
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer;"/><br>
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer;"/>
+		                	<img id="GgCustomLogin" src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer; width:60%;"/><br>
+		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer; width:60%;"/><br>
+		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer; width:60%;"/>
 		                </div>
 	                </div>
 	                
 	                <!-- form Footer -->
 	                <div class="login-footer">
-	                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
-	                    <button class="submit-btn3">Login</button>
+	                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
+	                    
 	                </div>
                 </form>
             </div>
@@ -101,5 +151,10 @@
     
     <!-- 유효성 검사 -->
     <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
+    
+    <!-- Social login -->
+    <!-- google platform library -->
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    
     </body>
 </html>
