@@ -128,7 +128,7 @@
 					</div>
 					<div class="form-group mt-3">
                          <button type="submit" class="button button-contactForm boxed-btn">판매등록</button>
-                         <button type="button" id="btntest" name="btntest" class="button">목록으로</button>
+                         <button type="submit" class="button button-contactForm boxed-btn" onclick="location.href='./booklist';">목록으로</button>   
                     </div>
 				</div>
 			</div>
