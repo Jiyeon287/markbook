@@ -1,5 +1,7 @@
 package com.markbook.domain;
 
+import java.sql.Date;
+
 public class mk_requestBoardVO {
 
 	private int r_num;
@@ -10,7 +12,22 @@ public class mk_requestBoardVO {
 	private int r_result;
 	private int r_id_num;
 	private String r_category;
+	private String r_title;
+	private Date r_date;
 	
+	
+	public Date getR_date() {
+		return r_date;
+	}
+	public void setR_date(Date r_date) {
+		this.r_date = r_date;
+	}
+	public String getR_title() {
+		return r_title;
+	}
+	public void setR_title(String r_title) {
+		this.r_title = r_title;
+	}
 	public int getR_num() {
 		return r_num;
 	}
@@ -63,7 +80,7 @@ public class mk_requestBoardVO {
 	public String toString() {
 		return "mk_requestBoardVO [r_num=" + r_num + ", r_name=" + r_name + ", r_writer=" + r_writer + ", r_content="
 				+ r_content + ", r_image=" + r_image + ", r_result=" + r_result + ", r_id_num=" + r_id_num
-				+ ", r_category=" + r_category + "]";
+				+ ", r_category=" + r_category + ", r_title=" + r_title + ", r_date=" + r_date + "]";
 	}
 
 	

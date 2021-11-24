@@ -26,7 +26,7 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 
 	//게시글 총 갯수
 	@Override
-	public Integer countBoard() throws Exception {
+	public int countBoard() throws Exception {
 	System.out.println("DAO:countBoard 호출 @@");
 	
 	return sqlSession.selectOne(namespace+".requestCount");

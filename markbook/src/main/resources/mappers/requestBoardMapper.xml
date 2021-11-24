@@ -7,12 +7,12 @@
  
 	    <!-- 요청 게시판 글 등록 -->
 	<insert id="addBoard">
-		insert into book_request(r_num,r_name,r_writer,r_content,r_result,r_category)
-		values(#{r_num},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_category})
+		insert into book_request(r_num,r_name,r_writer,r_content,r_result,r_category,r_title,r_image,r_date)
+		values(#{r_num},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_category},#{r_title},#{r_image},now())
 	</insert>
 	
 	<!-- 게시판 총 글 갯수 -->
-	<select id="requestCount" resultType="com.markbook.domain.mk_requestBoardVO">
+	<select id="requestCount" resultType="int">
 	select count(r_num) from book_request
 	</select>
 	

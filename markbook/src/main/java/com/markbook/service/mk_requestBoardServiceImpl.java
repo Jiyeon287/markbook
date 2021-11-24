@@ -1,5 +1,7 @@
 package com.markbook.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -21,9 +23,14 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	}
 // 게시글 수 
 	@Override
-	public Integer countBoard() throws Exception {
+	public int countBoard() throws Exception {
 		
 		return rbdao.countBoard();
+	}
+	@Override
+	public List<mk_requestBoardVO> boardList() {
+		
+		return null;
 	}
 
 }

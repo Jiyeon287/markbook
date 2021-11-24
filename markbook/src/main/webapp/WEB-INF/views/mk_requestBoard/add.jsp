@@ -4,26 +4,40 @@
 <%@ include file="../include/header.jsp" %>
 <style>
 .box{
- width:80%;
- margin-left: 10%;
- margin-right: 10%;
+ width:70%;
+ margin-left:15%;
+ margin-right: 15%;
+
 }
 
 .button{
 margin-left: 45% 
+}
+.table{
+width: 1000px;
+}
+
+#what{
+float: right;
 }
 </style>
 
 <div class="box">
 <div class="comment-form">
  <h4>RequestBoard</h4>
- <form class="form-contact comment_form" action="./add" id="commentForm" method="post">
+ <form class="form-contact comment_form" action="./add" id="commentForm" method="post" name="RForm" onsubmit="return check()">
  <input type="hidden" value="${r_num} " name="r_num">
   <input type="hidden" value="0" name="r_result">
+   <div class="col-sm-12">
+    <div class="form-group">
+    <input class="form-control" type="text" name="r_title" placeholder="제목">
+    </div>
+    </div>
+  
  <div class="col-sm-4">
    <div class="form-group">
       <select name="r_category"  class="form-control"  id="r_category">
-                  <option value="0">카테고리</option>
+               <option value="0">카테고리</option>
                <option value="novel ">문학</option>
                <option value="Nonnovel"> 비문학</option>
                <option value="Selfdevelopment"> 자기계발</option>
@@ -34,11 +48,12 @@ margin-left: 45%
                </div>
  </div>
 
- <div class="col-sm-6">
+ <div class="col-sm-8" id="what">
   <div class="form-group">
    <input class="form-control" name="r_name" type="text" placeholder="책 이름">
  </div>
 </div>
+
 
 <div class="col-sm-6">
   <div class="form-group">
@@ -62,3 +77,7 @@ margin-left: 45%
 </div>
 
 <%@ include file="../include/footer.jsp" %>
+
+
+<!-- 유효성 검사  -->
+<script src="${pageContext.request.contextPath }/resources//assets/js/requestBoard.js"></script>

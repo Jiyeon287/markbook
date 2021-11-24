@@ -8,5 +8,5 @@ public interface mk_requestBoardDAO {
 	public void addBoard(mk_requestBoardVO rbvo);
 	
 	//요청게시판 게시글 총 갯수
-	public Integer countBoard() throws Exception;
+	public int countBoard() throws Exception;
 }

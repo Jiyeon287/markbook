@@ -24,18 +24,17 @@ public class mk_requestBoardController {
 	//http://localhost:8088/markbook/mk_requestBoard/add
 	@RequestMapping(value="/add",method = RequestMethod.GET)
 	public void addGET(Model model) throws Exception{
-		Integer count=service.countBoard();
-		if(count == null) {
+		int count=service.countBoard();
+		
+		if(count == 0) {
 			count =1;
 		}
-		else if (count >= 1) {
-			count = count+1;
+		else {			
+			count +=1;					
 			
 		}
 		model.addAttribute("r_num",count);
 		
-		logger.info("add.jsp");
-		System.out.println("갯수"+count);
 	}
 	
 	@RequestMapping(value="/add",method =RequestMethod.POST)
@@ -47,5 +46,14 @@ public class mk_requestBoardController {
 		service.addBoard(rbvo);
 		
 		return "redirect:/mk_requestBoard/list";
+	}
+	
+	
+	@RequestMapping(value="/list",method=RequestMethod.GET)
+	public void listGET()throws Exception{
+		
+		service.boardList();
+		
+		
 	}
 }
