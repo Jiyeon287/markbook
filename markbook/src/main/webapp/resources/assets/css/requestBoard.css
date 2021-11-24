@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.box{
+ width:70%;
+ margin-left:15%;
+ margin-right: 15%;
+
+}
+
+.button{
+margin-left: 45% 
+}
+
+.table{
+width: 1000px;
+}
+
+.what{
+float: right;
+}
+
+.middle{
+margin-left: 25%;
+}

@@ -45,15 +45,21 @@ public class mk_requestBoardController {
 		logger.info("확인");
 		service.addBoard(rbvo);
 		
-		return "redirect:/mk_requestBoard/list";
+		return "redirect:/mk_requestBoard/notice";
 	}
 	
 	
-	@RequestMapping(value="/list",method=RequestMethod.GET)
-	public void listGET()throws Exception{
-		
-		service.boardList();
+	@RequestMapping(value="/notice",method=RequestMethod.GET)
+	public void noticeGET()throws Exception{	
+	
 		
 		
 	}
+	@RequestMapping(value="/book_popup",method=RequestMethod.GET)
+	public void popupGET()throws Exception{	
+	
+		
+		
+	}
+	
 }
