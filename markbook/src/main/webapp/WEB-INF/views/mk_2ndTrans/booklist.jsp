@@ -193,27 +193,17 @@
 									<div class="properties pb-30">
 										<div class="properties-card">
 											<div class="properties-img">
-												<a href="book-details.html"><img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}" alt=""></a>
+												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }"><img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}" alt=""></a>
 											</div>
 											<div class="properties-caption properties-caption2">
 												<h3>
-													<a href="book-details.html">${bvo.b2_name }</a>
+													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }">${bvo.b2_name }</a>
 												</h3>
-												<p>J. R Rain</p>
+												<p>${bvo.b2_writer }</p>
 												<div
 													class="properties-footer d-flex justify-content-between align-items-center">
-													<div class="review">
-														<div class="rating">
-															<i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-																class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-																class="fas fa-star-half-alt"></i>
-														</div>
-														<p>
-															(<span>120</span> Review)
-														</p>
-													</div>
 													<div class="price">
-														<span>$50</span>
+														<span> ${bvo.b2_price } 원</span>
 													</div>
 												</div>
 											</div>

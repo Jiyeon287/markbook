@@ -12,11 +12,35 @@
 
 	<!-- 중고거래 책 매물 등록 -->
 	<insert id="bookregister">
-		insert into 2ndhand_book 
-		(b2_num,seller_m_num,b2_name,b2_price,b2_category,b2_image,b2_content,b2_writer,b2_publisher,b2_regdate,b2_sell) 
-		values(#{b2_num}, #{seller_m_num}, #{b2_name}, #{b2_price}, #{b2_category}, #{b2_image}, #{b2_content}, #{b2_writer}, #{b2_publisher}, NOW(),0)
+		insert into 2ndhand_book
+		(b2_num,seller_m_num,b2_name,b2_price,b2_category,b2_image,b2_content,b2_writer,b2_publisher,b2_regdate,b2_sell)
+		values(#{b2_num}, #{seller_m_num}, #{b2_name}, #{b2_price},
+		#{b2_category}, #{b2_image}, #{b2_content}, #{b2_writer},
+		#{b2_publisher}, NOW(),0)
 	</insert>
 
+	<!-- 중고거래 책 상세페이지 조회 -->
+	<select id="getinfo" resultType="mk_2ndhand_bookVO">
+		select * from 2ndhand_book
+		where b2_num = #{b2_num}
+	</select>
 
+	<!-- 중고거래 책 정보 수정 -->
+	<update id="bookupdate">
+		update 2ndhand_book
+		set
+		b2_name = #{b2_name},
+		b2_price = #{b2_price},
+		b2_category = #{b2_category},
+		b2_content = #{b2_content},
+		b2_writer = #{b2_writer},
+		b2_publisher = #{b2_publisher}
+		where b2_num = #{b2_num}
+	</update>
+
+	<delete id="bookdelete">
+		delete from 2ndhand_book
+		where b2_num = #{b2_num}
+	</delete>
 
 </mapper>

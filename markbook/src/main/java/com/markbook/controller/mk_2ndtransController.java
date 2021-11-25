@@ -20,7 +20,7 @@ import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.service.mk_2ndtransService;
 
 @Controller
-@RequestMapping("/mk_2nd/*")
+@RequestMapping("/mk_2ndTrans/*")
 public class mk_2ndtransController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(mk_2ndtransController.class);
@@ -29,7 +29,7 @@ public class mk_2ndtransController {
 	private mk_2ndtransService service;
 	
 	// 중고책 거래 메인 페이지 호출
-	// http://localhost:8088/markbook/mk_2nd/booklist
+	// http://localhost:8088/markbook/mk_2ndTrans/booklist
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String mainGET(Model model) throws Exception {
 		
@@ -42,11 +42,10 @@ public class mk_2ndtransController {
 		model.addAttribute("bookList", bookList);
 		
 		return "/mk_2ndTrans/booklist";
-
 	}
 	
 	// 중고책 거래 매물 등록 페이지 호출
-	// 중고책 매물 등록 페이지 (GET)
+	// 중고책 판매 상품 등록 페이지 (GET)
 	@RequestMapping(value = "/bookregister", method = RequestMethod.GET)
 	public String RegisterGET(HttpSession session, Model model) throws Exception {
 
@@ -65,7 +64,7 @@ public class mk_2ndtransController {
 		return "/mk_2ndTrans/bookregister";
 	}
 	
-	// 중고책 매물 페이지 등록(POST)
+	// 중고책 판매 페이지 상품 등록(POST)
 	@RequestMapping(value = "/bookregister", method = RequestMethod.POST)
 	public String bookRegisterPOST(mk_2ndhand_bookVO bvo) throws Exception {
 
@@ -77,7 +76,7 @@ public class mk_2ndtransController {
 		return "redirect:/mk_2ndTrans/booklist";
 	}
 
-	// 사진업로드 기능(POST)
+	// 중고책 판매 사진업로드 기능(POST)
 	@RequestMapping(value = "/imgRegister", method = RequestMethod.POST)
 	public void imgRegisterPOST(MultipartFile b2_image, HttpServletRequest request) throws Exception {
 
@@ -86,7 +85,6 @@ public class mk_2ndtransController {
 		logger.info("파일 이름 : " + b2_image.getOriginalFilename());
 		logger.info("파일 타입 : " + b2_image.getContentType());
 		logger.info("파일 크기 : " + b2_image.getSize());
-				
 		
 		ServletContext servletContext = request.getSession().getServletContext();
 		String uploadFolder = servletContext.getRealPath("./resources/upload");
@@ -114,6 +112,67 @@ public class mk_2ndtransController {
 		}
 	}
 	
+	// 중고책 판매 상품 상세 페이지 (GET)
+	@RequestMapping(value = "/bookinfo", method = RequestMethod.GET)
+	public String infoGET(HttpSession session, Model model, Integer b2_num) throws Exception {
+
+		logger.info("C: infoGET() 호출");
+		
+		String m_id = (String) session.getAttribute("m_id");
+		
+		//임시 아이디 설정
+		m_id = "tempId";
+		
+		model.addAttribute("bvo", service.getInfo(b2_num));
+		model.addAttribute("m_id", m_id);
+		
+		System.out.println(service.getInfo(b2_num));
+
+		return "/mk_2ndTrans/bookinfo";
+	}
+	
+	// 중고책 판매 상품 수정 페이지 (GET)
+	@RequestMapping(value = "/bookmodify", method = RequestMethod.GET)
+	public String modifyGET(HttpSession session, Model model, Integer b2_num) throws Exception {
+
+		logger.info("C: infoGET() 호출");
+		
+		String m_id = (String) session.getAttribute("m_id");
+		
+		//임시 아이디 설정
+		m_id = "tempId";
+		
+		model.addAttribute("bvo", service.getInfo(b2_num));
+		model.addAttribute("m_id", m_id);
+		
+		return "/mk_2ndTrans/bookmodify";
+	}
+	
+	// 중고책 판매 페이지 상품 수정(POST)
+	@RequestMapping(value = "/bookmodify", method = RequestMethod.POST)
+	public String bookModifyPOST(mk_2ndhand_bookVO bvo) throws Exception {
+
+		logger.info("C: bookModifyPOST() 호출");
+
+		System.out.println(bvo);
+		
+		service.bookModify(bvo);
+
+		return "redirect:/mk_2ndTrans/booklist";
+	}
+	
+	// 중고책 판매 페이지 상품 삭제(GET)
+	@RequestMapping(value = "/bookdelete", method = RequestMethod.GET)
+	public String deleteGET(Integer b2_num) throws Exception {
+
+		logger.info("C: deleteGET() 호출");
+
+		service.bookDelete(b2_num);
+
+		return "redirect:/mk_2ndTrans/booklist";
+	}
+	
+	// 중고책 판매 페이지 장바구니 호출
 	
 	
 	

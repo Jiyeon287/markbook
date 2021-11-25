@@ -22,6 +22,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	// 2ndTransMapper.xml 파일에 접근가능한 이름(주소)
 	private static final String namespace = "com.markbook.mapper.2ndTransMapper";
 
+	// 판매 페이지 리스트 불러오기
 	@Override
 	public List<mk_2ndhand_bookVO> getBookList() throws Exception {
 		
@@ -31,7 +32,8 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 				
 		return bookList;
 	}
-
+	
+	// 상품 등록
 	@Override
 	public void bookRegister(mk_2ndhand_bookVO bvo) throws Exception {
 		
@@ -41,6 +43,40 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 		logger.info(" DAO : 매물 데이터 입력완료");
 				
+	}
+	
+	// 상세 페이지 조회
+	@Override
+	public mk_2ndhand_bookVO getInfo(Integer b2_num) throws Exception {
+		
+		logger.info(" DAO : getInfo() 호출 " );
+		
+		mk_2ndhand_bookVO bvo = sqlSession.selectOne(namespace+".getinfo",b2_num);
+						
+		return bvo;
+	}
+	
+	// 상세 페이지 수정하기
+	@Override
+	public void bookModify(mk_2ndhand_bookVO bvo) throws Exception {
+		
+		logger.info(" DAO : bookModify() 호출 ");
+		
+		sqlSession.update(namespace + ".bookupdate", bvo);
+		
+		logger.info(" DAO : 수정완료");	
+	}
+	
+	// 상세 페이지 삭제하기
+	@Override
+	public void bookDelete(Integer b2_num) throws Exception {
+		
+		logger.info(" DAO : bookDelete() 호출 ");
+		
+		sqlSession.delete(namespace + ".bookdelete", b2_num);
+		
+		logger.info(" DAO : 삭제완료");	
+		
 	}
 	
 	
