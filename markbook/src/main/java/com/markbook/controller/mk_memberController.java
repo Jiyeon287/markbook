@@ -60,6 +60,11 @@ public class mk_memberController {
 		// session.setAttribute("m_id", mvo.getM_id());
 	}
 	
+	@RequestMapping(value="/joinCheck", method=RequestMethod.GET)
+	public void joinCheck() throws Exception {
+		System.out.println("개인정보수집 동의");
+	}
+	
 	// http://localhost:8088/markbook/mk_member/join
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public void memberJoinGET() throws Exception {
@@ -85,5 +90,10 @@ public class mk_memberController {
 		System.out.println("아이디 중복체크");
 		
 		return service.memberIdChk(mvo.getM_id());
+	}
+	
+	@RequestMapping(value="/findInfo", method=RequestMethod.GET)
+	public void findMemberInfo() throws Exception {
+		System.out.println("회원 정보 찾기");
 	}
 }

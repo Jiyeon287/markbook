@@ -103,7 +103,7 @@
 	                    <div class="single-input-fields login-check">
 	                        <input type="hidden" id="fruit1" name="keep-log">
 	                        <label for="fruit1">&nbsp;</label>
-	                    <a href="#" class="f-right">Forgot Information?</a>
+	                    <a href="/markbook/mk_member/findInfo" class="f-right">Forgot Information?</a>
 	                    </div>
 	                    
 	                    <div style="margin-top:25px; text-align:center;">
@@ -119,7 +119,7 @@
 	                
 	                <!-- form Footer -->
 	                <div class="login-footer">
-	                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
+	                    <p>Don't have an account? <a href="/markbook/mk_member/joinCheck">Sign Up</a>  here</p>
 	                    
 	                </div>
                 </form>
