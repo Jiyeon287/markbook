@@ -26,8 +26,8 @@ if(document.RForm.r_category.value =="0"){
 
     });
 
-    function OpenPopup(){
-	alert("팝업창 확인");
-        var pop = window.open("book_popup","book_popup","width=1100,height=900, scrollbars=yes, resizable=yes"); 
-        pop.focus();
-    }
+//    function OpenPopup(){
+//	alert("팝업창 확인");
+//        var pop = window.open("book_popup","book_popup","width=1100,height=900, scrollbars=yes, resizable=yes"); 
+//        pop.focus();
+//    }

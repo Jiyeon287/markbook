@@ -37,7 +37,7 @@
                             <div class="header-info-left d-flex align-items-center">
                                 <!-- logo -->
                                 <div class="logo">
-                                    <a href="index.html"><img src="${pageContext.request.contextPath }/resources/assets/img/logo/logo2.png" alt=""></a>
+                                    <a href="index.html"><img src="${pageContext.request.contextPath }/resources/assets/img/logo/logo3.png" alt=""></a>
                                 </div>
                                 <!-- Search Box -->
                                 <form action="#" class="form-box">

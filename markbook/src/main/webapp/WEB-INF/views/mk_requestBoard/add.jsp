@@ -17,7 +17,13 @@
 
     });
     
+    function resOpenPopup(){
+        var pop = window.open("./book_popup","책 검색","width=1100,height=900, scrollbars=yes, resizable=yes"); 
+        pop.focus();
+    }
 
+
+        
 </script>
 
 <!-- ================ start banner area ================= -->
@@ -41,7 +47,7 @@
 <div class="box">
 <div class="comment-form">
 <div class="middle">
-<a href="./notice" class="genric-btn primary-border e-large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희망도서 신청 안내 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+<a href="./notice" class="genric-btn primary-border e-large" style="width:60S%%; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희망도서 신청 안내 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 
 <a href="#" class="genric-btn primary e-large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희망도서 신청 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 </div>
@@ -64,39 +70,39 @@
 
  <div class="col-sm-6" >
   <div class="form-group">
-   <input class="form-control" name="r_name" type="text" placeholder="책 이름">
-<a  href="#" class="genric-btn primary-border" onclick="OpenPopup()">Primary</a>
+   <input class="form-control" id="r_name"name="r_name" type="text" placeholder="책 이름">
+<a  href="#" class="genric-btn primary-border" onclick="resOpenPopup();return false;">Primary</a>
  </div>
 </div>
 
 
 <div class="col-sm-6">
   <div class="form-group">
-   <input class="form-control" name="r_writer" placeholder="작가이름">
+   <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
-   <input class="form-control" name="r_ISBN" placeholder="ISBN">
+   <input class="form-control" id="r_ISBN" name="r_ISBN" placeholder="ISBN">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
-   <input class="form-control" name="r_Publishing _date" placeholder="출판년도">
+   <input class="form-control" id="r_publisher" name="r_publisher" placeholder="출판사">
  </div>
 </div>
  
 <div class="col-sm-6">
   <div class="form-group">
-   <input class="form-control" name="r_Publishing _date" placeholder="출판년도">
+   <input class="form-control" id="r_Publishing _date" name="r_Publishing _date" placeholder="출판년도">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
-   <input class="form-control" name="r_price" placeholder="가격">
+   <input class="form-control" id="r_price" name="r_price" placeholder="가격">
  </div>
 </div>
 
