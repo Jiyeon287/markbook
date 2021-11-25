@@ -27,9 +27,7 @@
     
 </head>
 <style type="text/css">
-	.submit-btn3:hover, img:hover {
-		filter:brightness(90%);
-	}
+	.submit-btn3:hover, img:hover { filter:brightness(90%); }
 </style>
 <script type="text/javascript">
 	function init() {
@@ -52,14 +50,19 @@
 		.done(function(e){
 			var profile = googleUser.getBasicProfile();
 			
-			console.log(profile.getName()); // 아이디
+			// var m_id = profile.getId();
+			var m_name =  profile.getName();
+			var m_email = profile.getEmail();
 			
-/* 			$.ajax({
+ 			$.ajax({
 				url: "/markbook/mk_member/gg_login",
 				type: "post",
 				dataType: "json",
-				data:
-			}) */
+				data: {"m_id" : m_name, "m_name" : m_name, "m_email" : m_email},
+			})
+			
+			location.href="/markbook/index";
+ 			
 		})
 		.fail(function(e){
 			console.log(e);
@@ -67,6 +70,13 @@
 	}
 	function onSignInFailure(t){		
 		console.log(t);
+	}
+	
+	function signOut() {
+		var auth2 = gapi.auth2.getAuthInstance();
+		auth2.signOut().then(function () {
+			alert("signout");
+		})
 	}
 </script>
 <body>

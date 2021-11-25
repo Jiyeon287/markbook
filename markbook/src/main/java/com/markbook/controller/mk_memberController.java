@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,7 @@ public class mk_memberController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public void memberLoginPOST(mk_memberVO mvo, HttpServletResponse response) throws Exception {
+	public void memberLoginPOST(mk_memberVO mvo, HttpServletResponse response, HttpSession session) throws Exception {
 		System.out.println("로그인 진행중");
 		
 		boolean flag = service.memberLoginChk(mvo);
@@ -41,6 +42,7 @@ public class mk_memberController {
 		PrintWriter out = response.getWriter();
 		
 		if (flag) {
+			session.setAttribute("m_id", mvo.getM_id());
 			out.print("<script>location.href='/markbook/index';</script>");
 			out.flush();
 		}
@@ -48,6 +50,14 @@ public class mk_memberController {
 			out.print("<script>alert('아이디 또는 비밀번호가 틀립니다.'); history.back();</script>");
 			out.flush();
 		}
+	}
+	
+	@RequestMapping(value="/gg_login", method=RequestMethod.POST)
+	public void memberGgloginPOST(mk_memberVO mvo, HttpSession session, HttpServletResponse response) throws Exception {
+		System.out.println("소셜 로그인 진행중" +mvo.getM_id());
+		
+		service.socialCheck(mvo);
+		// session.setAttribute("m_id", mvo.getM_id());
 	}
 	
 	// http://localhost:8088/markbook/mk_member/join
@@ -70,7 +80,7 @@ public class mk_memberController {
 	
 	@ResponseBody
 	@RequestMapping(value="/idchk", method=RequestMethod.POST)
-	public int memberIdCheck(mk_memberVO mvo, Model model) throws Exception {
+	public int memberIdCheck(mk_memberVO mvo) throws Exception {
 		
 		System.out.println("아이디 중복체크");
 		
