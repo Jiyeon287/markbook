@@ -7,8 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.markbook.domain.mk_booktestVO;
-
 @Repository
 public class mk_booktestDAOImpl implements mk_booktestDAO {
 
@@ -19,13 +17,51 @@ public class mk_booktestDAOImpl implements mk_booktestDAO {
 	private static final Logger logger = LoggerFactory.getLogger(mk_booktestDAOImpl.class);
 	
 	//memberMapper.xml 파일에 접근가능한 이름(주소)
-	private static final String namespace ="com.g3.mapper.booktestMapper";
+	private static final String namespace ="com.markbook.mapper.booktestMapper";
 	
 	@Override
-	public void answerOne(mk_booktestVO testvo) throws Exception{
+	public void answerOne1() throws Exception{
 		
-		logger.info(" DAO : answerOne 호출 " );
-		sqlSession.insert(namespace+".answerOne", testvo);
+		logger.info(" DAO : answerOne1 호출 " );
+		sqlSession.insert(namespace+".answerOne1");
 	}
+
+	@Override
+	public void answerOne2() throws Exception {
+		logger.info(" DAO : answerOne2 호출 " );
+		sqlSession.insert(namespace+".answerOne2");		
+	}
+
+	@Override
+	public int answerTwo() throws Exception {
+		logger.info("DAO: answerTwo 호출");
+		int testnum = sqlSession.selectOne(namespace+".answerTwo");
+		return testnum;
+	}
+	@Override
+	public void answerTwo1(int testnum) throws Exception {
+		logger.info(" DAO : answerTwo1 호출 " );
+		sqlSession.update(namespace+".answerTwo1",testnum);				
+	}
+
+	@Override
+	public void answerTwo2(int testnum) throws Exception {
+		logger.info(" DAO : answerTwo2 호출 " );
+		sqlSession.update(namespace+".answerTwo2",testnum);				
+	}
+
+	@Override
+	public void answerTwo3(int testnum) throws Exception {
+		logger.info(" DAO : answerTwo3 호출 " );
+		sqlSession.update(namespace+".answerTwo3",testnum);				
+	}
+
+	@Override
+	public void answerTwo4(int testnum) throws Exception {
+		logger.info(" DAO : answerTwo4 호출 " );
+		sqlSession.update(namespace+".answerTwo4",testnum);				
+	}
+
+
 	 
 }

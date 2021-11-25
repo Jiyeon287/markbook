@@ -40,19 +40,18 @@
                     <p>무슨 책을 읽어야 할지 모르겠다구요? <br>제가 추천해드릴게요!</p>
                 </div>
                 <!-- Single Input Fields -->
-                <form method="post" action="/mk_booktest/booktest1" name="loginFr">
+                <form method="post" action="/markbook/mk_booktest/booktest1" name="loginFr">
 	                <div class="input-box">
 	                    <div class="single-input-fields">
 	                        <label>Q1. 심리테스트를 시작하기 전 든 생각은?</label><br><br>
 	                    </div>
-	                        <input type="radio" name="m_id" value="one"> 무슨 심리테스트까지 해서 책을 골라.. 귀찮아<br><br>
-	                        <input type="radio" name="m_id" value="two"> 심리테스트? 재밌겠는데? 심심한데 한번 해볼까?<br><br>
+	                        <input type="radio" name="answer" value="one"> 무슨 심리테스트까지 해서 책을 골라.. 귀찮아<br><br>
+	                        <input type="radio" name="answer" value="two"> 심리테스트? 재밌겠는데? 심심한데 한번 해볼까?<br><br>
 
 
 	                    
 	                    <div style="margin-top:25px; text-align:center;">
-	                    	<button class="submit-btn3">이전</button>
-	                    	<button class="submit-btn3">다음</button>
+	                        <input type="submit" value="다음" class="submit-btn3">
 	                    </div>
 
 	                </div>
@@ -96,10 +95,6 @@
     
     <!-- 유효성 검사 -->
     <script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
-    
-    <!-- Social login -->
-    <!-- google platform library -->
-    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     
     </body>
 </html>
