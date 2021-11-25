@@ -12,7 +12,7 @@
                          <div class="single-footer-caption mb-30">
                              <!-- logo -->
                              <div class="footer-logo mb-25">
-                                 <a href="index.html"><img src="${pageContext.request.contextPath }/resources/assets/img/logo/logo2_footer.png" alt=""></a>
+                                 <a href="index.html"><img src="${pageContext.request.contextPath }/resources/assets/img/logo/logo3.png" alt=""></a>
                              </div>
                              <div class="footer-tittle">
                                  <div class="footer-pera">
