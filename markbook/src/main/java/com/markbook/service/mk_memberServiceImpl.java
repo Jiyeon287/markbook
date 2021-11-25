@@ -31,5 +31,11 @@ public class mk_memberServiceImpl implements mk_memberService {
 		return mdao.memberLoginChk(mvo);
 	}
 
+	@Override
+	public void socialCheck(mk_memberVO mvo) throws Exception {
+		
+		mdao.socialCheck(mvo);
+	}
+
 
 }

@@ -5,6 +5,11 @@
 
  <mapper namespace="com.markbook.mapper.booktestMapper">
 
+	<insert id="answerOne">
+	insert into booktest 
+	(novel, economy, essay, travel, it, history) 
+	values (#{novel}, #{economy}, #{essay}, #{travel}, #{it}, #{history})
+	</insert>
 
 	
  </mapper>

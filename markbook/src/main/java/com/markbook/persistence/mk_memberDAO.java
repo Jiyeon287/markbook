@@ -12,4 +12,7 @@ public interface mk_memberDAO {
 	
 	// 로그인 체크
 	public boolean memberLoginChk(mk_memberVO mvo) throws Exception;
+	
+	// 소셜 가입 체크
+	public void socialCheck(mk_memberVO mvo) throws Exception;
 }

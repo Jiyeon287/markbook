@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MARKBOOK : 로그인</title>
+    <title>심리테스트로 책 추천</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath }/resources/assets/img/icon/favicon.png">
@@ -22,63 +22,13 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
     
-    <!-- Social login -->
-    <meta name ="google-signin-client_id" content="314033518196-l5iehs2o5u2quhq3teme41obc54vi568.apps.googleusercontent.com">
-    
 </head>
 <style type="text/css">
-	.submit-btn3:hover, img:hover { filter:brightness(90%); }
+	.submit-btn3:hover, img:hover {
+		filter:brightness(90%);
+	}
 </style>
-<script type="text/javascript">
-	function init() {
-		gapi.load('auth2', function() {
-			gapi.auth2.init();
-			options = new gapi.auth2.SigninOptionsBuilder();
-			options.setPrompt('select_account');
-			options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
-			gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
-		})
-	}
-	
-	function onSignIn(googleUser) {
-		var access_token = googleUser.getAuthResponse().access_token
-		$.ajax({
-			url: 'https://people.googleapis.com/v1/people/me'
-			, data: {personFields:'birthdays', key:'AIzaSyD-b76m82Lvq3lQddzZ3wLRVuemFLM61WI', 'access_token': access_token}
-			, method:'GET'
-		})
-		.done(function(e){
-			var profile = googleUser.getBasicProfile();
-			
-			// var m_id = profile.getId();
-			var m_name =  profile.getName();
-			var m_email = profile.getEmail();
-			
- 			$.ajax({
-				url: "/markbook/mk_member/gg_login",
-				type: "post",
-				dataType: "json",
-				data: {"m_id" : m_name, "m_name" : m_name, "m_email" : m_email},
-			})
-			
-			location.href="/markbook/index";
- 			
-		})
-		.fail(function(e){
-			console.log(e);
-		})
-	}
-	function onSignInFailure(t){		
-		console.log(t);
-	}
-	
-	function signOut() {
-		var auth2 = gapi.auth2.getAuthInstance();
-		auth2.signOut().then(function () {
-			alert("signout");
-		})
-	}
-</script>
+
 <body>
     <main class="login-bg">
         <!-- login Area Start -->
@@ -86,42 +36,27 @@
             <div class="login-form">
                 <!-- Login Heading -->
                 <div class="login-heading">
-                    <span>Login</span>
-                    <p>Enter Login details to get access</p>
+                    <span>심리테스트로 책 추천받기</span>
+                    <p>무슨 책을 읽어야 할지 모르겠다구요? <br>제가 추천해드릴게요!</p>
                 </div>
                 <!-- Single Input Fields -->
-                <form method="post" action="/markbook/mk_member/login" name="loginFr" onsubmit="return loginChk();">
+                <form method="post" action="/mk_booktest/booktest1" name="loginFr">
 	                <div class="input-box">
 	                    <div class="single-input-fields">
-	                        <label>ID</label>
-	                        <input type="text" placeholder="아이디" name="m_id">
+	                        <label>Q1. 심리테스트를 시작하기 전 든 생각은?</label><br><br>
 	                    </div>
-	                    <div class="single-input-fields">
-	                        <label>Password</label>
-	                        <input type="password" placeholder="비밀번호" name="m_pw">
-	                    </div>
-	                    <div class="single-input-fields login-check">
-	                        <input type="hidden" id="fruit1" name="keep-log">
-	                        <label for="fruit1">&nbsp;</label>
-	                    <a href="#" class="f-right">Forgot Information?</a>
-	                    </div>
+	                        <input type="radio" name="m_id" value="one"> 무슨 심리테스트까지 해서 책을 골라.. 귀찮아<br><br>
+	                        <input type="radio" name="m_id" value="two"> 심리테스트? 재밌겠는데? 심심한데 한번 해볼까?<br><br>
+
+
 	                    
 	                    <div style="margin-top:25px; text-align:center;">
-	                    	<button class="submit-btn3">Login</button>
+	                    	<button class="submit-btn3">이전</button>
+	                    	<button class="submit-btn3">다음</button>
 	                    </div>
-	                    <!-- social login -->
-		                <div style="text-align:center; padding-top:50px;">
-		                	<img id="GgCustomLogin" src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer; width:60%;"/><br>
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer; width:60%;"/><br>
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer; width:60%;"/>
-		                </div>
+
 	                </div>
 	                
-	                <!-- form Footer -->
-	                <div class="login-footer">
-	                    <p>Don't have an account? <a href="/markbook/mk_member/join">Sign Up</a>  here</p>
-	                    
-	                </div>
                 </form>
             </div>
         </div>

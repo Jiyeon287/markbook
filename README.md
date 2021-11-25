@@ -14,7 +14,7 @@
 + WebSocket
 + Bootstrap
 + JSTL
-+ AJAX
++ Ajax
 + MySQL
 + HTML5/CSS3
 
