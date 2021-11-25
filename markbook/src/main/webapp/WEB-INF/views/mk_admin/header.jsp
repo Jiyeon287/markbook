@@ -30,7 +30,8 @@
 <header class="header bg-body">
     <nav class="navbar flex-nowrap p-0">
         <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
-            <!-- Logo For Mobile View -->
+        <img src="${pageContext.request.contextPath }/resources/grains-master/public/img/markBook.png" alt="Graindashboard" style="width: 650px; height: 50px; margin: 10px;></a>
+            <%-- <!-- Logo For Mobile View -->
             <a class="navbar-brand navbar-brand-mobile" href="/">
                 <img class="img-fluid w-100" src="${pageContext.request.contextPath }/resources/grains-master/public/img/logo-mini.png" alt="Graindashboard">
             </a>
@@ -41,7 +42,7 @@
                 <img class="side-nav-show-on-closed" src="${pageContext.request.contextPath }/resources/grains-master/public/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
                 <img class="side-nav-hide-on-closed" src="${pageContext.request.contextPath }/resources/grains-master/public/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
             </a>
-            <!-- End Logo For Desktop View -->
+            <!-- End Logo For Desktop View --> --%>
         </div>
 
         <div class="header-content col px-md-3">

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.markbook.domain.mk_bookVO;
 import com.markbook.service.mk_adminService;
+import com.mysql.cj.Session;
 
 @Controller
 @RequestMapping("/mk_admin/*")
@@ -60,7 +61,29 @@ public class mk_adminController {
 	
 	
 	
+	// 도서 목록 (GET)
+	// http://localhost:8088/markbook/mk_admin/bookList
+	@RequestMapping(value = "/bookList", method = RequestMethod.GET)
+	public String bookListGET(HttpSession session, mk_bookVO lvo) throws Exception {
+		
+		System.out.println(" bookListGET() 호출 ");
+		
+		String admin_id = (String) session.getAttribute("m_id");
+		
+		return "/mk_admin/bookList";
+	}
 	
+	// 도서 목록 (POST)
+	@RequestMapping(value = "/bookList", method = RequestMethod.POST)
+	public String bookListPOST(mk_bookVO lvo) throws Exception {
+		
+		System.out.println(" bookListPOST() 호출 ");
+		
+		service.bookList(lvo);
+		
+		return "/mk_admin/bookList";
+		
+	}
 	
 	
 	

@@ -24,6 +24,12 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	@Override
 	public void bookRegister(mk_bookVO bvo) throws Exception {
 		
+	}
+
+
+	// 도서 목록
+	@Override
+	public void bookList(mk_bookVO lvo) throws Exception {
 		
 	}
 	

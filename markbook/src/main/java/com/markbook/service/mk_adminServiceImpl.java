@@ -18,18 +18,21 @@ public class mk_adminServiceImpl implements mk_adminService {
 	@Override
 	public void bookRegister(mk_bookVO bvo) throws Exception {
 		
-		System.out.println(" S : bookRegister(bookVO bvo) 호출! ");
+		System.out.println(" S : bookRegister(bookVO bvo) 호출 ");
 		
-	
+	}
+
+
+	// 도서목록
+	@Override
+	public void bookList(mk_bookVO lvo) throws Exception {
 		
+		System.out.println(" S : bookList(bookVO lvo) 호출 ");
 		
-		
-		
-	};
+	}
 	
 	
-	
-	
+
 	
 	
 	
