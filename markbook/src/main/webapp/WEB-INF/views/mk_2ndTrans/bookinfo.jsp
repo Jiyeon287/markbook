@@ -90,7 +90,7 @@
                             <p>카테고리: ${bvo.b2_category }</p>
                             <p>작가: ${bvo.b2_writer }</p>
                             <p>출판사: ${bvo.b2_publisher }</p>
-                            <p>상품상태: ${bvo.b2_sell }</p>
+                            <p>상품상태: ${bvo.b2_status }</p>
                          </div>
                     </div>
                 </div>

@@ -13,10 +13,10 @@
 	<!-- 중고거래 책 매물 등록 -->
 	<insert id="bookregister">
 		insert into 2ndhand_book
-		(b2_num,seller_m_num,b2_name,b2_price,b2_category,b2_image,b2_content,b2_writer,b2_publisher,b2_regdate,b2_sell)
+		(b2_num,seller_m_num,b2_name,b2_price,b2_category,b2_image,b2_content,b2_writer,b2_publisher,b2_regdate,b2_sell,b2_status)
 		values(#{b2_num}, #{seller_m_num}, #{b2_name}, #{b2_price},
 		#{b2_category}, #{b2_image}, #{b2_content}, #{b2_writer},
-		#{b2_publisher}, NOW(),0)
+		#{b2_publisher}, NOW(),0,#{b2_status})
 	</insert>
 
 	<!-- 중고거래 책 상세페이지 조회 -->
@@ -37,7 +37,8 @@
 		b2_publisher = #{b2_publisher}
 		where b2_num = #{b2_num}
 	</update>
-
+	
+	<!-- 중고거래 책 정보 삭제  -->
 	<delete id="bookdelete">
 		delete from 2ndhand_book
 		where b2_num = #{b2_num}

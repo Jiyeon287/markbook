@@ -20,15 +20,14 @@
 	</div>
 	<!--  Hero area End -->
 
-	<!-- 책 등록 폼  -->
-	<form action="" method="post" id="2ndbookRegister" name="2ndbookRegister">
-		<div class="container" style="padding-left: 100px;">
+	<!-- 판매등록 폼  -->
+	<form action="" method="post" id="bookRegister" name="bookRegister" onsubmit="return regiChk();">
+		<div class="container" style="padding-left: 200px;">
 			<div class="row">
-				<div class="col-lg-8 col-md-8">
+				<div class="col-lg-5 col-md-5 mt-sm-30">
 					<div class="single-element-widget mt-30">
 						<h2 class="mb-30">Seller id</h2>
-						<input type="text" name="m_id" value="${m_id }"
-							class="single-input">
+						<input type="text" name="m_id" value="${m_id }" class="single-input">
 					</div>
 					<div class="single-element-widget mt-30">
 						<h2 class="mb-30">Book Information</h2>
@@ -48,7 +47,7 @@
 						</div>
 						<div class="mt-5">
 							<h4 class="mb-15">Book Description</h4>
-							<textarea name="b2_content" class="single-textarea"></textarea>
+							<textarea name="b2_content" class="single-textarea" required=""></textarea>
 						</div>
 						<div class="mt-5" style="padding-bottom: 30px;">
 							<h4 class="mb-15">Book Image</h4>
@@ -56,12 +55,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4 mt-sm-30">
+				<div class="col-lg-5 col-md-5 mt-sm-30">
 					<div class="single-element-widget mt-30">
 						<h3 class="mb-30">Book Category</h3>
-						<div class="default-select" id="default-select""="">
+						<div class="default-select" id="default-select">
 							<select name="b2_category" style="display: none;">
-								<option value="문학">문학</option>
+					 			<option value="">카테고리 선택</option>
+					 			<option value="문학">문학</option>
 								<option value="비문학">비문학</option>
 								<option value="자기계발서">자기계발서</option>
 								<option value="수험서">수험서</option>
@@ -71,7 +71,8 @@
 							<div class="nice-select" tabindex="0">
 								<span class="current">카테고리 선택</span>
 								<ul class="list">
-									<li data-value="문학" class="option selected">문학</li>
+									<li data-value="" class="option">카테고리 선택</li>
+									<li data-value="문학" class="option">문학</li>
 									<li data-value="비문학" class="option">비문학</li>
 									<li data-value="자기계발서" class="option">자기계발서</li>
 									<li data-value="수험서" class="option">수험서</li>
@@ -86,29 +87,29 @@
 						<div class="switch-wrap d-flex justify-content-between">
 							<p>최상 - 거의 새책</p>
 							<div class="primary-checkbox">
-								<input type="checkbox" id="default-checkbox"> <label
-									for="default-checkbox"></label>
+								<input type="radio" id="default-checkbox" value="최상" name="b2_status"> 
+								<label for="default-checkbox"></label>
 							</div>
 						</div>
 						<div class="switch-wrap d-flex justify-content-between">
 							<p>상</p>
 							<div class="primary-checkbox">
-								<input type="checkbox" id="1-checkbox"> <label
-									for="1-checkbox"></label>
+								<input type="radio" id="1-checkbox" value="상" name="b2_status"> 
+								<label for="1-checkbox"></label>
 							</div>
 						</div>
 						<div class="switch-wrap d-flex justify-content-between">
 							<p>중</p>
 							<div class="primary-checkbox">
-								<input type="checkbox" id="2-checkbox"> <label
-									for="2-checkbox"></label>
+								<input type="radio" id="2-checkbox" value="중" name="b2_status"> 
+								<label for="2-checkbox"></label>
 							</div>
 						</div>
 						<div class="switch-wrap d-flex justify-content-between">
 							<p>하</p>
 							<div class="primary-checkbox">
-								<input type="checkbox" id="3-checkbox"> <label
-									for="3-checkbox"></label>
+								<input type="radio" id="3-checkbox" value="하" name="b2_status"> 
+								<label for="3-checkbox"></label>
 							</div>
 						</div>
 					</div>
@@ -128,7 +129,7 @@
 					</div>
 					<div class="form-group mt-3">
                          <button type="submit" class="button button-contactForm boxed-btn">판매등록</button>
-                         <button type="submit" class="button button-contactForm boxed-btn" onclick="location.href='./booklist';">목록으로</button>   
+                         <button type="button" class="button button-contactForm boxed-btn" onclick="location.href='./booklist';">목록으로</button>   
                     </div>
 				</div>
 			</div>
@@ -136,66 +137,7 @@
 	</form>
 	<!-- 책 등록 폼  -->
 </main>
-
-
-
 <%@ include file="../include/footer.jsp"%>
 
-<!-- 등록 유효성 체크 -->
-<script src="${pageContext.request.contextPath }/resources/assets/js/2ndbookregister.js"></script>
-	
-<script type="text/javascript">	
-	
-	  /* 중고책 등록 이미지 업로드 */
-	$("input[type='file']").on("change", function(){
-		
-		//alert("작동1");
-		
-		let formData = new FormData();
-		let fileInput = $("input[name='b2_image']");
-		let fileList = fileInput[0].files;
-		let fileObj = fileList[0];
-		
-		console.log("fileList : " + fileList);
-		console.log("fileObj : " + fileObj);
-		console.log("fileType(MimeType) : " + fileObj.type);
-		console.log("fileName : " + fileObj.name);
-		console.log("fileSize : " + fileObj.size);
-		console.log("fileType(MimeType) : " + fileObj.type);
-		
-		if(!fileCheck(fileObj.name, fileObj.size)){	
-			return false;
-		}		
-
-		formData.append("b2_image", fileObj);
-
-		//alert("통과");
-		
-		$.ajax({
-				url : '/markbook/mk_2nd/imgRegister',
-				processData : false,
-				contentType : false,
-				data : formData,
-				type : 'POST',
-				dataType : 'json'
-			});
-		});
-
-		/* 사진 업로드 유효성 검사 */
-		let regex = new RegExp("(.*?)\.(jpg|png|jpeg|JPG)$");
-		let maxSize = 1048576; //10MB	
-
-		function fileCheck(fileName, fileSize) {
-
-			if (fileSize >= maxSize) {
-				alert("파일 사이즈 초과");
-				return false;
-			}
-			if (!regex.test(fileName)) {
-				alert("해당 종류의 파일은 업로드할 수 없습니다.");
-				return false;
-			}
-			return true;
-		}
-
-</script>
+<!-- 자바 스크립트 파일 연결 -->
+<script src="${pageContext.request.contextPath }/resources/assets/js/secondbookregister.js"></script>

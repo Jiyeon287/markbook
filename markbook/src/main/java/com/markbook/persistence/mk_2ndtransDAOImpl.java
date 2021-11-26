@@ -38,7 +38,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	public void bookRegister(mk_2ndhand_bookVO bvo) throws Exception {
 		
 		logger.info(" DAO : bookRegister() 호출 ");
-		
+				
 		sqlSession.insert(namespace + ".bookregister", bvo);
 		
 		logger.info(" DAO : 매물 데이터 입력완료");
