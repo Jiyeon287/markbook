@@ -62,6 +62,54 @@ public class mk_booktestDAOImpl implements mk_booktestDAO {
 		sqlSession.update(namespace+".answerTwo4",testnum);				
 	}
 
+	@Override
+	public void answerThree1(int testnum) throws Exception {
+		logger.info(" DAO : answerThree1 호출 " );
+		sqlSession.update(namespace+".answerThree1",testnum);			
+	}
+
+	@Override
+	public void answerThree2(int testnum) throws Exception {
+		logger.info(" DAO : answerThree2 호출 " );
+		sqlSession.update(namespace+".answerThree2",testnum);			
+	}
+
+	@Override
+	public void answerThree3(int testnum) throws Exception {
+		logger.info(" DAO : answerThree3 호출 " );
+		sqlSession.update(namespace+".answerThree3",testnum);			
+	}
+
+	@Override
+	public void answerFour1(int testnum) throws Exception {
+		logger.info(" DAO : answerFour1 호출 " );
+		sqlSession.update(namespace+".answerFour1",testnum);			
+	}
+
+	@Override
+	public void answerFour2(int testnum) throws Exception {
+		logger.info(" DAO : answerFour2 호출 " );
+		sqlSession.update(namespace+".answerFour2",testnum);			
+	}
+
+	@Override
+	public void answerFive1(int testnum) throws Exception {
+		logger.info(" DAO : answerFive1 호출 " );
+		sqlSession.update(namespace+".answerFive1",testnum);			
+	}
+
+	@Override
+	public void answerFive2(int testnum) throws Exception {
+		logger.info(" DAO : answerFive2 호출 " );
+		sqlSession.update(namespace+".answerFive2",testnum);			
+	}
+
+	@Override
+	public void answerFive3(int testnum) throws Exception {
+		logger.info(" DAO : answerFive3 호출 " );
+		sqlSession.update(namespace+".answerFive3",testnum);			
+	}
+
 
 	 
 }

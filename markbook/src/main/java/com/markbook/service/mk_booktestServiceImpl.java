@@ -55,6 +55,54 @@ public class mk_booktestServiceImpl implements mk_booktestService {
 		testdao.answerTwo4(testnum);				
 	}
 
+	@Override
+	public void answerThree1(int testnum) throws Exception {
+		System.out.println("S: answerThree1 호출");
+		testdao.answerThree1(testnum);		
+	}
+
+	@Override
+	public void answerThree2(int testnum) throws Exception {
+		System.out.println("S: answerThree2 호출");
+		testdao.answerThree2(testnum);		
+	}
+
+	@Override
+	public void answerThree3(int testnum) throws Exception {
+		System.out.println("S: answerThree3 호출");
+		testdao.answerThree3(testnum);		
+	}
+
+	@Override
+	public void answerFour1(int testnum) throws Exception {
+		System.out.println("S: answerFour1 호출");
+		testdao.answerFour1(testnum);			
+	}
+
+	@Override
+	public void answerFour2(int testnum) throws Exception {
+		System.out.println("S: answerFour2 호출");
+		testdao.answerFour2(testnum);			
+	}
+
+	@Override
+	public void answerFive1(int testnum) throws Exception {
+		System.out.println("S: answerFive1 호출");
+		testdao.answerFive1(testnum);			
+	}
+
+	@Override
+	public void answerFive2(int testnum) throws Exception {
+		System.out.println("S: answerFive2 호출");
+		testdao.answerFive2(testnum);			
+	}
+
+	@Override
+	public void answerFive3(int testnum) throws Exception {
+		System.out.println("S: answerFive3 호출");
+		testdao.answerFive3(testnum);			
+	}
+
 
 
 }

@@ -44,6 +44,54 @@
 	set it = it + 30, history = history + 30
 	where testnum=#{testnum}
 	</update>
+	
+	<update id="answerThree1">
+	update booktest
+	set travel = travel + 15   
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerThree2">
+	update booktest
+	set novel = novel +15
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerThree3">
+	update booktest
+	set essay = essay + 15 
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerFour1">
+	update booktest
+	set essay = essay + 4, novel = novel + 4, travel = travel + 4    
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerFour2">
+	update booktest
+	set economy = economy + 4, it = it + 4, history = history + 4
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerFive1">
+	update booktest
+	set economy = economy + 20  
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerFive2">
+	update booktest
+	set travel = travel + 10
+	where testnum=#{testnum}
+	</update>
+	
+	<update id="answerFive3">
+	update booktest
+	set essay = essay + 15
+	where testnum=#{testnum}
+	</update>
 
 	
  </mapper>
