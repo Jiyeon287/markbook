@@ -57,7 +57,7 @@ public class mk_memberController {
 		System.out.println("소셜 로그인 진행중" +mvo.getM_id());
 		
 		service.socialCheck(mvo);
-		// session.setAttribute("m_id", mvo.getM_id());
+		session.setAttribute("m_id", mvo.getM_id());
 	}
 	
 	@RequestMapping(value="/joinCheck", method=RequestMethod.GET)
