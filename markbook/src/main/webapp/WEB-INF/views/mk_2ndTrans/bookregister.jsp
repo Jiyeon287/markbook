@@ -140,4 +140,4 @@
 <%@ include file="../include/footer.jsp"%>
 
 <!-- 자바 스크립트 파일 연결 -->
-<script src="${pageContext.request.contextPath }/resources/assets/js/secondbookregister.js"></script>
+<script src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbookregister.js"></script>

@@ -7,7 +7,7 @@
 
 	<!-- 중고거래 메인 리스트 조회 -->
 	<select id="getlist" resultType="mk_2ndhand_bookVO">
-		select * from 2ndhand_book
+		select * from 2ndhand_book where b2_sell=0
 	</select>
 
 	<!-- 중고거래 책 매물 등록 -->

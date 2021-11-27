@@ -49,7 +49,7 @@
                                         </div>
                                         <p>(120 Review)</p>
                                     </div>
-                                    <a href="#" class="white-btn mr-10">장바구니</a>
+                                    <a href="#" class="white-btn mr-10">입찰하기</a>
                                     <a href="${pageContext.request.contextPath}/mk_2ndTrans/bookmodify?b2_num=${bvo.b2_num }" class="white-btn mr-10">상품수정</a>
                                     <a href="#" class="border-btn share-btn"><i class="fas fa-share-alt"></i></a>
                                 </div>
@@ -120,6 +120,6 @@
 
 <%@ include file="../include/footer.jsp"%>
 
-<!-- 등록 유효성 체크 -->
-<script src="${pageContext.request.contextPath }/resources/assets/js/2ndbookregister.js"></script>
+<%-- <!-- 자바 스크립트 파일 연결 -->
+<script src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbookinfo.js"></script> --%>
 

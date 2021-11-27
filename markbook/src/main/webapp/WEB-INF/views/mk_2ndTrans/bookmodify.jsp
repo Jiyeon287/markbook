@@ -137,5 +137,5 @@
 
 <%@ include file="../include/footer.jsp"%>
 
-<!-- 등록 유효성 체크 -->
-<script src="${pageContext.request.contextPath }/resources/assets/js/2ndbookregister.js"></script>
+<%-- <!-- 자바 스크립트 파일 연결 -->
+<script src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbookmodify.js"></script> --%>
