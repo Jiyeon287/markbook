@@ -47,9 +47,11 @@
 <div class="box">
 <div class="comment-form">
 <div class="middle">
-<a href="./notice" class="genric-btn primary-border e-large" style="width:60S%%; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희망도서 신청 안내 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 
-<a href="#" class="genric-btn primary e-large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;희망도서 신청 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+<a href="./notice" class="genric-btn primary-border e-large" style="width:40%; ">희망도서 신청 안내</a>
+
+<a href="#" class="genric-btn primary e-large" style="width:40%; ">희망도서 신청</a>
 </div>
 
 <!-- ================ end button area ================= -->
@@ -96,7 +98,7 @@
  
 <div class="col-sm-6">
   <div class="form-group">
-   <input class="form-control" id="r_Publishing _date" name="r_Publishing _date" placeholder="출판년도">
+   <input class="form-control" id="r_publishing_date" name="r_publishing _date" placeholder="출판년도">
  </div>
 </div>
 

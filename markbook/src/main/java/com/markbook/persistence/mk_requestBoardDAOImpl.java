@@ -19,7 +19,7 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	@Override
 	public void addBoard(mk_requestBoardVO rbvo) {
 		System.out.println("DAO:addBoard 호출@@@");
-		sqlSession.insert(namespace+".addBoard",rbvo);
+//		sqlSession.insert(namespace+".addBoard",rbvo);
 		
 		
 	}
