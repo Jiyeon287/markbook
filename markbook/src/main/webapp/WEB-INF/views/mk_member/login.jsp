@@ -1,5 +1,7 @@
 <%@ page contentType = "text/html;charset=utf-8" %>
-<!doctype html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
@@ -109,12 +111,17 @@
 	                    <div style="margin-top:25px; text-align:center;">
 	                    	<button class="submit-btn3">Login</button>
 	                    </div>
+	                    
 	                    <!-- social login -->
 		                <div style="text-align:center; padding-top:50px;">
 		                	<img id="GgCustomLogin" src="${pageContext.request.contextPath }/resources/assets/img/social/google.png" style="margin-bottom:10px; cursor:pointer; width:60%;"/><br>
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer; width:60%;"/><br>
-		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer; width:60%;"/>
+		                	<img src="${pageContext.request.contextPath }/resources/assets/img/social/kakao.png" style="margin-bottom:10px; cursor:pointer; width:60%;"><br>
+		                	<a href="${url}">
+		                	<img id="naver_id_login" src="${pageContext.request.contextPath }/resources/assets/img/social/naver.png" style="cursor:pointer; width:60%;"/>
+		                	</a>
 		                </div>
+
+
 	                </div>
 	                
 	                <!-- form Footer -->
