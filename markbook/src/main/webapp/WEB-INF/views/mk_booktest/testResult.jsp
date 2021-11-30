@@ -42,16 +42,14 @@
                     <p>무슨 책을 읽어야 할지 모르겠다구요? <br>제가 추천해드릴게요!</p>
                 </div>
                 <!-- Single Input Fields -->
-                <form method="post" action="/markbook/mk_booktest/booktest4" name="loginFr">
+                <form method="post" action="/markbook/mk_booktest/booktest1" name="loginFr">
 	                <div class="input-box">
 	                    <div class="single-input-fields">
-	                        <label>Q4: 연인,친구와 싸웠을때 나는..</label><br><br>
+	                        <label>결과 : ${result} </label><br><br>
 	                    </div>
-	                        <input type="radio" name="answer" value="one"> 지금당장 푼다<br><br>
-	                        <input type="radio" name="answer" value="two"> 시간을 좀 가지고 서로 감정이 사그라들면 이야기한다<br><br>
-	                        
+	                    
 	                    <div style="margin-top:25px; text-align:center;">
-	                        <input type="submit" value="다음" class="submit-btn3">
+	                        <input type="submit" value="처음으로" class="submit-btn3">
 	                    </div>
 
 	                </div>

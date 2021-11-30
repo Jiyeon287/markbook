@@ -50,11 +50,7 @@
 	                        <input type="radio" name="answer" value="one"> 나중에 갈 여행에 대해 상상<br><br>
 	                        <input type="radio" name="answer" value="two"> 우연히 길거리에서 흘러나오는 내 취향의 노래<br><br>
 	                        <input type="radio" name="answer" value="three"> 마음맞는 친구와 1시간씩 통화<br><br>
-	                        <input type="hidden" name="testnum" value="${testnum}">
 	                        
-
-
-	                    
 	                    <div style="margin-top:25px; text-align:center;">
 	                        <input type="submit" value="다음" class="submit-btn3">
 	                    </div>

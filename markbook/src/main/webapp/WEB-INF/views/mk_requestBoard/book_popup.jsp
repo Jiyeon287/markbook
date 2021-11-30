@@ -119,6 +119,7 @@
  
         
     </script>
-f
+    "<a href="\javascript:data();">"+title+"</a>"
+"<a href='\javascript:data("+'한글'+");\'>"+title +"</a>"
 </body>
 </html>

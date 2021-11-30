@@ -50,10 +50,6 @@
 	                        <input type="radio" name="answer" value="one">돈을 어떻게 모아서 미래에 쓸지 의논한다<br><br>
 	                        <input type="radio" name="answer" value="two"> 다음 여행에 대해 의논한다<br><br>
 	                        <input type="radio" name="answer" value="three"> 철학적인 내용에 대해 의논한다<br><br>
-	                        <input type="hidden" name="testnum" value="${testnum}">
-	                        
-
-
 	                    
 	                    <div style="margin-top:25px; text-align:center;">
 	                        <input type="submit" value="다음" class="submit-btn3">
