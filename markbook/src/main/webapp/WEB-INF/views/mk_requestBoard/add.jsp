@@ -17,8 +17,9 @@
 
     });
     
-    function resOpenPopup(){
+    function Popup(){
         var pop = window.open("./book_popup","책 검색","width=1100,height=900, scrollbars=yes, resizable=yes"); 
+//         alert(document.RForm.booook.value);
         pop.focus();
     }
 
@@ -43,21 +44,22 @@
 <!-- ================ end banner area ================= -->
 
 <!-- ================ start button area ================= -->
-
 <div class="box">
+
 <div class="comment-form">
 <div class="middle">
 
 
-<a href="./notice" class="genric-btn primary-border e-large" style="width:40%; ">희망도서 신청 안내</a>
+                        
+<a href="./notice" class="genric-btn primary-border e-large" style="width:45%; ">희망도서 신청 안내</a>
 
-<a href="#" class="genric-btn primary e-large" style="width:40%; ">희망도서 신청</a>
+<a href="#" class="genric-btn primary e-large" style="width:45%; ">희망도서 신청</a>
 </div>
-
+<br>
 <!-- ================ end button area ================= -->
 
 <!-- <div class="comment-form"> -->
- <h4>RequestBoard</h4>
+ <h2>희망도서 신청</h2>
  <form class="form-contact comment_form" action="./add" id="commentForm" method="post" name="RForm" onsubmit="return check()">
  <input type="hidden" value="${r_num} " name="r_num">
   <input type="hidden" value="0" name="r_result">
@@ -69,41 +71,47 @@
     </div>
     </div>
   
-
- <div class="col-sm-6" >
+ <div class="col-sm-10" >
   <div class="form-group">
+      <label>책 이름</label>
+<table>
+<tr>
+<td>
    <input class="form-control" id="r_name"name="r_name" type="text" placeholder="책 이름">
-<a  href="#" class="genric-btn primary-border" onclick="resOpenPopup();return false;">Primary</a>
+   </td>
+   <td>
+<button type="button" class="genric-btn primary-border" onclick="Popup()" value="0" name="booook">책 검색</button>
+</td>
+</tr>
+</table>
  </div>
 </div>
 
-
 <div class="col-sm-6">
   <div class="form-group">
+      <label>작가 이름</label>
    <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
+      <label>ISBN</label>
    <input class="form-control" id="r_ISBN" name="r_ISBN" placeholder="ISBN">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
+      <label>출판사</label>
    <input class="form-control" id="r_publisher" name="r_publisher" placeholder="출판사">
  </div>
 </div>
  
-<div class="col-sm-6">
-  <div class="form-group">
-   <input class="form-control" id="r_publishing_date" name="r_publishing _date" placeholder="출판년도">
- </div>
-</div>
 
 <div class="col-sm-6">
   <div class="form-group">
+      <label>가격</label>
    <input class="form-control" id="r_price" name="r_price" placeholder="가격">
  </div>
 </div>
@@ -117,7 +125,7 @@
 </div>
 
 <div class="form-group">
- <button type="submit" class="button button-contactForm btn_1 boxed-btn">upload</button>
+ <button type="submit" class="button button-contactForm btn_1 boxed-btn" >upload</button>
 </div>
 </form>
 </div>
@@ -128,4 +136,4 @@
 
 
 <!-- 유효성 검사  -->
-<script src="${pageContext.request.contextPath }/resources//assets/js/requestBoard.js"></script>
+<script src="${pageContext.request.contextPath }/resources/assets/js/requestBoard.js"></script>

@@ -1,5 +1,7 @@
 package com.markbook.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -13,7 +15,7 @@ import com.markbook.domain.mk_requestBoardVO;
 import com.markbook.service.mk_requestBoardService;
 
 @Controller
-@RequestMapping("/mk_requestBoard/*")
+@RequestMapping("/*")
 public class mk_requestBoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(mk_requestBoardController.class);
@@ -22,7 +24,7 @@ public class mk_requestBoardController {
 	   private mk_requestBoardService service;
 	   
 	//http://localhost:8088/markbook/mk_requestBoard/add
-	@RequestMapping(value="/add",method = RequestMethod.GET)
+	@RequestMapping(value="/mk_requestBoard/add",method = RequestMethod.GET)
 	public void addGET(Model model) throws Exception{
 		int count=service.countBoard();
 		
@@ -37,7 +39,7 @@ public class mk_requestBoardController {
 		
 	}
 	
-	@RequestMapping(value="/add",method =RequestMethod.POST)
+	@RequestMapping(value="/mk_requestBoard/add",method =RequestMethod.POST)
 	public String addPOST(mk_requestBoardVO rbvo)throws Exception{
     System.out.println(rbvo);
 	
@@ -49,15 +51,36 @@ public class mk_requestBoardController {
 	}
 	
 	
-	@RequestMapping(value="/notice",method=RequestMethod.GET)
+	@RequestMapping(value="/mk_requestBoard/notice",method=RequestMethod.GET)
 	public void noticeGET()throws Exception{	
 	
 		
 		
 	}
-	@RequestMapping(value="/book_popup",method=RequestMethod.GET)
+	
+	@RequestMapping(value="/mk_requestBoard/book_popup",method=RequestMethod.GET)
 	public void popupGET()throws Exception{	
 	
+		
+		
+	}
+	//--------------------------------------------- < 관리자 >------------------------------------------------------------
+	
+	//http://localhost:8088/markbook/mk_admin/request_list
+	@RequestMapping(value="/mk_admin/request_detail",method=RequestMethod.GET)
+	public void adminRequestDetailGET()throws Exception{	
+		
+		
+		
+	}
+	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
+	public void adminRequestList(Model model)throws Exception{	
+		List<mk_requestBoardVO> list= service.requestList();
+		model.addAttribute("list",list);
+		
+		
+		
+		
 		
 		
 	}

@@ -13,5 +13,5 @@ public interface mk_requestBoardService {
 	public int countBoard() throws Exception;
 	
 	//요청게시판 리스트
-	public List<mk_requestBoardVO> boardList();
+	public List<mk_requestBoardVO> requestList();
 }

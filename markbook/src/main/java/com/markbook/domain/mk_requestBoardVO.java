@@ -5,40 +5,35 @@ import java.sql.Date;
 public class mk_requestBoardVO {
 
 	private int r_num;
+	private int r_id_num;
+	private String r_title;
 	private String r_name;
 	private String r_writer;
 	private String r_content;
-	private String r_image;
 	private int r_result;
-	private int r_id_num;
-	private String r_category;
-	private String r_title;
-	private Date r_date;
+	private Date r_upload_date;
+	private String r_publisher;
+	private String r_ISBN;
+	private int r_price;
 	
 	
-	public Date getR_date() {
-		return r_date;
+	public int getR_num() {
+		return r_num;
 	}
-	public void setR_date(Date r_date) {
-		this.r_date = r_date;
+	public void setR_num(int r_num) {
+		this.r_num = r_num;
+	}
+	public int getR_id_num() {
+		return r_id_num;
+	}
+	public void setR_id_num(int r_id_num) {
+		this.r_id_num = r_id_num;
 	}
 	public String getR_title() {
 		return r_title;
 	}
 	public void setR_title(String r_title) {
 		this.r_title = r_title;
-	}
-	public int getR_num() {
-		return r_num;
-	}
-	public String getR_category() {
-		return r_category;
-	}
-	public void setR_category(String r_category) {
-		this.r_category = r_category;
-	}
-	public void setR_num(int r_num) {
-		this.r_num = r_num;
 	}
 	public String getR_name() {
 		return r_name;
@@ -58,30 +53,48 @@ public class mk_requestBoardVO {
 	public void setR_content(String r_content) {
 		this.r_content = r_content;
 	}
-	public String getR_image() {
-		return r_image;
-	}
-	public void setR_image(String r_image) {
-		this.r_image = r_image;
-	}
 	public int getR_result() {
 		return r_result;
 	}
 	public void setR_result(int r_result) {
 		this.r_result = r_result;
 	}
-	public int getR_id_num() {
-		return r_id_num;
+	public Date getR_upload_date() {
+		return r_upload_date;
 	}
-	public void setR_id_num(int r_id_num) {
-		this.r_id_num = r_id_num;
+	public void setR_upload_date(Date r_upload_date) {
+		this.r_upload_date = r_upload_date;
 	}
-	@Override
-	public String toString() {
-		return "mk_requestBoardVO [r_num=" + r_num + ", r_name=" + r_name + ", r_writer=" + r_writer + ", r_content="
-				+ r_content + ", r_image=" + r_image + ", r_result=" + r_result + ", r_id_num=" + r_id_num
-				+ ", r_category=" + r_category + ", r_title=" + r_title + ", r_date=" + r_date + "]";
+	public String getR_publisher() {
+		return r_publisher;
+	}
+	public void setR_publisher(String r_publisher) {
+		this.r_publisher = r_publisher;
 	}
 
+	public String getR_ISBN() {
+		return r_ISBN;
+	}
+	public void setR_ISBN(String r_ISBN) {
+		this.r_ISBN = r_ISBN;
+	}
+	public int getR_price() {
+		return r_price;
+	}
+	public void setR_price(int r_price) {
+		this.r_price = r_price;
+	}
+	
+	@Override
+	public String toString() {
+		return "mk_requestBoardVO [r_num=" + r_num + ", r_id_num=" + r_id_num + ", r_title=" + r_title + ", r_name="
+				+ r_name + ", r_writer=" + r_writer + ", r_content=" + r_content + ", r_result=" + r_result
+				+ ", r_upload_date=" + r_upload_date + ", r_publisher=" + r_publisher + ", ISBN=" + r_ISBN + ", r_price="
+				+ r_price + "]";
+	}
 	
 }
+	
+	
+	
+	

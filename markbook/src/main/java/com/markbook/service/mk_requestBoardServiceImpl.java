@@ -27,10 +27,11 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 		
 		return rbdao.countBoard();
 	}
+	
 	@Override
-	public List<mk_requestBoardVO> boardList() {
+	public List<mk_requestBoardVO> requestList() {
 		
-		return null;
+		return rbdao.requestList();
 	}
 
 }

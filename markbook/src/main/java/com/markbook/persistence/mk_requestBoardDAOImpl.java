@@ -1,5 +1,7 @@
 package com.markbook.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,7 +21,7 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	@Override
 	public void addBoard(mk_requestBoardVO rbvo) {
 		System.out.println("DAO:addBoard 호출@@@");
-//		sqlSession.insert(namespace+".addBoard",rbvo);
+		sqlSession.insert(namespace+".addBoard",rbvo);
 		
 		
 	}
@@ -30,6 +32,14 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	System.out.println("DAO:countBoard 호출 @@");
 	
 	return sqlSession.selectOne(namespace+".requestCount");
+	}
+
+	@Override
+	public List<mk_requestBoardVO> requestList() {
+		System.out.println("DAO:list 호출 @@");
+		
+		
+		return sqlSession.selectList(namespace+".requestList");
 	}
 
 	

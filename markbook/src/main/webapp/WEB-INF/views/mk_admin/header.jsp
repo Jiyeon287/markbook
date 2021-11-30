@@ -195,6 +195,19 @@
                 <!-- End Users: subUsers -->
             </li>
             <!-- End Users -->
+            <!-- request -->
+              <li class="side-nav-menu-item side-nav-has-menu">
+                <a class="side-nav-menu-link media align-items-center" href="./request_list"
+                   data-target="#subUsers">
+                  <span class="side-nav-menu-icon d-flex mr-3">
+                    <i class="gd-user"></i>
+              <span class="side-nav-fadeout-on-closed media-body">Request</span>
+              </span>
+              </a>
+              </li>
+              
+              
+            <!-- End : request -->
 
             <!-- Authentication -->
             <li class="side-nav-menu-item side-nav-has-menu">
