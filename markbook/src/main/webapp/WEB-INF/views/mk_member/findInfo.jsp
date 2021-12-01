@@ -21,10 +21,23 @@
             <div class="register-form text-center">
                 <!-- Login Heading -->
                 <div class="register-heading">
-                    <span>회원정보찾기</span>
+                    <span>Find your ID & PW</span>
                 </div>
-                <!-- Single Input Fields -->
-               <!-- https://wsss.tistory.com/489 -->
+				<table style="width:100%; text-align:center; padding-top:30px; ">
+				<tr>
+				<td style="width:50%">
+				<div class="button-group-area mt-40">
+					<a href="findId" class="genric-btn primary e-large" style="width:35%">아이디 찾기</a>
+				</div>
+				</td>
+				<td style="width:50%">
+				<div class="button-group-area mt-40">
+					<a href="findPw" class="genric-btn primary e-large" style="width:35%">비밀번호 찾기</a>
+				</div>
+				</td>
+				</tr>
+				</table>
+
             </div>
         </div>
         <!-- Register Area End -->

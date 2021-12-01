@@ -55,6 +55,7 @@ public class mk_adminController {
 	public String bookRegisterPOST(mk_bookVO bvo, Model model) throws Exception {
 		
 		System.out.println(" bookRegisterPOST() 호출 ");
+		System.out.println(bvo.toString());
 		
 		service.bookRegister(bvo);
 		
