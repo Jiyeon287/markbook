@@ -71,7 +71,6 @@ public class mk_memberController {
 		else {
 			out.print("<script>alert('아이디 또는 비밀번호가 틀립니다.'); history.back();</script>");
 			out.flush();
-			System.out.println();
 		}
 		
 
@@ -192,5 +191,11 @@ public class mk_memberController {
 	@RequestMapping(value="/findInfo", method=RequestMethod.GET)
 	public void findMemberInfo() throws Exception {
 		System.out.println("회원 정보 찾기");
+	}
+	
+	@RequestMapping(value="/index", method=RequestMethod.GET)
+	public String main() throws Exception {
+		System.out.println("main");
+		return "redirect:../index";
 	}
 }
