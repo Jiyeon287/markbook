@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.markbook.mapper.memberMapper">
+
+	<!-- 아이디 중복체크 -->
+	<select id="idChk" resultType="int">
+		select count(*) 
+		from member_info
+		where m_id = #{m_id}
+	</select>
+	
+	<!-- 회원번호 검색 -->
+	<select id="maxNum" resultType="String">
+		select max(m_num)
+		from member_info
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		insert into member_info 
+		values (#{m_num}, #{m_id}, #{m_pw}, #{m_addr1}, #{m_addr2}, 
+		#{m_email}, #{m_phone}, #{m_image}, now(), #{m_idnum1}, #{m_idnum2}, 
+		0, 0, #{m_name})
+	</insert>
+	
+	<!-- 로그인 체크 -->
+	<select id="loginChk" resultType="Boolean">
+		select count(*) from member_info
+		where m_id = #{m_id} and m_pw = #{m_pw}
+	</select>
+	
+	<!-- 소셜 로그인 : 가입 이력 체크 -->
+	<select id="socialChk" resultType="Boolean">
+		select count(*) from member_info
+		where m_id = #{m_id}
+	</select>
+	
+ </mapper>
