@@ -71,6 +71,7 @@ public class mk_memberController {
 		else {
 			out.print("<script>alert('아이디 또는 비밀번호가 틀립니다.'); history.back();</script>");
 			out.flush();
+			System.out.println();
 		}
 		
 
