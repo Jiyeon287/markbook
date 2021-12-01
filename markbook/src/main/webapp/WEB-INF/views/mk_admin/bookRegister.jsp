@@ -23,7 +23,7 @@
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
-											class="form-control" id="b_name">
+											class="form-control" id="b_name" name="b_name">
 									</div>
 
 									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
@@ -34,40 +34,40 @@
 										<!-- <form class="mb-3"> -->
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes1" name="b_category"> <label
+												id="customRadioboxes1" name="b_category" value="novel"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes1" data-icon="" value="novel">문학</label>
+												for="customRadioboxes1" data-icon="" >문학</label>
 										</div>
 
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												 id="customRadioboxes2" name="b_category"> <label
+												 id="customRadioboxes2" name="b_category" value="non_novel"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes2" data-icon="" value="non_novel">비문학</label>
+												for="customRadioboxes2" data-icon="" >비문학</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes3" name="b_category"> <label
+												id="customRadioboxes3" name="b_category" value="self"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes3" data-icon="" value="self">자기계발</label>
+												for="customRadioboxes3" data-icon="" >자기계발</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes4" name="b_category"> <label
+												id="customRadioboxes4" name="b_category" value="study"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes4" data-icon="" value="study">수험서</label>
+												for="customRadioboxes4" data-icon="" >수험서</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes5" name="b_category"> <label
+												id="customRadioboxes5" name="b_category" value="news"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes5" data-icon="" value="news">잡지</label>
+												for="customRadioboxes5" data-icon="" >잡지</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes6" name="b_category"> <label
+												id="customRadioboxes6" name="b_category" value="etc"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes6" data-icon="" value="etc">기타</label>
+												for="customRadioboxes6" data-icon="" >기타</label>
 										</div>
 
 										<!-- </form> -->
