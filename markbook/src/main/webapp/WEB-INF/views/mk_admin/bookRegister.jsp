@@ -18,12 +18,12 @@
 							<div class="tab-pane fade p-4 show active" id="pills-result-2"
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
-								<form action="bookList" method="post" name="bookList">
+								<form action="" method="post" name="">
 
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">책이름</strong> <input type="email"
-											class="form-control" id="exampleFormControlInput1">
+										<strong class="d-block mb-1">책이름</strong> <input type="text"
+											class="form-control" id="b_name">
 									</div>
 
 									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
@@ -34,40 +34,40 @@
 										<!-- <form class="mb-3"> -->
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes1" name="customRadioboxes"> <label
+												id="customRadioboxes1" name="b_category"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes1" data-icon="">문학</label>
+												for="customRadioboxes1" data-icon="" value="novel">문학</label>
 										</div>
 
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes2" name="customRadioboxes"> <label
+												 id="customRadioboxes2" name="b_category"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes2" data-icon="">비문학</label>
+												for="customRadioboxes2" data-icon="" value="non_novel">비문학</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes2" name="customRadioboxes"> <label
+												id="customRadioboxes3" name="b_category"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes2" data-icon="">자기계발</label>
+												for="customRadioboxes3" data-icon="" value="self">자기계발</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes2" name="customRadioboxes"> <label
+												id="customRadioboxes4" name="b_category"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes2" data-icon="">수험서</label>
+												for="customRadioboxes4" data-icon="" value="study">수험서</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes2" name="customRadioboxes"> <label
+												id="customRadioboxes5" name="b_category"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes2" data-icon="">잡지</label>
+												for="customRadioboxes5" data-icon="" value="news">잡지</label>
 										</div>
 										<div class="form-check position-relative mb-2">
 											<input type="radio" class="form-check-input d-none"
-												id="customRadioboxes2" name="customRadioboxes"> <label
+												id="customRadioboxes6" name="b_category"> <label
 												class="radio radio-xxs form-check-label ml-1"
-												for="customRadioboxes2" data-icon="">기타</label>
+												for="customRadioboxes6" data-icon="" value="etc">기타</label>
 										</div>
 
 										<!-- </form> -->
@@ -84,25 +84,25 @@
 										<!-- <label for="exampleFormControlTextarea1">책내용</label> -->
 										<strong class="d-block mb-1">책내용</strong>
 										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="3"></textarea>
+											id="b_content" name="b_content" rows="3"></textarea>
 									</div>
 									<div class="form-group">
 										<!-- <label for="exampleFormControlTextarea1">작가</label> -->
 										<strong class="d-block mb-1">작가</strong>
 										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="3"></textarea>
+											id="b_writer" name="b_writer" rows="3"></textarea>
 									</div>
 									<div class="form-group">
 										<!-- <label for="exampleFormControlTextarea1">출판사</label> -->
 										<strong class="d-block mb-1">출판사</strong>
 										<textarea class="form-control"
-											id="exampleFormControlTextarea1" rows="3"></textarea>
+											id="b_publisher" name="b_publisher" rows="3"></textarea>
 									</div>
 
 									<div class="form-group">
 										<!-- <label for="exampleFormControlSelect1">대출횟수</label> -->
 										<strong class="d-block mb-1">대출횟수</strong> <select
-											class="form-control" id="exampleFormControlSelect1">
+											class="form-control" id="b_count" name="b_count">
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>
@@ -113,7 +113,7 @@
 									<div class="form-group">
 										<!-- <label for="exampleFormControlSelect2">현재수량</label> -->
 										<strong class="d-block mb-1">현재수량</strong> <select multiple
-											class="form-control" id="exampleFormControlSelect2">
+											class="form-control" id="b_amount" name="b_amount">
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>
@@ -150,7 +150,7 @@
 									</div>
 
 
-									<button type="button" class="btn btn-primary mb-2 mr-2">
+									<button type="submit" class="btn btn-primary mb-2 mr-2">
 										<span class="align-middle">Add to list</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>

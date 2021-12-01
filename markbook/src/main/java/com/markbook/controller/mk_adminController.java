@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,13 +25,14 @@ public class mk_adminController {
 	private mk_adminService service;
 	
 	
-	// 관리자 메인 페이지
+	// 관리자 메인 페이지 (GET)
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String adminMainGET(HttpSession session, Model model) throws Exception {
 		
 		System.out.println(" C : adminMainGET() 호출 ");
 		
 		String admin_id = (String) session.getAttribute("m_id");
+		int pageNum = 1;
 		
 		return "/mk_admin/main";
 	}
@@ -50,13 +52,15 @@ public class mk_adminController {
 	
 	// 도서 등록 (POST)
 	@RequestMapping(value = "/bookRegister", method = RequestMethod.POST)
-	public String bookRegisterPOST(mk_bookVO bvo) throws Exception {
+	public String bookRegisterPOST(mk_bookVO bvo, Model model) throws Exception {
 		
 		System.out.println(" bookRegisterPOST() 호출 ");
 		
 		service.bookRegister(bvo);
 		
-		return "/mk_admin/bookRegister";
+		/* model.addAttribute("result","success"); */
+		
+		return "redirect:/mk_admin/bookList";
 	}
 	
 	
@@ -64,26 +68,18 @@ public class mk_adminController {
 	// 도서 목록 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookList
 	@RequestMapping(value = "/bookList", method = RequestMethod.GET)
-	public String bookListGET(HttpSession session, mk_bookVO lvo) throws Exception {
+	public String bookListGET(Model model) throws Exception {
 		
-		System.out.println(" bookListGET() 호출 ");
+		System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
+
 		
-		String admin_id = (String) session.getAttribute("m_id");
+		// 서비스 동작 호출
+		model.addAttribute("bookList",service.getBookList());
 		
 		return "/mk_admin/bookList";
 	}
 	
-	// 도서 목록 (POST)
-	@RequestMapping(value = "/bookList", method = RequestMethod.POST)
-	public String bookListPOST(mk_bookVO lvo) throws Exception {
-		
-		System.out.println(" bookListPOST() 호출 ");
-		
-		service.bookList(lvo);
-		
-		return "/mk_admin/bookList";
-		
-	}
+	
 	
 	
 	

@@ -1,5 +1,7 @@
 package com.markbook.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,15 +26,26 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 	@Override
 	public void bookRegister(mk_bookVO bvo) throws Exception {
 		
+		System.out.println(" bookRegister(mk_bookVO bvo) 호출 ");
+		
+		sqlSession.insert(namespace+".bookRegister",bvo);
+		
+		System.out.println(" bookRegister(mk_bookVO bvo) 등록 ");
 	}
 
 
 	// 도서 목록
 	@Override
-	public void bookList(mk_bookVO lvo) throws Exception {
+	public List<mk_bookVO> getBookList() throws Exception {
 		
+		System.out.println( " DAO : getBookList() 호출 ");
+		
+		List<mk_bookVO> bookList = sqlSession.selectList(namespace+".bookList");
+		
+		return bookList;
 	}
-	
+
+
 	
 	
 	

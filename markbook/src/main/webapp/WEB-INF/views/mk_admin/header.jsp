@@ -30,7 +30,7 @@
 <header class="header bg-body">
     <nav class="navbar flex-nowrap p-0">
         <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
-        <img src="${pageContext.request.contextPath }/resources/grains-master/public/img/markBook.png" alt="Graindashboard" style="width: 650px; height: 50px; margin: 10px;></a>
+        <img src="${pageContext.request.contextPath }/resources/grains-master/public/img/markBook.png" alt="Graindashboard" <%--  style="width: 650px; height: 50px; margin-top: 15px; --%>></a>
             <%-- <!-- Logo For Mobile View -->
             <a class="navbar-brand navbar-brand-mobile" href="/">
                 <img class="img-fluid w-100" src="${pageContext.request.contextPath }/resources/grains-master/public/img/logo-mini.png" alt="Graindashboard">
@@ -195,19 +195,6 @@
                 <!-- End Users: subUsers -->
             </li>
             <!-- End Users -->
-            <!-- request -->
-              <li class="side-nav-menu-item side-nav-has-menu">
-                <a class="side-nav-menu-link media align-items-center" href="./request_list"
-                   data-target="#subUsers">
-                  <span class="side-nav-menu-icon d-flex mr-3">
-                    <i class="gd-user"></i>
-              <span class="side-nav-fadeout-on-closed media-body">Request</span>
-              </span>
-              </a>
-              </li>
-              
-              
-            <!-- End : request -->
 
             <!-- Authentication -->
             <li class="side-nav-menu-item side-nav-has-menu">

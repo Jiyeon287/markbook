@@ -13,6 +13,12 @@
  		values (#{b_num},#{b_name},#{b_category},#{b_image},#{b_content},#{b_count},
  		#{b_writer},#{b_publisher},#{b_regdate},#{b_able},#{b_amount})
  	</insert>
+ 	
+ 	
+ 	<!-- 도서 목록 -->
+ 	<select id="bookList" resultType="mk_bookVO">
+ 		select * from book
+ 	</select>
  
  
  
