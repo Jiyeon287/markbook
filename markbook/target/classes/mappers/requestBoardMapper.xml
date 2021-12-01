@@ -19,6 +19,7 @@
 		<select id="requestList" resultType="mk_requestBoardVO">
 		select *
 		from book_request
+		 order by r_num desc
 		
 		</select>
 	

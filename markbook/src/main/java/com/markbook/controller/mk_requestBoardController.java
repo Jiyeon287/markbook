@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.markbook.domain.mk_requestBoardVO;
 import com.markbook.service.mk_requestBoardService;
@@ -68,9 +69,9 @@ public class mk_requestBoardController {
 	
 	//http://localhost:8088/markbook/mk_admin/request_list
 	@RequestMapping(value="/mk_admin/request_detail",method=RequestMethod.GET)
-	public void adminRequestDetailGET()throws Exception{	
+	public void adminRequestDetailGET(@RequestParam("r_num") int r_num	)throws Exception{
 		
-		
+		service.requestDetail(r_num);
 		
 	}
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)

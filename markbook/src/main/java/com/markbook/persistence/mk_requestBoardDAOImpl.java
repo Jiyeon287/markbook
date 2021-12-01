@@ -42,5 +42,13 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 		return sqlSession.selectList(namespace+".requestList");
 	}
 
+	@Override
+	public mk_requestBoardVO requestDetail(int r_num) {
+		mk_requestBoardVO rvo= sqlSession.selectOne(namespace+".requestDetail",r_num);
+		
+		return rvo;
+		
+	}
+
 	
 }

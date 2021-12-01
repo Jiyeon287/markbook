@@ -5,22 +5,23 @@
 
  <mapper namespace="com.markbook.mapper.requestBoardMapper">
  
-	    <!-- 요청 게시판 글 등록 -->
+	    <!-- 요청 게시판 글 등록 -->	    
 	<insert id="addBoard">
 		insert into book_request(r_num,r_name,r_writer,r_content,r_result,r_title,r_ISBN,r_publisher,r_price,r_upload_date)
 		values(#{r_num},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_title},#{r_ISBN},#{r_publisher},#{r_price},now())
 	</insert>
 	
-	<!-- 게시판 총 글 갯수 -->
+	<!-- 게시판 총 글 갯수 -->	
 	<select id="requestCount" resultType="int">
 	select count(r_num) from book_request
 	</select>
 	
+	<!-- 요청 게시판 목록 -->	
 		<select id="requestList" resultType="mk_requestBoardVO">
 		select *
 		from book_request
-		
+		 order by r_num desc		
 		</select>
-	
+	<!-- 요청 게시판  -->
 	
  </mapper>

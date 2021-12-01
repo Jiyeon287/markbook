@@ -89,7 +89,7 @@
 
 <div class="col-sm-6">
   <div class="form-group">
-      <label>작가 이름</label>
+      <label>작가명</label>
    <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름">
  </div>
 </div>
