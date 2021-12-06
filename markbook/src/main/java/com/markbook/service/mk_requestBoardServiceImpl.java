@@ -35,7 +35,7 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	}
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {
-		mk_requestBoardVO rvo=rbdao.requestDetail(r_num);
+		mk_requestBoardVO rvo = rbdao.requestDetail(r_num);
 		return rvo;
 		
 	}

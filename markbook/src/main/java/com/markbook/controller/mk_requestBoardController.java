@@ -69,21 +69,31 @@ public class mk_requestBoardController {
 	
 	//http://localhost:8088/markbook/mk_admin/request_list
 	@RequestMapping(value="/mk_admin/request_detail",method=RequestMethod.GET)
-	public void adminRequestDetailGET(@RequestParam("r_num") int r_num	)throws Exception{
+	public void adminRequestDetailGET(@RequestParam("r_num") int r_num,Model  model)throws Exception{
 		
-		service.requestDetail(r_num);
+		mk_requestBoardVO detailp= service.requestDetail(r_num);
+		
+		model.addAttribute("page",detailp);
+		
+		
 		
 	}
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
 	public void adminRequestList(Model model)throws Exception{	
 		List<mk_requestBoardVO> list= service.requestList();
 		model.addAttribute("list",list);
-		
-		
-		
-		
-		
+
 		
 	}
+	
+	@RequestMapping(value="/mk_admin/request_modify",method=RequestMethod.GET)
+	public String adminRequestModify(Model model)throws Exception{
+		
+		List<mk_requestBoardVO> list= service.requestList();
+
+
+		 	return "redirect:/mk_admin/request_list";
+	}
+	
 	
 }

@@ -17,5 +17,6 @@ public interface mk_requestBoardDAO {
 	//요청게시판 관리자 목록
 	public List<mk_requestBoardVO> requestList();
 	
+	//요청게시판 관리자 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);
 }

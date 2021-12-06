@@ -15,5 +15,6 @@ public interface mk_requestBoardService {
 	//요청게시판 리스트
 	public List<mk_requestBoardVO> requestList();
 	
+   //요청게시판 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);
 }

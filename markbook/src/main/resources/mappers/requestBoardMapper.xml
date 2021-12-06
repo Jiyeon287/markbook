@@ -24,4 +24,14 @@
 		</select>
 	<!-- 요청 게시판  -->
 	
+	
+	<!-- 요청게시판 관리자 상세페이지 -->
+	<select id="requestDetail" resultType="mk_requestBoardVO">
+	select *
+	from book_request
+	where r_num=#{r_num}
+	</select>
+	
+	<!-- 요청게시판 관리자 상세페이지 -->
+	
  </mapper>
