@@ -154,7 +154,7 @@ public class mk_memberController {
 	public int memberIdCheck(mk_memberVO mvo) throws Exception {
 		
 		System.out.println("아이디 중복체크");
-		
+		System.out.println(mvo.toString());
 		return service.memberIdChk(mvo.getM_id());
 	}
 	
@@ -171,6 +171,12 @@ public class mk_memberController {
 	@RequestMapping(value="/findPw", method=RequestMethod.GET)
 	public void findPW() throws Exception {
 		System.out.println("비밀번호 찾기");
+	}
+	
+	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
+	public void findPwPOST(mk_memberVO member, HttpServletResponse response) throws Exception{
+		System.out.println("findPW 도착");
+//		service.findPw(response, member);
 	}
 	
 
