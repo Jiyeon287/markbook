@@ -30,13 +30,33 @@ public class mk_adminServiceImpl implements mk_adminService {
 
 	// 도서 목록
 	@Override
-	public List<mk_bookVO> getBookList() throws Exception {
+	public List<mk_bookVO> getBookList(Integer b_num) throws Exception {
 		
 		System.out.println(" S : getBookList() 호출 ");
 		
-		List<mk_bookVO> bookList = madao.getBookList();
+		List<mk_bookVO> bookList = madao.getBookList(b_num);
 		
 		return bookList;
+	}
+
+
+	// 도서 수정
+	@Override
+	public void updateBook(mk_bookVO bvo) throws Exception {
+		
+		System.out.println(" S : updateBook(mk_bookVO bvo) 호출 -> DAO : updateBook(mk_bookVO bvo) 호출 ");
+		
+		madao.updateBook(bvo);
+	}
+
+
+	// 도서 삭제
+	@Override
+	public void deleteBook(Integer b_num) throws Exception {
+
+		System.out.println(" S : deleteBook(Integer b_num) 호출 -> DAO : deleteBook(Integer b_num) 호출 ");
+		
+		madao.deleteBook(b_num);
 	}
 
 

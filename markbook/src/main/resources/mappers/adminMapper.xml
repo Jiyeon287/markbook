@@ -21,6 +21,31 @@
  	</select>
  
  
+ 	<!-- 도서 수정 -->
+ 	<update id="bookUpdate">
+ 		update book 
+ 		set 
+ 		b_num = #{b_num}, 
+ 		b_name = #{b_name}, 
+ 		b_category = #{b_category}, 
+ 		b_image = #{b_image}, 
+ 		b_content = #{b_content}, 
+ 		b_count = #{b_count}, 
+ 		b_writer = #{b_writer}, 
+ 		b_publisher = #{b_publisher}, 
+ 		b_regdate = #{b_regdate}, 
+ 		b_able = #{b_able}, 
+ 		b_amount = #{b_amount} 
+ 		where b_num = #{b_num}
+ 	</update>
+ 	
+ 	
+ 	<!-- 도서 삭제 -->
+ 	<delete id="bookDelete">
+ 		delete from book
+ 		where b_num = #{b_num}
+ 	</delete>
+ 
  
  
  

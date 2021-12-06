@@ -11,12 +11,18 @@ public interface mk_adminService {
 	public void bookRegister(mk_bookVO bvo) throws Exception;
 	
 	// 도서 목록
-	public List<mk_bookVO> getBookList() throws Exception;
+	public List<mk_bookVO> getBookList(Integer b_num) throws Exception;
+	
+	// 도서 수정
+	public void updateBook(mk_bookVO bvo) throws Exception;
+	
+	// 도서 삭제
+	public void deleteBook(Integer b_num) throws Exception;
 	
 	
 	
 	
 	
-	
+		
 
 }

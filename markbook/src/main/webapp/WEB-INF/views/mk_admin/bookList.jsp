@@ -22,8 +22,8 @@
                                         <th class="font-weight-semi-bold border-top-0 py-2">name</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">category</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">writer</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">Status</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">rent</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">edit / delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -45,10 +45,14 @@
                                         </td>
                                         <td class="py-3">
                                             <div class="position-relative">
-                                                <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
+                                                <!-- <i class="gd-eraser text-primary"></i> -->
+                                                <!-- <i class="gd-trash"></i> -->
+                                                <a href="./bookUpdate"><button type="submit" class="gd-eraser"></button></a>
+                                                <a href=""><button type="submit" class="gd-trash"></button></a>
+                                                
+                                                <!-- <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
                                                     <i class="gd-more-alt icon-text"></i>
                                                 </a>
-
                                                 <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
                                                     <li class="unfold-item">
                                                         <a class="unfold-link media align-items-center text-nowrap" href="#">
@@ -62,21 +66,13 @@
                                                             <span class="media-body">Delete</span>
                                                         </a>
                                                     </li>
-                                                </ul>
+                                                </ul>  -->
+                                                
+                                                
                                             </div>
                                         </td>
                                     </tr>
                                    
-                                  
-                                  
-                                  
-                                  
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     </c:forEach>
                                     </tbody>

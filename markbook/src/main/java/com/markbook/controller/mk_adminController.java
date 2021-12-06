@@ -69,15 +69,56 @@ public class mk_adminController {
 	// 도서 목록 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookList
 	@RequestMapping(value = "/bookList", method = RequestMethod.GET)
-	public String bookListGET(Model model) throws Exception {
+	public String bookListGET(Integer b_num, Model model) throws Exception {
 		
 		System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
 
 		
 		// 서비스 동작 호출
-		model.addAttribute("bookList",service.getBookList());
+		model.addAttribute("bookList",service.getBookList(b_num));
 		
 		return "/mk_admin/bookList";
+	}
+	
+	
+	
+	// 도서 수정 (GET)
+	// http://localhost:8088/markbook/mk_admin/bookUpdate
+	@RequestMapping(value = "/bookUpdate", method = RequestMethod.GET)
+	public String bookUpdateGET(Integer b_num, Model model) throws Exception {
+		
+		System.out.println(" C : bookUpdateGET() 호출 ");
+		
+		model.addAttribute("bvo", service.getBookList(b_num));
+		
+		return "/mk_admin/bookUpdate";
+	}
+	
+	// 도서 수정 (POST)
+	public String bookUpdatePOST(mk_bookVO bvo) throws Exception {
+		
+		System.out.println(" C : bookUpdatePOST() 호출 ");
+		
+		System.out.println(bvo);
+		
+		service.bookRegister(bvo);
+		
+		System.out.println(" 도서 정보 수정 완료 ");
+	
+		return "redirect:/mk_admin/bookList";
+	}
+	
+	
+	// 도서 삭제 (GET)
+	public String bookDeleteGET(Integer b_num) throws Exception {
+		
+		System.out.println(" C : bookDeleteGET() 호출 ");
+		
+		service.deleteBook(b_num);
+		
+		System.out.println(" 삭제 완료 ");
+		
+		return "redirect:/mk_admin/bookList";
 	}
 	
 	
