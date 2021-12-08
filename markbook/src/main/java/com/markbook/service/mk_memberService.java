@@ -1,5 +1,7 @@
 package com.markbook.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.markbook.domain.mk_memberVO;
 
 public interface mk_memberService {
@@ -15,4 +17,11 @@ public interface mk_memberService {
 	
 	// 소셜 가입 체크
 	public void socialCheck(mk_memberVO mvo) throws Exception;
+	
+	//임시비밀번호 네이버로 전송
+	public void sendEmail(mk_memberVO vo, String div) throws Exception;
+	
+	//임시비밀번호 생성
+	public void findPw(HttpServletResponse resp, mk_memberVO vo) throws Exception;
+	
 }

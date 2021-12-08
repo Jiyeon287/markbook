@@ -15,4 +15,8 @@ public interface mk_memberDAO {
 	
 	// 소셜 가입 체크
 	public void socialCheck(mk_memberVO mvo) throws Exception;
+	
+	// 비밀번호 변경
+	public void updatePw(mk_memberVO vo) throws Exception;
+
 }

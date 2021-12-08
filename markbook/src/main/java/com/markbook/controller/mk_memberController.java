@@ -159,44 +159,33 @@ public class mk_memberController {
 	      return service.memberIdChk(mvo.getM_id());
 	   }
 
+	@ResponseBody
+	@RequestMapping(value="/idchk2", method=RequestMethod.POST, produces = "text/html; charset=UTF-8")
+	   public String memberIdCheck2(mk_memberVO mvo,HttpServletResponse response) throws Exception {
+	      
+	      System.out.println("아이디 중복체크");
+	      System.out.println(mvo.toString());
+	      
+	      int result = service.memberIdChk(mvo.getM_id());
+	      System.out.println(result);
+	      String a = "/mk_member/index";
+	      if(result > 0) {
+	          //아이디 존재 -> 임시비밀번호 발급
+	  		service.findPw(response, mvo);
+			  a = "<script>"
+		    	      + "alert(\"이메일로 임시비밀번호가 발급되었습니다.\");"
+		    	      + "location.href='/markbook/mk_member/login';"
+		    	      + "</script>";
+	      } else if(result == 0) {
+	    	// 아이디 존재 x -> 비밀번호찾기창으로 되돌아감
+		  a = "<script>"
+		    	      + "alert(\"아이디가 존재하지 않습니다.\");"
+		    	      + "history.back();"
+		    	      + "</script>";
+	      }
+	      return a;
+	   }
 
-	@RequestMapping(value="/idchk2", method=RequestMethod.POST)
-	public String memberIdCheck(mk_memberVO mvo,HttpServletResponse response) throws Exception {
-		
-		System.out.println("아이디 중복체크");
-		System.out.println(mvo.toString());
-		
-		int result = service.memberIdChk(mvo.getM_id());
-		System.out.println(result);
-		String a = "";
-		if(result > 0) {
-			//아이디 중복 확인
-			response.setContentType("text/html; charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.print("<script>alert('존재하는 아이디입니다.')</script>");
-			out.flush(); 
-//			out.close();
-			System.out.print("여기");
-//				return false;
-//				$("#isCheck").attr("value","2");
-			a = "redirect:/mk_member/index";
-			System.out.print(a);
-			
-		} else if (result == 0) {
-			System.out.print("여기오나");
-			// 아이디 중복 안됨 -> 존재하지 않음
-//			response.setContentType("text/html; charset=utf-8");
-//			PrintWriter out = response.getWriter();
-//			out.print("<script>alert('아이디가 존재합니다.')</script>");
-//			out.flush(); 
-//			out.close();
-			a = "/mk_member_login";
-//				$("#isCheck").attr("value","1");
-		}
-		
-		return "redirect:/mk_member/index";
-
-	}
 	
 	@RequestMapping(value="/findInfo", method=RequestMethod.GET)
 	public void findMemberInfo() throws Exception {
@@ -214,9 +203,13 @@ public class mk_memberController {
 	}
 	
 	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
-	public void findPwPOST(mk_memberVO member, HttpServletResponse response) throws Exception{
+	public String findPwPOST(mk_memberVO member,HttpServletResponse response, Model model) throws Exception{
 		System.out.println("findPW 도착");
-//		service.findPw(response, member);
+
+        model.addAttribute("msg","로그인 성공");
+        model.addAttribute("url","/mk_member/index");
+        
+        return "redirect";
 	}
 	
 
