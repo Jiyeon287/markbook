@@ -147,15 +147,55 @@ public class mk_memberController {
 		
 		out.print("<script>alert('회원가입 완료'); location.href='/markbook/mk_member/login';</script>");
 		out.flush();
+		out.close();
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/idchk", method=RequestMethod.POST)
-	public int memberIdCheck(mk_memberVO mvo) throws Exception {
+	   public int memberIdCheck(mk_memberVO mvo) throws Exception {
+	      
+	      System.out.println("아이디 중복체크");
+	      
+	      return service.memberIdChk(mvo.getM_id());
+	   }
+
+
+	@RequestMapping(value="/idchk2", method=RequestMethod.POST)
+	public String memberIdCheck(mk_memberVO mvo,HttpServletResponse response) throws Exception {
 		
 		System.out.println("아이디 중복체크");
 		System.out.println(mvo.toString());
-		return service.memberIdChk(mvo.getM_id());
+		
+		int result = service.memberIdChk(mvo.getM_id());
+		System.out.println(result);
+		String a = "";
+		if(result > 0) {
+			//아이디 중복 확인
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('존재하는 아이디입니다.')</script>");
+			out.flush(); 
+//			out.close();
+			System.out.print("여기");
+//				return false;
+//				$("#isCheck").attr("value","2");
+			a = "redirect:/mk_member/index";
+			System.out.print(a);
+			
+		} else if (result == 0) {
+			System.out.print("여기오나");
+			// 아이디 중복 안됨 -> 존재하지 않음
+//			response.setContentType("text/html; charset=utf-8");
+//			PrintWriter out = response.getWriter();
+//			out.print("<script>alert('아이디가 존재합니다.')</script>");
+//			out.flush(); 
+//			out.close();
+			a = "/mk_member_login";
+//				$("#isCheck").attr("value","1");
+		}
+		
+		return "redirect:/mk_member/index";
+
 	}
 	
 	@RequestMapping(value="/findInfo", method=RequestMethod.GET)

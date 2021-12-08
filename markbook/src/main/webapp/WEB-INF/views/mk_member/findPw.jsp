@@ -55,46 +55,47 @@ function inpChk() {
 		alert("도메인 주소를 선택하세요.");
 		return false;
 	}
-	else {
-		$.ajax({
-			url: "/markbook/mk_member/idchk",
-			type: "post",
-			dataType: "json",
-			data: {"m_id" : id},
-			success: function(data) {
-				if(data > 0) {
-					//아이디 중복 확인
-					alert("존재하는 아이디입니다.");
-// 					return false;
-// 					$("#isCheck").attr("value","2");
+// 	else {
+// 		$.ajax({
+// 			url: "/markbook/mk_member/idchk",
+// 			type: "post",
+// 			dataType: "json",
+// 			data: {"m_id" : id},
+// 			success: function(data) {
+// 				if(data > 0) {
+// 					//아이디 중복 확인
 					
-				} else if (data == 0) {
-					// 아이디 중복 안됨 -> 존재하지 않음
-					alert("존재하지 않는 아이디입니다.");
-// 					$("#isCheck").attr("value","1");
-				}
-			}
-		})
-	}
+// 					alert("존재하는 아이디입니다.");
+// // 					return false;
+// // 					$("#isCheck").attr("value","2");
+					
+// 				} else if (data == 0) {
+// 					// 아이디 중복 안됨 -> 존재하지 않음
+// 					alert("존재하지 않는 아이디입니다.");
+// // 					$("#isCheck").attr("value","1");
+// 				}
+// 			}
+// 		})
+// 	}
 }
 
 </script>
 <script>
-$(function(){
-	$("#findBtn").click(function(){
-		$.ajax({
-			url : "/member/findpw",
-			type : "POST",
-			data : {
-				id : $("#m_id").val(),
-				email : $("#m_email").val()
-			},
-			success : function(result) {
-				alert(result);
-			},
-		})
-	});
-})
+// $(function(){
+// 	$("#findBtn").click(function(){
+// 		$.ajax({
+// 			url : "/member/findpw",
+// 			type : "POST",
+// 			data : {
+// 				id : $("#m_id").val(),
+// 				email : $("#m_email").val()
+// 			},
+// 			success : function(result) {
+// 				alert(result);
+// 			},
+// 		})
+// 	});
+// })
 
 </script>
 <body>
@@ -108,11 +109,11 @@ $(function(){
                     <span>비밀번호 찾기</span>
                 </div>
                 <!-- Single Input Fields -->
-                <form method="post" name="findPW" action="" onsubmit="return inpChk()">
+                <form method="post" name="findPW" action="/markbook/mk_member/idchk2" onsubmit="return inpChk()">
                 	<input type="hidden" id="isCheck" name="isCheck" value="0"/>
 	                <div class="input-box">
 	                     <div class="single-input-fields">
-	                        <input type="text" placeholder="회원가입한 아이디를 입력하세요" name="m_id">
+	                        <input type="text" placeholder="회원가입한 아이디를 입력하세요" name="m_id" >
 	                    </div>
 						<div class="single-input-fields">
 							<table style="width:100%">
