@@ -79,8 +79,8 @@ public class mk_memberController {
 	
 	
 	@RequestMapping(value="/gg_login", method = { RequestMethod.GET, RequestMethod.POST })
-	public String memberGgloginPOST(mk_memberVO mvo, HttpSession session, HttpServletResponse response,
-									@RequestParam String code, Model model,@RequestParam String state) throws Exception {
+	public String memberGgloginPOST(mk_memberVO mvo, HttpSession session,
+			@RequestParam String code, Model model,@RequestParam String state) throws Exception {
 		System.out.println("소셜 로그인 진행중" +mvo.getM_id());
 		
 		service.socialCheck(mvo);
@@ -117,14 +117,49 @@ public class mk_memberController {
 		//세션 생성 
 		model.addAttribute("result", apiResult);
 		
-		return "redirect:/mk_member/index";
+		return "redirect:/index";
 	}
 	
-	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String main() throws Exception {
-		System.out.println("main");
-		return "redirect:../index";
+	@RequestMapping(value="/naver_login", method = { RequestMethod.GET, RequestMethod.POST })
+	public String memberNaverloginPOST(mk_memberVO mvo, HttpSession session, HttpServletResponse response,
+									@RequestParam String code, Model model,@RequestParam String state) throws Exception {
+		
+		//지연 네이버 콜백주소 
+		System.out.println("여기는 naver callback"); 
+		OAuth2AccessToken oauthToken; 
+		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		
+		//1. 로그인 사용자 정보를 읽어온다. 
+		apiResult = naverLoginBO.getUserProfile(oauthToken); 
+		//String형식의 json데이터
+		/** apiResult json 구조 
+		 {"resultcode":"00", 
+		 "message":"success", 
+		 "response":{"id":"33666449","nickname":"shinn****","age":"20-29",
+		 "gender":"M","email":"sh@naver.com","name":"\uc2e0\ubc94\ud638"}} **/
+
+		//2. String형식인 apiResult를 json형태로 바꿈 
+		JSONParser parser = new JSONParser(); 
+		Object obj = parser.parse(apiResult); 
+		JSONObject jsonObj = (JSONObject) obj;
+		
+		//3. 데이터 파싱 
+		//Top레벨 단계 _response 파싱 
+		JSONObject response_obj = (JSONObject)jsonObj.get("response"); 
+		//response의 nickname값 파싱 
+		String nickname = (String)response_obj.get("nickname"); 
+		System.out.println(nickname);
+
+		//4.파싱 닉네임 세션으로 저장 
+		session.setAttribute("sessionId",nickname); 
+		//세션 생성 
+		model.addAttribute("result", apiResult);
+		
+		return "redirect:/index";
+		
 	}
+	
+
 	
 	@RequestMapping(value="/joinCheck", method=RequestMethod.GET)
 	public void joinCheck() throws Exception {
