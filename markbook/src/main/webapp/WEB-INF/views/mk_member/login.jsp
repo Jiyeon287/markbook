@@ -38,7 +38,10 @@
 			options = new gapi.auth2.SigninOptionsBuilder();
 			options.setPrompt('select_account');
 			options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
-			gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+			
+			$('#GgCustomLogin').click(function() {
+				gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+			});
 		})
 	}
 	
