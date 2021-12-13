@@ -77,7 +77,21 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
-                            </div>
+							<nav aria-label="Page navigation example" style="text-align: center; margin: 0 auto;">
+								<ul class="pagination">
+									<li class="page-item"><a class="btn" href="#"
+										aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+									</a></li>
+									<li class="page-item"><a class="btn" href="#">1</a></li>
+									<li class="page-item"><a class="btn" href="#">2</a></li>
+									<li class="page-item"><a class="btn" href="#">3</a></li>
+									<li class="page-item"><a class="btn" href="#"
+										aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+									</a></li>
+								</ul>
+							</nav>
+
+						</div>
                         </div>
                     </div>
                 </div>

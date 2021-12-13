@@ -16,12 +16,19 @@
 	select count(r_num) from book_request
 	</select>
 	
-		<!-- 요청 게시판 목록 -->	
-	<select id="requestList" resultType="mk_requestBoardVO">
-	select *
-	from book_request
-	 order by r_num desc		
-	</select>
+		<!-- 요청 게시판 목록(~페이징 처리중~) -->	
+		 <select id="requestList" resultType="mk_requestBoardVO">
+	<![CDATA[
+	select
+	    *
+	from
+	    book_request
+	where r_num > 0
+	order by r_num desc
+	limit #{pageStart}, #{pageSize}
+	]]>
+	</select>	
+
 
 	
 	
