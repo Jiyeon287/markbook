@@ -39,40 +39,40 @@
 			options.setPrompt('select_account');
 			options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
 			
-// 			$('#GgCustomLogin').click(function() {
-// 				gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
-// 			});
+			$('#GgCustomLogin').click(function() {
+				gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', options, onSignIn, onSignInFailure);
+			});
 		})
 	}
 	
-// 	function onSignIn(googleUser) {
-// 		var access_token = googleUser.getAuthResponse().access_token
-// 		$.ajax({
-// 			url: 'https://people.googleapis.com/v1/people/me'
-// 			, data: {personFields:'birthdays', key:'AIzaSyD-b76m82Lvq3lQddzZ3wLRVuemFLM61WI', 'access_token': access_token}
-// 			, method:'GET'
-// 		})
-// 		.done(function(e){
-// 			var profile = googleUser.getBasicProfile();
+	function onSignIn(googleUser) {
+		var access_token = googleUser.getAuthResponse().access_token
+		$.ajax({
+			url: 'https://people.googleapis.com/v1/people/me'
+			, data: {personFields:'birthdays', key:'AIzaSyD-b76m82Lvq3lQddzZ3wLRVuemFLM61WI', 'access_token': access_token}
+			, method:'GET'
+		})
+		.done(function(e){
+			var profile = googleUser.getBasicProfile();
 			
-// 			// var m_id = profile.getId();
-// 			var m_name =  profile.getName();
-// 			var m_email = profile.getEmail();
+			// var m_id = profile.getId();
+			var m_name =  profile.getName();
+			var m_email = profile.getEmail();
 			
-//  			$.ajax({
-// 				url: "/markbook/mk_member/gg_login",
-// 				type: "post",
-// 				dataType: "json",
-// 				data: {"m_id" : m_name, "m_name" : m_name, "m_email" : m_email},
-// 			})
+ 			$.ajax({
+				url: "/markbook/mk_member/gg_login",
+				type: "post",
+				dataType: "json",
+				data: {"m_id" : m_name, "m_name" : m_name, "m_email" : m_email},
+			})
 			
-// 			location.href="/markbook/index";
+			location.href="/markbook/index";
  			
-// 		})
-// 		.fail(function(e){
-// 			console.log(e);
-// 		})
-// 	}
+		})
+		.fail(function(e){
+			console.log(e);
+		})
+	}
 	function onSignInFailure(t){		
 		console.log(t);
 	}

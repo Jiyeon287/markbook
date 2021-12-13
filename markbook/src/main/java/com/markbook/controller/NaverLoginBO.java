@@ -23,7 +23,7 @@ public class NaverLoginBO {
 	//state: 애플리케이션이 생성한 상태 토큰
 	private final static String CLIENT_ID = "_ouuJJqvauGUU5cm_xNp"; 
 	private final static String CLIENT_SECRET = "UCG62GuIEK"; 
-	private final static String REDIRECT_URI = "http://localhost:8088/markbook/mk_member/gg_login"; 
+	private final static String REDIRECT_URI = "http://localhost:8088/markbook/mk_member/naver_login"; 
 	private final static String SESSION_STATE = "oauth_state";
 
 	/* 프로필 조회 API URL */ 
