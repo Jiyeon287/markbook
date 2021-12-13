@@ -15,8 +15,13 @@ public interface mk_memberService {
 	// 로그인 체크
 	public boolean memberLoginChk(mk_memberVO mvo) throws Exception;
 	
-	// 소셜 가입 체크
+	// 소셜 가입 체크(구글)
 	public void socialCheck(mk_memberVO mvo) throws Exception;
+	
+	//소셜 가입 체크(네이버-아이디) -> 아이디 중복체크 메소드 활용
+	
+	//소셜 회원가입(네이버)
+	public void naverJoin(mk_memberVO mvo) throws Exception;
 	
 	//임시비밀번호 네이버로 전송
 	public void sendEmail(mk_memberVO vo, String div) throws Exception;

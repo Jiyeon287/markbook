@@ -61,4 +61,16 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		 sqlSession.update(namespace+".updatePw", vo);
 	}
 
+	@Override
+	public void naverJoin(mk_memberVO mvo) throws Exception {
+		String tmp = sqlSession.selectOne(namespace + ".maxNum");
+		int max = 999;
+		if (tmp != null) max = Integer.parseInt(tmp);
+		
+		System.out.println("최대값 : "+max);
+		mvo.setM_num(++max);
+		
+		sqlSession.insert(namespace+".insertNaver", mvo);
+	}
+
 }

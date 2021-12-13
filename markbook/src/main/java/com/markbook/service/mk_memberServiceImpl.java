@@ -98,5 +98,11 @@ public class mk_memberServiceImpl implements mk_memberService {
 		}
 	}
 
+	//네이버 소셜로그인 회원가입
+	@Override
+	public void naverJoin(mk_memberVO mvo) throws Exception {
+		mdao.naverJoin(mvo);
+	}
+
 
 }
