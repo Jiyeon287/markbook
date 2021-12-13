@@ -11,8 +11,7 @@
 ### 기술 스택 😃
 + Spring Framework
 + JavaScript
-+ WebSocket
-+ Bootstrap
++ Bootstrap5
 + JSTL
 + Ajax
 + MySQL
