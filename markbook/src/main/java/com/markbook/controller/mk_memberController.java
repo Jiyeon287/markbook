@@ -39,7 +39,6 @@ public class mk_memberController {
 		this.naverLoginBO = naverLoginBO; 
 	}
 
-	
 	// http://localhost:8088/markbook/mk_member/login
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public void memberLoginGET(HttpSession session, Model model) throws Exception {
@@ -73,10 +72,19 @@ public class mk_memberController {
 			out.flush();
 		}
 		
-
-
 	}
 	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public void logout(HttpSession session, HttpServletResponse response) throws Exception {
+		
+		session.invalidate();
+		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.print("<script>alert('로그아웃 되었습니다'); location.href='/markbook/index';</script>");
+		out.flush();
+	}
 	
 	@RequestMapping(value="/gg_login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String memberGgloginPOST(mk_memberVO mvo, HttpSession session,
@@ -143,8 +151,6 @@ public class mk_memberController {
 		return "redirect:/index";
 		
 	}
-	
-
 	
 	@RequestMapping(value="/joinCheck", method=RequestMethod.GET)
 	public void joinCheck() throws Exception {

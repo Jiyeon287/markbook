@@ -54,7 +54,16 @@
                                     <li class="shopping-card">
                                         <a href="cart.html"><img src="${pageContext.request.contextPath }/resources/assets/img/icon/cart.svg" alt=""></a>
                                     </li>
-                                    <li><a href="login.html" class="btn header-btn">Sign in</a></li>
+                                    <li>
+                                    	<c:choose>
+                                    		<c:when test="${m_id != null }">
+                                    			<a href="/markbook/mk_member/logout" class="btn header-btn">Sign Out</a>
+                                    		</c:when>
+                                    		<c:otherwise>
+                                    			<a href="/markbook/mk_member/login" class="btn header-btn">Sign In</a>	
+                                    		</c:otherwise>
+                                    	</c:choose>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
