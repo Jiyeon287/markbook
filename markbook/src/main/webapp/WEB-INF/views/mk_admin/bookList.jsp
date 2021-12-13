@@ -48,7 +48,7 @@
                                                 <!-- <i class="gd-eraser text-primary"></i> -->
                                                 <!-- <i class="gd-trash"></i> -->
                                                 <a href="./bookUpdate"><button type="submit" class="gd-eraser"></button></a>
-                                                <a href=""><button type="submit" class="gd-trash"></button></a>
+                                                <a href="./bookDelete"><button type="submit" class="gd-trash"></button></a>
                                                 
                                                 <!-- <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
                                                     <i class="gd-more-alt icon-text"></i>
@@ -82,8 +82,7 @@
                     </div>
                 </div>
             </div>
-		
-		
+	
 		
 		
 		

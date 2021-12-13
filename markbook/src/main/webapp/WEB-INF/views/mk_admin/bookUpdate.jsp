@@ -23,9 +23,16 @@
 
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">책이름</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name">
+										<strong class="d-block mb-1">책번호</strong> <input type="text"
+											class="form-control" id="b_num" name="b_num" value=${mk_bookVO.b_num }>
 									</div>
+									
+									<div class="form-group">
+										<!-- <label for="exampleFormControlInput1">책이름</label> -->
+										<strong class="d-block mb-1">책이름</strong> <input type="text"
+											class="form-control" id="b_name" name="b_name" value=${mk_bookVO.b_name }>
+									</div>
+									
 
 									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
     <i class="gd-info-alt icon-text mr-2 mt-1" style="margin-top: 2px;"></i> -->
@@ -85,7 +92,7 @@
 										<!-- <label for="exampleFormControlTextarea1">책내용</label> -->
 										<strong class="d-block mb-1">책내용</strong>
 										<textarea class="form-control"
-											id="b_content" name="b_content" rows="2"></textarea>
+											id="b_content" name="b_content" rows="2" ></textarea>
 									</div>
 									<div class="form-group">
 										<!-- <label for="exampleFormControlTextarea1">작가</label> -->
@@ -96,8 +103,10 @@
 									<div class="form-group">
 										<!-- <label for="exampleFormControlTextarea1">출판사</label> -->
 										<strong class="d-block mb-1">출판사</strong>
-										<textarea class="form-control"
-											id="b_publisher" name="b_publisher" rows="1"></textarea>
+										<input type="text" class="form-control"
+											id="b_publisher" name="b_publisher" value=${mk_bookVO.b_publisher }>
+										<!-- <textarea class="form-control"
+											id="b_publisher" name="b_publisher" rows="1"></textarea> -->
 									</div>
 
 									<div class="form-group">

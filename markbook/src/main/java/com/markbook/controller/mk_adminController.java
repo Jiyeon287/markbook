@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
+import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_adminService;
 import com.mysql.cj.Session;
 
@@ -31,8 +33,9 @@ public class mk_adminController {
 		
 		System.out.println(" C : adminMainGET() 호출 ");
 		
-		String admin_id = (String) session.getAttribute("m_id");
 		int pageNum = 1;
+		
+		model.addAttribute("pageNum", pageNum);
 		
 		return "/mk_admin/main";
 	}
@@ -45,63 +48,63 @@ public class mk_adminController {
 		
 		System.out.println(" bookRegisterGET() 호출 ");
 		
-		String admin_id = (String) session.getAttribute("m_id");
-		
 		return "/mk_admin/bookRegister";
 	}
 	
 	// 도서 등록 (POST)
 	@RequestMapping(value = "/bookRegister", method = RequestMethod.POST)
-	public String bookRegisterPOST(mk_bookVO bvo, Model model) throws Exception {
+	public String bookRegisterPOST(mk_bookVO bvo) throws Exception {
 		
 		System.out.println(" bookRegisterPOST() 호출 ");
-		System.out.println(bvo.toString());
 		
 		service.bookRegister(bvo);
-		
-		/* model.addAttribute("result","success"); */
 		
 		return "redirect:/mk_admin/bookList";
 	}
 	
 	
-	
-	// 도서 목록 (GET)
+	// 도서 목록 (GET) (페이징 처리)
 	// http://localhost:8088/markbook/mk_admin/bookList
 	@RequestMapping(value = "/bookList", method = RequestMethod.GET)
-	public String bookListGET(Integer b_num, Model model) throws Exception {
+	public String bookListGET(Criteria cri, Model model) throws Exception {
 		
 		System.out.println(" C : bookListGET() 호출 -> view 페이지 이동 ");
 
+		// 페이징처리 정보생성
+		pageMaker pm = new pageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(service.countBook(cri));
 		
 		// 서비스 동작 호출
-		model.addAttribute("bookList",service.getBookList(b_num));
+		model.addAttribute("bookList",service.getBookList());
+		// Criteria 객체 정보 저장 (pageStart/pageSize)
+		model.addAttribute("pm",pm);
 		
 		return "/mk_admin/bookList";
 	}
 	
-	
-	
 	// 도서 수정 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookUpdate
-	@RequestMapping(value = "/bookUpdate", method = RequestMethod.GET)
-	public String bookUpdateGET(Integer b_num, Model model) throws Exception {
+	@RequestMapping(value = "", method = {RequestMethod.GET})
+	public void bookUpdateGET(Integer b_num, Integer pageNum, Model model) throws Exception {
 		
 		System.out.println(" C : bookUpdateGET() 호출 ");
 		
-		model.addAttribute("bvo", service.getBookList(b_num));
+		// 글번호에 해당하는 글 정보 가져와서
+		mk_bookVO bvo = service.getBInfo(b_num);
+		// model 객체에 저장
+		model.addAttribute("bvo", bvo);
 		
-		return "/mk_admin/bookUpdate";
+		//return "/mk_admin/bookUpdate";
 	}
 	
 	// 도서 수정 (POST)
+	@RequestMapping(value = "/bookUpdate", method = RequestMethod.POST)
 	public String bookUpdatePOST(mk_bookVO bvo) throws Exception {
 		
 		System.out.println(" C : bookUpdatePOST() 호출 ");
 		
-		System.out.println(bvo);
-		
-		service.bookRegister(bvo);
+		service.updateBook(bvo);
 		
 		System.out.println(" 도서 정보 수정 완료 ");
 	
@@ -110,7 +113,8 @@ public class mk_adminController {
 	
 	
 	// 도서 삭제 (GET)
-	public String bookDeleteGET(Integer b_num) throws Exception {
+	@RequestMapping(value = "bookDelete", method = RequestMethod.GET)
+	public String bookDeleteGET(Integer b_num, HttpSession session) throws Exception {
 		
 		System.out.println(" C : bookDeleteGET() 호출 ");
 		
