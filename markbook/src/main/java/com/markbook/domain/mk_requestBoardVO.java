@@ -15,8 +15,15 @@ public class mk_requestBoardVO {
 	private String r_publisher;
 	private String r_ISBN;
 	private int r_price;
+	private String r_admin_comment;
 	
 	
+	public String getR_admin_comment() {
+		return r_admin_comment;
+	}
+	public void setR_admin_comment(String r_admin_comment) {
+		this.r_admin_comment = r_admin_comment;
+	}
 	public int getR_num() {
 		return r_num;
 	}
@@ -84,14 +91,15 @@ public class mk_requestBoardVO {
 	public void setR_price(int r_price) {
 		this.r_price = r_price;
 	}
-	
 	@Override
 	public String toString() {
 		return "mk_requestBoardVO [r_num=" + r_num + ", r_id_num=" + r_id_num + ", r_title=" + r_title + ", r_name="
 				+ r_name + ", r_writer=" + r_writer + ", r_content=" + r_content + ", r_result=" + r_result
-				+ ", r_upload_date=" + r_upload_date + ", r_publisher=" + r_publisher + ", ISBN=" + r_ISBN + ", r_price="
-				+ r_price + "]";
+				+ ", r_upload_date=" + r_upload_date + ", r_publisher=" + r_publisher + ", r_ISBN=" + r_ISBN
+				+ ", r_price=" + r_price + ", r_admin_comment=" + r_admin_comment + "]";
 	}
+	
+
 	
 }
 	

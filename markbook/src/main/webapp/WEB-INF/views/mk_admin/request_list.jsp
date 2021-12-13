@@ -5,6 +5,24 @@
 <head>
 <meta charset="UTF-8">
 
+
+<script type="text/javascript">
+
+
+
+function fun23(num){
+
+    var pop = window.open("./request_adminpopup?r_num="+num,"신청결과","width=600,height=600, scrollbars=yes, resizable=yes"); 
+//     alert(document.RForm.booook.value);
+
+    pop.focus();
+    
+    }
+
+
+
+</script>
+
 <%@ include file="header.jsp"%>
 
 <div class="content">
@@ -57,10 +75,10 @@
 
                                 <td class="py-3">
                          <c:choose >
-                                    		<c:when test="${list.r_result == 0}"> <span class="badge badge-pill badge-success">신청중</span></c:when>
-                                    		<c:when test="${list.r_result == 1 }"> <span class="badge badge-pill badge-info">처리중</span></c:when>
-                                    		<c:when test="${list.r_result == 2 }"> <span class="badge badge-pill badge-danger">취소됨</span></c:when>
-                                    		<c:when test="${list.r_result == 3 }"> <span class="badge badge-pill badge-light">완료</span></c:when>
+                                    		<c:when test="${list.r_result == 0}"> <span class="badge badge-pill badge-success" onclick="fun23(${list.r_num })" style="cursor:pointer;">신청중</span></c:when>
+                                    		<c:when test="${list.r_result == 1 }"> <span class="badge badge-pill badge-info" onclick="fun23(${list.r_num })" style="cursor:pointer;">처리중</span></c:when>
+                                    		<c:when test="${list.r_result == 2 }"> <span class="badge badge-pill badge-danger" onclick="fun23(${list.r_num })" style="cursor:pointer;">취소됨</span></c:when>
+                                    		<c:when test="${list.r_result == 3 }"> <span class="badge badge-pill badge-light" onclick="fun23(${list.r_num })" style="cursor:pointer;">완료</span></c:when>
                                     </c:choose>
                                     
                                     
@@ -85,3 +103,4 @@
 
 
 <%@ include file="footer.jsp"%>
+</html>

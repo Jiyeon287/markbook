@@ -86,14 +86,26 @@ public class mk_requestBoardController {
 		
 	}
 	
-	@RequestMapping(value="/mk_admin/request_modify",method=RequestMethod.GET)
-	public String adminRequestModify(Model model)throws Exception{
+	@RequestMapping(value="/mk_admin/request_adminpopup",method=RequestMethod.GET)
+	public void adminRequestPopupGET(Model model,@RequestParam("r_num") int r_num)throws Exception{
 		
-		List<mk_requestBoardVO> list= service.requestList();
-
-
-		 	return "redirect:/mk_admin/request_list";
+		mk_requestBoardVO detailp= service.requestDetail(r_num);
+		model.addAttribute("page",detailp);
+		model.addAttribute("r_num",r_num);
+         
+		 	
 	}
+	
+	@RequestMapping(value="/mk_admin/request_adminpopup",method=RequestMethod.POST)
+	public String adminRequestPopupPOST(Model model,mk_requestBoardVO rvo)throws Exception{
+		
+		service.reqeustUpdate(rvo);
+		logger.info("수정완료!");
+		
+  return "/mk_admin/request_nothing";
+	}
+	
+
 	
 	
 }

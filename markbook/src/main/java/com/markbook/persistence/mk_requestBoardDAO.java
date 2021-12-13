@@ -19,4 +19,7 @@ public interface mk_requestBoardDAO {
 	
 	//요청게시판 관리자 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);
+	
+	//요청게시판 관리자 팝업수정창
+	public void requestUpdate(mk_requestBoardVO rvo);
 }

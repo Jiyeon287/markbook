@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.mk_requestBoardVO;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
 
 @Repository
 public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
@@ -47,6 +48,12 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 		mk_requestBoardVO rvo= sqlSession.selectOne(namespace+".requestDetail",r_num);
 		
 		return rvo;
+		
+	}
+
+	@Override
+	public void requestUpdate(mk_requestBoardVO rvo) {
+	sqlSession.update(namespace+".requestUpdate",rvo);
 		
 	}
 

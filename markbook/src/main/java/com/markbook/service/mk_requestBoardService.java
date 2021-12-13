@@ -17,4 +17,7 @@ public interface mk_requestBoardService {
 	
    //요청게시판 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);
+	
+	//요청게시판 관리자 팝업수정창
+	public void reqeustUpdate(mk_requestBoardVO rvo);
 }
