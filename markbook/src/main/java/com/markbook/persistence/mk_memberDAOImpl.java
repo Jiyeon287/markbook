@@ -56,4 +56,9 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		}
 	}
 
+	@Override
+	public void updatePw(mk_memberVO vo) throws Exception {
+		 sqlSession.update(namespace+".updatePw", vo);
+	}
+
 }

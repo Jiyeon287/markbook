@@ -38,4 +38,9 @@
 		where m_id = #{m_id}
 	</select>
 	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePw" >
+		update member_info set m_pw = #{m_pw} where m_id = #{m_id}
+	</update>
+	
  </mapper>
