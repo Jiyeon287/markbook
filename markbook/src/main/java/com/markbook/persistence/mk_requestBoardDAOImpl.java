@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
 
@@ -36,12 +37,14 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	}
 
 	@Override
-	public List<mk_requestBoardVO> requestList() {
+	public List<mk_requestBoardVO> requestList(Criteria cri) {
 		System.out.println("DAO:list 호출 @@");
+		List<mk_requestBoardVO>rist=sqlSession.selectList(namespace+".requestList",cri);
 		
-		
-		return sqlSession.selectList(namespace+".requestList");
+		return rist;
 	}
+	
+	
     //요청게시판 관리자 상세페이지
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {

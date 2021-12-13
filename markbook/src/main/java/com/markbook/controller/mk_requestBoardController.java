@@ -8,11 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
+import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_requestBoardService;
 
 @Controller
@@ -75,13 +78,20 @@ public class mk_requestBoardController {
 		
 		model.addAttribute("page",detailp);
 		
-		
-		
 	}
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
-	public void adminRequestList(Model model)throws Exception{	
-		List<mk_requestBoardVO> list= service.requestList();
-		model.addAttribute("list",list);
+	public void adminRequestList(@ModelAttribute("cri") Criteria cri,Model model,@RequestParam("pgnum") int pgnum)throws Exception{	
+		
+		model.addAttribute("list", service.requestList(cri));
+		pageMaker pageMaker = new pageMaker();
+		pageMaker.setCri(cri);
+		int count =service.countBoard();
+		pageMaker.setTotalCount(count);
+		
+		model.addAttribute("pageMaker", pageMaker);
+	
+		//현재페잊
+		model.addAttribute("pgnum", pgnum);
 
 		
 	}

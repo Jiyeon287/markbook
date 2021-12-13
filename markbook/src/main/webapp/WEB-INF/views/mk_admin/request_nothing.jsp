@@ -12,7 +12,7 @@
 
 
 //팝업창에서 부모창을 다른페이지로 이동합니다.
-window.opener.location.href="./request_list";
+window.opener.location.href="./request_list?pgnum=1";
 self.close();
 
 </script>

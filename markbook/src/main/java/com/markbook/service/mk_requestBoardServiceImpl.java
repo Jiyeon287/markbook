@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
 import com.markbook.persistence.mk_requestBoardDAO;
 
@@ -29,9 +30,9 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	}
 	
 	@Override
-	public List<mk_requestBoardVO> requestList() {
+	public List<mk_requestBoardVO> requestList(Criteria cri) {
 		
-		return rbdao.requestList();
+		return rbdao.requestList(cri);
 	}
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {

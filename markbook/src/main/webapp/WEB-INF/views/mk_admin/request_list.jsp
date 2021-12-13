@@ -89,10 +89,71 @@ function fun23(num){
                        
                             </tbody>
                         </table>
+                        
+                            <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
+                            <ul class="pagination justify-content-end font-weight-semi-bold mb-0">
+<c:if test="${pageMaker.prev}">
+<li class="page-link active">
+<a href="./request_list?pgnum=${pageMaker.startPage - 1}${searchTypeKeyword}" >
+ <span aria-hidden="true">
+       <span class="lnr lnr-chevron-left"></span>
+       </span>
+       </a> 
+       </li>
+</c:if>
+
+<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
+  <li class="page-item">
+ 
+  <c:if test="${pgnum != num}">
+   <a href="./request_list?pgnum=${num}${searchTypeKeyword}"  class="page-link">${num}</a>
+
+  </c:if>    
+  </li>
+  <c:if test="${pgnum == num}">
+   <li class="page-item">
+   
+   <b>${num}</b>
+  </c:if>
+    
+
+</c:forEach>
+<c:if test="${pageMaker.next}">
+<li class="page-item">
+<a href="./request_list?pgnum=${pageMaker.endPage + 1}${searchTypeKeyword}" class="page-link" aria-label="Next">
+   <span aria-hidden="true">
+ <span class="lnr lnr-chevron-right"></span>
+ </span>
+ </a> 
+ </li>
+</c:if>
+                        </ul>
+                        </nav>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <div class="card-footer d-block d-md-flex align-items-center d-print-none">
                             <div class="d-flex mb-2 mb-md-0">Showing 1 to 8 of 24 Entries</div>
 
-                            <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination"><ul class="pagination justify-content-end font-weight-semi-bold mb-0">				<li class="page-item">				<a id="datatablePaginationPrev" class="page-link" href="#!" aria-label="Previous"><i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a>				</li><li class="page-item d-none d-md-block"><a id="datatablePaginationPage0" class="page-link active" href="#!" data-dt-page-to="0">1</a></li><li class="page-item d-none d-md-block"><a id="datatablePagination1" class="page-link" href="#!" data-dt-page-to="1">2</a></li><li class="page-item d-none d-md-block"><a id="datatablePagination2" class="page-link" href="#!" data-dt-page-to="2">3</a></li><li class="page-item">				<a id="datatablePaginationNext" class="page-link" href="#!" aria-label="Next"><i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i></a>				</li>				</ul></nav>
+                            <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
+                            <ul class="pagination justify-content-end font-weight-semi-bold mb-0">
+                            				<li class="page-item">			
+                            					<a id="datatablePaginationPrev" class="page-link" href="#!" aria-label="Previous">
+                            					<i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a>		
+                            							</li><li class="page-item d-none d-md-block"><a id="datatablePaginationPage0" class="page-link active" href="#!" data-dt-page-to="0">1</a></li>
+                            							<li class="page-item d-none d-md-block"><a id="datatablePagination1" class="page-link" href="#!" data-dt-page-to="1">2</a></li>
+                            							<li class="page-item d-none d-md-block"><a id="datatablePagination2" class="page-link" href="#!" data-dt-page-to="2">3</a></li>
+                            							<li class="page-item">				<a id="datatablePaginationNext" class="page-link" href="#!" aria-label="Next">
+                            							<i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i></a>
+                            		</li>
+                        		</ul>
+                        		</nav>
                         </div>
                     </div>
                     </div>
