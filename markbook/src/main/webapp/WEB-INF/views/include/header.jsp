@@ -26,6 +26,9 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
     
+
+
+    
     <header>
         <div class="header-area">
          <div class="main-header ">
@@ -57,7 +60,16 @@
                                     <li>
                                     	<c:choose>
                                     		<c:when test="${m_id != null }">
-                                    			<a href="/markbook/mk_member/logout" class="btn header-btn">Sign Out</a>
+                                    			<div class="dropdown text-end">
+											        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+											        	<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" alt="profile" width="32" height="32" class="rounded-circle">
+											        </a>
+											        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+											            <li><a class="dropdown-item" href="#">My Profile</a></li>
+											            <li><a class="dropdown-item" href="#">Contact Us</a></li>
+											            <li><a class="dropdown-item" href="/markbook/mk_member/logout">Sign Out</a></li>
+											        </ul>
+		        								</div>
                                     		</c:when>
                                     		<c:otherwise>
                                     			<a href="/markbook/mk_member/login" class="btn header-btn">Sign In</a>	

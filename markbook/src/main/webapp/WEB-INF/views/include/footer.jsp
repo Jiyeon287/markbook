@@ -97,7 +97,9 @@
     <script src="${pageContext.request.contextPath }/resources/assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/assets/js/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/bootstrap.min.js"></script>
+    <!--  <script src="${pageContext.request.contextPath }/resources/assets/js/bootstrap.min.js"></script>-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Slick-slider , Owl-Carousel ,slick-nav -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/owl.carousel.min.js"></script>
