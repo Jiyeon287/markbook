@@ -34,3 +34,40 @@
     border:1px solid rgb(117,117,117);  
     font-size:14px;
 }
+
+/* 정보찾기 버튼 */
+.infoBtn {
+  background:rgb(115,115,115);
+  color:rgb(255,255,255);
+  border:none;
+  position:relative;
+  font-size:16px;
+  padding:2em 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.infoBtn:hover{
+  background:rgb(255,255,255);
+  color:rgb(115,115,115);
+}
+.infoBtn:before,.infoBtn:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: rgb(115,115,115);
+  transition:400ms ease all;
+}
+.infoBtn:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.infoBtn:hover:before,.infoBtn:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

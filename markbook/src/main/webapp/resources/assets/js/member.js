@@ -56,7 +56,7 @@ function inpChk() {
 		return false;
 	}
 	if(document.joinFr.m_idnum1.value.length != 6 || document.joinFr.m_idnum2.value.length != 7) {
-		alert("주민등록번호를 확인해 주세요.");
+		alert("주민등록번호를 확인 해주세요.");
 		return false;
 	}
 	if(document.joinFr.emailAddr.value == "") {
@@ -145,4 +145,47 @@ function loginChk() {
 }
 
 
+//--------------------------- 아이디 찾기 ---------------------------//
 
+function findID() {
+	
+	var name = $('input[name=m_name]').val();
+	var numFront = $('input[name=m_idnum1]').val();
+	var numBack = $('input[name=m_idnum2]').val();
+	
+	if (name == "") {
+		alert("이름을 입력하세요");
+		return false;
+	}
+	if (numFront == "" || numBack == "") {
+		alert("주민번호를 입력하세요");
+		return false;
+	}
+	if ((numFront.length != 6) || (numBack.length != 7)) {
+		alert("주민등록번호를 확인 해주세요.");
+		return false;
+	}
+	
+	$.ajax ({
+		url: "/markbook/mk_member/findId",
+		type: "post",
+		dataType: "text",
+		data: {"m_name" : name, "m_idnum1" : numFront, "m_idnum2" : numBack},
+		success: function(data) {
+			if(data == "none") {
+				alert("등록된 정보가 없습니다.");
+				return false;
+			} 
+			else {
+				alert("회원님의 아이디는 "+data+"입니다.");
+				
+				if(confirm("로그인 하시겠습니까?")) location.href="/markbook/mk_member/login";
+				else return false;
+			}
+		}
+		,error:function(e){
+       		alert("에러 발생! 관리자에게 문의하세요.");
+       		console.log(e);
+    	}
+	})
+}

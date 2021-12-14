@@ -22,4 +22,6 @@ public interface mk_memberDAO {
 	// 비밀번호 변경
 	public void updatePw(mk_memberVO vo) throws Exception;
 
+	// 아이디 찾기
+	public String findId(mk_memberVO mvo) throws Exception;
 }

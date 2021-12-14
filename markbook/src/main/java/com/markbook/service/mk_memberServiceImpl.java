@@ -104,5 +104,11 @@ public class mk_memberServiceImpl implements mk_memberService {
 		mdao.naverJoin(mvo);
 	}
 
+	@Override
+	public String findId(mk_memberVO mvo) throws Exception {
+		
+		return mdao.findId(mvo);
+	}
+
 
 }

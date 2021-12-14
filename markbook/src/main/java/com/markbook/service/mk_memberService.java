@@ -29,4 +29,7 @@ public interface mk_memberService {
 	//임시비밀번호 생성
 	public void findPw(HttpServletResponse resp, mk_memberVO vo) throws Exception;
 	
+	// 아이디 찾기
+	public String findId(mk_memberVO mvo) throws Exception;
+	
 }

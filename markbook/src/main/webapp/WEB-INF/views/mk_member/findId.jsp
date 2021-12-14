@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
     
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/join.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/member.css">
 </head>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <body>
@@ -37,8 +37,7 @@
                     <span>아이디 찾기</span>
                 </div>
                 <!-- Single Input Fields -->
-                <form method="post" name="joinFr" action="/markbook/mk_member/join" onsubmit="return inpChk()">
-                	<input type="hidden" id="isCheck" name="isCheck" value="0"/>
+                
 	                <div class="input-box">
 	                     <div class="single-input-fields">
 	                        <input type="text" placeholder="이름" name="m_name">
@@ -59,9 +58,9 @@
 	                <!-- form Footer -->	
 	                <div class="register-footer">
 	                    <p> Did you find your ID? <a href="/markbook/mk_member/login"> Login</a> here</p>
-	                    <button class="submit-btn3">Find ID</button>
+	                    <button type="button" class="submit-btn3" onclick="findID();">Find ID</button>
 	                </div>
-                </form>
+                
             </div>
         </div>
         <!-- Register Area End -->

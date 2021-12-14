@@ -73,4 +73,14 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		sqlSession.insert(namespace+".insertNaver", mvo);
 	}
 
+	@Override
+	public String findId(mk_memberVO mvo) throws Exception {
+		
+		String tmp = sqlSession.selectOne(namespace + ".findId", mvo);
+		
+		if (tmp == null) tmp = "none";
+		
+		return tmp;
+	}
+
 }

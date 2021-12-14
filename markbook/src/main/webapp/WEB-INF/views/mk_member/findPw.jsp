@@ -146,7 +146,7 @@ function inpChk() {
 	                <!-- form Footer -->	
 	                <div class="register-footer">
 
-	                    <p> Do you find your ID? <a href="/markbook/mk_member/findid"> findID</a> here</p>
+	                    <p> Do you find your PW? <a href="/markbook/mk_member/login">Login</a> here</p>
 	                    <button class="submit-btn3">이메일로 임시 비밀번호 전송하기</button>
 
 	                </div>

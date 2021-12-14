@@ -87,14 +87,12 @@ public class mk_memberController {
 	}
 	
 	@RequestMapping(value="/gg_login", method = { RequestMethod.GET, RequestMethod.POST })
-	public String memberGgloginPOST(mk_memberVO mvo, HttpSession session,
-			@RequestParam String code, Model model,@RequestParam String state) throws Exception {
+	public void memberGgloginPOST(mk_memberVO mvo, HttpSession session) throws Exception {
 		System.out.println("소셜 로그인 진행중" +mvo.getM_id());
 		
 		service.socialCheck(mvo);
 		session.setAttribute("m_id", mvo.getM_id());
 		
-		return "redirect:/index";
 	}
 	
 	@RequestMapping(value="/naver_login", method = { RequestMethod.GET, RequestMethod.POST })
@@ -219,8 +217,16 @@ public class mk_memberController {
 	}
 	
 	@RequestMapping(value="/findId", method=RequestMethod.GET)
-	public void findID() throws Exception {
+	public void findIDGET() throws Exception {
 		System.out.println("아이디 찾기");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/findId", method=RequestMethod.POST)
+	public String findPOST(mk_memberVO mvo) throws Exception {
+		System.out.println("아이디 찾기 진행중" + mvo);
+		
+		return service.findId(mvo);
 	}
 	
 	@RequestMapping(value="/findPw", method=RequestMethod.GET)

@@ -12,6 +12,8 @@
 
 	<!-- CSS here -->
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/member.css">
 </head>
 <body>
     <!-- header end -->
@@ -19,23 +21,15 @@
         <!-- Register Area Start -->
         <div class="register-form-area">
             <div class="register-form text-center">
-                <!-- Login Heading -->
-                <div class="register-heading">
-                    <span>Find your ID & PW</span>
-                </div>
-				<table style="width:100%; text-align:center; padding-top:30px; ">
-				<tr>
-				<td style="width:50%">
-				<div class="button-group-area mt-40">
-					<a href="findId" class="genric-btn primary e-large" style="width:35%">아이디 찾기</a>
-				</div>
-				</td>
-				<td style="width:50%">
-				<div class="button-group-area mt-40">
-					<a href="findPw" class="genric-btn primary e-large" style="width:35%">비밀번호 찾기</a>
-				</div>
-				</td>
-				</tr>
+				<table style="width:100%; text-align:center; padding:3em 0 3em 0;">
+					<tr>
+						<td style="width:50%;">
+							<a href="/markbook/mk_member/findId" class="infoBtn" style="padding:2em 4em;">ID</a>
+						</td>
+						<td style="width:50%;">
+							<a href="/markbook/mk_member/findPw" class="infoBtn">Password</a>
+						</td>
+					</tr>
 				</table>
 
             </div>

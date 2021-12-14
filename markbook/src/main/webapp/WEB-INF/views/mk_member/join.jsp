@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/style.css">
     
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/join.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/member.css">
 </head>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <body>
