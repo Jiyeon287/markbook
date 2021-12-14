@@ -39,8 +39,8 @@
 	</select>
 	
 	<!-- 네이버 로그인 : 이력없으면 회원가입 -->
-	<insert id="insertMember">
-	insert into member_info values
+	<insert id="insertNaver">
+	insert into member_info(m_num,m_id,m_name,m_email,m_phone) values
 	(#{m_num},#{m_id},#{m_name},#{m_email},#{m_phone})
 	</insert>
 	
