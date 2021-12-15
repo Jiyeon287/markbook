@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_2ndtransService;
 
 @Controller
@@ -31,14 +33,13 @@ public class mk_2ndtransController {
 	// 중고책 거래 메인 페이지 호출 (GET)
 	// http://localhost:8088/markbook/mk_2ndTrans/booklist
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
-	public String booklistGET(Model model) throws Exception {
+	public String booklistGET(Model model, Criteria cri) throws Exception {
 		
 		logger.info(" C: booklistGET() 호출 ");
 	
-		int pageNum = 1;
 
 		List<mk_2ndhand_bookVO> bookList = service.getBookList();
-		model.addAttribute("pageNum", pageNum);
+		//model.addAttribute("pageNum", pageNum);
 		model.addAttribute("bookList", bookList);
 		
 		return "/mk_2ndTrans/booklist";
@@ -164,6 +165,33 @@ public class mk_2ndtransController {
 		return "redirect:/mk_2ndTrans/booklist";
 	}
 	
+	// 중고책 입찰하기 페이지 호출(GET)
+	@RequestMapping(value = "/bookbid", method = RequestMethod.GET)
+	public String bidGET(HttpSession session, Model model, Integer b2_num) throws Exception {
+
+		logger.info("C: bidGET() 호출");
+		
+		String m_id = (String) session.getAttribute("m_id");
+		
+		//임시 아이디 설정
+		m_id = "tempId";
+		
+		model.addAttribute("bvo", service.getInfo(b2_num));
+		model.addAttribute("m_id", m_id);
+		
+		return "/mk_2ndTrans/bookbid";
+	}
+	
+	
+	// 중고책 입찰하기 등록 (POST)
+	@RequestMapping(value = "/bookbid", method = RequestMethod.POST)
+	public String bookbidPOST(mk_2ndhand_bookVO bvo, String bid_price) throws Exception {
+
+		logger.info("C: bookbidPOST() 호출");
+		logger.info("입찰완료");
+		
+		return "redirect:/mk_2ndTrans/booklist";
+	}
 
 	
 	

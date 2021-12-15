@@ -2,6 +2,18 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 
+<style type="text/css">
+.properties-img {
+	display: inline-block;
+	width: 100%;
+	height: 140px;
+	overflow: hidden;
+	object-fit: cover;
+	border-radius: 5px;
+	border-color: black;
+}
+</style>
+
 <main>
 	<!-- Hero area Start-->
 	<div class="container">
