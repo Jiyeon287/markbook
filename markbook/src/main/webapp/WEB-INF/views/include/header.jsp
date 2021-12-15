@@ -61,13 +61,17 @@
                                     	<c:choose>
                                     		<c:when test="${m_id != null }">
                                     			<div class="dropdown text-end">
-											        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+											        <a href="#" style="text-transform:none;" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" >
 											        	<img src="${pageContext.request.contextPath }/resources/assets/img/main/noneProfile.png" alt="profile" width="32" height="32" class="rounded-circle">
+											        	&nbsp;${m_id }님
 											        </a>
 											        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
 											            <li><a class="dropdown-item" href="#">My Profile</a></li>
-											            <li><a class="dropdown-item" href="#">Contact Us</a></li>
-											            <li><a class="dropdown-item" href="/markbook/mk_member/logout">Sign Out</a></li>
+											            <li><a class="dropdown-item" href="/markbook/mk_calendar/calendar">Schedule</a></li>
+											            <li style="border-bottom:1px solid rgb(199,200,201); padding: 0 0 5px 0;">
+											            	<a class="dropdown-item" href="#">Contact Us</a>
+											            </li>
+											            <li style="padding: 5px 0 0 0;"><a class="dropdown-item" href="/markbook/mk_member/logout">Sign Out</a></li>
 											        </ul>
 		        								</div>
                                     		</c:when>
