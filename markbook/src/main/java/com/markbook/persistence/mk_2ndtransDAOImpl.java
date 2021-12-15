@@ -79,6 +79,17 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 	}
 	
+	// 중고책 입찰하기
+	@Override
+	public void bookBid(mk_2ndhand_bookVO bvo) throws Exception {
+		
+		logger.info(" DAO : bookBid() 호출 ");
+		
+		sqlSession.update(namespace + ".priceupdate", bvo);
+		
+		logger.info(" DAO : 입찰 가격 수정 완료");	
+	}
+	
 	
 
 }

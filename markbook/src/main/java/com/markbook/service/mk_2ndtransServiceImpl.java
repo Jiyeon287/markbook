@@ -72,5 +72,17 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		System.out.println("S : bookDelete() 삭제완료 ");
 		
 	}
+	
+	// 중고책 입찰하기
+	@Override
+	public void bookBid(mk_2ndhand_bookVO bvo) throws Exception {
+		
+		System.out.println("S : bookBid() 호출! ");
+		
+		tdao.bookBid(bvo);
+		
+		System.out.println("S : 입찰 가격 수정 완료 ");
+		
+	}
 
 }

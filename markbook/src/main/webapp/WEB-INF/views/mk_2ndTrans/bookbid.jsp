@@ -70,18 +70,18 @@
 					<div class="media contact-info">
 						<span class="contact-info__icon"><i class="ti-email"></i></span>
 						<div class="media-body">
-							<h3>support@colorlib.com</h3>
+							<h3>github.com/WillHeroes/markbook</h3>
 							<p>고객센터</p>
 						</div>
 					</div>
 					<div class="col-12">
-						<form class="form-contact contact_form" action="" method="post">
+						<form class="form-contact contact_form" action="" method="post" name="registerform">
 							<div class="form-group">
 								<div class="media contact-info media-body">
 									<h6>현재 최고가</h6>
 								</div>
-								<input class="form-control" name="subject" id="subject"
-									type="text">
+								<input class="form-control" name="b2_price" id="b2_price" value="${bvo.b2_price }"
+									type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<div class="media contact-info media-body">
@@ -93,10 +93,10 @@
 									placeholder="Enter Price">
 							</div>
 							<div class="form-group mt-3">
-								<button type="submit" onclick="registerCheck()"
+								<button type="button" onclick="registerCheck();"
 									class="button button-contactForm boxed-btn">입찰하기</button>
-								<button type="button" onclick=""
-									class="button button-contactForm boxed-btn">목록으로</button>
+								<button type="button" onclick="history.back();"
+									class="button button-contactForm boxed-btn">이전으로</button>
 							</div>
 						</form>
 					</div>
@@ -108,21 +108,29 @@
 </main>
 
 <script>
+	//입찰 유효성 검사
+	function registerCheck() {
+		
+		var bid_price = $("#bid_price").val();
+		var b2_price = $("#b2_price").val();
+		
+		alert(bid_price);
+		alert(b2_price);
 
-//입찰 유효성 검사
-function registerCheck() {
- 
-	if ($("#bid_price").val() == "") {
-		alert("입찰 가격을 입력해 주세요");
-		$("#bid_price").focus();
-		return false;
-	} else{
-		alert("입찰에 성공했습니다.");
-		document.registerform.submit();
-	} 
-	
-} // 입찰 유효성 검사 끝
+		if ($("#bid_price").val() == "") {
+			alert("입찰 가격을 입력해 주세요");
+			$("#bid_price").focus();
+			return false;
+		} else if ($("#bid_price").val() < $("#b2_price").val()) {
+			alert("현재 최고가 보다 높은 입찰 가격을 입력해 주세요");
+			$("#bid_price").focus();
+			return false;
+		} else {
+			alert("입찰에 성공했습니다.");
+			document.registerform.submit();
+		}
 
+	} // 입찰 유효성 검사 끝
 </script>
 
 <%@ include file="../include/footer.jsp"%>

@@ -20,5 +20,8 @@ public interface mk_2ndtransService {
 	
 	// 중고거래 상세 페이지 삭제하기
 	public void bookDelete(Integer b2_num) throws Exception;
+	
+	// 중고책 상품 입찰하기
+	public void bookBid(mk_2ndhand_bookVO bvo) throws Exception;
 
 }

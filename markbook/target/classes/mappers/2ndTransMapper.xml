@@ -43,5 +43,13 @@
 		delete from 2ndhand_book
 		where b2_num = #{b2_num}
 	</delete>
+	
+	<!-- 중고거래 가격 입찰하기 -->
+	<update id="priceupdate">
+		update 2ndhand_book
+		set
+		b2_highestprice = #{b2_highestprice}
+		where b2_num = #{b2_num}
+	</update>
 
 </mapper>
