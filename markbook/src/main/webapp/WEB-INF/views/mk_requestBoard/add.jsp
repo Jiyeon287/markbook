@@ -77,7 +77,7 @@
 <table>
 <tr>
 <td>
-   <input class="form-control" id="r_name"name="r_name" type="text" placeholder="책 이름">
+   <input class="form-control" id="r_name"name="r_name" type="text" placeholder="책 이름" onclick="Popup()" readonly="readonly">
    </td>
    <td>
 <button type="button" class="genric-btn primary-border" onclick="Popup()" value="0" name="booook">책 검색</button>
@@ -90,21 +90,21 @@
 <div class="col-sm-6">
   <div class="form-group">
       <label>작가명</label>
-   <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름">
+   <input class="form-control" id="r_writer" name="r_writer" placeholder="작가이름" readonly="readonly">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
       <label>ISBN</label>
-   <input class="form-control" id="r_ISBN" name="r_ISBN" placeholder="ISBN">
+   <input class="form-control" id="r_ISBN" name="r_ISBN" placeholder="ISBN" readonly="readonly">
  </div>
 </div>
 
 <div class="col-sm-6">
   <div class="form-group">
       <label>출판사</label>
-   <input class="form-control" id="r_publisher" name="r_publisher" placeholder="출판사">
+   <input class="form-control" id="r_publisher" name="r_publisher" placeholder="출판사" readonly="readonly">
  </div>
 </div>
  
@@ -112,7 +112,7 @@
 <div class="col-sm-6">
   <div class="form-group">
       <label>가격</label>
-   <input class="form-control" id="r_price" name="r_price" placeholder="가격">
+   <input class="form-control" id="r_price" name="r_price" placeholder="가격" readonly="readonly">
  </div>
 </div>
 

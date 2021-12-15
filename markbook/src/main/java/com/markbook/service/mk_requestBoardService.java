@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
+import com.markbook.domain.page;
 
 public interface mk_requestBoardService {
 
@@ -14,7 +15,7 @@ public interface mk_requestBoardService {
 	public int countBoard() throws Exception;
 	
 	//요청게시판 리스트
-	public List<mk_requestBoardVO> requestList(Criteria cri);
+	public List<mk_requestBoardVO> requestList(page pg);
 	
    //요청게시판 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);

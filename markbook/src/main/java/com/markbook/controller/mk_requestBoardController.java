@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
+import com.markbook.domain.page;
 import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_requestBoardService;
 
@@ -70,7 +71,7 @@ public class mk_requestBoardController {
 	}
 	//--------------------------------------------- < 관리자 >------------------------------------------------------------
 	
-	//http://localhost:8088/markbook/mk_admin/request_list
+	//http://localhost:8088/markbook/mk_admin/request_list?pgnum=1
 	@RequestMapping(value="/mk_admin/request_detail",method=RequestMethod.GET)
 	public void adminRequestDetailGET(@RequestParam("r_num") int r_num,Model  model)throws Exception{
 		
@@ -81,14 +82,18 @@ public class mk_requestBoardController {
 	}
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
 	public void adminRequestList(@ModelAttribute("cri") Criteria cri,Model model,@RequestParam("pgnum") int pgnum)throws Exception{	
-		
-		model.addAttribute("list", service.requestList(cri));
-		pageMaker pageMaker = new pageMaker();
-		pageMaker.setCri(cri);
+	
+
+		page pg=new page();
+	
 		int count =service.countBoard();
-		pageMaker.setTotalCount(count);
 		
-		model.addAttribute("pageMaker", pageMaker);
+	
+		List<mk_requestBoardVO> list = service.requestList(pg);
+
+		model.addAttribute("list", list);   
+	    model.addAttribute("page",pg);
+		model.addAttribute("select", pgnum);
 	
 		//현재페잊
 		model.addAttribute("pgnum", pgnum);

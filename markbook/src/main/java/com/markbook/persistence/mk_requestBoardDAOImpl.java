@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
+import com.markbook.domain.page;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
 
 @Repository
@@ -37,9 +38,9 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	}
 
 	@Override
-	public List<mk_requestBoardVO> requestList(Criteria cri) {
+	public List<mk_requestBoardVO> requestList(page pg) {
 		System.out.println("DAO:list 호출 @@");
-		List<mk_requestBoardVO>rist=sqlSession.selectList(namespace+".requestList",cri);
+		List<mk_requestBoardVO>rist=sqlSession.selectList(namespace+".requestList",pg);
 		
 		return rist;
 	}

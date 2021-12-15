@@ -6,7 +6,7 @@
 <%@ include file="header.jsp"%>
 <script type="text/javascript">
 function go() {
-	location.href="./request_list";
+	location.href="./request_list?pgnum=1";
 }
 
 </script>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
+import com.markbook.domain.page;
 import com.markbook.persistence.mk_requestBoardDAO;
 
 @Service
@@ -30,9 +31,9 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	}
 	
 	@Override
-	public List<mk_requestBoardVO> requestList(Criteria cri) {
+	public List<mk_requestBoardVO> requestList(page pg) {
 		
-		return rbdao.requestList(cri);
+		return rbdao.requestList(pg);
 	}
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {

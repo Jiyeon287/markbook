@@ -1,11 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
+<style>
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
 
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
+</style>
 <script type="text/javascript">
 
 
@@ -92,40 +135,26 @@ function fun23(num){
                         
                             <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
                             <ul class="pagination justify-content-end font-weight-semi-bold mb-0">
-<c:if test="${pageMaker.prev}">
-<li class="page-link active">
-<a href="./request_list?pgnum=${pageMaker.startPage - 1}${searchTypeKeyword}" >
- <span aria-hidden="true">
-       <span class="lnr lnr-chevron-left"></span>
-       </span>
-       </a> 
-       </li>
+<c:if test="${page.prev}">
+ <span>[ <a href="/board/listPage?num=${page.startPageNum - 1}">이전</a> ]</span>
 </c:if>
 
-<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
-  <li class="page-item">
+<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
+ <span>
  
-  <c:if test="${pgnum != num}">
-   <a href="./request_list?pgnum=${num}${searchTypeKeyword}"  class="page-link">${num}</a>
-
+  <c:if test="${select != num}">
+   <a href="/board/listPage?num=${num}">${num}</a>
   </c:if>    
-  </li>
-  <c:if test="${pgnum == num}">
-   <li class="page-item">
-   
+  
+  <c:if test="${select == num}">
    <b>${num}</b>
   </c:if>
     
-
-</c:forEach>
-<c:if test="${pageMaker.next}">
-<li class="page-item">
-<a href="./request_list?pgnum=${pageMaker.endPage + 1}${searchTypeKeyword}" class="page-link" aria-label="Next">
-   <span aria-hidden="true">
- <span class="lnr lnr-chevron-right"></span>
  </span>
- </a> 
- </li>
+</c:forEach>
+
+<c:if test="${page.next}">
+ <span>[ <a href="/board/listPage?num=${page.endPageNum + 1}">다음</a> ]</span>
 </c:if>
                         </ul>
                         </nav>
@@ -137,25 +166,7 @@ function fun23(num){
                         
                         
                         
-                        
-                        <div class="card-footer d-block d-md-flex align-items-center d-print-none">
-                            <div class="d-flex mb-2 mb-md-0">Showing 1 to 8 of 24 Entries</div>
-
-                            <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
-                            <ul class="pagination justify-content-end font-weight-semi-bold mb-0">
-                            				<li class="page-item">			
-                            					<a id="datatablePaginationPrev" class="page-link" href="#!" aria-label="Previous">
-                            					<i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a>		
-                            							</li><li class="page-item d-none d-md-block"><a id="datatablePaginationPage0" class="page-link active" href="#!" data-dt-page-to="0">1</a></li>
-                            							<li class="page-item d-none d-md-block"><a id="datatablePagination1" class="page-link" href="#!" data-dt-page-to="1">2</a></li>
-                            							<li class="page-item d-none d-md-block"><a id="datatablePagination2" class="page-link" href="#!" data-dt-page-to="2">3</a></li>
-                            							<li class="page-item">				<a id="datatablePaginationNext" class="page-link" href="#!" aria-label="Next">
-                            							<i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i></a>
-                            		</li>
-                        		</ul>
-                        		</nav>
-                        </div>
-                    </div>
+                    
                     </div>
                     </div>
                     </div>
