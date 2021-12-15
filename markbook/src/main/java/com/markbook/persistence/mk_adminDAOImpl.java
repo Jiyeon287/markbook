@@ -72,7 +72,8 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 		System.out.println(" DAO : getBInfo(Integer b_num) 호출 ");
 		
 		mk_bookVO bvo = sqlSession.selectOne(namespace+".bInfo", b_num);
-		return null;
+		
+		return bvo;
 	}
 	
 	// 도서 수정

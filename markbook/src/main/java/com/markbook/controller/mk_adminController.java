@@ -113,8 +113,8 @@ public class mk_adminController {
 	
 	
 	// 도서 삭제 (GET)
-	@RequestMapping(value = "bookDelete", method = RequestMethod.GET)
-	public String bookDeleteGET(Integer b_num, HttpSession session) throws Exception {
+	@RequestMapping(value = "/bookDelete", method = RequestMethod.GET)
+	public String bookDeleteGET(Integer b_num) throws Exception {
 		
 		System.out.println(" C : bookDeleteGET() 호출 ");
 		
@@ -124,21 +124,8 @@ public class mk_adminController {
 		
 		return "redirect:/mk_admin/bookList";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+
+	
+	
 }

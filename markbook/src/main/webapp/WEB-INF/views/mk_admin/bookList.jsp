@@ -18,7 +18,7 @@
                                 <table class="table text-nowrap mb-0">
                                     <thead>
                                     <tr>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">#</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">num</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">name</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">category</th>
                                         <th class="font-weight-semi-bold border-top-0 py-2">writer</th>
@@ -31,8 +31,8 @@
                                     
                                     <tr>
                                         <td class="py-3">${bvo.b_num}</td>
-                                        <td class="py-3">
-                                            <!-- <div class="text-muted">Acme Inc.</div> -->
+                                        <td>
+                                        	<a href="/mk_admin/bookDelete?b_num=${bvo.b_num }">${bvo.b_name }</a>
                                             <div>${bvo.b_name }</div>
                                             <div class="book-img">
 												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/book.PNG" alt="Graindashboard" style="width: 55px; height: 55px;"></a>
@@ -41,7 +41,11 @@
                                         <td class="py-3">${bvo.b_category }</td>
                                         <td class="py-3">${bvo.b_writer }</td>
                                         <td class="py-3">
-                                            <span class="badge badge-pill badge-warning">OK</span>
+                                            <!-- <span class="badge badge-pill badge-warning">OK</span> -->
+                                     <c:choose >
+                                    		<c:when test="${bvo.b_able == 0}"> <span class="badge badge-pill badge-success" onclick="fun23(${bvo.b_num })" style="cursor:pointer;">가능</span></c:when>
+                                    		<c:when test="${bvo.b_able == 1 }"> <span class="badge badge-pill badge-info" onclick="fun23(${bvo.b_num })" style="cursor:pointer;">불가</span></c:when>
+                                    </c:choose>
                                         </td>
                                         <td class="py-3">
                                             <div class="position-relative">
