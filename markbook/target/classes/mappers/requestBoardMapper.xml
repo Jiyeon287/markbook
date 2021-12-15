@@ -16,18 +16,7 @@
 	select count(r_num) from book_request
 	</select>
 	
-<!-- 		<!-- 요청 게시판 목록(~페이징 처리중~) -->	 -->
-<!-- 		 <select id="requestList" resultType="mk_requestBoardVO"> -->
-<!-- 	<![CDATA[ -->
-<!-- 	select -->
-<!-- 	    * -->
-<!-- 	from -->
-<!-- 	    book_request -->
-<!-- 	where r_num > 0 -->
-<!-- 	order by r_num desc -->
-<!-- 	limit #{pageStart}, #{pageSize} -->
-<!-- 	]]> -->
-<!-- 	</select>	 -->
+
 
 <!-- 게시물 목록 + 페이징 -->
 <select id="requestList" parameterType="hashMap" resultType="mk_requestBoardVO">
