@@ -56,7 +56,7 @@
 					<div class="media contact-info">
 						<span class="contact-info__icon"><i class="ti-book"></i></span>
 						<div class="media-body">
-							<h3>${bvo.b2_name }</h3>
+							<h3>${bvo.b2_title }</h3>
 							<p>${bvo.b2_writer }</p>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 								<div class="media contact-info media-body">
 									<h6>현재 최고가</h6>
 								</div>
-								<input class="form-control" name="b2_price" id="b2_price" value="${bvo.b2_price }"
+								<input class="form-control" name="b2_highestprice" id="b2_highestprice" value="${bvo.b2_highestprice }"
 									type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
@@ -112,7 +112,7 @@
 	function registerCheck() {
 		
 		var bid_price = $("#bid_price").val();
-		var b2_price = $("#b2_price").val();
+		var b2_price = $("#b2_highestprice").val();
 		
 		alert(bid_price);
 		alert(b2_price);
@@ -121,7 +121,7 @@
 			alert("입찰 가격을 입력해 주세요");
 			$("#bid_price").focus();
 			return false;
-		} else if ($("#bid_price").val() < $("#b2_price").val()) {
+		} else if ($("#bid_price").val() < $("#b2_highestprice").val()) {
 			alert("현재 최고가 보다 높은 입찰 가격을 입력해 주세요");
 			$("#bid_price").focus();
 			return false;
