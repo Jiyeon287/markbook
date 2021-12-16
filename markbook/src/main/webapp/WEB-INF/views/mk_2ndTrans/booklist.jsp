@@ -205,17 +205,20 @@
 									<div class="properties pb-30">
 										<div class="properties-card">
 											<div class="properties-img">
-												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }"><img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}" alt=""></a>
+												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }">
+													<img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}"
+														 alt="">
+												</a>
 											</div>
 											<div class="properties-caption properties-caption2">
 												<h3>
-													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }">${bvo.b2_name }</a>
+													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }">${bvo.b2_title }</a>
 												</h3>
 												<p>${bvo.b2_writer }</p>
 												<div
 													class="properties-footer d-flex justify-content-between align-items-center">
 													<div class="price">
-														<span> ${bvo.b2_price } 원</span>
+														<span> ${bvo.b2_highestprice } 원</span>
 													</div>
 												</div>
 											</div>
@@ -238,9 +241,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </main>
 
 <%@ include file="../include/footer.jsp"%>
-
-<!-- 자바 스크립트 파일 연결 -->
-<%-- <script src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbooklist.js"></script> --%>

@@ -38,6 +38,11 @@ public class HomeController {
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public void index() {
-		// System.out.println("index");
+		System.out.println("index");
+	}
+	
+	@RequestMapping(value="/about", method=RequestMethod.GET)
+	public void about() {
+		System.out.println("about");
 	}
 }

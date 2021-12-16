@@ -11,7 +11,7 @@
 					<div
 						class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
 						<div class="hero-caption hero-caption2">
-							<h2>상품 정보 수정하기</h2>
+							<h2>INFO - Modify</h2>
 						</div>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 						<h2 class="mb-30">Book Information</h2>
 						<div class="mt-10">
 							<h4 class="mb-30">Book Title</h4>
-							<input type="text" name="b2_name" value="${bvo.b2_name }"
+							<input type="text" name="b2_title" value="${bvo.b2_title }"
 								onfocus="this.placeholder = ''"
 								onblur="this.placeholder = '책 제목을 입력해주세요.'" required=""
 								class="single-input">
@@ -115,8 +115,8 @@
 								class="single-input">
 					</div>
 					<div class="mt-10">
-							<h3 class="mb-30">Book Price</h3>
-							<input type="text" name="b2_price" value="${bvo.b2_price }"
+							<h3 class="mb-30">Start Price</h3>
+							<input type="text" name="b2_price" value="${bvo.b2_startprice }"
 								onfocus="this.placeholder = ''"
 								onblur="this.placeholder = '책 가격을 입력해주세요.'" required=""
 								class="single-input">
@@ -136,6 +136,3 @@
 
 
 <%@ include file="../include/footer.jsp"%>
-
-<%-- <!-- 자바 스크립트 파일 연결 -->
-<script src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbookmodify.js"></script> --%>

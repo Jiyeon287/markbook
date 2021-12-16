@@ -34,7 +34,6 @@
 		</div>
 	</div>
 	<!--  Hero area End -->
-
 <main>
     <!--  services-area start-->
     <div class="services-area2">
@@ -49,10 +48,10 @@
                                     <img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}" alt="">
                                 </div>
                                 <div class="features-caption">
-                                    <h3>${bvo.b2_name }</h3>
+                                    <h3>${bvo.b2_title }</h3>
                                     <p>By ${bvo.b2_writer }</p>
                                     <div class="price">
-                                        <span>${bvo.b2_price } 원</span>
+                                        <span>${bvo.b2_highestprice } 원</span>
                                     </div>
                                     <div class="review">
                                         <div class="rating">
@@ -101,11 +100,13 @@
                     <!-- Tab 1 -->  
                     <div class="row">
                         <div class="offset-xl-1 col-lg-9">
-                            <p>판매자 아이디: ${bvo.seller_m_num }</p>
+                            <p>판매자 아이디: ${m_id }</p>
                             <p>카테고리: ${bvo.b2_category }</p>
                             <p>작가: ${bvo.b2_writer }</p>
                             <p>출판사: ${bvo.b2_publisher }</p>
-                            <p>상품상태: ${bvo.b2_status }</p>
+                            <p>상품상태: ${bvo.b2_bookstatus }</p>
+                            <p>현재 최고가: ${bvo.b2_highestprice }</p>
+                            <p>경매 시작가: ${bvo.b2_startprice }</p>
                          </div>
                     </div>
                 </div>
@@ -131,10 +132,4 @@
     <!-- Books review End -->
 </main>
 
-
-
 <%@ include file="../include/footer.jsp"%>
-
-<%-- <!-- 자바 스크립트 파일 연결 -->
-<script src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbookinfo.js"></script> --%>
-

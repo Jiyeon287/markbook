@@ -36,10 +36,8 @@ public class mk_2ndtransController {
 	public String booklistGET(Model model, Criteria cri) throws Exception {
 		
 		logger.info(" C: booklistGET() 호출 ");
-	
 
 		List<mk_2ndhand_bookVO> bookList = service.getBookList();
-		//model.addAttribute("pageNum", pageNum);
 		model.addAttribute("bookList", bookList);
 		
 		return "/mk_2ndTrans/booklist";

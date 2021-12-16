@@ -7,16 +7,17 @@
 
 	<!-- 중고거래 메인 리스트 조회 -->
 	<select id="getlist" resultType="mk_2ndhand_bookVO">
-		select * from 2ndhand_book where b2_sell=0
+		select * from 2ndhand_book
 	</select>
 
 	<!-- 중고거래 책 매물 등록 -->
 	<insert id="bookregister">
-		insert into 2ndhand_book
-		(b2_num,seller_m_num,b2_name,b2_price,b2_category,b2_image,b2_content,b2_writer,b2_publisher,b2_regdate,b2_sell,b2_status)
-		values(#{b2_num}, #{seller_m_num}, #{b2_name}, #{b2_price},
-		#{b2_category}, #{b2_image}, #{b2_content}, #{b2_writer},
-		#{b2_publisher}, NOW(),0,#{b2_status})
+		insert into 2ndhand_book 
+		(b2_num,b2_seller_num,b2_startprice,b2_highestprice,b2_title,b2_category, 
+		b2_content,b2_image,b2_writer,b2_publisher,b2_bookstatus,b2_startdate,b2_enddate,b2_sellstatus)
+		values(#{b2_num}, #{b2_seller_num}, #{b2_startprice}, #{b2_highestprice}, 
+		#{b2_title}, #{b2_category}, #{b2_content}, #{b2_image}, #{b2_writer}, 
+		#{b2_publisher},#{b2_bookstatus},#{b2_startdate},#{b2_enddate},#{b2_sellstatus}) 
 	</insert>
 
 	<!-- 중고거래 책 상세페이지 조회 -->
@@ -25,16 +26,17 @@
 		where b2_num = #{b2_num}
 	</select>
 
-	<!-- 중고거래 책 정보 수정 -->
+	<!-- 중고거래 책 거래 정보 수정 -->
 	<update id="bookupdate">
 		update 2ndhand_book
 		set
-		b2_name = #{b2_name},
-		b2_price = #{b2_price},
+		b2_startprice = #{b2_startprice},
+		b2_title = #{b2_title},
 		b2_category = #{b2_category},
 		b2_content = #{b2_content},
 		b2_writer = #{b2_writer},
-		b2_publisher = #{b2_publisher}
+		b2_publisher = #{b2_publisher},
+		b2_bookstatus = #{b2_bookstatus}
 		where b2_num = #{b2_num}
 	</update>
 	

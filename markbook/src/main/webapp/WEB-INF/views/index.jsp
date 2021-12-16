@@ -12,9 +12,9 @@
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-7">
                                         <div class="hero-caption text-center">
-                                            <span data-animation="fadeInUp" data-delay=".2s">Science Fiction</span>
-                                            <h1 data-animation="fadeInUp" data-delay=".4s">The History<br> of Phipino</h1>
-                                            <a href="#" class="btn hero-btn"  data-animation="bounceIn" data-delay=".8s">Browse Store</a>
+                                            <span data-animation="fadeInUp" data-delay=".2s">I recommend it!</span>
+                                            <h1 data-animation="fadeInUp" data-delay=".4s">Recommend<br>a book?</h1>
+                                            <a href="${pageContext.request.contextPath }/mk_booktest/booktest1" class="btn hero-btn"  data-animation="bounceIn" data-delay=".8s">BookTest</a>
                                         </div>
                                     </div>
                                 </div>
@@ -26,9 +26,9 @@
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-7">
                                         <div class="hero-caption text-center">
-                                            <span data-animation="fadeInUp" data-delay=".2s">Science Fiction</span>
-                                            <h1 data-animation="fadeInUp" data-delay=".4s">The History<br> of Phipino</h1>
-                                            <a href="#" class="btn hero-btn"  data-animation="bounceIn" data-delay=".8s">Browse Store</a>
+                                            <span data-animation="fadeInUp" data-delay=".2s">Variety</span>
+                                            <h1 data-animation="fadeInUp" data-delay=".4s">The List<br> of Books</h1>
+                                            <a href="#" class="btn hero-btn"  data-animation="bounceIn" data-delay=".8s">BookList</a>
                                         </div>
                                     </div>
                                 </div>
@@ -40,9 +40,9 @@
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-6 col-sm-7">
                                         <div class="hero-caption text-center">
-                                            <span data-animation="fadeInUp" data-delay=".2s">Science Fiction</span>
-                                            <h1 data-animation="fadeInUp" data-delay=".4s">The History<br> of Phipino</h1>
-                                            <a href="#" class="btn hero-btn"  data-animation="bounceIn" data-delay=".8s">Browse Store</a>
+                                            <span data-animation="fadeInUp" data-delay=".2s">Lucky Deals</span>
+                                            <h1 data-animation="fadeInUp" data-delay=".4s">Do you wanna<br>sell/buy used books?</h1>
+                                            <a href="${pageContext.request.contextPath }/mk_2ndTrans/booklist" class="btn hero-btn"  data-animation="bounceIn" data-delay=".8s">UsedBookStore</a>
                                         </div>
                                     </div>
                                 </div>
