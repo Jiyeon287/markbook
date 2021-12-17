@@ -44,128 +44,85 @@
 							<!-- select-Categories  -->
 							<div class="select-Categories pb-30">
 								<div class="small-tittle mb-20">
-									<h4>Filter by Genres</h4>
+									<h4>Filter by Category</h4>
 								</div>
-								<label class="container">History <input type="checkbox">
+								<label class="container">문학 
+									<input type="checkbox"> 
 									<span class="checkmark"></span>
-								</label> <label class="container">Horror - Thriller <input
-									type="checkbox" checked="checked active"> <span
-									class="checkmark"></span>
-								</label> <label class="container">Love Stories <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Science Fiction <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Biography <input
-									type="checkbox"> <span class="checkmark"></span>
+								</label> 
+								<label class="container">비문학 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label> 
+								<label class="container">자기계발서 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label> 
+								<label class="container">수험서 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label> 
+								<label class="container">잡지 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+								<label class="container">기타 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
 								</label>
 							</div>
 							<!-- select-Categories End -->
 
-							<!-- Range Slider Start -->
-							<aside
-								class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow mb-40">
-								<div class="small-tittle">
-									<h4>Filter by Price</h4>
-								</div>
-								<div class="widgets_inner">
-									<div class="range_item">
-										<span class="irs js-irs-0"><span class="irs"><span
-												class="irs-line" tabindex="-1"><span
-													class="irs-line-left"></span><span class="irs-line-mid"></span><span
-													class="irs-line-right"></span></span><span class="irs-min"
-												style="visibility: hidden;">$ 0</span><span class="irs-max"
-												style="visibility: visible;">$ 1.000</span><span
-												class="irs-from" style="visibility: visible; left: 0%;">$
-													0</span><span class="irs-to"
-												style="visibility: visible; left: 41.8367%;">$ 500</span><span
-												class="irs-single"
-												style="visibility: hidden; left: 13.9796%;">$ 0 - $
-													500</span></span><span class="irs-grid"></span><span class="irs-bar"
-											style="left: 3.06122%; width: 46.9388%;"></span><span
-											class="irs-shadow shadow-from" style="display: none;"></span><span
-											class="irs-shadow shadow-to" style="display: none;"></span><span
-											class="irs-slider from" style="left: 0%;"></span><span
-											class="irs-slider to type_last" style="left: 46.9388%;"></span></span><input
-											type="text" class="js-range-slider irs-hidden-input" value=""
-											readonly="">
-										<div class="d-flex align-items-center">
-
-											<div class="price_value d-flex justify-content-center">
-												<input type="text" class="js-input-from" id="amount"
-													readonly=""> <span>to</span> <input type="text"
-													class="js-input-to" id="amount" readonly="">
-											</div>
-										</div>
-									</div>
-								</div>
-							</aside>
-							<!-- range end -->
-
-							<!-- Select City items start -->
-							<div class="select-job-items2 mb-30">
-								<div class="col-xl-12">
-									<select name="select2" style="display: none;">
-										<option value="">Filter by Rating</option>
-										<option value="">5 Star Rating</option>
-										<option value="">4 Star Rating</option>
-										<option value="">3 Star Rating</option>
-										<option value="">2 Star Rating</option>
-										<option value="">1 Star Rating</option>
-									</select>
-									<div class="nice-select" tabindex="0">
-										<span class="current">Filter by Rating</span>
-										<ul class="list">
-											<li data-value="" class="option selected">Filter by
-												Rating</li>
-											<li data-value="" class="option">5 Star Rating</li>
-											<li data-value="" class="option">4 Star Rating</li>
-											<li data-value="" class="option">3 Star Rating</li>
-											<li data-value="" class="option">2 Star Rating</li>
-											<li data-value="" class="option">1 Star Rating</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<!--  Select City items End-->
-
 							<!-- select-Categories start -->
-							<div class="select-Categories pt-100 pb-60">
+							<div class="select-Categories pb-50">
 								<div class="small-tittle mb-20">
-									<h4>Filter by Publisher</h4>
+									<h4>Filter by BookStatus</h4>
 								</div>
-								<label class="container">Green Publications <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Anondo Publications <input
-									type="checkbox" checked="checked active"> <span
-									class="checkmark"></span>
-								</label> <label class="container">Rinku Publications <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Sheba Publications <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Red Publications <input
-									type="checkbox"> <span class="checkmark"></span>
+								<label class="container">최상 - 거의 새책 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+							    <label class="container">상 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+								<label class="container">중 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+								<label class="container">하 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+							    <label class="container">최하 - 거의 폐지
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
 								</label>
 							</div>
 							<!-- select-Categories End -->
 							<!-- select-Categories start -->
-							<div class="select-Categories">
+							<div class="select-Categories pb-50">
 								<div class="small-tittle mb-20">
-									<h4>Filter by Author Name</h4>
+									<h4>Filter by SalesStatus</h4>
 								</div>
-								<label class="container">Buster Hyman <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Phil Harmonic <input
-									type="checkbox" checked="checked active"> <span
-									class="checkmark"></span>
-								</label> <label class="container">Cam L. Toe <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Otto Matic <input
-									type="checkbox"> <span class="checkmark"></span>
-								</label> <label class="container">Juan Annatoo <input
-									type="checkbox"> <span class="checkmark"></span>
+								<label class="container">미입찰상품 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
 								</label>
+							    <label class="container">경매중 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+								<label class="container">마감임박 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+								<label class="container">판매완료 
+									<input type="checkbox"> 
+									<span class="checkmark"></span>
+								</label>
+								<!-- select-Categories End -->
 							</div>
-							<!-- select-Categories End -->
 						</div>
 					</div>
 					<!-- Job Category Listing End -->
@@ -177,21 +134,17 @@
 							<div class="product_page_tittle">
 								<div class="short_by">
 									<select name="#" id="product_short_list" style="display: none;">
-										<option>Browse by popularity</option>
-										<option>Name</option>
-										<option>NEW</option>
-										<option>Old</option>
-										<option>Price</option>
+										<option>인기순</option>
+										<option>등록순</option>
+										<option>조회순</option>
 									</select>
 									<div class="nice-select" tabindex="0">
-										<span class="current">Browse by popularity</span>
+										<span class="current">조회방법</span>
 										<ul class="list">
-											<li data-value="Browse by popularity" class="option selected">Browse
-												by popularity</li>
-											<li data-value="Name" class="option">Name</li>
-											<li data-value="NEW" class="option">NEW</li>
-											<li data-value="Old" class="option">Old</li>
-											<li data-value="Price" class="option">Price</li>
+											<li data-value="조회방법" class="option selected">조회방법</li>
+											<li data-value="인기순" class="option">인기순</li>
+											<li data-value="등록순" class="option">등록순</li>
+											<li data-value="조회순" class="option">조회순</li>
 										</ul>
 									</div>
 								</div>
@@ -205,14 +158,14 @@
 									<div class="properties pb-30">
 										<div class="properties-card">
 											<div class="properties-img">
-												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }">
+												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">
 													<img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}"
 														 alt="">
 												</a>
 											</div>
 											<div class="properties-caption properties-caption2">
 												<h3>
-													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }">${bvo.b2_title }</a>
+													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">${bvo.b2_title }</a>
 												</h3>
 												<p>${bvo.b2_writer }</p>
 												<div
@@ -225,14 +178,38 @@
 										</div>
 									</div>
 								</div>
-
 							</c:forEach>
-
 						</div>
+						<nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                            	<!-- 이전  -->
+                                <c:if test="${pm.prev }">
+	                                <li class="page-item">
+	                                    <a href="booklist?pageNum=${pm.startPage-1 }" class="page-link">
+	                                        <i class="ti-angle-left"></i>
+	                                    </a>
+	                                </li>
+                                </c:if>
+                                <!-- 페이지 번호  -->
+                                <c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
+                                	<li class="page-item <c:out value="${pm.cri.pageNum == idx? 'class = active ':''}"/>" > 
+				                     	<a class="page-link" href="booklist?pageNum=${idx }">${idx }</a>
+                                	</li>
+                                </c:forEach>
+                                <!--다음  -->
+                                <c:if test="${pm.next && pm.endPage > 0 }">
+	                                <li class="page-item">
+	                                    <a href="booklist?pageNum=${pm.endPage + 1}" class="page-link" aria-label="Next">
+	                                        <i class="ti-angle-right"></i>
+	                                    </a>
+	                                </li>
+                                </c:if>
+                            </ul>
+                        </nav>
 						<!-- button -->
 						<div class="row">
 							<div class="col-xl-12">
-								<div class="more-btn text-center mt-15">
+								<div class="more-btn text-center mt-50">
 									<a href="bookregister" class="border-btn border-btn2 more-btn2">판매등록</a>
 								</div>
 							</div>

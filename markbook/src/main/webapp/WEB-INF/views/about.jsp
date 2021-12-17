@@ -21,29 +21,28 @@
 	<div class="about-details">
 		<div class="container">
 			<div class="section-top-border">
-				<h1 class="mb-30 ml-50">WillHeroes</h1>
 				<div class="row">
 					<div class="col-md-3">
 						<img
 							src="${pageContext.request.contextPath }/resources/assets/img/logo/willheroes.png"
 							alt="" class="img-fluid">
 					</div>
-					<div class="col-md-9 mt-sm-20" style="padding-top: 40px;">
-						<p>Recently, We are the best JJang, Amuteun Gruhada.
-							from operating in America by making it illegal to transfer money
-							to them through any US bank or payment system. As a result of
-							this law, most of the popular online casino networks such as
-							Party Gaming and PlayTech left the United States. Overnight,
-							online casino players found themselves being chased by the
-							Federal government. But, after a fortnight, the online casino
-							industry came up with a solution and new online casinos started
-							taking root. These began to operate under a different business
-							umbrella, and by doing that, rendered the transfer of money to
-							and from them legal. A major part of this was enlisting
-							electronic banking systems that would accept this new
-							clarification and start doing business with me. Listed in this
-							article are the electronic banking systems that accept players
-							from the United States that wish to play in online casinos.</p>
+					<div class="col-md-9 mt-sm-20">
+					    <h1 class="mb-30">WillHeroes</h1>
+						<p> This is our Toy Project.</p>
+						<p>	Jingle bells, jingle bells, Jingle all the way,
+							Oh what fun it is to ride In a one-horse open sleigh,
+							Jingle bells, jingle bells Jingle all the way,
+							Oh what fun it is to ride In a one-horse open sleigh.
+						    Dashing through the snow In a one-horse open sleigh
+							Over the fields we go Laughing all the way.
+							Bells on bob-tails ring Making spirits bright
+							What fun it is to ride and sing A sleighing song tonight.
+							(One, Two, Three, Four!)
+							Jingle bells jingle bells jingle all the way!
+							Oh what fun it is to ride in a one horse open sleigh!
+							Jingle bells jingle bells jingle all the way!
+							Oh what fun it is to ride in a one horse open sleigh!</p>
 					</div>
 				</div>
 			</div>

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.model.sjCriteria;
 
 @Repository
 public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
@@ -32,6 +33,23 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 				
 		return bookList;
 	}
+	
+	// 페이징 리스트 불러오기
+	@Override
+	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception {
+		
+		logger.info("getListCri(sjCriteria cri) 호출 !");
+
+		return sqlSession.selectList(namespace + ".getListCri", cri);
+	}
+	
+	// 중고거래 총 갯수 조회
+	@Override
+	public int count(sjCriteria cri) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".count", cri);
+	}
+	
 	
 	// 상품 등록
 	@Override
@@ -89,6 +107,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 		logger.info(" DAO : 입찰 가격 수정 완료");	
 	}
+
 	
 	
 

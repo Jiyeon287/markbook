@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.pageMaker;
+import com.markbook.model.sjCriteria;
+import com.markbook.model.sjPageMaker;
 import com.markbook.service.mk_2ndtransService;
 
 @Controller
@@ -30,15 +32,23 @@ public class mk_2ndtransController {
 	@Inject
 	private mk_2ndtransService service;
 	
-	// 중고책 거래 메인 페이지 호출 (GET)
+	// 중고책 거래 메인 페이징 처리 페이지 호출 (GET)
 	// http://localhost:8088/markbook/mk_2ndTrans/booklist
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
-	public String booklistGET(Model model, Criteria cri) throws Exception {
+	public String booklistGET(HttpSession session, Model model, sjCriteria cri) throws Exception {
 		
 		logger.info(" C: booklistGET() 호출 ");
-
-		List<mk_2ndhand_bookVO> bookList = service.getBookList();
-		model.addAttribute("bookList", bookList);
+				
+		// 페이징 처리 정보 생성
+		sjPageMaker pm = new sjPageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(service.count(cri));
+		
+		System.out.println(cri);
+		
+		// Criteria 객체 정보 저장(pageStart/pageSize)
+		model.addAttribute("bookList", service.getlistCri(cri));
+		model.addAttribute("pm", pm);
 		
 		return "/mk_2ndTrans/booklist";
 	}

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.model.sjCriteria;
 import com.markbook.persistence.mk_2ndtransDAO;
 
 @Service
@@ -24,6 +25,22 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		List<mk_2ndhand_bookVO> bookList = tdao.getBookList();
 		
 		return bookList;
+	}
+	
+	// 중고 책 리스트 페이징
+	@Override
+	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception {
+		
+		System.out.println("getListCri(sjCriteria cri) 호출! ");
+		
+		return tdao.getlistCri(cri);
+	}
+	
+	// 중고책 리스트 총 갯수
+	@Override
+	public int count(sjCriteria cri) throws Exception {
+		
+		return tdao.count(cri);
 	}
 	
 	// 중고책 매물 등록
@@ -84,5 +101,7 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		System.out.println("S : 입찰 가격 수정 완료 ");
 		
 	}
+
+	
 
 }

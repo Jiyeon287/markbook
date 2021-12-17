@@ -67,7 +67,7 @@
 									<ul>
 										<li><a href="#">FAQ</a></li>
 										<li><a href="#">Track Order</a></li>
-										<li class="shopping-card"><a href="cart.html"><img
+										<li class="shopping-card"><a href="#"><img
 												src="${pageContext.request.contextPath }/resources/assets/img/icon/cart.svg"
 												alt=""></a></li>
 										<li><c:choose>

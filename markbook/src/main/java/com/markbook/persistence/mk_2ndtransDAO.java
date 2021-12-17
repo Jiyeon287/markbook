@@ -3,11 +3,18 @@ package com.markbook.persistence;
 import java.util.List;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.model.sjCriteria;
 
 public interface mk_2ndtransDAO {
 	
 	// 중고거래 메인 리스트 조회
 	public List<mk_2ndhand_bookVO> getBookList() throws Exception;
+	
+	// 중고거래 전체 정보 페이징 처리 조회
+	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception;
+		
+	// 중고거래 목록 전체 갯수 조회
+	public int count(sjCriteria cri) throws Exception;
 	
 	// 중고거래 매물 등록
 	public void bookRegister(mk_2ndhand_bookVO bvo) throws Exception;

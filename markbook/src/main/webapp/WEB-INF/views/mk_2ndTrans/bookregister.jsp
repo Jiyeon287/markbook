@@ -127,7 +127,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 mt-sm-30">
-					<div class="single-element-widget mt-35">
+					<div class="single-element-widget mt-40">
 						<h1 class="mb-30">Bid Information</h1>
 						<div class="single-element-widget mt-30">
 							<h4 class="mb-30">Seller id</h4>
@@ -141,17 +141,13 @@
 								onblur="this.placeholder = '최소가격을 입력해주세요.'" required=""
 								class="single-input">
 						</div>
-						<div class="mt-15">
-							<h4 class="mb-30">Start date</h4>
-							<input type="date" name="b2_startdate" required="" class="single-input">
-						</div>
 					    <div class="mt-15">
 							<h4 class="mb-30">End date</h4>
 							<input type="date" name="b2_enddate" required="" class="single-input">
 						</div>
-						<div class="form-group mt-5 ml-60">
-							<button type="submit" class="button button-contactForm boxed-btn">판매등록</button>
-							<button type="button" class="button button-contactForm boxed-btn"
+						<div class="form-group mt-5 ml-90">
+							<button type="submit" class="genric-btn success circle arrow">판매등록</button>
+							<button type="button" class="genric-btn primary circle arrow"
 								onclick="location.href='./booklist';">목록으로</button>
 						</div>
 					</div>

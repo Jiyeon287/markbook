@@ -49,12 +49,12 @@ public class testDataSource {
 	@Test
 	public void book2Create() throws Exception{
 		
-		for (int i=1 ; i<=20 ; i++) {
+		for (int i=100 ; i<=999 ; i++) {
 			
 			mk_2ndhand_bookVO vo = new mk_2ndhand_bookVO();
 			vo.setB2_num(i+1);
 			vo.setB2_image("다운로드.jpeg");
-			vo.setB2_name("책이름"+i);
+			vo.setB2_title("책이름"+i);
 			vo.setB2_writer("작가"+i);
 			
 			mdao.bookRegister(vo);
