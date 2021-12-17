@@ -13,18 +13,16 @@ import com.markbook.service.mk_calendarService;
 @RequestMapping("/mk_calendar/*")
 public class mk_calendarController {
 	
+	/*
 	@Inject
 	private mk_calendarService service;
+	*/
 	
 	@RequestMapping(value="/calendar", method=RequestMethod.GET)
 	public void test(Model model) throws Exception {
 		
-		System.out.println("calendar test");
 		
-		int num = service.test();
-		model.addAttribute("test",num);
-		
-		System.out.println("test end");
+
 	}
 	
 }

@@ -83,7 +83,7 @@
 														</a>
 														<ul class="dropdown-menu text-small"
 															aria-labelledby="dropdownUser1" style="">
-															<li><a class="dropdown-item" href="#">My Profile</a></li>
+															<li><a class="dropdown-item" href="/markbook/mk_member/myProfile">My Profile</a></li>
 															<li><a class="dropdown-item"
 																href="/markbook/mk_calendar/calendar">Schedule</a></li>
 															<li

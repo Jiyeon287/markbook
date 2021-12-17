@@ -244,5 +244,10 @@ public class mk_memberController {
         return "redirect";
 	}
 	
+	@RequestMapping(value="/myProfile", method=RequestMethod.GET)
+	public void myProGET() throws Exception {
+		System.out.println("내 프로필");
+	}
+	
 
 }

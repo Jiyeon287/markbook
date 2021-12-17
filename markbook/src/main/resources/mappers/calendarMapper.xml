@@ -5,8 +5,5 @@
   
 <mapper namespace="com.markbook.mapper.calendarMapper">
 
-	<select id="test" resultType="int">
-		select count(*)
-		from member_info
-	</select>
+
 </mapper>
