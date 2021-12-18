@@ -30,5 +30,8 @@ public interface mk_2ndtransService {
 	
 	// 중고책 상품 입찰하기
 	public void bookBid(mk_2ndhand_bookVO bvo) throws Exception;
+	
+	// 카트 리스트 조회
+	public List<mk_2ndhand_bookVO> getCart(String b2_buyer_id) throws Exception;
 
 }

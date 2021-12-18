@@ -88,9 +88,7 @@
 									<h6>입찰 가격</h6>
 								</div>
 								<input class="form-control" name="bid_price" id="bid_price"
-									type="text" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Enter Price'"
-									placeholder="Enter Price">
+									type="number">
 							</div>
 							<div class="form-group mt-3">
 								<button type="button" onclick="registerCheck();"
@@ -112,16 +110,13 @@
 	function registerCheck() {
 		
 		var bid_price = $("#bid_price").val();
-		var b2_price = $("#b2_highestprice").val();
-		
-		alert(bid_price);
-		alert(b2_price);
+		var b2_price = Number($("#b2_highestprice").val());
 
 		if ($("#bid_price").val() == "") {
 			alert("입찰 가격을 입력해 주세요");
 			$("#bid_price").focus();
 			return false;
-		} else if ($("#bid_price").val() < $("#b2_highestprice").val()) {
+		} else if (bid_price < b2_price) {
 			alert("현재 최고가 보다 높은 입찰 가격을 입력해 주세요");
 			$("#bid_price").focus();
 			return false;

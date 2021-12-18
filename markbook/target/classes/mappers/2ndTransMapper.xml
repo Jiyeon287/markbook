@@ -28,7 +28,7 @@
 		insert into 2ndhand_book 
 		(b2_num,b2_seller_num,b2_startprice,b2_highestprice,b2_title,b2_category, 
 		b2_content,b2_image,b2_writer,b2_publisher,b2_bookstatus,b2_startdate,b2_enddate,b2_sellstatus)
-		values(#{b2_num}, #{b2_seller_num}, #{b2_startprice}, 0, 
+		values(#{b2_num}, #{b2_seller_num}, #{b2_startprice}, #{b2_highestprice}, 
 		#{b2_title}, #{b2_category}, #{b2_content}, #{b2_image}, #{b2_writer}, 
 		#{b2_publisher},#{b2_bookstatus},NOW(),#{b2_enddate},0) 
 	</insert>
@@ -64,8 +64,15 @@
 	<update id="priceupdate">
 		update 2ndhand_book
 		set
-		b2_highestprice = #{b2_highestprice}
+		b2_highestprice = #{b2_highestprice},
+		b2_buyer_id = #{b2_buyer_id} 
 		where b2_num = #{b2_num}
 	</update>
+	
+	<!-- 중고거래 책 상세페이지 조회 -->
+	<select id="getcart" resultType="mk_2ndhand_bookVO">
+		select * from 2ndhand_book 
+		where b2_buyer_id = #{b2_buyer_id} and b2_sellstatus = 0 
+	</select>
 
 </mapper>

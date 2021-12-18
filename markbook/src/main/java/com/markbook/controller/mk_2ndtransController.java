@@ -77,7 +77,9 @@ public class mk_2ndtransController {
 	public String registerPOST(mk_2ndhand_bookVO bvo) throws Exception {
 
 		logger.info("C: registerPOST() 호출");
-
+		
+		bvo.setB2_highestprice(bvo.getB2_startprice());
+		System.out.println(bvo);
 		service.bookRegister(bvo);
 
 		return "redirect:/mk_2ndTrans/booklist";
@@ -193,12 +195,50 @@ public class mk_2ndtransController {
 	
 	// 중고책 입찰하기 등록 (POST)
 	@RequestMapping(value = "/bookbid", method = RequestMethod.POST)
-	public String bookbidPOST(mk_2ndhand_bookVO bvo, String bid_price) throws Exception {
-
+	public String bookbidPOST(HttpSession session,mk_2ndhand_bookVO bvo, String bid_price) throws Exception {
+		
+		String m_id = (String) session.getAttribute("m_id");
+		
+		m_id = "temp_bid_id";
+		
+		bvo.setB2_highestprice(Integer.parseInt(bid_price));
+		bvo.setB2_buyer_id(m_id);
+		service.bookBid(bvo);
+		
 		logger.info("C: bookbidPOST() 호출");
 		logger.info("입찰완료");
 		
 		return "redirect:/mk_2ndTrans/booklist";
+	}
+	
+	// 중고책 판매 카트 페이지 호출 (GET)
+	@RequestMapping(value = "/bookcart", method = RequestMethod.GET)
+	public String cartGET(HttpSession session, Model model) throws Exception {
+
+		logger.info("C: cartGET() 호출");
+		
+		String b2_buyer_id= (String) session.getAttribute("m_id");
+		
+		b2_buyer_id = "tempId";
+		
+		model.addAttribute("cartList", service.getCart(b2_buyer_id));
+				
+		return "/mk_2ndTrans/bookcart";
+	}
+	
+	// 중고책 판매 결제 페이지 호출 (GET)
+	@RequestMapping(value = "/bookcheckout", method = RequestMethod.GET)
+	public String checkoutGET(HttpSession session, Model model, Integer b2_num) throws Exception {
+
+		logger.info("C: checkoutGET() 호출");
+		
+		String b2_buyer_id= (String) session.getAttribute("m_id");
+		
+		b2_buyer_id = "tempId";
+		
+		model.addAttribute("cartList", service.getCart(b2_buyer_id));
+		
+		return "/mk_2ndTrans/bookcheckout";
 	}
 
 	

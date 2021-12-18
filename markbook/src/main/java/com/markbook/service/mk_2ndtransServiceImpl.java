@@ -101,6 +101,19 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		System.out.println("S : 입찰 가격 수정 완료 ");
 		
 	}
+	
+	// 카트 조회
+	@Override
+	public List<mk_2ndhand_bookVO> getCart(String b2_buyer_id) throws Exception {
+		
+		System.out.println("S : getCart() 호출! ");
+		
+		List<mk_2ndhand_bookVO> cartList = tdao.getCart(b2_buyer_id);
+		
+		System.out.println("S : getCart() 호출완료 ");
+		
+		return cartList;
+	}
 
 	
 

@@ -65,7 +65,6 @@
                                     </div>
                                     <a href="${pageContext.request.contextPath}/mk_2ndTrans/bookbid?b2_num=${bvo.b2_num }" class="white-btn mr-10">입찰하기</a>
                                     <a href="${pageContext.request.contextPath}/mk_2ndTrans/bookmodify?b2_num=${bvo.b2_num }" class="white-btn mr-10">상품수정</a>
-                                    <a href="#" class="border-btn share-btn"><i class="fas fa-share-alt"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -107,6 +107,19 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 		logger.info(" DAO : 입찰 가격 수정 완료");	
 	}
+	
+	// 카트 리스트 조회
+	@Override
+	public List<mk_2ndhand_bookVO> getCart(String b2_buyer_id) throws Exception {
+		
+		logger.info(" DAO : getCart() 호출 ");
+		
+		List<mk_2ndhand_bookVO> cartList = sqlSession.selectList(namespace+".getcart", b2_buyer_id);
+		
+		logger.info(" DAO : getCart() 호출 완료 ");
+		
+		return cartList;
+	}
 
 	
 	
