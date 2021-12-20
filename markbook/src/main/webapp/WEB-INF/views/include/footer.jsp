@@ -125,6 +125,7 @@
     <script src="${pageContext.request.contextPath }/resources//assets/js/plugins.js"></script>
     <script src="${pageContext.request.contextPath }/resources/assets/js/main.js"></script>
 	
+	<script src="${pageContext.request.contextPath }/resources/assets/js/index.js"></script>
 </body>
 
 </html>

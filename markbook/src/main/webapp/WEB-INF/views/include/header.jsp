@@ -37,6 +37,7 @@
 	href="${pageContext.request.contextPath }/resources/assets/css/nice-select.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/css/style.css">
+
 </head>
 <header>
 	<div class="header-area">
@@ -65,7 +66,6 @@
 								</div>
 								<div class="header-info-right d-flex align-items-center">
 									<ul>
-										<li><a href="#">FAQ</a></li>
 										<li><a href="#">Track Order</a></li>
 										<li class="shopping-card"><a href="/markbook/mk_2ndTrans/bookcart"><img
 												src="${pageContext.request.contextPath }/resources/assets/img/icon/cart.svg"
@@ -88,7 +88,7 @@
 																href="/markbook/mk_calendar/calendar">Schedule</a></li>
 															<li
 																style="border-bottom: 1px solid rgb(199, 200, 201); padding: 0 0 5px 0;">
-																<a class="dropdown-item" href="#">Contact Us</a>
+																<a class="dropdown-item" href="#" onclick="naver_tt();">Contact Us</a>
 															</li>
 															<li style="padding: 5px 0 0 0;"><a
 																class="dropdown-item" href="/markbook/mk_member/logout">Sign
