@@ -58,6 +58,9 @@
                                 <td>
                                     <h5>${cvo.b2_highestprice }</h5>
                                 </td>
+                                <td>
+                                     <a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout">checkout</a>
+                                </td>
                             </tr>
                             </c:forEach>
                             <tr>

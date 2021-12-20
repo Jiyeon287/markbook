@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
 
 @Repository
@@ -119,6 +120,19 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		logger.info(" DAO : getCart() 호출 완료 ");
 		
 		return cartList;
+	}
+	
+	
+	// 결제창 회원정보 조회
+	@Override
+	public mk_memberVO getMember(String m_id) throws Exception {
+		
+		logger.info(" DAO : getMember() 호출 " );
+		
+		mk_memberVO mvo = sqlSession.selectOne(namespace+".getmember",m_id);
+						
+		return mvo;
+		
 	}
 
 	

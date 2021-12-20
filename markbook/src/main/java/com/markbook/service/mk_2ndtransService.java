@@ -3,6 +3,7 @@ package com.markbook.service;
 import java.util.List;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
 
 public interface mk_2ndtransService {
@@ -33,5 +34,8 @@ public interface mk_2ndtransService {
 	
 	// 카트 리스트 조회
 	public List<mk_2ndhand_bookVO> getCart(String b2_buyer_id) throws Exception;
+	
+	// 중고거래 결제창 회원정보 조회
+	public mk_memberVO getMember(String m_id) throws Exception;
 
 }

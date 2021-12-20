@@ -72,7 +72,13 @@
 	<!-- 중고거래 책 상세페이지 조회 -->
 	<select id="getcart" resultType="mk_2ndhand_bookVO">
 		select * from 2ndhand_book 
-		where b2_buyer_id = #{b2_buyer_id} and b2_sellstatus = 0 
+		where b2_num = #{b2_num} and b2_buyer_id = #{b2_buyer_id} and b2_sellstatus = 0  
+	</select>
+	
+	<!-- 중고거래 결제 회원 정보 조회 -->
+	<select id="getmember" resultType="mk_memberVO">
+		select * from member_info 
+		where m_id = #{m_id} 
 	</select>
 
 </mapper>

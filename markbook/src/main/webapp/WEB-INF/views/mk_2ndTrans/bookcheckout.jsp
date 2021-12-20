@@ -27,13 +27,8 @@
                     <div class="col-lg-8">
                         <h3>Billing Details</h3>
                         <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="first" name="name">
-                                <span class="placeholder" data-placeholder="First name"></span>
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="last" name="name">
-                                <span class="placeholder" data-placeholder="Last name"></span>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="m_name" name="m_name" value="${memberInfo.m_name } ">
                             </div>
                             <div class="col-md-6 form-group p_star">
                                 <input type="text" class="form-control" id="number" name="number">
@@ -70,16 +65,17 @@
                                     <a href="#">Product<span>Total</span>
                                     </a>
                                 </li>
+                                <c:forEach var="cvo" items="${cartList }">
                                 <li>
-                                    <a href="#">Fresh Blackberry
-                                        <span class="middle">x 02</span>
-                                        <span class="last">$720.00</span>
+                                    <a href="#">${cvo.b2_title } 
+                                        <span class="last">₩${cvo.b2_highestprice }</span>
                                     </a>
                                 </li>
+                                 </c:forEach>
                             </ul>
                             <ul class="list list_2">
                                 <li>
-                                    <a href="#">Subtotal <span>$2160.00</span></a>
+                                    <a href="#">Subtotal <span>₩2160.00</span></a>
                                 </li>
                                 <li>
                                     <a href="#">Shipping

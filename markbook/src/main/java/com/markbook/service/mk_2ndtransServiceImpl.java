@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
 import com.markbook.persistence.mk_2ndtransDAO;
 
@@ -113,6 +114,19 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		System.out.println("S : getCart() 호출완료 ");
 		
 		return cartList;
+	}
+	
+	// 결제창 멤버 정보 조회
+	@Override
+	public mk_memberVO getMember(String m_id) throws Exception {
+		
+		System.out.println("S : getMember() 호출! ");
+		
+		mk_memberVO mvo = tdao.getMember(m_id);
+		
+		System.out.println("S : getMember() 호출완료 ");
+		
+		return mvo;
 	}
 
 	

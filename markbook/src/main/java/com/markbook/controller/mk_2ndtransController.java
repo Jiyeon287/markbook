@@ -228,15 +228,16 @@ public class mk_2ndtransController {
 	
 	// 중고책 판매 결제 페이지 호출 (GET)
 	@RequestMapping(value = "/bookcheckout", method = RequestMethod.GET)
-	public String checkoutGET(HttpSession session, Model model, Integer b2_num) throws Exception {
+	public String checkoutGET(HttpSession session, Model model) throws Exception {
 
 		logger.info("C: checkoutGET() 호출");
 		
-		String b2_buyer_id= (String) session.getAttribute("m_id");
+		String b2_buyer_id = (String) session.getAttribute("m_id");
 		
 		b2_buyer_id = "tempId";
 		
 		model.addAttribute("cartList", service.getCart(b2_buyer_id));
+		model.addAttribute("memberInfo", service.getMember(b2_buyer_id));
 		
 		return "/mk_2ndTrans/bookcheckout";
 	}
