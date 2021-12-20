@@ -28,32 +28,26 @@
                         <h3>Billing Details</h3>
                         <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                             <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="m_name" name="m_name" value="${memberInfo.m_name } ">
+                                <input type="text" class="form-control" placeholder="Name" 
+                                	   id="m_name" name="m_name" value="${memberInfo.m_name }">
                             </div>
                             <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="number" name="number">
-                                <span class="placeholder" data-placeholder="Phone number"></span>
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="email" name="compemailany">
-                                <span class="placeholder" data-placeholder="Email Address"></span>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
+                                <input type="text" class="form-control" placeholder="Phone number" 
+                                		id="number" name="number" value="${memberInfo.m_phone }">
                             </div>
                             <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="add1" name="add1">
-                                <span class="placeholder" data-placeholder="Address line 01"></span>
+                                <input type="text" class="form-control" placeholder="address1" 
+                                id="add1" name="add1" value="${memberInfo.m_addr1 }">
                             </div>
                             <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="add2" name="add2">
-                                <span class="placeholder" data-placeholder="Address line 02"></span>
+                                <input type="text" class="form-control" placeholder="address2"  
+                                id="add2" name="add2" value="${memberInfo.m_addr2 }">
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
                                     <h3>Shipping Details</h3>
                                 </div>
-                                <textarea class="form-control" style="resize: none;" name="message" id="message" rows="100" placeholder="Order Notes"></textarea>
+                                <textarea class="form-control" style="resize: none;" name="message" id="message" rows="100" placeholder="배송 요청사항"></textarea>
                             </div>
                         </form>
                     </div>
@@ -62,28 +56,18 @@
                             <h2>Your Order</h2>
                             <ul class="list">
                                 <li>
-                                    <a href="#">Product<span>Total</span>
+                                    <a href="#">Product<span>Price</span>
                                     </a>
                                 </li>
-                                <c:forEach var="cvo" items="${cartList }">
                                 <li>
-                                    <a href="#">${cvo.b2_title } 
-                                        <span class="last">₩${cvo.b2_highestprice }</span>
+                                    <a href="#"> ${OrderInfo.b2_title } 
+                                        <span class="last">₩ ${OrderInfo.b2_highestprice }</span>
                                     </a>
                                 </li>
-                                 </c:forEach>
                             </ul>
                             <ul class="list list_2">
                                 <li>
-                                    <a href="#">Subtotal <span>₩2160.00</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Shipping
-                                        <span>Flat rate: $50.00</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">Total<span>$2210.00</span>
+                                    <a href="#">Total<span>₩ ${OrderInfo.b2_highestprice }</span>
                                     </a>
                                 </li>
                             </ul>

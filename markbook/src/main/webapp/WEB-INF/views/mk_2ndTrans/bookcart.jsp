@@ -59,7 +59,7 @@
                                     <h5>${cvo.b2_highestprice }</h5>
                                 </td>
                                 <td>
-                                     <a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout">checkout</a>
+                                     <a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout?b2_num=${cvo.b2_num }">checkout</a>
                                 </td>
                             </tr>
                             </c:forEach>
