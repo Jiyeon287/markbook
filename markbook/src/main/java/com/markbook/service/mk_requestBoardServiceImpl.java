@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
-import com.markbook.domain.page;
+import com.markbook.domain.Page;
 import com.markbook.persistence.mk_requestBoardDAO;
 
 @Service
@@ -25,15 +25,15 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	}
 // 게시글 수 
 	@Override
-	public int countBoard() throws Exception {
+	public int count() throws Exception {
 		
-		return rbdao.countBoard();
+		return rbdao.count();
 	}
 	
 	@Override
-	public List<mk_requestBoardVO> requestList(page pg) {
+	public List<mk_requestBoardVO> requestList(int display,int postnum) {
 		
-		return rbdao.requestList(pg);
+		return rbdao.requestList(display, postnum);
 	}
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {

@@ -133,45 +133,47 @@ function fun23(num){
                             </tbody>
                         </table>
                         
-                            <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
-                            <ul class="pagination justify-content-end font-weight-semi-bold mb-0">
+  <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
+ <ul class="pagination justify-content-end font-weight-semi-bold mb-0">	
+ 			<li class="page-item">					                       
 <c:if test="${page.prev}">
- <span>[ <a href="/board/listPage?num=${page.startPageNum - 1}">이전</a> ]</span>
+  <a href="./request_list?pgnum=${page.startPageNum - 1}" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
+  <i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a> 
+  
 </c:if>
 
 <c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
- <span>
- 
+
+ <li class="page-item d-none d-md-block">
   <c:if test="${select != num}">
-   <a href="/board/listPage?num=${num}">${num}</a>
+   <a href="./request_list?pgnum=${num}" id="datatablePagination1" class="page-link">${num}</a>
   </c:if>    
+  </li>
   
+  <li class="page-item d-none d-md-block">
   <c:if test="${select == num}">
-   <b>${num}</b>
+   <b id="datatablePagination2" class="page-link">${num}</b>   
   </c:if>
-    
- </span>
+   </li> 
+   
+
 </c:forEach>
 
 <c:if test="${page.next}">
- <span>[ <a href="/board/listPage?num=${page.endPageNum + 1}">다음</a> ]</span>
+<li class="page-item">
+ <a href="./request_list?pgnum=${page.endPageNum + 1}" id="datatablePaginationNext"class="page-link active"aria-label="Next">
+ <i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i></a>
+ </li>
 </c:if>
-                        </ul>
-                        </nav>
+
+                  </li>
+                  </ul>
+                  </nav>
                         
                         
                         
                         
-                        
-                        
-                        
-                        
-                    
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </head>
+
 
 
 <%@ include file="footer.jsp"%>

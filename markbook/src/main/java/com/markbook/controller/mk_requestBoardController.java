@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
-import com.markbook.domain.page;
+import com.markbook.domain.Page;
 import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_requestBoardService;
 
@@ -31,7 +31,7 @@ public class mk_requestBoardController {
 	//http://localhost:8088/markbook/mk_requestBoard/add
 	@RequestMapping(value="/mk_requestBoard/add",method = RequestMethod.GET)
 	public void addGET(Model model) throws Exception{
-		int count=service.countBoard();
+		int count=service.count();
 		
 		if(count == 0) {
 			count =1;
@@ -80,23 +80,23 @@ public class mk_requestBoardController {
 		model.addAttribute("page",detailp);
 		
 	}
+	
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
-	public void adminRequestList(@ModelAttribute("cri") Criteria cri,Model model,@RequestParam("pgnum") int pgnum)throws Exception{	
-	
+	public void adminRequestList(Model model,@RequestParam("pgnum") int pgnum)throws Exception{	
+		logger.info("@@@요청게시판 목록@@@");
 
-		page pg=new page();
-	
-		int count =service.countBoard();
+		Page page=new Page();
 		
-	
-		List<mk_requestBoardVO> list = service.requestList(pg);
+	    page.setNum(pgnum);
+	    int count=service.count();
+		page.setCount(count);
+		
+		List<mk_requestBoardVO> list = service.requestList(page.getDisplayPost(),page.getPostNum());
 
 		model.addAttribute("list", list);   
-	    model.addAttribute("page",pg);
+	    model.addAttribute("page",page);
 		model.addAttribute("select", pgnum);
-	
-		//현재페잊
-		model.addAttribute("pgnum", pgnum);
+	     
 
 		
 	}

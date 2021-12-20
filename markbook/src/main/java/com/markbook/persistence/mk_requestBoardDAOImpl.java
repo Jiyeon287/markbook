@@ -1,5 +1,6 @@
 package com.markbook.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
-import com.markbook.domain.page;
+import com.markbook.domain.Page;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
 
 @Repository
@@ -31,18 +32,23 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 
 	//게시글 총 갯수
 	@Override
-	public int countBoard() throws Exception {
+	public int count() throws Exception {
 	System.out.println("DAO:countBoard 호출 @@");
 	
 	return sqlSession.selectOne(namespace+".requestCount");
 	}
 
 	@Override
-	public List<mk_requestBoardVO> requestList(page pg) {
+	public List<mk_requestBoardVO> requestList(int display,int postnum) {
 		System.out.println("DAO:list 호출 @@");
-		List<mk_requestBoardVO>rist=sqlSession.selectList(namespace+".requestList",pg);
 		
-		return rist;
+  HashMap<String, Integer> data = new HashMap<String,  Integer>();
+		  
+		  data.put("displayPost", display);
+		  data.put("postNum", postnum);
+		
+		
+		return sqlSession.selectList(namespace+".requestList",data);
 	}
 	
 	
