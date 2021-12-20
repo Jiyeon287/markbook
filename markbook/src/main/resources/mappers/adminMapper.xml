@@ -23,7 +23,7 @@
  	<!-- 도서 목록 페이징 처리 list -->
  	<select id="listCri" resultType="mk_bookVO">
  		select * from book 
- 		order by b_num desc, b_regdate desc 
+ 		order by b_num desc 
  		limit #{pageStart},#{pageSize} <!-- 크기를 받아가서 저장 -->
  	</select>
  	

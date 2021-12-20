@@ -4,18 +4,19 @@ import java.util.List;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_requestBoardVO;
-import com.markbook.domain.page;
+import com.markbook.domain.Page;
 
 public interface mk_requestBoardService {
+
 
 	//요청게시판 글 등록
 	public void addBoard(mk_requestBoardVO rbvo);
 	
 	//요청게시판 총 게시글 수
-	public int countBoard() throws Exception;
+	public int count() throws Exception;
 	
 	//요청게시판 리스트
-	public List<mk_requestBoardVO> requestList(page pg);
+	public List<mk_requestBoardVO> requestList(int display,int postnum);
 	
    //요청게시판 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);

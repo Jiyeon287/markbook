@@ -23,8 +23,11 @@ public interface mk_memberService {
 	//소셜 회원가입(네이버)
 	public void naverJoin(mk_memberVO mvo) throws Exception;
 	
+	//비밀번호 찾기 중 db에서 id에 맞는 이메일 불러오기
+//	public String emailChk(String m_id) throws Exception;
+	
 	//임시비밀번호 네이버로 전송
-	public void sendEmail(mk_memberVO vo, String div) throws Exception;
+	public void sendEmail(mk_memberVO vo) throws Exception;
 	
 	//임시비밀번호 생성
 	public void findPw(HttpServletResponse resp, mk_memberVO vo) throws Exception;

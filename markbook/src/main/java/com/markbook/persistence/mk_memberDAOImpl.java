@@ -83,4 +83,18 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		return tmp;
 	}
 
+	@Override
+	public mk_memberVO readMember(String m_id) throws Exception {
+		
+		mk_memberVO mvo = sqlSession.selectOne(namespace+".readMember", m_id);
+		return mvo;
+	}
+
+//	@Override
+//	public String emailChk(String m_email) throws Exception {
+//		
+//		String m_id = sqlSession.selectOne(namespace+".", m_email);
+//		return m_id;
+//	}
+
 }

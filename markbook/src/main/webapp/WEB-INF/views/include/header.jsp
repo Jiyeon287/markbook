@@ -85,7 +85,7 @@
 															aria-labelledby="dropdownUser1" style="">
 															<li><a class="dropdown-item" href="/markbook/mk_member/myProfile">My Profile</a></li>
 															<li><a class="dropdown-item"
-																href="/markbook/mk_calendar/calendar">Schedule</a></li>
+																href="#" onclick="cal_open();">Schedule</a></li>
 															<li
 																style="border-bottom: 1px solid rgb(199, 200, 201); padding: 0 0 5px 0;">
 																<a class="dropdown-item" href="#" onclick="naver_tt();">Contact Us</a>

@@ -27,16 +27,16 @@
 </head>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-//이메일 합치기
-var emailAddr = document.findPW.emailAddr.value;
-var domainAddr = document.findPW.domain.value;
-var realEmail = emailAddr+"@"+domainAddr;
-	
-document.joinFr.m_email.value = realEmail;
 
 //유효성검사 + id 존재여부
 function inpChk() {
-	
+	//이메일 합치기
+	var emailAddr = document.findPW.emailAddr.value;
+	var domainAddr = document.findPW.domain.value;
+	var realEmail = emailAddr+"@"+domainAddr;
+		
+	document.findPW.m_email.value = realEmail;
+	alert(realEmail);
 	var id = document.findPW.m_id.value;
 	
 	if(id == "") {
@@ -55,47 +55,8 @@ function inpChk() {
 		alert("도메인 주소를 선택하세요.");
 		return false;
 	}
-// 	else {
-// 		$.ajax({
-// 			url: "/markbook/mk_member/idchk",
-// 			type: "post",
-// 			dataType: "json",
-// 			data: {"m_id" : id},
-// 			success: function(data) {
-// 				if(data > 0) {
-// 					//아이디 중복 확인
-					
-// 					alert("존재하는 아이디입니다.");
-// // 					return false;
-// // 					$("#isCheck").attr("value","2");
-					
-// 				} else if (data == 0) {
-// 					// 아이디 중복 안됨 -> 존재하지 않음
-// 					alert("존재하지 않는 아이디입니다.");
-// // 					$("#isCheck").attr("value","1");
-// 				}
-// 			}
-// 		})
-// 	}
 }
 
-</script>
-<script>
-// $(function(){
-// 	$("#findBtn").click(function(){
-// 		$.ajax({
-// 			url : "/member/findpw",
-// 			type : "POST",
-// 			data : {
-// 				id : $("#m_id").val(),
-// 				email : $("#m_email").val()
-// 			},
-// 			success : function(result) {
-// 				alert(result);
-// 			},
-// 		})
-// 	});
-// })
 
 </script>
 <body>
@@ -109,7 +70,7 @@ function inpChk() {
                     <span>비밀번호 찾기</span>
                 </div>
                 <!-- Single Input Fields -->
-                <form method="post" name="findPW" action="/markbook/mk_member/idchk2" onsubmit="return inpChk()">
+                <form method="post" name="findPW" action="/markbook/mk_member/findPw" onsubmit="return inpChk()">
                 	<input type="hidden" id="isCheck" name="isCheck" value="0"/>
 	                <div class="input-box">
 	                     <div class="single-input-fields">
@@ -119,6 +80,7 @@ function inpChk() {
 							<table style="width:100%">
 								<tr>
 									<td style="width:50%">
+			                        	<input type="hidden" name="m_email">
 			                        	<input type="text" placeholder="이메일 주소를 입력하세요" name="emailAddr">
 			                        </td>
 			                        <td style="width:50%">

@@ -1,5 +1,7 @@
 package com.markbook.service;
 
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,8 +42,25 @@ public class mk_memberServiceImpl implements mk_memberService {
 	}
 
 	@Override
-	public void findPw(HttpServletResponse resp, mk_memberVO vo) throws Exception {
-
+	public void findPw(HttpServletResponse response, mk_memberVO vo) throws Exception {
+		
+		response.setContentType("text/html;charset=utf-8");
+		mk_memberVO ck = mdao.readMember(vo.getM_id());
+		System.out.println("db:"+ck.toString());
+		System.out.println("jsp:"+vo.toString());
+		PrintWriter out = response.getWriter();
+		
+		//가입된 아이디가 없으면
+		if(mdao.memberIdChk(vo.getM_id()) == 0) {
+//			out.print("등록되지 않은 아이디입니다.");
+			out.print("<script>alert('등록되지 않은 아이디입니다.'); history.back();</script>");
+			out.close();
+		}
+		//가입된 아이디의 이메일과 입력한 이메일이 다르면
+		else if(!vo.getM_email().equals(ck.getM_email())) {
+			out.print("<script>alert('등록되지 않은 이메일입니다.'); history.back();</script>");
+			out.close();
+		}else {
 		String pw = "";
 		for (int i = 0; i < 12; i++) {
 			pw += (char) ((Math.random() * 26) + 97);
@@ -50,16 +69,17 @@ public class mk_memberServiceImpl implements mk_memberService {
 		// 비밀번호 변경
 		mdao.updatePw(vo);
 		// 비밀번호 변경 메일 발송
-		sendEmail(vo, "findpw");
+		sendEmail(vo);
+		}
 	}
 
 	@Override
-	public void sendEmail(mk_memberVO vo, String div) throws Exception {
+	public void sendEmail(mk_memberVO vo) throws Exception {
 		// Mail Server 설정
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.naver.com"; //네이버 이용시 smtp.naver.com
-		String hostSMTPid = "iop0357@naver.com";
-		String hostSMTPpwd = "rlawldus0613";
+		String hostSMTPid = "iop0357";
+		String hostSMTPpwd = "rlawldus0613!";
 
 		// 보내는 사람 EMail, 제목, 내용
 		String fromEmail = "iop0357@naver.com";
@@ -67,14 +87,14 @@ public class mk_memberServiceImpl implements mk_memberService {
 		String subject = "";
 		String msg = "";
 
-		if(div.equals("findpw")) {
+
 			subject = "markbook 임시 비밀번호 입니다.";
 			msg += "<div align='center' style='border:1px solid black; font-family:verdana'>";
 			msg += "<h3 style='color: blue;'>";
 			msg += vo.getM_id() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.</h3>";
 			msg += "<p>임시 비밀번호 : ";
 			msg += vo.getM_pw() + "</p></div>";
-		}
+
 
 		// 받는 사람 E-Mail 주소
 		String mail = vo.getM_email();
@@ -82,12 +102,12 @@ public class mk_memberServiceImpl implements mk_memberService {
 			HtmlEmail email = new HtmlEmail();
 			email.setDebug(true);
 			email.setCharset(charSet);
-			email.setSSL(true);
+			email.setSSLOnConnect(true);
 			email.setHostName(hostSMTP);
-			email.setSmtpPort(587); //네이버 이용시 587
+			email.setSmtpPort(465); //네이버 이용시 587
 
 			email.setAuthentication(hostSMTPid, hostSMTPpwd);
-			email.setTLS(true);
+			email.setStartTLSEnabled(true);
 			email.addTo(mail, charSet);
 			email.setFrom(fromEmail, fromName, charSet);
 			email.setSubject(subject);
@@ -109,6 +129,12 @@ public class mk_memberServiceImpl implements mk_memberService {
 		
 		return mdao.findId(mvo);
 	}
+
+//	@Override
+//	public String emailChk(String m_id) throws Exception {
+//		String m_email = mdao.emailChk(m_id);
+//		return m_email;
+//	}
 
 
 }

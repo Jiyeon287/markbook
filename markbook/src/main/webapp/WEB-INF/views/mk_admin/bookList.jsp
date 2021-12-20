@@ -32,8 +32,7 @@
                                     <tr>
                                         <td class="py-3">${bvo.b_num}</td>
                                         <td>
-                                        	<a href="/mk_admin/bookDelete?b_num=${bvo.b_num }">${bvo.b_name }</a>
-                                            <div>${bvo.b_name }</div>
+                                        	<a href="/mk_admin/bookList?b_num=${bvo.b_num }">${bvo.b_name }</a>
                                             <div class="book-img">
 												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/book.PNG" alt="Graindashboard" style="width: 55px; height: 55px;"></a>
 											</div>
@@ -81,17 +80,35 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
+                                
 							<nav aria-label="Page navigation example" style="text-align: center; margin: 0 auto;">
 								<ul class="pagination">
-									<li class="page-item"><a class="btn" href="#"
-										aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-									</a></li>
-									<li class="page-item"><a class="btn" href="#">1</a></li>
-									<li class="page-item"><a class="btn" href="#">2</a></li>
-									<li class="page-item"><a class="btn" href="#">3</a></li>
-									<li class="page-item"><a class="btn" href="#"
-										aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-									</a></li>
+									<!-- 이전 -->
+									<c:if test="${pm.prev }">
+										<li class="page-item">
+											<a class="btn" href="bookList?pageStart=${pm.startPage }" aria-label="Previous"> 
+												<span aria-hidden="true">&laquo;</span>
+											</a>
+										</li>
+									</c:if>
+									
+									<!-- 페이지 번호 -->
+									<c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
+										<li ${pm.cri.pageStart == idx? 'class = btn':'' }>
+											<a href="bookList?pageStart=${idx }">${idx }</a>
+										</li>
+										<!-- <li class="page-item"><a class="btn" href="#">1</a></li> -->
+									</c:forEach>
+									
+									<!-- 다음 -->
+									<c:if test="${pm.next }">
+										<li class="page-item">
+											<a class="btn" href="#" aria-label="Next"> 
+												<span aria-hidden="true">&raquo;</span>
+											</a>
+										</li>
+									</c:if>
+									
 								</ul>
 							</nav>
 
@@ -101,6 +118,15 @@
                 </div>
             </div>
 	
+	<script type="text/javascript">
+
+		var result = '${result}';
+		alert(result);
+		
+		if(result == 'success'){
+			alert(" 도서 등록 완료 ");
+		}
+	</script>
 		
 		
 		

@@ -19,6 +19,12 @@ public interface mk_memberDAO {
 	//소셜 회원가입(네이버)
 	public void naverJoin(mk_memberVO mvo) throws Exception;
 	
+	//비밀번호 찾기 중 id에 맞는 이메일 db에서 불러오기
+//	public String emailChk(String m_id) throws Exception;
+	
+	//비밀번호 찾기 중 아이디확인
+	public mk_memberVO readMember(String m_id) throws Exception;
+	
 	// 비밀번호 변경
 	public void updatePw(mk_memberVO vo) throws Exception;
 

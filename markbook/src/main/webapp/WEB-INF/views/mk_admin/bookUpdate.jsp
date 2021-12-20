@@ -23,12 +23,6 @@
 
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">책번호</strong> <input type="text"
-											class="form-control" id="b_num" name="b_num" value=${mk_bookVO.b_num }>
-									</div>
-									
-									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
 											class="form-control" id="b_name" name="b_name" value=${mk_bookVO.b_name }>
 									</div>
@@ -113,7 +107,7 @@
 										<!-- <label for="exampleFormControlSelect1">대출횟수</label> -->
 										<strong class="d-block mb-1">대출횟수</strong> <select
 											class="form-control" id="b_count" name="b_count">
-											<option>1</option>
+											<option value="1">1</option>
 											<option>2</option>
 											<option>3</option>
 											<option>4</option>
