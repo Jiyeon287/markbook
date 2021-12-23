@@ -26,15 +26,7 @@
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
 											class="form-control" id="b_name" name="b_name" value=${mk_bookVO.b_name }>
 									</div>
-									
-
-
-									<div class="form-group">
-										<!-- <label for="exampleFormControlFile1">이미지</label> -->
-										<strong class="d-block mb-1">이미지</strong> 
-										<input type="file" class="gd-image" id="exampleFormControlFile1">
-									</div>
-
+	
 
 
 
@@ -46,6 +38,5 @@
 				</div>
 			</div>
 		</div>
-		<%@ include file="footer.jsp"%>
 	</div>
 </div>

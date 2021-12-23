@@ -83,19 +83,25 @@ public class mk_adminController {
 		return "/mk_admin/bookList";
 	}
 	
+	// 도서 목록 개별 정보 조회 (GET)
+	public String bookInfoGET(Integer b_num, Model model) throws Exception {
+		
+		model.addAttribute("bvo", service.getBInfo(b_num));
+		
+		return "/mk_admin/bookDetail";
+	}
+	
 	// 도서 수정 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookUpdate
-	@RequestMapping(value = "", method = {RequestMethod.GET})
-	public void bookUpdateGET(Integer b_num, Integer pageNum, Model model) throws Exception {
+	@RequestMapping(value = "/bookUpdate", method = RequestMethod.GET)
+	public String bookUpdateGET(Integer b_num, Model model) throws Exception {
 		
 		System.out.println(" C : bookUpdateGET() 호출 ");
 		
-		// 글번호에 해당하는 글 정보 가져와서
-		mk_bookVO bvo = service.getBInfo(b_num);
 		// model 객체에 저장
-		model.addAttribute("bvo", bvo);
+		model.addAttribute("bvo", service.getBInfo(b_num));
 		
-		//return "/mk_admin/bookUpdate";
+		return "/mk_admin/bookUpdate";
 	}
 	
 	// 도서 수정 (POST)

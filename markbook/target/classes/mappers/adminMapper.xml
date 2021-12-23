@@ -35,7 +35,7 @@
  	
  	<!-- 도서 목록 개별 정보 조회  -->
  	<select id="bInfo" resultType="mk_bookVO">
- 		select * from book
+ 		select * from book 
  		where b_num = #{b_num}
  	</select>
  
@@ -65,7 +65,13 @@
  	</delete>
  	
  	
- 
+ 	<!-- 도서 상세페이지 -->
+ 	<select id="">
+ 		select * 
+ 		from book 
+ 		where b_num = #{b_num}
+ 	</select>
+ 	
  
  
  
