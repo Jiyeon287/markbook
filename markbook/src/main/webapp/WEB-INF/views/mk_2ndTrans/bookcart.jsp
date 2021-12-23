@@ -30,6 +30,7 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Total</th>
+                                <th scope="col">Payment progress</th>
                             </tr>
                         </thead>
                         <c:forEach var="cvo" items="${cartList }">
@@ -63,21 +64,10 @@
                                 </td>
                             </tr>
                             </c:forEach>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <h5>Subtotal</h5>
-                                </td>
-                                <td>
-                                    <h5>$2160.00</h5>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <div class="checkout_btn_inner float-right">
                         <a class="btn" href="/markbook/mk_2ndTrans/booklist">Continue Shopping</a>
-                        <a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

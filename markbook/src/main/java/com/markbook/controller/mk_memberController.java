@@ -182,45 +182,6 @@ public class mk_memberController {
 	      
 	      return service.memberIdChk(mvo.getM_id());
 	   }
-
-//	@ResponseBody
-//	@RequestMapping(value="/idchk2", method=RequestMethod.POST, produces = "text/html; charset=UTF-8")
-//	   public String memberIdCheck2(mk_memberVO mvo,HttpServletResponse response) throws Exception {
-//	      
-//	      System.out.println("아이디 중복체크");
-//	      System.out.println(mvo.toString());
-//	      
-//	      //아이디 db에 유무확인(있으면 결과값 1 리턴, 없으면 0리턴)
-//	      int result = service.memberIdChk(mvo.getM_id());
-//	      //jsp의 아이디에 맞는 email을 db에서 뽑아와 jsp의 email과 같은지 확인
-//	      String emailck = service.emailChk(mvo.getM_id());
-//	      System.out.println(result);
-//	      System.out.println(emailck);
-//	      String a = "/mk_member/index";
-//	      if(result > 0 && !mvo.getM_id().equals(emailck)) {
-//	    	//아이디는 존재하나 이메일이 db와 같지 않을경우
-//			  a = "<script>"
-//		    	      + "alert(\"아이디가 존재하지 않습니다.\");"
-//		    	      + "history.back();"
-//		    	      + "</script>";
-//	          //아이디 존재 -> db에 저장된 아이디의 이메일과 jsp에 입력한 이메일이 같은지 확인
-//	    	if(mvo.getM_id().equals(emailck)) {
-//	  		service.findPw(response, mvo);
-//			  a = "<script>"
-//		    	      + "alert(\"이메일로 임시비밀번호가 발급되었습니다.\");"
-//		    	      + "location.href='/markbook/mk_member/login';"
-//		    	      + "</script>";
-//	    	}
-//	      } else if(result == 0) {
-//	    	// 아이디 존재 x -> 비밀번호찾기창으로 되돌아감
-//		  a = "<script>"
-//		    	      + "alert(\"아이디가 존재하지 않습니다.\");"
-//		    	      + "history.back();"
-//		    	      + "</script>";
-//	      }
-//	      return a;
-//	   }
-
 	
 	@RequestMapping(value="/findInfo", method=RequestMethod.GET)
 	public void findMemberInfo() throws Exception {

@@ -25,29 +25,47 @@
             <div class="billing_details">
                 <div class="row">
                     <div class="col-lg-8">
-                        <h3>Billing Details</h3>
-                        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                        <h2>Billing Details</h2>
+                        <div class="col-md-12 form-group p_star">
+                        </div>
+                        <form action="" method="post" id="bookcheckout" name="bookcheckout">
+                            <input type="hidden" value="${OrderInfo.b2_num }" name="order_b2_num">
+                            <input type="hidden" value="${memberInfo.m_id }" name="order_id">
+                           	<div class="creat_account">
+                                    <h6>Recipient</h6>
+                            </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="text" class="form-control" placeholder="Name" 
-                                	   id="m_name" name="m_name" value="${memberInfo.m_name }">
+                                	   id="order_name" name="order_name" value="${memberInfo.m_name }">
+                            </div>
+                            <div class="creat_account">
+                                    <h6>Phone number</h6>
                             </div>
                             <div class="col-md-6 form-group p_star">
                                 <input type="text" class="form-control" placeholder="Phone number" 
-                                		id="number" name="number" value="${memberInfo.m_phone }">
+                                		id="order_phone" name="order_phone" value="${memberInfo.m_phone }">
+                            </div>
+                            <div class="creat_account">
+                                    <h6>Address</h6>
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="text" class="form-control" placeholder="address1" 
-                                id="add1" name="add1" value="${memberInfo.m_addr1 }">
+                                id="order_addr1" name="order_addr1" value="${memberInfo.m_addr1 }">
                             </div>
                             <div class="col-md-12 form-group p_star">
                                 <input type="text" class="form-control" placeholder="address2"  
-                                id="add2" name="add2" value="${memberInfo.m_addr2 }">
+                                id="order_addr2" name="order_addr2" value="${memberInfo.m_addr2 }">
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
-                                    <h3>Shipping Details</h3>
+                                    <h2>Shipping Details</h2>
                                 </div>
-                                <textarea class="form-control" style="resize: none;" name="message" id="message" rows="100" placeholder="배송 요청사항"></textarea>
+                        		<div class="col-md-12 form-group p_star">
+                        		</div>
+                        		<div class="creat_account">
+                                    <h6>Shipping Request</h6>
+                            	</div>
+                                <textarea class="form-control" rows="1" name="order_msg" id="order_msg"></textarea>
                             </div>
                         </form>
                     </div>
@@ -71,14 +89,6 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div class="payment_item">
-                                <div class="radion_btn">
-                                    <input type="radio" id="f-option5" name="selector">
-                                    <label for="f-option5">Check payments</label>
-                                    <div class="check"></div>
-                                </div>
-                                <p> Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode. </p>
-                            </div>
                             <div class="payment_item active">
                                 <div class="radion_btn">
                                     <input type="radio" id="f-option6" name="selector">
@@ -89,10 +99,10 @@
                                 <p> Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode. </p>
                             </div>
                             <div class="creat_account checkout-cap">
-                                <input type="checkbox" id="f-option8" name="selector">
+                                <input type="checkbox" id="selector" name="selector">
                                 <label for="f-option8">I’ve read and accept the  <a href="#">terms &amp; conditions*</a> </label>
                             </div>
-                            <a class="btn w-100" href="#">Proceed to Paypal</a>
+                            <button class="btn w-100" onclick="Checkout()">Proceed to Checkout </button>
                         </div>
                     </div>
                 </div>
@@ -102,6 +112,43 @@
     <!--End Checkout Area -->
 
 </main>
+
+<script>
+//서브밋 함수
+function Checkout() {
+		
+	if ($("#order_name").val() == "") {
+		alert("이름을 입력해 주세요");
+		$("#order_name").focus();
+		return false;
+	} else if ($("#order_phone").val() == "") {
+		alert("전화번호를 입력해 주세요");
+		$("#order_phone").focus();
+		return false;
+	} else if ($("#order_addr1").val() == "") {
+		alert("기본주소를 입력해 주세요");
+		$("#order_addr1").focus();
+		return false;
+	} else if ($("#order_addr2").val() == "") {
+		alert("상세주소를 입력해 주세요");
+		$("#order_addr2").focus();
+		return false;
+	} else if ($("#order_msg").val() == "") {
+		alert("주문메세지를 입력해 주세요");
+		$("#order_msg").focus();
+		return false;
+	} else if ($("#selector").val() == "") {
+		alert("주문 조건에 동의해 주세요");
+		$("#selector").focus();
+		return false;
+	} else{
+		alert("주문에 성공했습니다.");
+		document.bookcheckout.submit();
+	} 
+	
+} // 주문등록 유효성 검사 끝
+
+</script>
 	
 
 <%@ include file="../include/footer.jsp"%>

@@ -19,7 +19,8 @@
 	<!-- 중고거래 페이징 처리 list -->
 	<select id="getListCri" resultType="mk_2ndhand_bookVO">
 	   select * 
-	   from 2ndhand_book 
+	   from 2ndhand_book
+	   where b2_sellstatus = 0 
 	   limit #{skip},#{pageAmount}	  
 	</select>
 
@@ -80,5 +81,21 @@
 		select * from member_info 
 		where m_id = #{m_id} 
 	</select>
+	
+	<!-- 결제정보 업데이트  -->
+	<update id="soldupdate">
+		update 2ndhand_book 
+		set 
+		b2_sellstatus = 1 
+		where b2_num = #{b2_num}
+	</update>
+	
+	<!-- 거래정보 등록 -->
+	<insert id="bookchechout">
+		insert into book_order  
+		(order_id, order_b2_num, order_name, order_phone, order_addr1, order_addr2, order_msg)
+		values(#{order_id}, #{order_b2_num}, #{order_name}, #{order_phone}, #{order_addr1}, #{order_addr2}, #{order_msg}) 
+	</insert>
+	
 
 </mapper>

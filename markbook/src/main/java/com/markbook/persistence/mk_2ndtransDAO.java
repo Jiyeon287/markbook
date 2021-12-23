@@ -2,6 +2,7 @@ package com.markbook.persistence;
 
 import java.util.List;
 
+import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
@@ -37,6 +38,14 @@ public interface mk_2ndtransDAO {
 	
 	// 중고거래 결제창 회원정보 조회
 	public mk_memberVO getMember(String m_id) throws Exception;
+	
+	// 중고책 판매정보 업데이트
+	public void soldupdate(Integer b2_num) throws Exception;
+	
+	// 주문정보 등록
+	public void bookchechout(book_orderVO bvo) throws Exception;
+	
+	
 	
 
 }

@@ -351,7 +351,7 @@
             <div class="col-xl-5 col-lg-5 col-md-12">
                 <!-- Section Tittle -->
                 <div class="section-tittle  mb-40">
-                    <h2>Latest Published items</h2>
+                    <h2>Best Selling Books Ever</h2>
                 </div> 
             </div>
             <div class="col-xl-7 col-lg-7 col-md-12">

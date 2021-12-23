@@ -53,7 +53,7 @@ public class testDataSource {
 			
 			mk_2ndhand_bookVO vo = new mk_2ndhand_bookVO();
 			vo.setB2_num(i+1);
-			vo.setB2_image("다운로드.jpeg");
+			vo.setB2_image("image.jpg");
 			vo.setB2_title("책이름"+i);
 			vo.setB2_writer("작가"+i);
 			

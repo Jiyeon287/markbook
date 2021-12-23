@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
@@ -133,6 +134,30 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 						
 		return mvo;
 		
+	}
+	
+	// 판매정보 업데이트
+	@Override
+	public void soldupdate(Integer b2_num) throws Exception {
+		
+		logger.info(" DAO : soldupdate() 호출 ");
+		
+		sqlSession.update(namespace + ".soldupdate", b2_num);
+		
+		logger.info(" DAO : 판매정보 수정 완료");
+		
+		
+	}
+	
+	// 주문 정보 등록
+	@Override
+	public void bookchechout(book_orderVO bvo) throws Exception {
+		
+		logger.info(" DAO : bookchechout() 호출 ");
+		
+		sqlSession.insert(namespace + ".bookchechout", bvo);
+		
+		logger.info(" DAO : 주문 입력완료");
 	}
 
 	

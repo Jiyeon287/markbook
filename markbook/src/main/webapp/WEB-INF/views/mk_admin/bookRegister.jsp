@@ -21,7 +21,7 @@
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name">
+											class="form-control" id="b_name" name="b_name" placeholder="책이름">
 									</div>
 
 									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
@@ -82,19 +82,19 @@
 										<!-- <label for="exampleFormControlTextarea1">책내용</label> -->
 										<strong class="d-block mb-1">책내용</strong>
 										<textarea class="form-control" id="b_content" name="b_content"
-											rows="2"></textarea>
+											rows="2" placeholder="책내용"></textarea>
 									</div>
 									<div class="form-group">
 										<!-- <label for="exampleFormControlTextarea1">작가</label> -->
 										<strong class="d-block mb-1">작가</strong>
 										<textarea class="form-control" id="b_writer" name="b_writer"
-											rows="1"></textarea>
+											rows="1" placeholder="작가"></textarea>
 									</div>
 									<div class="form-group">
 										<!-- <label for="exampleFormControlTextarea1">출판사</label> -->
 										<strong class="d-block mb-1">출판사</strong>
 										<textarea class="form-control" id="b_publisher"
-											name="b_publisher" rows="1"></textarea>
+											name="b_publisher" rows="1" placeholder="출판사"></textarea>
 									</div>
 
 									<div class="form-group">
@@ -123,22 +123,16 @@
 
 									<div>
 										<strong class="d-block mb-1">대출여부</strong>
-										<div class="btn-group">
-											
+
+										<div class="custom-control custom-switch">
+											<input type="checkbox" class="custom-control-input"
+												id="customSwitch1"> <label
+												class="custom-control-label" for="customSwitch1">가능</label>
 										</div>
-
-
-
-										
-										<div class="btn-group dropend">
-											<button type="button"
-												class="btn btn-secondary dropdown-toggle"
-												data-bs-toggle="dropdown" aria-expanded="false">
-												Dropend</button>
-											<ul class="dropdown-menu">
-												<li><a class="dropdown-item" href="#">Menu item</a></li>
-												<li><a class="dropdown-item" href="#">Menu item</a></li>
-											</ul>
+										<div class="custom-control custom-switch">
+											<input type="checkbox" class="custom-control-input"
+												id="customSwitch2"> <label
+												class="custom-control-label" for="customSwitch2">불가</label>
 										</div>
 
 										<!-- <div class="form-check position-relative mb-2">

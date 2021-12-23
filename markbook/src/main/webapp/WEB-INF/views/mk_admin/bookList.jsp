@@ -1,6 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+
+
+<script type="text/javascript">
+
+function fun23(num){
+
+    var pop = window.open("./bookDetail?b_num="+num,"신청결과","width=600,height=600, scrollbars=yes, resizable=yes"); 
+    pop.focus();
+    
+    }
+
+</script>
+
+
+
+
 <%@ include file="header.jsp"%>
 
 <div class="content">
@@ -32,7 +48,7 @@
                                     <tr>
                                         <td class="py-3">${bvo.b_num}</td>
                                         <td>
-                                        	<a href="/mk_admin/bookList?b_num=${bvo.b_num }">${bvo.b_name }</a>
+                                        	<a href="/mk_admin/bookList?b_num=${bvo.b_num }" onclick="fun23(${bvo.b_num })" >${bvo.b_name }</a>
                                             <div class="book-img">
 												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/book.PNG" alt="Graindashboard" style="width: 55px; height: 55px;"></a>
 											</div>
@@ -42,8 +58,8 @@
                                         <td class="py-3">
                                             <!-- <span class="badge badge-pill badge-warning">OK</span> -->
                                      <c:choose >
-                                    		<c:when test="${bvo.b_able == 0}"> <span class="badge badge-pill badge-success" onclick="fun23(${bvo.b_num })" style="cursor:pointer;">가능</span></c:when>
-                                    		<c:when test="${bvo.b_able == 1 }"> <span class="badge badge-pill badge-info" onclick="fun23(${bvo.b_num })" style="cursor:pointer;">불가</span></c:when>
+                                    		<c:when test="${bvo.b_able == 0}"> <span class="badge badge-pill badge-success">가능</span></c:when>
+                                    		<c:when test="${bvo.b_able == 1 }"> <span class="badge badge-pill badge-info">불가</span></c:when>
                                     </c:choose>
                                         </td>
                                         <td class="py-3">
@@ -81,12 +97,15 @@
                                     </tbody>
                                 </table>
                                 
+       
+
+                                
 							<nav aria-label="Page navigation example" style="text-align: center; margin: 0 auto;">
-								<ul class="pagination">
+								<ul class="pagination justify-content-center font-weight-semi-bold">
 									<!-- 이전 -->
 									<c:if test="${pm.prev }">
-										<li class="page-item">
-											<a class="btn" href="bookList?pageStart=${pm.startPage }" aria-label="Previous"> 
+										<li class="page-item disabled">
+											<a class="page-link" href="bookList?pageStart=${pm.startPage }" tabindex="-1"> 
 												<span aria-hidden="true">&laquo;</span>
 											</a>
 										</li>
@@ -94,7 +113,7 @@
 									
 									<!-- 페이지 번호 -->
 									<c:forEach begin="${pm.startPage }" end="${pm.endPage }" var="idx">
-										<li ${pm.cri.pageStart == idx? 'class = btn':'' }>
+										<li ${pm.cri.pageStart == idx? 'class = page-item':'' }>
 											<a href="bookList?pageStart=${idx }">${idx }</a>
 										</li>
 										<!-- <li class="page-item"><a class="btn" href="#">1</a></li> -->
@@ -103,7 +122,7 @@
 									<!-- 다음 -->
 									<c:if test="${pm.next }">
 										<li class="page-item">
-											<a class="btn" href="#" aria-label="Next"> 
+											<a class="page-link" href="#" aria-label="Next"> 
 												<span aria-hidden="true">&raquo;</span>
 											</a>
 										</li>
@@ -112,21 +131,13 @@
 								</ul>
 							</nav>
 
+
 						</div>
                         </div>
                     </div>
                 </div>
             </div>
-	
-	<script type="text/javascript">
 
-		var result = '${result}';
-		alert(result);
-		
-		if(result == 'success'){
-			alert(" 도서 등록 완료 ");
-		}
-	</script>
 		
 		
 		

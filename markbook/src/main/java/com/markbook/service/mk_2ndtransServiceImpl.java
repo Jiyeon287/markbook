@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
@@ -127,6 +128,30 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		System.out.println("S : getMember() 호출완료 ");
 		
 		return mvo;
+	}
+	
+	
+	// 판매정보 업데이트
+	@Override
+	public void soldupdate(Integer b2_num) throws Exception {
+		
+		System.out.println("S : soldupdate() 호출! ");
+		
+		tdao.soldupdate(b2_num);
+		
+		System.out.println("S : 판매정보 수정 완료 ");	
+		
+	}
+	
+	// 주문입력
+	@Override
+	public void bookchechout(book_orderVO bvo) throws Exception {
+		
+		System.out.println("S : bookchechout(bvo) 호출! ");
+		
+		tdao.bookchechout(bvo);
+		
+		System.out.println("S : bookchechout(bvo) 등록완료 ");
 	}
 
 	

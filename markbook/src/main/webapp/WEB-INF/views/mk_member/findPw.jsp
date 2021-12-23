@@ -36,7 +36,6 @@ function inpChk() {
 	var realEmail = emailAddr+"@"+domainAddr;
 		
 	document.findPW.m_email.value = realEmail;
-	alert(realEmail);
 	var id = document.findPW.m_id.value;
 	
 	if(id == "") {

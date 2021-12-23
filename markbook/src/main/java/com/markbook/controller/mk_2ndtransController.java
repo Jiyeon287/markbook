@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.markbook.domain.Criteria;
+import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.pageMaker;
 import com.markbook.model.sjCriteria;
@@ -245,8 +246,19 @@ public class mk_2ndtransController {
 		
 		return "/mk_2ndTrans/bookcheckout";
 	}
+	
+	// 중고책 결제
+	@RequestMapping(value = "/bookcheckout", method = RequestMethod.POST)
+	public String bookcheckoutPOST(HttpSession session, book_orderVO bvo) throws Exception {
+		
+		logger.info("C: bookcheckout() 호출");
+		
+		service.bookchechout(bvo);
+		service.soldupdate(bvo.getOrder_b2_num());
+		
+		logger.info("결제 정보 입력 완료");
+		
+		return "redirect:/mk_2ndTrans/booklist";
+	}
 
-	
-	
-	
 }
