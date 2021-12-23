@@ -3,9 +3,12 @@ package com.markbook.service;
 import java.io.PrintWriter;
 
 import javax.inject.Inject;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.mail.HtmlEmail;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.markbook.domain.mk_memberVO;
@@ -16,6 +19,9 @@ public class mk_memberServiceImpl implements mk_memberService {
 
 	@Inject
 	private mk_memberDAO mdao;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	@Override
 	public int memberIdChk(String m_id) throws Exception {
@@ -70,51 +76,69 @@ public class mk_memberServiceImpl implements mk_memberService {
 		mdao.updatePw(vo);
 		// 비밀번호 변경 메일 발송
 		sendEmail(vo);
+		out.print("<script>alert('임시비밀번호가 이메일로 발송되었습니다.'); location.href='/markbook/mk_member/login';</script>");
+		out.close();
 		}
 	}
 
 	@Override
 	public void sendEmail(mk_memberVO vo) throws Exception {
-		// Mail Server 설정
-		String charSet = "utf-8";
-		String hostSMTP = "smtp.naver.com"; //네이버 이용시 smtp.naver.com
-		String hostSMTPid = "iop0357";
-		String hostSMTPpwd = "rlawldus0613!";
+
 
 		// 보내는 사람 EMail, 제목, 내용
-		String fromEmail = "iop0357@naver.com";
-		String fromName = "markbook";
+		String fromEmail = "willheroes@naver.com";
 		String subject = "";
 		String msg = "";
 
 
 			subject = "markbook 임시 비밀번호 입니다.";
-			msg += "<div align='center' style='border:1px solid black; font-family:verdana'>";
-			msg += "<h3 style='color: blue;'>";
-			msg += vo.getM_id() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.</h3>";
-			msg += "<p>임시 비밀번호 : ";
-			msg += vo.getM_pw() + "</p></div>";
+			
+			msg = "<div align='center' style='border:1px solid black; font-family:verdana'>"
+					+"<h3 style='color: blue;'>"
+					+ vo.getM_id() + "님의 임시 비밀번호 입니다.</h3>"
+			        + "<br><p>임시 비밀번호 : "
+			        + vo.getM_pw()
+					+ "<br>" +"비밀번호를 변경하여 사용하세요."
+					+ "</p></div>";
 
 
 		// 받는 사람 E-Mail 주소
-		String mail = vo.getM_email();
-		try {
-			HtmlEmail email = new HtmlEmail();
-			email.setDebug(true);
-			email.setCharset(charSet);
-			email.setSSLOnConnect(true);
-			email.setHostName(hostSMTP);
-			email.setSmtpPort(465); //네이버 이용시 587
+		String to = vo.getM_email();
+//		try {
+//			HtmlEmail email = new HtmlEmail();
+//			email.setDebug(true);
+//			email.setCharset(charSet);
+//			email.setSSLOnConnect(true);
+//			email.setHostName(hostSMTP);
+//			email.setSmtpPort(465); //네이버 이용시 587
+//
+//			email.setAuthentication(hostSMTPid, hostSMTPpwd);
+//			email.setStartTLSEnabled(true);
+//			email.addTo(mail, charSet);
+//			email.setFrom(fromEmail, fromName, charSet);
+//			email.setSubject(subject);
+//			email.setHtmlMsg(msg);
+//			email.send();
+//		} catch (Exception e) {
+//			System.out.println("메일발송 실패 : " + e);
+//		}
 
-			email.setAuthentication(hostSMTPid, hostSMTPpwd);
-			email.setStartTLSEnabled(true);
-			email.addTo(mail, charSet);
-			email.setFrom(fromEmail, fromName, charSet);
-			email.setSubject(subject);
-			email.setHtmlMsg(msg);
-			email.send();
-		} catch (Exception e) {
-			System.out.println("메일발송 실패 : " + e);
+		try {
+			// 메일 내용 넣을 객체와, 이를 도와주는 Helper 객체 생성
+			MimeMessage mail = mailSender.createMimeMessage();
+			MimeMessageHelper mailHelper = new MimeMessageHelper(mail, true, "UTF-8");
+
+			// 메일 내용을 채워줌
+			mailHelper.setFrom(fromEmail);	// 보내는 사람 셋팅
+			mailHelper.setTo(to);		// 받는 사람 셋팅
+			mailHelper.setSubject(subject);	// 제목 셋팅
+			mailHelper.setText(msg, true);	// 내용 셋팅
+
+			// 메일 전송
+			mailSender.send(mail);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 
