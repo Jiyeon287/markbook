@@ -32,21 +32,31 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 
 	//게시글 총 갯수
 	@Override
-	public int count() throws Exception {
+	public int count( String searchType, String keyword) throws Exception {
 	System.out.println("DAO:countBoard 호출 @@");
-	
-	return sqlSession.selectOne(namespace+".requestCount");
+	HashMap<String, Object> data = new HashMap<String, Object>();
+	 
+	 data.put("searchType", searchType);
+	 data.put("keyword", keyword);
+	 
+	return sqlSession.selectOne(namespace+".requestCount",data);
+	}
+	@Override
+	public int jcount() throws Exception {
+		return sqlSession.selectOne(namespace+".Count");
 	}
 
 	@Override
-	public List<mk_requestBoardVO> requestList(int display,int postnum) {
+	public List<mk_requestBoardVO> requestList(int displayPost, int postNum, String searchType, String keyword) {
 		System.out.println("DAO:list 호출 @@");
 		
-  HashMap<String, Integer> data = new HashMap<String,  Integer>();
+  HashMap<String, Object> data = new HashMap<String,  Object>();
 		  
-		  data.put("displayPost", display);
-		  data.put("postNum", postnum);
+		  data.put("displayPost", displayPost);
+		  data.put("postNum", postNum);
 		
+		  data.put("searchType", searchType);
+		  data.put("keyword", keyword);
 		
 		return sqlSession.selectList(namespace+".requestList",data);
 	}
@@ -66,6 +76,7 @@ public class mk_requestBoardDAOImpl implements mk_requestBoardDAO{
 	sqlSession.update(namespace+".requestUpdate",rvo);
 		
 	}
+
 
 	
 }

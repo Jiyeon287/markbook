@@ -31,7 +31,7 @@ public class mk_requestBoardController {
 	//http://localhost:8088/markbook/mk_requestBoard/add
 	@RequestMapping(value="/mk_requestBoard/add",method = RequestMethod.GET)
 	public void addGET(Model model) throws Exception{
-		int count=service.count();
+		int count=service.jcount();
 		
 		if(count == 0) {
 			count =1;
@@ -82,16 +82,23 @@ public class mk_requestBoardController {
 	}
 	
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
-	public void adminRequestList(Model model,@RequestParam("pgnum") int pgnum)throws Exception{	
+	public void adminRequestList(Model model,@RequestParam("pgnum") int pgnum,
+			@RequestParam(value = "searchType",required = false, defaultValue = "r_title") String searchType,
+			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword)throws Exception{	
 		logger.info("@@@요청게시판 목록@@@");
 
 		Page page=new Page();
 		
 	    page.setNum(pgnum);
-	    int count=service.count();
+	    int count=service.count(searchType,keyword);
 		page.setCount(count);
+		// 검색 타입과 검색어
+//		page.setSearchTypeKeyword(searchType, keyword);
 		
-		List<mk_requestBoardVO> list = service.requestList(page.getDisplayPost(),page.getPostNum());
+		page.setSearchType(searchType);
+		page.setKeyword(keyword);
+		
+		List<mk_requestBoardVO> list = service.requestList(page.getDisplayPost(), page.getPostNum(), searchType, keyword);
 
 		model.addAttribute("list", list);   
 	    model.addAttribute("page",page);
