@@ -14,10 +14,13 @@ public interface mk_requestBoardDAO {
 	public void addBoard(mk_requestBoardVO rbvo);
 	
 	//요청게시판 게시글 총 갯수
-	public int count() throws Exception;
+	public int count( String searchType, String keyword) throws Exception;
+	
+	//요청게시판 게시글 총 갯수
+	public int jcount() throws Exception;
 	
 	//요청게시판 관리자 목록
-	public List<mk_requestBoardVO> requestList(int display,int postnum);
+	public List<mk_requestBoardVO> requestList(int displayPost, int postNum, String searchType, String keyword);
 	
 	//요청게시판 관리자 상세페이지
 	public mk_requestBoardVO requestDetail(int r_num);

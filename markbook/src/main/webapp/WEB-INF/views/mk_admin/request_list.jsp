@@ -48,6 +48,13 @@
     }
 }
 
+.mmbox{
+width: 90%;
+margin-left: 5%;
+}
+.ssbox{
+margin-left: 30%;
+}
 </style>
 <script type="text/javascript">
 
@@ -62,6 +69,15 @@ function fun23(num){
     
     }
 
+
+function btn23(){
+
+   
+var searchType = document.getElementsByName("searchType")[0].value;
+var keyword =  document.getElementsByName("keyword")[0].value;
+ 
+ location.href = "./request_list?pgnum=1" + "&searchType=" + searchType + "&keyword=" + keyword;
+};
 
 
 </script>
@@ -85,10 +101,44 @@ function fun23(num){
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">요청게시판</div>
+                        <div class="h3 mb-0">요청게시판 </div>
                     </div>
+<!----------------------------------------- 검색창--------------------------------------------------->
+<div class="tab-content bg-lighter" id="pills-tabContent-7-3">
+                                    <div class="tab-pane fade p-4 show active" id="pills-result-7-3" role="tabpanel" aria-labelledby="pills-result-tab-7-3">
+ <div>
+ <table class="mmbox">
+<tr>
+<td style="width:20%; ">
+ <select class="form-control" id="exampleFormControlSelect1" name="searchType">
 
+                                                    <option value="r_name" <c:if test="${page.searchType eq 'r_name'}">selected</c:if>>책이름</option>
+                                                    <option value="r_title" <c:if test="${page.searchType eq 'r_title'}">selected</c:if>>제목</option>
+                                                    <option value="r_id"<c:if test="${page.searchType eq 'r_id'}">selected</c:if>>id</option>
+                                                </select>
+                                                
+                                                </td>
+                                                <td  style="width:50%; ">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                            
+                                                <i class="gd-search icon-text icon-text-sm" onclick="btn23()"></i>
+                                            </div>
+                                            <input class="form-control form-control-icon-text" placeholder="Search" type="text" name="keyword" value=${page.keyword}>
+                                        </div>
+                           
+                                    <div class="tab-pane fade" id="pills-html-7-3" role="tabpanel" aria-labelledby="pills-html-tab-7-3" >
+                                    </div>
+                                    </td>
+                                    </tr>
+                                            </table>
+                                            </div>
+                                            <br>
+</div>
+</div>
+<br>
 
+<!----------------------------------------- 검색창--------------------------------------------------->
                     <!-- Users -->
                     <div class="table-responsive-xl">
                         <table class="table text-nowrap mb-0">
@@ -99,7 +149,15 @@ function fun23(num){
                                 <th class="font-weight-semi-bold border-top-0 py-2">Book title</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">ID</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Date</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Status</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                <option>상태</option>
+                                <option>신청중</option>
+                                <option>처리중</option>
+                                <option>취소됨</option>
+                                <option>완료됨</option>
+                                </select>
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -121,7 +179,7 @@ function fun23(num){
                                     		<c:when test="${list.r_result == 0}"> <span class="badge badge-pill badge-success" onclick="fun23(${list.r_num })" style="cursor:pointer;">신청중</span></c:when>
                                     		<c:when test="${list.r_result == 1 }"> <span class="badge badge-pill badge-info" onclick="fun23(${list.r_num })" style="cursor:pointer;">처리중</span></c:when>
                                     		<c:when test="${list.r_result == 2 }"> <span class="badge badge-pill badge-danger" onclick="fun23(${list.r_num })" style="cursor:pointer;">취소됨</span></c:when>
-                                    		<c:when test="${list.r_result == 3 }"> <span class="badge badge-pill badge-light" onclick="fun23(${list.r_num })" style="cursor:pointer;">완료</span></c:when>
+                                    		<c:when test="${list.r_result == 3 }"> <span class="badge badge-pill badge-light" onclick="fun23(${list.r_num })" style="cursor:pointer;">완료됨</span></c:when>
                                     </c:choose>
                                     
                                     
@@ -137,7 +195,7 @@ function fun23(num){
  <ul class="pagination justify-content-end font-weight-semi-bold mb-0">	
  			<li class="page-item">					                       
 <c:if test="${page.prev}">
-  <a href="./request_list?pgnum=${page.startPageNum - 1}" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
+  <a href="./request_list?pgnum=${page.startPageNum - 1}${page.searchTypeKeyword}" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
   <i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a> 
   
 </c:if>
@@ -146,7 +204,7 @@ function fun23(num){
 
  <li class="page-item d-none d-md-block">
   <c:if test="${select != num}">
-   <a href="./request_list?pgnum=${num}" id="datatablePagination1" class="page-link">${num}</a>
+   <a href="./request_list?pgnum=${num}${page.searchTypeKeyword}" id="datatablePagination1" class="page-link">${num}</a>
   </c:if>    
   </li>
   
@@ -161,7 +219,7 @@ function fun23(num){
 
 <c:if test="${page.next}">
 <li class="page-item">
- <a href="./request_list?pgnum=${page.endPageNum + 1}" id="datatablePaginationNext"class="page-link active"aria-label="Next">
+ <a href="./request_list?pgnum=${page.endPageNum + 1}${page.searchTypeKeyword}" id="datatablePaginationNext"class="page-link active"aria-label="Next">
  <i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i></a>
  </li>
 </c:if>
@@ -169,6 +227,12 @@ function fun23(num){
                   </li>
                   </ul>
                   </nav>
+                        
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
                         
                         
                         

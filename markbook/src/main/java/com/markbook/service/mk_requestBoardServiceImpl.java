@@ -25,15 +25,21 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 	}
 // 게시글 수 
 	@Override
-	public int count() throws Exception {
+	public int count( String searchType, String keyword) throws Exception {
 		
-		return rbdao.count();
+		return rbdao.count(searchType,keyword);
 	}
+	// 게시글 수 
+		@Override
+		public int jcount() throws Exception {
+			
+			return rbdao.jcount();
+		}
 	
 	@Override
-	public List<mk_requestBoardVO> requestList(int display,int postnum) {
+	public List<mk_requestBoardVO> requestList(int displayPost, int postNum, String searchType, String keyword) {
 		
-		return rbdao.requestList(display, postnum);
+		return rbdao.requestList(displayPost, postNum,searchType,keyword);
 	}
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {
