@@ -16,8 +16,9 @@
 							<div class="tab-pane fade p-4 show active" id="pills-result-2"
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
-								<form action="" method="post" name="">
-
+								<form action="./bookRegister" method="post" name="">
+									<input type="hidden" value="${b_num }" name="b_num">
+									<input type="hidden" value="0" name="b_able">
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
@@ -124,16 +125,11 @@
 									<div>
 										<strong class="d-block mb-1">대출여부</strong>
 
-										<div class="custom-control custom-switch">
-											<input type="checkbox" class="custom-control-input"
-												id="customSwitch1"> <label
-												class="custom-control-label" for="customSwitch1">가능</label>
-										</div>
-										<div class="custom-control custom-switch">
-											<input type="checkbox" class="custom-control-input"
-												id="customSwitch2"> <label
-												class="custom-control-label" for="customSwitch2">불가</label>
-										</div>
+										<select class="form-control" id="b_able" name="b_able">
+                                        		<option>대출여부</option>
+                                        		<option>가능</option>
+                                        		<option>불가</option>
+                                       	</select>
 
 										<!-- <div class="form-check position-relative mb-2">
 											<input type="checkbox" class="form-check-input d-none"
@@ -150,12 +146,10 @@
 										</div> -->
 									</div>
 
-
-									<button type="submit" class="btn btn-warning mb-2 mr-2">
+									<button type="submit" class="btn btn-warning mb-2 mr-2" style="">
 										<span class="align-middle">add to list</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>
-
 
 								</form>
 							</div>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
+import com.markbook.domain.mk_memberVO;
 
 public interface mk_adminService {
 	
@@ -30,6 +31,11 @@ public interface mk_adminService {
 	public void deleteBook(Integer b_num) throws Exception;
 	
 	
+	// 전체 회원 목록 조회
+	public List<mk_memberVO> getMList(String m_id) throws Exception;
+	
+	// 전체 회원 목록 갯수 조회
+	public int countMember(Criteria cri) throws Exception;
 	
 	
 	

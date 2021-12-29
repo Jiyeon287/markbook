@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
+import com.markbook.domain.mk_memberVO;
 import com.markbook.persistence.mk_adminDAO;
 
 @Service
@@ -86,6 +87,24 @@ public class mk_adminServiceImpl implements mk_adminService {
 		return bvo;
 	}
 
+
+	
+	// 전체 회원 목록 조회
+	@Override
+	public List<mk_memberVO> getMList(String m_id) throws Exception {
+		
+		List<mk_memberVO> memberList = madao.getMList(m_id);
+		
+		return memberList;
+	}
+
+
+	// 전체 회원 목록 갯수 조회
+	@Override
+	public int countMember(Criteria cri) throws Exception {
+
+		return madao.countMember(cri);
+	}
 
 
 

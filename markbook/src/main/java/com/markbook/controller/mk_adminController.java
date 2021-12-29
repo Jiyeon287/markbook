@@ -44,7 +44,7 @@ public class mk_adminController {
 	// 도서 등록 (GET)
 	// http://localhost:8088/markbook/mk_admin/bookRegister
 	@RequestMapping(value = "/bookRegister", method = RequestMethod.GET)
-	public String bookRegisterGET(HttpSession session) throws Exception {
+	public String bookRegisterGET(Model model) throws Exception {
 		
 		System.out.println(" bookRegisterGET() 호출 ");
 		
@@ -84,6 +84,7 @@ public class mk_adminController {
 	}
 	
 	// 도서 목록 개별 정보 조회 (GET)
+	@RequestMapping(value = "/bookDetail", method = RequestMethod.GET)
 	public String bookInfoGET(Integer b_num, Model model) throws Exception {
 		
 		model.addAttribute("bvo", service.getBInfo(b_num));
@@ -132,6 +133,40 @@ public class mk_adminController {
 	}
 
 
+	
+	// 전체 회원 목록 조회 (GET)
+	@RequestMapping(value = "/memberList", method = RequestMethod.GET)
+	public String memberListAllGET(Criteria cri, Model model) throws Exception {
+				
+		// 페이징처리 정보생성
+		pageMaker pm = new pageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(service.countMember(cri));
+		
+		// 서비스 동작 호출
+		model.addAttribute("memberList", service.countMember(cri));
+		// Criteria 객체 정보 저장 (pageStart/pageSize)
+		model.addAttribute("pm",pm);
+		
+		return "/mk_admin/memberList";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

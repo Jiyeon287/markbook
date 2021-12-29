@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
+import com.markbook.domain.mk_memberVO;
 
 @Repository
 public class mk_adminDAOImpl implements mk_adminDAO {
@@ -93,6 +94,40 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 		System.out.println(" DAO : deleteBook(Integer b_num) 호출 ");
 		
 		sqlSession.delete(namespace+".bookDelete",b_num);
+	}
+
+
+	// 회원 데이터
+	@Override
+	public void insertMember(mk_memberVO mvo) throws Exception {
+
+		sqlSession.delete(namespace+".insertMember", mvo);
+		
+	}
+
+	// 전체 회원 목록 조회
+	@Override
+	public List<mk_memberVO> getMList(String m_id) throws Exception {
+
+		List<mk_memberVO> memberList = sqlSession.selectList(namespace+"memberList", m_id);
+		
+		return memberList;
+	}
+
+
+	// 전체 회원 목록 갯수 조회
+	@Override
+	public int countMember(Criteria cri) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".countMember", cri);
+	}
+
+
+	// 전체 회원 목록 페이징 처리 조회
+	@Override
+	public List<mk_memberVO> mListCri(Criteria cri) throws Exception {
+		
+		return sqlSession.selectList(namespace+".mListCri", cri);
 	}
 
 
