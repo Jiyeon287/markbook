@@ -21,13 +21,16 @@
         <!-- Register Area Start -->
         <div class="register-form-area">
             <div class="register-form text-center">
+            	<div class="register-heading">
+                    <span>회원정보찾기</span>
+                </div>
 				<table style="width:100%; text-align:center; padding:3em 0 3em 0;">
 					<tr>
 						<td style="width:50%;">
-							<a href="/markbook/mk_member/findId" class="infoBtn" style="padding:2em 4em;">ID</a>
+							<a href="/markbook/mk_member/findId" class="infoBtn" style="padding:2em 4em; margin-left:100px;">ID</a>
 						</td>
 						<td style="width:50%;">
-							<a href="/markbook/mk_member/findPw" class="infoBtn">Password</a>
+							<a href="/markbook/mk_member/findPw" class="infoBtn" style="margin-right:100px;">Password</a>
 						</td>
 					</tr>
 				</table>
