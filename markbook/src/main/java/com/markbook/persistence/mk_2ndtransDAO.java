@@ -45,7 +45,11 @@ public interface mk_2ndtransDAO {
 	// 주문정보 등록
 	public void bookchechout(book_orderVO bvo) throws Exception;
 	
+	// 서치 리스트
+	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword) throws Exception;
 	
+	// 서치 레코드 갯수
+	public int countSearch(String searchOption, String keyword) throws Exception;
 	
 
 }

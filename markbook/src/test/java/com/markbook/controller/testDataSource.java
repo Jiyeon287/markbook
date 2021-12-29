@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.markbook.domain.mk_2ndhand_bookVO;
+import com.markbook.model.sjCriteria;
 import com.markbook.persistence.mk_2ndtransDAO;
 
 
@@ -46,7 +47,7 @@ public class testDataSource {
     }
     
     // 중고책 데이터 삽입
-	@Test
+	//@Test
 	public void book2Create() throws Exception{
 		
 		for (int i=100 ; i<=999 ; i++) {
@@ -61,6 +62,5 @@ public class testDataSource {
 		}
 		
 	}
-    
     
 }

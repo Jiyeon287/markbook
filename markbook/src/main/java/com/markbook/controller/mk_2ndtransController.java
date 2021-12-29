@@ -1,7 +1,6 @@
 package com.markbook.controller;
 
 import java.io.File;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -16,10 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.markbook.domain.Criteria;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
-import com.markbook.domain.pageMaker;
 import com.markbook.model.sjCriteria;
 import com.markbook.model.sjPageMaker;
 import com.markbook.service.mk_2ndtransService;
@@ -260,5 +257,33 @@ public class mk_2ndtransController {
 		
 		return "redirect:/mk_2ndTrans/booklist";
 	}
+	
+	// 중고책 검색결과
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String searchlist (String searchOption, String keyword, sjCriteria cri, Model model) throws Exception {
+		
+		logger.info("C: search() 호출");
+		
+		System.out.println(searchOption + "" + keyword);
+				
+		// 페이징 처리 정보 생성
+		sjPageMaker pm = new sjPageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(service.countSearch(searchOption, keyword));
+		
+		System.out.println(cri);
+		System.out.println(pm);
+		
+		// Criteria 객체 정보 저장(pageStart/pageSize)
+		model.addAttribute("bookList", service.searchListAll(searchOption, keyword));
+		model.addAttribute("pm", pm);
+		
+		System.out.println(service.searchListAll(searchOption, keyword));
+		
+		return "/mk_2ndTrans/booklist";
+				
+	}
+	
+
 
 }

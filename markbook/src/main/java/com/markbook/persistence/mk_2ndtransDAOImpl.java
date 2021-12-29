@@ -1,6 +1,8 @@
 package com.markbook.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -158,6 +160,34 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		sqlSession.insert(namespace + ".bookchechout", bvo);
 		
 		logger.info(" DAO : 주문 입력완료");
+	}
+	
+	// 서치 리스트
+	@Override
+	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword) throws Exception {
+		
+		logger.info(" DAO : searchListAll() 호출 ");
+				
+		// 검색옵션과 키워드를 맵에 저장
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		return sqlSession.selectList(namespace + ".searchlist", map);
+	}
+	
+	// 서치 카운트
+	@Override
+	public int countSearch(String searchOption, String keyword) throws Exception {
+		
+		logger.info(" DAO : countSearch() 호출 ");
+		
+		// 검색옵션과 키워드를 맵에 저장
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		
+		return sqlSession.selectOne(namespace + ".countsearch", map);
 	}
 
 	

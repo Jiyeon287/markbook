@@ -47,27 +47,27 @@
 									<h4>Filter by Category</h4>
 								</div>
 								<label class="container">문학 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=문학';"> 
 									<span class="checkmark"></span>
-								</label> 
+								</label>
 								<label class="container">비문학 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=비문학';"> 
 									<span class="checkmark"></span>
 								</label> 
 								<label class="container">자기계발서 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=자기계발서';"> 
 									<span class="checkmark"></span>
 								</label> 
 								<label class="container">수험서 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=수험서';"> 
 									<span class="checkmark"></span>
 								</label> 
 								<label class="container">잡지 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=잡지';"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">기타 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=기타';"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -79,23 +79,23 @@
 									<h4>Filter by BookStatus</h4>
 								</div>
 								<label class="container">최상 - 거의 새책 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=최상';"> 
 									<span class="checkmark"></span>
 								</label>
 							    <label class="container">상 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=상';"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">중 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=중';"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">하 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=하';"> 
 									<span class="checkmark"></span>
 								</label>
 							    <label class="container">최하 - 거의 폐지
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=최하';"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -105,20 +105,12 @@
 								<div class="small-tittle mb-20">
 									<h4>Filter by SalesStatus</h4>
 								</div>
-								<label class="container">미입찰상품 
-									<input type="checkbox"> 
-									<span class="checkmark"></span>
-								</label>
 							    <label class="container">경매중 
-									<input type="checkbox"> 
-									<span class="checkmark"></span>
-								</label>
-								<label class="container">마감임박 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_sellstatus&keyword=0';"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">판매완료 
-									<input type="checkbox"> 
+									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_sellstatus&keyword=1';"> 
 									<span class="checkmark"></span>
 								</label>
 								<!-- select-Categories End -->

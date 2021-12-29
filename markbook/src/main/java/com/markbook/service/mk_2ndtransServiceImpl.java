@@ -153,6 +153,32 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 		
 		System.out.println("S : bookchechout(bvo) 등록완료 ");
 	}
+	
+	// 서치 리스트
+	@Override
+	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword) throws Exception {
+		
+		System.out.println("S : searchListAll() 호출! ");
+		
+		System.out.println(tdao.searchListAll(searchOption, keyword));
+		
+		return tdao.searchListAll(searchOption, keyword);
+		
+	}
+	
+	
+	// 서치 카운트
+	@Override
+	public int countSearch(String searchOption, String keyword) throws Exception {
+		
+		System.out.println("S : countSearch() 호출! ");
+		
+		System.out.println(tdao.countSearch(searchOption, keyword));
+		
+		return tdao.countSearch(searchOption, keyword);
+		
+		
+	}
 
 	
 
