@@ -80,6 +80,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 };
 
 
+
 </script>
 
 <%@ include file="header.jsp"%>
@@ -103,7 +104,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
                         <div class="h3 mb-0">요청게시판 </div>
                     </div>
-<!----------------------------------------- 검색창--------------------------------------------------->
+<!-- ============================================ 검색창======================================================================-->
 <div class="tab-content bg-lighter" id="pills-tabContent-7-3">
                                     <div class="tab-pane fade p-4 show active" id="pills-result-7-3" role="tabpanel" aria-labelledby="pills-result-tab-7-3">
  <div>
@@ -150,12 +151,12 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                                 <th class="font-weight-semi-bold border-top-0 py-2">ID</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Date</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <select class="form-control" id="exampleFormControlSelect1" onchange="location.href=this.value">
                                 <option>상태</option>
-                                <option>신청중</option>
-                                <option>처리중</option>
-                                <option>취소됨</option>
-                                <option>완료됨</option>
+                                <option value="./request_list?pgnum=1&result=0"  <c:if test="${result eq 0}">selected</c:if>>신청중</option>
+                                <option value="./request_list?pgnum=1&result=1"  <c:if test="${result eq 1}">selected</c:if>>처리중</option>
+                                <option value="./request_list?pgnum=1&result=2"  <c:if test="${result eq 2}">selected</c:if>>취소됨</option>
+                                <option value="./request_list?pgnum=1&result=3"  <c:if test="${result eq 3}">selected</c:if>>완료됨</option>
                                 </select>
                                 </th>
                             </tr>
@@ -167,7 +168,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                                 <td class="align-middle py-3">
                                     <div class="d-flex align-items-center">
        
-                                        <a href="./request_detail?r_num=${list.r_num }">${list.r_title }</a>
+                                        <a href="./request_detail?r_num=${list.r_num }&pgnum=${select}&result=${result}">${list.r_title }</a>
                                     </div>
                                 </td>
                                 <td class="py-3">${list.r_name }</td>
@@ -195,7 +196,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
  <ul class="pagination justify-content-end font-weight-semi-bold mb-0">	
  			<li class="page-item">					                       
 <c:if test="${page.prev}">
-  <a href="./request_list?pgnum=${page.startPageNum - 1}${page.searchTypeKeyword}" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
+  <a href="./request_list?pgnum=${page.startPageNum - 1}${page.searchTypeKeyword}&result=${result}" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
   <i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a> 
   
 </c:if>
@@ -204,7 +205,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 
  <li class="page-item d-none d-md-block">
   <c:if test="${select != num}">
-   <a href="./request_list?pgnum=${num}${page.searchTypeKeyword}" id="datatablePagination1" class="page-link">${num}</a>
+   <a href="./request_list?pgnum=${num}${page.searchTypeKeyword}&result=${result}" id="datatablePagination1" class="page-link">${num}</a>
   </c:if>    
   </li>
   

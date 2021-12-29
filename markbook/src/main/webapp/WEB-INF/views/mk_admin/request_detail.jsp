@@ -2,14 +2,21 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<style>
+#btn{
+margin: 20%;
+}
+</style>
 
 <%@ include file="header.jsp"%>
 <script type="text/javascript">
 function go() {
-	location.href="./request_list?pgnum=1";
+	location.href="./request_list?pgnum=${pgnum}&result=${result}";
 }
 
 </script>
+
+
 
 <div class="content">
 	<div class="py-4 px-3 px-md-4">
@@ -28,58 +35,62 @@ function go() {
                                     		<c:when test="${page.r_result  == 2 }"> <span class="badge badge-pill badge-danger">취소됨</span></c:when>
                                     		<c:when test="${page.r_result  == 3 }"> <span class="badge badge-pill badge-light">완료</span></c:when>
                                     </c:choose>
-        
-						</h2>
-<br>
-						<div class="tab-content bg-lighter" id="pills-tabContent-2">
-							<div class="tab-pane fade p-4 show active" id="pills-result-2"
-								role="tabpanel" aria-labelledby="pills-result-tab-2">
+        </h2>
+<!-- ㅇㅇㅇ -->
+<div class="tab-content bg-lighter" id="pills-tabContent-6">
+                                        <div class="tab-pane fade p-4 show active" id="pills-result-6" role="tabpanel" aria-labelledby="pills-result-tab-6">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">First</th>
 
-								<form action="" method="post" name="">
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <th scope="row">제목</th>
+                                                    <td>${page.r_title}</td>
 
-									<div class="form-group">				
-										<b >제목 </b> ${page.r_title}
-<!-- 										<input type="text" class="form-control" id="b_name" name="b_name" value= ${page.r_title} style="width:45%; " readonly="readonly"> -->
-									</div>
-									
-									<div class="form-group" >
-										<strong class="d-block mb-1">책 이름</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value=${page.r_name}  style="width:45%;" readonly="readonly" >
-									</div>
-									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">작가명</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value= ${page.r_writer} style="width:45%; " readonly="readonly">									
-									</div>
-									
-									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">ISBN</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value= ${page.r_ISBN} style="width:45%; " readonly="readonly">
-									</div>
-									
-									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">출판사</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value=${page.r_publisher} style="width:45%; " readonly="readonly">
-									</div>
-									
-									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
-										<strong class="d-block mb-1">가격</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value= ${page.r_price} style="width:45%; "readonly="readonly">
-									</div>
-							<strong class="d-block mb-1">사유</strong>		
-                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly="readonly">${page.r_content }</textarea>
-                         
-                         
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">책이름</th>
+                                                    <td>${page.r_name}</td>
 
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">작가명</th>
+                                                    <td>${page.r_writer}</td>
 
-								</form>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">ISBN</th>
+                                                    <td>${page.r_ISBN}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">출판사</th>
+                                                    <td>${page.r_publisher}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">가격</th>
+                                                    <td>${page.r_price}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2"><b>사유</b><br>${page.r_content }</td>
+                               
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
 							</div>
 						</div>
 					</div>
-<button type="button" class="btn btn-soft-primary mb-3 mr-3" onclick="go();" >목록</button>
+<button type="button" class="btn btn-soft-primary mb-3 mr-3" onclick="go();" id="btn3">목록</button>
 				</div>
 			</div>
 		</div>

@@ -11,7 +11,7 @@
 		values(#{r_num},#{r_name},#{r_writer},#{r_content},#{r_result},#{r_title},#{r_ISBN},#{r_publisher},#{r_price},now())
 	</insert>
 	
-		<!-- 게시판 총 글 갯수 -->	
+		<!-- 게시판 총 글 갯수+검색기능 -->	
 	<select id="requestCount" parameterType="hashMap" resultType="int">
 	select count(r_num) from book_request
 	
@@ -24,6 +24,13 @@
  <if test='searchType.equals("r_id")'>
   WHERE r_id LIKE concat('%', #{keyword}, '%')
  </if>
+	
+	</select>
+	
+			<!-- 게시판 총 글 갯수+카테고리 -->	
+	<select id="requestCount2"  resultType="int">
+	select count(r_num) from book_request
+    where r_result=#{result}
 	
 	</select>
 	
@@ -41,15 +48,17 @@
  from book_request
  
  <if test='searchType.equals("r_title")'>
-  WHERE r_title LIKE concat('%', #{keyword}, '%')
+  WHERE r_title LIKE concat('%', #{keyword}, '%') 
  </if>
  <if test='searchType.equals("r_name")'>
-  WHERE r_name LIKE concat('%', #{keyword}, '%') 
+  WHERE r_name LIKE concat('%', #{keyword}, '%')
  </if>
  <if test='searchType.equals("r_id")'>
   WHERE r_id LIKE concat('%', #{keyword}, '%')
  </if>
- 
+<if test='result lte  3'>
+ and r_result =#{result}
+</if>
  order by r_num desc
   limit #{displayPost}, #{postNum}
 </select>

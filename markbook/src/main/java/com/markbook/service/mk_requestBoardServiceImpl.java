@@ -23,24 +23,31 @@ public class mk_requestBoardServiceImpl implements mk_requestBoardService{
 		rbdao.addBoard(rbvo);
 		
 	}
-// 게시글 수 
+// 게시글 수+ 검색기능
 	@Override
 	public int count( String searchType, String keyword) throws Exception {
 		
 		return rbdao.count(searchType,keyword);
 	}
+	// 게시글 수+ 카테고리 
+		@Override
+		public int count2(int result) throws Exception {
+			
+			return rbdao.count2(result);
+		}
 	// 게시글 수 
 		@Override
 		public int jcount() throws Exception {
 			
 			return rbdao.jcount();
 		}
-	
+	//@@@@@@@@@@@@@@@게시판 목록
 	@Override
-	public List<mk_requestBoardVO> requestList(int displayPost, int postNum, String searchType, String keyword) {
+	public List<mk_requestBoardVO> requestList(int displayPost, int postNum, String searchType, String keyword,int result) {
 		
-		return rbdao.requestList(displayPost, postNum,searchType,keyword);
+		return rbdao.requestList(displayPost, postNum,searchType,keyword,result);
 	}
+	//@@@@@@@@@@@@2게시판 상세페이지
 	@Override
 	public mk_requestBoardVO requestDetail(int r_num) {
 		mk_requestBoardVO rvo = rbdao.requestDetail(r_num);

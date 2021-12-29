@@ -73,24 +73,39 @@ public class mk_requestBoardController {
 	
 	//http://localhost:8088/markbook/mk_admin/request_list?pgnum=1
 	@RequestMapping(value="/mk_admin/request_detail",method=RequestMethod.GET)
-	public void adminRequestDetailGET(@RequestParam("r_num") int r_num,Model  model)throws Exception{
+	public void adminRequestDetailGET(@RequestParam("r_num") int r_num,Model  model,@RequestParam("pgnum") int pgnum,
+			@RequestParam("result") int result
+			)throws Exception{
 		
 		mk_requestBoardVO detailp= service.requestDetail(r_num);
 		
 		model.addAttribute("page",detailp);
+		model.addAttribute("pgnum",pgnum);
+		model.addAttribute("result",result);
 		
 	}
 	
 	@RequestMapping(value="/mk_admin/request_list",method=RequestMethod.GET)
 	public void adminRequestList(Model model,@RequestParam("pgnum") int pgnum,
 			@RequestParam(value = "searchType",required = false, defaultValue = "r_title") String searchType,
-			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword)throws Exception{	
+			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword,
+			   @RequestParam(value = "result",required = false, defaultValue = "4") int result)throws Exception{	
 		logger.info("@@@요청게시판 목록@@@");
-
+        
+	
 		Page page=new Page();
 		
 	    page.setNum(pgnum);
-	    int count=service.count(searchType,keyword);
+	    int count;
+	    if(result ==4) {
+	    	
+	    count=service.count(searchType,keyword);
+	    }else {
+	    count=service.count2(result);
+	    logger.info("result값의 count는 ");
+	    }
+	    
+	    
 		page.setCount(count);
 		// 검색 타입과 검색어
 //		page.setSearchTypeKeyword(searchType, keyword);
@@ -98,11 +113,12 @@ public class mk_requestBoardController {
 		page.setSearchType(searchType);
 		page.setKeyword(keyword);
 		
-		List<mk_requestBoardVO> list = service.requestList(page.getDisplayPost(), page.getPostNum(), searchType, keyword);
+		List<mk_requestBoardVO> list = service.requestList(page.getDisplayPost(), page.getPostNum(), searchType, keyword,result);
 
 		model.addAttribute("list", list);   
 	    model.addAttribute("page",page);
 		model.addAttribute("select", pgnum);
+		model.addAttribute("result",result);
 	     
 
 		
