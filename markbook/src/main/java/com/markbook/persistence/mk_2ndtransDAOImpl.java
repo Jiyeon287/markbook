@@ -164,15 +164,19 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	
 	// 서치 리스트
 	@Override
-	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword) throws Exception {
+	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword, sjCriteria cri) throws Exception {
 		
 		logger.info(" DAO : searchListAll() 호출 ");
+		
+		System.out.println("dao : cri정보"+cri);
 				
 		// 검색옵션과 키워드를 맵에 저장
-		Map<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
-		
+		map.put("skip", cri.getSkip());
+		map.put("pageAmount", cri.getPageAmount());
+				
 		return sqlSession.selectList(namespace + ".searchlist", map);
 	}
 	

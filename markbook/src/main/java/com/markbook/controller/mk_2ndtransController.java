@@ -271,16 +271,18 @@ public class mk_2ndtransController {
 		pm.setCri(cri);
 		pm.setTotalCount(service.countSearch(searchOption, keyword));
 		
-		System.out.println(cri);
-		System.out.println(pm);
+		System.out.println("컨트롤러 cri:"+cri);
+		System.out.println("컨트롤러 pm:"+pm);
 		
 		// Criteria 객체 정보 저장(pageStart/pageSize)
-		model.addAttribute("bookList", service.searchListAll(searchOption, keyword));
+		model.addAttribute("bookList", service.searchListAll(searchOption, keyword, cri));
 		model.addAttribute("pm", pm);
+		model.addAttribute("searchOption", searchOption);
+		model.addAttribute("keyword", keyword);
 		
-		System.out.println(service.searchListAll(searchOption, keyword));
+		System.out.println(service.searchListAll(searchOption, keyword, cri));
 		
-		return "/mk_2ndTrans/booklist";
+		return "/mk_2ndTrans/search";
 				
 	}
 	

@@ -68,7 +68,8 @@ public class sjCriteria {
 
 	@Override
 	public String toString() {
-		return "sjCriteria [pageNum=" + pageNum + ", pageAmount=" + pageAmount + "]";
+		return "sjCriteria [pageNum=" + pageNum + ", pageAmount=" + pageAmount + ", skip=" + skip + "]";
 	}
 
+	
 }

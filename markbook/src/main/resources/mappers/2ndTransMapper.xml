@@ -114,6 +114,7 @@
 	<select id="searchlist" resultType="mk_2ndhand_bookVO">
 		select * from 2ndhand_book 
 		<include refid="search"></include>
+		limit #{skip},#{pageAmount}
 	</select>
 	
 	<select id="countsearch" resultType="int">
