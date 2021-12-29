@@ -88,7 +88,7 @@ public class mk_memberController {
 	
 	@RequestMapping(value="/gg_login", method = { RequestMethod.GET, RequestMethod.POST })
 	public void memberGgloginPOST(mk_memberVO mvo, HttpSession session) throws Exception {
-		System.out.println("소셜 로그인 진행중" +mvo.getM_id());
+		System.out.println("소셜 로그인 진행중 : " +mvo.getM_id());
 		
 		service.socialCheck(mvo);
 		session.setAttribute("m_id", mvo.getM_id());
@@ -178,7 +178,7 @@ public class mk_memberController {
 	@RequestMapping(value="/idchk", method=RequestMethod.POST)
 	   public int memberIdCheck(mk_memberVO mvo) throws Exception {
 	      
-	      System.out.println("아이디 중복체크");
+	      System.out.println("아이디 중복체크 : "+mvo.getM_id());
 	      
 	      return service.memberIdChk(mvo.getM_id());
 	   }

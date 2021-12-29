@@ -55,15 +55,20 @@
 		.done(function(e){
 			var profile = googleUser.getBasicProfile();
 			
-			// var m_id = profile.getId();
 			var m_name =  profile.getName();
 			var m_email = profile.getEmail();
+			
+			// 이메일 @ 앞으로 자르기 (아이디)
+			var idx = m_email.indexOf("@");
+			
+			var m_id = "google-";
+			m_id += m_email.substring(0, idx);
 			
  			$.ajax({
 				url: "/markbook/mk_member/gg_login",
 				type: "post",
 				dataType: "json",
-				data: {"m_id" : m_name, "m_name" : m_name, "m_email" : m_email},
+				data: {"m_id" : m_id, "m_name" : m_name, "m_email" : m_email}
 			})
 			
 			location.href="/markbook/index";
@@ -82,6 +87,27 @@
 		auth2.signOut().then(function () {
 			alert("signout");
 		})
+	}
+	
+	function idChk() {
+		// 재귀함수로 사용
+		var m_id = prompt("아이디가 이미 존재합니다. 다른 아이디를 입력하세요.", "");
+		if (m_id == null) return 0;
+		if (confirm(m_id+"를 아이디로 사용하시겠습니까?")) {
+			$.ajax({
+				url: "/markbook/mk_member/idchk",
+				type: "post",
+				dataType: "json",
+				data: {"m_id" : m_id},
+				success: function(num) {
+					if(num > 0) {
+						alert("중복된 아이디입니다.");
+						idChk();
+					}
+				}
+			})
+		}
+		return m_id;
 	}
 </script>
 <body>
