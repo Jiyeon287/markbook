@@ -255,8 +255,6 @@ function editChk() {
 	}
 
 	if (m_id == '0') return false;
-
-	alert(document.editFr.m_id.value);
 }
 
 function idChk() {
