@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.markbook.domain.Criteria;
 import com.markbook.domain.mk_bookVO;
+import com.markbook.domain.mk_memberVO;
 import com.markbook.domain.pageMaker;
 import com.markbook.service.mk_adminService;
 import com.mysql.cj.Session;
@@ -135,6 +136,7 @@ public class mk_adminController {
 
 	
 	// 전체 회원 목록 조회 (GET)
+	// http://localhost:8088/markbook/mk_admin/memberList
 	@RequestMapping(value = "/memberList", method = RequestMethod.GET)
 	public String memberListAllGET(Criteria cri, Model model) throws Exception {
 				
@@ -152,10 +154,47 @@ public class mk_adminController {
 	}
 	
 	
+	// 회원 개별 정보 조회 (GET)
+	// http://localhost:8088/markbook/mk_admin/memberInfo
+	@RequestMapping(value = "/memberInfo", method = RequestMethod.GET)
+	public String memberInfoGET(String m_id, Model model) throws Exception {
+		
+		mk_memberVO mvo = service.memberInfo(m_id);
+		
+		model.addAttribute("mvo", mvo);
+
+		return "/mk_admin/memberInfo";
+	}
 	
 	
+	// 회원 개별 정보 수정 (GET)
+	// http://localhost:8088/markbook/mk_admin/memberUpdate
+	@RequestMapping(value = "/memberUpdate", method = RequestMethod.GET)
+	public String memberUpdateGET(String m_id, Model model) throws Exception {
+		
+		model.addAttribute("mvo", service.memberInfo(m_id));
+		
+		return "/mk_admin/memberUpdate";
+	}
+	
+	// 회원 개별 정보 수정 (POST)
+	@RequestMapping(value = "/memberUpdate", method = RequestMethod.POST)
+	public String memberUpdatePOST(mk_memberVO uvo) throws Exception {
+		
+		service.updateMember(uvo);
+		
+		return "redirect:/mk_admin/memberList";
+	}
 	
 	
+	// 회원 개별 정보 삭제 (GET)
+	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
+	public String memberDeleteGET(String m_id) throws Exception {
+		
+		service.deleteMember(m_id);
+		
+		return "redirect:/mk_admin/memberList";
+	}
 	
 	
 	

@@ -37,6 +37,14 @@ public interface mk_adminService {
 	// 전체 회원 목록 갯수 조회
 	public int countMember(Criteria cri) throws Exception;
 	
+	// 회원 개별 정보 조회
+	public mk_memberVO memberInfo(String m_id) throws Exception;
+	
+	// 회원 개별 정보 수정
+	public void updateMember(mk_memberVO uvo) throws Exception;
+	
+	// 회원 개별 정보 삭제
+	public void deleteMember(String m_id) throws Exception;
 	
 	
 		

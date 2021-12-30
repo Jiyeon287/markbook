@@ -106,6 +106,35 @@ public class mk_adminServiceImpl implements mk_adminService {
 		return madao.countMember(cri);
 	}
 
+	
+	// 회원 개별 정보 조회
+	@Override
+	public mk_memberVO memberInfo(String m_id) throws Exception {
+		
+		mk_memberVO mvo = madao.memberInfo(m_id);
+		
+		return mvo;
+	}
+
+
+	// 회원 개별 정보 수정
+	@Override
+	public void updateMember(mk_memberVO uvo) throws Exception {
+
+		madao.updateMember(uvo);
+	}
+
+	
+	// 회원 개별 정보 삭제
+	@Override
+	public void deleteMember(String m_id) throws Exception {
+
+		madao.deleteMember(m_id);
+	}
+	
+	
+	
+
 
 
 

@@ -130,6 +130,29 @@ public class mk_adminDAOImpl implements mk_adminDAO {
 		return sqlSession.selectList(namespace+".mListCri", cri);
 	}
 
+	// 회원 개별 정보 조회
+	@Override
+	public mk_memberVO memberInfo(String m_id) throws Exception {
+		
+		mk_memberVO mvo = sqlSession.selectOne(namespace+".mInfo", m_id);
+		
+		return mvo;
+	}
+
+	// 회원 개별 정보 수정
+	@Override
+	public void updateMember(mk_memberVO uvo) throws Exception {
+
+		sqlSession.update(namespace+".mUpdate", uvo);
+	}
+
+	// 회원 개별 정보 삭제
+	@Override
+	public void deleteMember(String m_id) throws Exception {
+
+		sqlSession.delete(namespace+".mDelete", m_id);
+	}
+
 
 
 

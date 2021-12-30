@@ -26,6 +26,17 @@ function fun23(num){
                 <div class="col-12">
                     <div class="card mb-3 mb-md-4">
                         <div class="card-header">
+                    <!-- Breadcrumb -->
+                    <nav class="d-none d-md-block" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#">Books</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">book list</li>
+                        </ol>
+                    </nav>
+                    <!-- End Breadcrumb -->
+                    
                             <h5 class="font-weight-semi-bold mb-0">BOOK LIST</h5>
                         </div>
 
@@ -34,12 +45,12 @@ function fun23(num){
                                 <table class="table text-nowrap mb-0">
                                     <thead>
                                     <tr>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">num</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">name</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">category</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">writer</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">rent</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-2">edit / delete</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">No</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Name</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Category</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Writer</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Rent</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Edit / Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -66,8 +77,12 @@ function fun23(num){
                                             <div class="position-relative">
                                                 <!-- <i class="gd-eraser text-primary"></i> -->
                                                 <!-- <i class="gd-trash"></i> -->
-                                                <a href="./bookUpdate"><button type="submit" class="gd-eraser"></button></a>
-                                                <a href="./bookDelete"><button type="submit" class="gd-trash"></button></a>
+                                                <a class="link-dark d-inline-block" href="./bookUpdate">
+                                            		<i class="gd-pencil icon-text"></i>
+                                        		</a> / 
+                                        		<a class="link-dark d-inline-block" href="./bookDelete">
+                                            		<i class="gd-trash icon-text"></i>
+                                        		</a>
                                                 
                                                 <!-- <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
                                                     <i class="gd-more-alt icon-text"></i>

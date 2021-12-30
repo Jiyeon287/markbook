@@ -10,8 +10,18 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-xl-12">
+			<!-- Breadcrumb -->
+                    <nav class="d-none d-md-block" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#">Books</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">book register</li>
+                        </ol>
+                    </nav>
+                    <!-- End Breadcrumb -->
 					<div class="border-bottom pb-3 mb-6">
-						<h5 class="font-weight-semi-bold mb-0">BOOK LIST</h5>
+						<h5 class="font-weight-semi-bold mb-0">BOOK REGISTER</h5>
 						<div class="tab-content bg-lighter" id="pills-tabContent-2">
 							<div class="tab-pane fade p-4 show active" id="pills-result-2"
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
