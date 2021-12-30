@@ -224,5 +224,12 @@ public class mk_memberController {
 		model.addAttribute("memberInfo", service.profile(m_id));
 	}
 	
+	@RequestMapping(value="/myProfileEdit", method=RequestMethod.GET)
+	public void myProEditGET(@RequestParam("id") String m_id, Model model) throws Exception {
+		
+		System.out.println("프로필 수정");
+		
+		model.addAttribute("memberInfo", service.profile(m_id));
+	}
 
 }

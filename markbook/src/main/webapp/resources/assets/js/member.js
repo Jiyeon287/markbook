@@ -25,12 +25,12 @@ function findAddr(){
 	});
 }
  
-function inpChk() {
+function inpChk() {	
 	// 유효성 검사
 	if(document.joinFr.m_id.value == "") {
 		alert("아이디를 입력하세요.");
 		return false;
-	}
+	}	
 	if(document.joinFr.m_pw.value == "") {
 		alert("비밀번호를 입력하세요.");
 		return false;
@@ -188,4 +188,97 @@ function findID() {
        		console.log(e);
     	}
 	})
+}
+
+function editChk() {
+	if (document.editFr.m_id.value == "") {
+		alert("아이디를 입력하세요.");
+		return false;
+	}
+	if (document.editFr.m_name.value == "") {
+		alert("이름을 입력하세요.");
+		return false;
+	}
+	if(document.editFr.emailAddr.value == "") {
+		alert("이메일 주소를 입력하세요.");
+		return false;
+	}
+	if(document.editFr.emailAddr.value.search("@") > 0) {
+		alert("@없이 이메일만 적어주세요.");
+		return false;
+	}
+	if(document.editFr.domain.value == "none") {
+		alert("도메인 주소를 선택하세요.");
+		return false;
+	}
+	if(document.editFr.m_addr1.value == "" || document.editFr.m_addr2.value == "") {
+		alert("주소를 입력하세요.");
+		return false;
+	}
+	if((document.editFr.m_idnum1.value == "") || (document.editFr.m_idnum2.value == "")) {
+		alert("주민등록번호를 입력하세요.");
+		return false;
+	}
+	if(document.editFr.m_idnum1.value.length != 6 || document.editFr.m_idnum2.value.length != 7) {
+		alert("주민등록번호를 확인 해주세요.");
+		return false;
+	}
+	if (document.editFr.m_phone.value == "") {
+		alert("휴대폰 번호를 입력하세요.");
+		return false;
+	}
+	if (document.editFr.m_phone.value.search("-") > 0) {
+		alert("-없이 숫자만 입력하세요.");
+		return false;
+	}
+	
+	var m_id = document.editFr.m_id.value;
+	var emailAddr = document.editFr.emailAddr.value;
+	var domainAddr = document.editFr.domain.value;
+	var realEmail = emailAddr+"@"+domainAddr;
+		
+	document.editFr.m_email.value = realEmail;	
+	
+	if(document.editFr.m_id.value != document.editFr.realID.value) {
+		$.ajax({
+			url: "/markbook/mk_member/idchk",
+			type: "post",
+			dataType: "json",
+			data: {"m_id" : m_id},
+			async: false,
+			success: function(num) {
+				if(num > 0) {
+					m_id = idChk();
+				}
+			}
+		})
+	}
+
+	if (m_id == '0') return false;
+
+	alert(document.editFr.m_id.value);
+}
+
+function idChk() {
+	// 재귀함수로 사용
+	var m_id = prompt("아이디가 이미 존재합니다. 다른 아이디를 입력하세요.", "");
+	if (m_id == null) return 0;
+	if (confirm(m_id+"를 아이디로 사용하시겠습니까?")) {
+		$.ajax({
+			url: "/markbook/mk_member/idchk",
+			type: "post",
+			dataType: "json",
+			data: {"m_id" : m_id},
+			async: false,
+			success: function(num) {
+				if(num > 0) {
+					alert("중복된 아이디입니다.");
+					idChk();
+				}
+				else {
+					document.editFr.m_id.value = m_id;
+				}
+			}
+		})
+	}
 }

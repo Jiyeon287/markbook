@@ -46,12 +46,10 @@
 					<label>휴대폰번호</label>
 					<c:set var="phoneNum" value="${memberInfo.m_phone}"/>
 					<input type="text" value="${fn:substring(phoneNum,0,3) }-${fn:substring(phoneNum,3,7) }-${fn:substring(phoneNum,7,11) }" readonly>
-					
-					
 				</div>
 				<div class="register-footer" style="margin-top:30px;">
 				 	<p></p>
-					<button class="submit-btn3">Edit Profile</button>
+					<button type="button" onclick="location.href='/markbook/mk_member/myProfileEdit?id=${memberInfo.m_id}';"class="submit-btn3">Edit Profile</button>
 				</div>
 			</div>
 		</div>
