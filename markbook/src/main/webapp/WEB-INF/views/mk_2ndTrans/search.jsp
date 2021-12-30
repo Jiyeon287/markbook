@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
+	
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
 
-<style type="text/css">
-.properties-img {
-	display: inline-block;
-	width: 100%;
-	height: 140px;
-	overflow: hidden;
-	object-fit: cover;
-	border-radius: 5px;
-	border-color: black;
-}
-</style>
+<!-- header 연결  -->	
+<%@ include file="../include/header.jsp"%>
 
 <main>
 	<!-- Hero area Start-->
@@ -35,9 +28,9 @@
 	<div class="listing-area pt-50 pb-50">
 		<div class="container">
 			<div class="row">
-				<!--? Left content -->
+				<!--Left content -->
 				<div class="col-xl-4 col-lg-4 col-md-6">
-					<!-- Job Category Listing start -->
+					<!-- Category Listing start -->
 					<div class="category-listing mb-50">
 						<!-- single one -->
 						<div class="single-listing">
@@ -114,7 +107,6 @@
 								</label>
 							</div>
 							<!-- select-Categories End -->
-
 							<!-- select-Categories start -->
 							<div class="select-Categories pb-50">
 								<div class="small-tittle mb-20">
@@ -222,12 +214,25 @@
 										<option>과거등록순</option>
 									</select>
 									<div class="nice-select" tabindex="0">
-										<span class="current">전체글 조회방법</span>
+										<c:choose>
+											<c:when test="${searchOption == 'lowprice'}">
+												<span class="current">낮은가격순</span>
+											</c:when>
+											<c:when test="${searchOption == 'highprice'}">
+												<span class="current">높은가격순</span>
+											</c:when>
+											<c:when test="${searchOption == 'date'}">
+												<span class="current">과거등록순</span>
+											</c:when>
+											<c:otherwise>
+												<span class="current">조회방법</span>							
+											</c:otherwise>
+										</c:choose>
 										<ul class="list">
 											<li data-value="조회방법" class="option selected">조회방법</li>
 											<li data-value="낮은가격순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=lowprice&keyword=a';">낮은가격순</li>
 											<li data-value="높은가격순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=highprice&keyword=a';">높은가격순</li>
-											<li data-value="최신등록순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=date&keyword=a';">과거등록순</li>
+											<li data-value="과거등록순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=date&keyword=a';">과거등록순</li>
 										</ul>
 									</div>
 								</div>
@@ -240,7 +245,7 @@
 								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-6">
 									<div class="properties pb-30">
 										<div class="properties-card">
-											<div class="properties-img">
+											<div class="properties-img" id="listimg">
 												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">
 													<img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}"
 														 alt="">
@@ -307,8 +312,5 @@
 	</div>
 </main>
 
+<!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
-
-<!-- 자바 스크립트 파일 연결 -->
-<script
-	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/booksearch.js"></script>

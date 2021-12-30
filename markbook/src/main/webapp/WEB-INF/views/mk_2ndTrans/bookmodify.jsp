@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
+	
+<!-- header 연결  -->	
 <%@ include file="../include/header.jsp"%>
 
 <main>
@@ -50,6 +55,10 @@
 				</div>
 				<div class="col-lg-4 col-md-4 mt-sm-30">
 					<div class="single-element-widget mt-110">
+						<h4 class="mb-30">Book Image</h4>
+						<input type="file" name="b2_image" id="b2_image">
+					</div>
+					<div class="single-element-widget mt-30">
 						<h4 class="mb-30">Book Category</h4>
 						<div class="default-select" id="default-select">
 							<select name="b2_category" style="display: none;">

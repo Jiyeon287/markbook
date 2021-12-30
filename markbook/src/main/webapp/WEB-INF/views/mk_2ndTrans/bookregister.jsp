@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">	
+	
+<!-- header 연결  -->	
 <%@ include file="../include/header.jsp"%>
 
 <main>
@@ -21,8 +26,7 @@
 	<!--  Hero area End -->
 
 	<!-- 판매등록 폼  -->
-	<form action="" method="post" id="bookRegister" name="bookRegister"
-		onsubmit="return regiChk();">
+	<form action="" method="post" id="bookRegister" name="bookRegister" onsubmit="return regiChk();">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4 mt-sm-30">
@@ -49,14 +53,14 @@
 								onblur="this.placeholder = '출판사를 입력해주세요.'" required=""
 								class="single-input">
 						</div>
-						<div class="mt-5" style="padding-bottom: 30px;">
+						<div class="mt-5" id="description">
 							<h4 class="mb-15">Book Description</h4>
 							<textarea name="b2_content" class="single-textarea" required=""></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 mt-sm-30">
-					<div class="mt-5" style="padding-top: 70px;">
+					<div class="mt-5" id="image">
 						<h4 class="mb-30">Book Image</h4>
 						<input type="file" name="b2_image" id="b2_image"
 							multiple="multiple">
@@ -131,7 +135,7 @@
 						<h1 class="mb-30">Bid Information</h1>
 						<div class="single-element-widget mt-30">
 							<h4 class="mb-30">Seller id</h4>
-							<input type="text" name="m_id" value="${m_id }"
+							<input type="text" name="b2_seller_id" value="${m_id }"
 								class="single-input">
 						</div>
 						<div class="mt-15">

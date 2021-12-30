@@ -1,5 +1,5 @@
 
-/* 중고책 판매등록 입력값 체크*/
+/* 중고책 판매수정 입력값 체크*/
 
 function modiChk() {
 	
@@ -22,3 +22,46 @@ function modiChk() {
 	}
 
 }
+
+// 이미지 업데이트
+$("input[type='file']").on("change", function() {
+
+	let formData = new FormData();
+	let fileInput = $("input[name='b2_image']");
+	let fileList = fileInput[0].files;
+	let fileObj = fileList[0];
+
+	if (!fileCheck(fileObj.name, fileObj.size)) {
+		return false;
+	}
+
+	formData.append("b2_image", fileObj);
+
+	$.ajax({
+		url: '/markbook/mk_2ndTrans/imgregister',
+		processData: false,
+		contentType: false,
+		data: formData,
+		type: 'POST',
+		dataType: 'json'
+	});
+});
+
+/* 사진 업로드 유효성 검사 */
+let regex = new RegExp("(.*?)\.(jpg|png|jpeg|JPG)$");
+let maxSize = 1048576; //10MB	
+
+function fileCheck(fileName, fileSize) {
+
+	if (fileSize >= maxSize) {
+		alert("파일 사이즈 초과");
+		return false;
+	}
+	if (!regex.test(fileName)) {
+		alert("해당 종류의 파일은 업로드할 수 없습니다.");
+		return false;
+	}
+	return true;
+}
+
+

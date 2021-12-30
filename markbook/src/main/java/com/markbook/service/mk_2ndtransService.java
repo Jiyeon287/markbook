@@ -8,9 +8,6 @@ import com.markbook.domain.mk_memberVO;
 import com.markbook.model.sjCriteria;
 
 public interface mk_2ndtransService {
-
-	// 중고거래 메인 리스트 조회
-	public List<mk_2ndhand_bookVO> getBookList() throws Exception;
 	
 	// 중고거래 전체 정보 페이징 처리 조회
 	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception;

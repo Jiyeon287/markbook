@@ -9,9 +9,6 @@ import com.markbook.model.sjCriteria;
 
 public interface mk_2ndtransDAO {
 	
-	// 중고거래 메인 리스트 조회
-	public List<mk_2ndhand_bookVO> getBookList() throws Exception;
-	
 	// 중고거래 전체 정보 페이징 처리 조회
 	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception;
 		
@@ -39,7 +36,7 @@ public interface mk_2ndtransDAO {
 	// 중고거래 결제창 회원정보 조회
 	public mk_memberVO getMember(String m_id) throws Exception;
 	
-	// 중고책 판매정보 업데이트
+	// 중고책 판매현황 업데이트
 	public void soldupdate(Integer b2_num) throws Exception;
 	
 	// 주문정보 등록

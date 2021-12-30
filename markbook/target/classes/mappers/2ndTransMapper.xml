@@ -5,12 +5,7 @@
 
 <mapper namespace="com.markbook.mapper.2ndTransMapper">
 
-	<!-- 중고거래 메인 리스트 조회 -->
-	<select id="getlist" resultType="mk_2ndhand_bookVO">
-		select * from 2ndhand_book
-	</select>
-
-	<!-- 회원 목록 전체 갯수 조회 -->
+	<!-- 중고거래 전체 갯수 조회 -->
 	<select id="count" resultType="int">
 		select count(*)
 		from 2ndhand_book
@@ -21,15 +16,16 @@
 		select *
 		from 2ndhand_book
 		where b2_sellstatus = 0
+		order by b2_startdate desc 
 		limit #{skip},#{pageAmount}
 	</select>
 
 	<!-- 중고거래 책 매물 등록 -->
 	<insert id="bookregister">
 		insert into 2ndhand_book
-		(b2_num,b2_seller_num,b2_startprice,b2_highestprice,b2_title,b2_category,
+		(b2_num,b2_seller_id,b2_startprice,b2_highestprice,b2_title,b2_category,
 		b2_content,b2_image,b2_writer,b2_publisher,b2_bookstatus,b2_startdate,b2_enddate,b2_sellstatus)
-		values(#{b2_num}, #{b2_seller_num}, #{b2_startprice},
+		values(#{b2_num}, #{b2_seller_id}, #{b2_startprice},
 		#{b2_highestprice},
 		#{b2_title}, #{b2_category}, #{b2_content},
 		#{b2_image}, #{b2_writer},
@@ -47,17 +43,15 @@
 	<update id="bookupdate">
 		update 2ndhand_book
 		set
-		b2_startprice =
-		#{b2_startprice},
-		b2_title = #{b2_title},
-		b2_category = #{b2_category},
-		b2_content = #{b2_content},
-		b2_writer = #{b2_writer},
-		b2_publisher =
-		#{b2_publisher},
-		b2_enddate = #{b2_enddate},
-		b2_bookstatus =
-		#{b2_bookstatus}
+		b2_startprice = #{b2_startprice}, 
+		b2_title = #{b2_title}, 
+		b2_category = #{b2_category}, 
+		b2_content = #{b2_content}, 
+		b2_image = #{b2_image}, 
+		b2_writer = #{b2_writer}, 
+		b2_publisher = #{b2_publisher}, 
+		b2_enddate = #{b2_enddate}, 
+		b2_bookstatus = #{b2_bookstatus} 
 		where b2_num = #{b2_num}
 	</update>
 
@@ -74,8 +68,7 @@
 		b2_highestprice =
 		#{b2_highestprice},
 		b2_buyer_id = #{b2_buyer_id}
-		where b2_num =
-		#{b2_num}
+		where b2_num = #{b2_num}
 	</update>
 
 	<!-- 중고거래 카트 페이지 조회 -->
@@ -96,19 +89,14 @@
 		update 2ndhand_book
 		set
 		b2_sellstatus = 1
-		where b2_num =
-		#{b2_num}
+		where b2_num = #{b2_num}
 	</update>
 
 	<!-- 거래정보 등록 -->
 	<insert id="bookchechout">
 		insert into book_order
-		(order_id, order_b2_num,
-		order_name, order_phone, order_addr1, order_addr2,
-		order_msg)
-		values(#{order_id}, #{order_b2_num}, #{order_name},
-		#{order_phone},
-		#{order_addr1}, #{order_addr2}, #{order_msg})
+		(order_id, order_b2_num, order_name, order_phone, order_addr1, order_addr2, order_msg) 
+		values(#{order_id}, #{order_b2_num}, #{order_name}, #{order_phone}, #{order_addr1}, #{order_addr2}, #{order_msg})
 	</insert>
 	
 	<!-- 검색결과 조회 페이징  -->
@@ -141,12 +129,15 @@
 			</when>
 			<when test="searchOption == 'b2_category'">
 				where b2_category = #{keyword} and b2_sellstatus = 0
+				order by b2_startdate desc
 			</when>
 			<when test="searchOption == 'b2_bookstatus'">
 				where b2_bookstatus = #{keyword} and b2_sellstatus = 0
+				order by b2_startdate desc
 			</when>
 			<otherwise>
 				where b2_sellstatus = #{keyword}
+				order by b2_startdate desc
 			</otherwise>
 		</choose>
 	</sql>

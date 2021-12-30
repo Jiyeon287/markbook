@@ -30,7 +30,7 @@ public class mk_2ndtransController {
 	@Inject
 	private mk_2ndtransService service;
 	
-	// 중고책 거래 메인 페이징 처리 페이지 호출 (GET)
+	// 중고책 거래 메인 페이지 호출 (GET)
 	// http://localhost:8088/markbook/mk_2ndTrans/booklist
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String booklistGET(HttpSession session, Model model, sjCriteria cri) throws Exception {
@@ -38,12 +38,9 @@ public class mk_2ndtransController {
 		logger.info(" C: booklistGET() 호출 ");
 		
 		String m_id = (String) session.getAttribute("m_id");
+		
 		//임시 아이디 설정
 		m_id = "tempId";
-
-		/*
-		 * if (m_id == null) { return "redirect:/login"; }
-		 */
 		
 		model.addAttribute("m_id", m_id);
 				
@@ -51,9 +48,7 @@ public class mk_2ndtransController {
 		sjPageMaker pm = new sjPageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(service.count(cri));
-		
-		System.out.println(cri);
-		
+				
 		// Criteria 객체 정보 저장(pageStart/pageSize)
 		model.addAttribute("bookList", service.getlistCri(cri));
 		model.addAttribute("pm", pm);
@@ -70,7 +65,8 @@ public class mk_2ndtransController {
 		String m_id = (String) session.getAttribute("m_id");
 		//임시 아이디 설정
 		m_id = "tempId";
-
+		
+		// 비회원 제어
 		/*
 		 * if (m_id == null) { return "redirect:/login"; }
 		 */
@@ -87,7 +83,6 @@ public class mk_2ndtransController {
 		logger.info("C: registerPOST() 호출");
 		
 		bvo.setB2_highestprice(bvo.getB2_startprice());
-		System.out.println(bvo);
 		service.bookRegister(bvo);
 
 		return "redirect:/mk_2ndTrans/booklist";
@@ -98,17 +93,14 @@ public class mk_2ndtransController {
 	public void imgRegisterPOST(MultipartFile b2_image, HttpServletRequest request) throws Exception {
 
 		logger.info("imgRegisterPOST() 실행");
-		logger.info("파일 이름 : " + b2_image.getOriginalFilename());
-		logger.info("파일 타입 : " + b2_image.getContentType());
-		logger.info("파일 크기 : " + b2_image.getSize());
 		
 		ServletContext servletContext = request.getSession().getServletContext();
 		String uploadFolder = servletContext.getRealPath("./resources/upload");
 		 
-		logger.info(uploadFolder);
-
 		// 폴더생성
 		File uploadPath = new File(uploadFolder);
+		
+		// 파일 디렉토리 생성
 		if (uploadPath.exists() == false) {
 			uploadPath.mkdirs();
 		}
@@ -148,13 +140,18 @@ public class mk_2ndtransController {
 	@RequestMapping(value = "/bookmodify", method = RequestMethod.GET)
 	public String modifyGET(HttpSession session, Model model, Integer b2_num) throws Exception {
 
-		logger.info("C: infoGET() 호출");
+		logger.info("C: modifyGET() 호출");
 		
 		String m_id = (String) session.getAttribute("m_id");
 		
 		//임시 아이디 설정
 		m_id = "tempId";
 		
+		// 비회원 제어
+		/*
+		 * if (m_id == null) { return "redirect:/login"; }
+		 */
+
 		model.addAttribute("bvo", service.getInfo(b2_num));
 		model.addAttribute("m_id", m_id);
 		
@@ -166,6 +163,8 @@ public class mk_2ndtransController {
 	public String bookModifyPOST(mk_2ndhand_bookVO bvo) throws Exception {
 
 		logger.info("C: bookModifyPOST() 호출");
+		
+		System.out.println("이미징"+bvo.getB2_image());
 		
 		service.bookModify(bvo);
 
@@ -194,6 +193,11 @@ public class mk_2ndtransController {
 		//임시 아이디 설정
 		m_id = "tempId";
 		
+		// 비회원 제어
+		/*
+		 * if (m_id == null) { return "redirect:/login"; }
+		 */
+
 		model.addAttribute("bvo", service.getInfo(b2_num));
 		model.addAttribute("m_id", m_id);
 		
@@ -205,15 +209,15 @@ public class mk_2ndtransController {
 	@RequestMapping(value = "/bookbid", method = RequestMethod.POST)
 	public String bookbidPOST(HttpSession session,mk_2ndhand_bookVO bvo, String bid_price) throws Exception {
 		
-		String m_id = (String) session.getAttribute("m_id");
+		logger.info("C: bookbidPOST() 호출");
 		
-		m_id = "temp_bid_id";
+		String m_id = (String) session.getAttribute("m_id");		
+		m_id = "tempId";
 		
 		bvo.setB2_highestprice(Integer.parseInt(bid_price));
 		bvo.setB2_buyer_id(m_id);
 		service.bookBid(bvo);
 		
-		logger.info("C: bookbidPOST() 호출");
 		logger.info("입찰완료");
 		
 		return "redirect:/mk_2ndTrans/booklist";
@@ -229,6 +233,11 @@ public class mk_2ndtransController {
 		
 		b2_buyer_id = "tempId";
 		
+		// 비회원 제어
+		/*
+		 * if (m_id == null) { return "redirect:/login"; }
+		 */
+
 		model.addAttribute("cartList", service.getCart(b2_buyer_id));
 				
 		return "/mk_2ndTrans/bookcart";
@@ -244,13 +253,14 @@ public class mk_2ndtransController {
 		
 		b2_buyer_id = "tempId";
 		
-		System.out.println(b2_num);
+		// 비회원 제어
+		/*
+		 * if (b2_buyer_id == null) { return "redirect:/login"; }
+		 */
 		
 		model.addAttribute("memberInfo", service.getMember(b2_buyer_id));
 		model.addAttribute("OrderInfo", service.getInfo(b2_num));
-		
-		System.out.println(service.getInfo(b2_num));
-		
+				
 		return "/mk_2ndTrans/bookcheckout";
 	}
 	
@@ -274,15 +284,10 @@ public class mk_2ndtransController {
 		
 		logger.info("C: search() 호출");
 		
-		System.out.println(searchOption + "" + keyword);
-				
 		// 페이징 처리 정보 생성
 		sjPageMaker pm = new sjPageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(service.countSearch(searchOption, keyword));
-		
-		System.out.println("컨트롤러 cri:"+cri);
-		System.out.println("컨트롤러 pm:"+pm);
 		
 		// Criteria 객체 정보 저장(pageStart/pageSize)
 		model.addAttribute("bookList", service.searchListAll(searchOption, keyword, cri));
@@ -290,8 +295,6 @@ public class mk_2ndtransController {
 		model.addAttribute("searchOption", searchOption);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("count", service.countSearch(searchOption, keyword));
-		
-		System.out.println(service.searchListAll(searchOption, keyword, cri));
 		
 		return "/mk_2ndTrans/search";
 				

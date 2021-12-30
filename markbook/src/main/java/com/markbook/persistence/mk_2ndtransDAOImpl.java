@@ -27,22 +27,11 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	// 2ndTransMapper.xml 파일에 접근가능한 이름(주소)
 	private static final String namespace = "com.markbook.mapper.2ndTransMapper";
 
-	// 판매 페이지 리스트 불러오기
-	@Override
-	public List<mk_2ndhand_bookVO> getBookList() throws Exception {
-		
-		logger.info(" DAO : getBookList() 호출 " );
-		
-		List<mk_2ndhand_bookVO> bookList = sqlSession.selectList(namespace+".getlist");
-				
-		return bookList;
-	}
-	
 	// 페이징 리스트 불러오기
 	@Override
 	public List<mk_2ndhand_bookVO> getlistCri(sjCriteria cri) throws Exception {
 		
-		logger.info("getListCri(sjCriteria cri) 호출 !");
+		logger.info(" DAO : getListCri(sjCriteria cri) 호출 !");
 
 		return sqlSession.selectList(namespace + ".getListCri", cri);
 	}
@@ -50,6 +39,8 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	// 중고거래 총 갯수 조회
 	@Override
 	public int count(sjCriteria cri) throws Exception {
+		
+		logger.info(" DAO : count(sjCriteria cri) 호출 !");
 		
 		return sqlSession.selectOne(namespace+".count", cri);
 	}
@@ -86,7 +77,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 		sqlSession.update(namespace + ".bookupdate", bvo);
 		
-		logger.info(" DAO : 수정완료");	
+		logger.info(" DAO : 페이지 수정완료");	
 	}
 	
 	// 상세 페이지 삭제하기
@@ -109,7 +100,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 		sqlSession.update(namespace + ".priceupdate", bvo);
 		
-		logger.info(" DAO : 입찰 가격 수정 완료");	
+		logger.info(" DAO : 입찰 완료");	
 	}
 	
 	// 카트 리스트 조회
@@ -119,9 +110,7 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		logger.info(" DAO : getCart() 호출 ");
 		
 		List<mk_2ndhand_bookVO> cartList = sqlSession.selectList(namespace+".getcart", b2_buyer_id);
-		
-		logger.info(" DAO : getCart() 호출 완료 ");
-		
+				
 		return cartList;
 	}
 	
@@ -146,9 +135,8 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		
 		sqlSession.update(namespace + ".soldupdate", b2_num);
 		
-		logger.info(" DAO : 판매정보 수정 완료");
-		
-		
+		logger.info(" DAO : 판매완료 업데이트");
+			
 	}
 	
 	// 주문 정보 등록
@@ -167,10 +155,8 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword, sjCriteria cri) throws Exception {
 		
 		logger.info(" DAO : searchListAll() 호출 ");
-		
-		System.out.println("dao : cri정보"+cri);
-				
-		// 검색옵션과 키워드를 맵에 저장
+						
+		// 검색옵션과 페이징 값을 맵에 저장
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
