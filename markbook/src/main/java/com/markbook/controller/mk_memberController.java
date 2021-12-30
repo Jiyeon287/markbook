@@ -215,8 +215,13 @@ public class mk_memberController {
 	}
 	
 	@RequestMapping(value="/myProfile", method=RequestMethod.GET)
-	public void myProGET() throws Exception {
+	public void myProGET(HttpSession session, Model model) throws Exception {
+		
 		System.out.println("내 프로필");
+		
+		String m_id = (String)session.getAttribute("m_id");
+				
+		model.addAttribute("memberInfo", service.profile(m_id));
 	}
 	
 

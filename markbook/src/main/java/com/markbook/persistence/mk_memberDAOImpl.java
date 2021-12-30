@@ -1,5 +1,7 @@
 package com.markbook.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -88,6 +90,12 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		
 		mk_memberVO mvo = sqlSession.selectOne(namespace+".readMember", m_id);
 		return mvo;
+	}
+
+	@Override
+	public mk_memberVO profile(String m_id) throws Exception {
+		
+		return sqlSession.selectOne(namespace + ".profile", m_id);
 	}
 
 //	@Override

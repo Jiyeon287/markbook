@@ -1,5 +1,7 @@
 package com.markbook.persistence;
 
+import java.util.List;
+
 import com.markbook.domain.mk_memberVO;
 
 public interface mk_memberDAO {
@@ -30,4 +32,7 @@ public interface mk_memberDAO {
 
 	// 아이디 찾기
 	public String findId(mk_memberVO mvo) throws Exception;
+	
+	// 프로필
+	public mk_memberVO profile(String m_id) throws Exception;
 }

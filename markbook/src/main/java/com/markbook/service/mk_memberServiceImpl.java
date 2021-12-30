@@ -1,6 +1,7 @@
 package com.markbook.service;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
@@ -152,6 +153,12 @@ public class mk_memberServiceImpl implements mk_memberService {
 	public String findId(mk_memberVO mvo) throws Exception {
 		
 		return mdao.findId(mvo);
+	}
+
+	@Override
+	public mk_memberVO profile(String m_id) throws Exception {
+
+		return mdao.profile(m_id);
 	}
 
 //	@Override

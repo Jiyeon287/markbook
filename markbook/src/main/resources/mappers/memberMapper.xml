@@ -61,4 +61,10 @@
 		where m_name = #{m_name} and m_idnum1 = #{m_idnum1} and m_idnum2 = #{m_idnum2}
 	</select>
 	
+	<!-- 프로필 -->
+	<select id="profile" resultType="mk_memberVO">
+		select * from member_info
+		where m_id = #{m_id}
+	</select>
+	
  </mapper>

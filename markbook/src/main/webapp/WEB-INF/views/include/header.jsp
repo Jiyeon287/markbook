@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -126,7 +127,6 @@
 										<li><a href="${pageContext.request.contextPath }/about">About us</a></li>
 										<li><a href="#">BookList</a></li>
 										<li><a href="${pageContext.request.contextPath }/mk_2ndTrans/booklist">Deals</a></li>
-										<li><a href="#">MyPage</a></li>
 									</ul>
 								</nav>
 							</div>

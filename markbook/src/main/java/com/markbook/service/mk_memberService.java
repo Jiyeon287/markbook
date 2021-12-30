@@ -1,5 +1,7 @@
 package com.markbook.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import com.markbook.domain.mk_memberVO;
@@ -32,4 +34,6 @@ public interface mk_memberService {
 	// 아이디 찾기
 	public String findId(mk_memberVO mvo) throws Exception;
 	
+	// 프로필
+	public mk_memberVO profile(String m_id) throws Exception;
 }
