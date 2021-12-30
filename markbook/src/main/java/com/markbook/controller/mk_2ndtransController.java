@@ -36,6 +36,16 @@ public class mk_2ndtransController {
 	public String booklistGET(HttpSession session, Model model, sjCriteria cri) throws Exception {
 		
 		logger.info(" C: booklistGET() 호출 ");
+		
+		String m_id = (String) session.getAttribute("m_id");
+		//임시 아이디 설정
+		m_id = "tempId";
+
+		/*
+		 * if (m_id == null) { return "redirect:/login"; }
+		 */
+		
+		model.addAttribute("m_id", m_id);
 				
 		// 페이징 처리 정보 생성
 		sjPageMaker pm = new sjPageMaker();
@@ -279,6 +289,7 @@ public class mk_2ndtransController {
 		model.addAttribute("pm", pm);
 		model.addAttribute("searchOption", searchOption);
 		model.addAttribute("keyword", keyword);
+		model.addAttribute("count", service.countSearch(searchOption, keyword));
 		
 		System.out.println(service.searchListAll(searchOption, keyword, cri));
 		

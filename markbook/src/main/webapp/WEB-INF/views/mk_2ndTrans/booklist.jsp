@@ -126,17 +126,17 @@
 							<div class="product_page_tittle">
 								<div class="short_by">
 									<select name="#" id="product_short_list" style="display: none;">
-										<option>인기순</option>
-										<option>등록순</option>
-										<option>조회순</option>
+										<option>낮은가격순</option>
+										<option>높은가격순</option>
+										<option>과거등록순</option>
 									</select>
 									<div class="nice-select" tabindex="0">
-										<span class="current">조회방법</span>
+										<span class="current">전체글 조회방법</span>
 										<ul class="list">
 											<li data-value="조회방법" class="option selected">조회방법</li>
-											<li data-value="인기순" class="option">인기순</li>
-											<li data-value="등록순" class="option">등록순</li>
-											<li data-value="조회순" class="option">조회순</li>
+											<li data-value="낮은가격순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=lowprice&keyword=a';">낮은가격순</li>
+											<li data-value="높은가격순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=highprice&keyword=a';">높은가격순</li>
+											<li data-value="최신등록순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=date&keyword=a';">과거등록순</li>
 										</ul>
 									</div>
 								</div>
@@ -155,15 +155,17 @@
 														 alt="">
 												</a>
 											</div>
-											<div class="properties-caption properties-caption2">
+											<div class="properties-caption properties-caption2 text-center">
 												<h3>
 													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">${bvo.b2_title }</a>
 												</h3>
 												<p>${bvo.b2_writer }</p>
-												<div
-													class="properties-footer d-flex justify-content-between align-items-center">
+												<div class="properties-footer">
 													<div class="price">
-														<span> ${bvo.b2_highestprice } 원</span>
+														<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">														
+															<span> ${bvo.b2_highestprice } 원</span>
+														</a>
+														<p>${bvo.b2_startdate }</p>
 													</div>
 												</div>
 											</div>

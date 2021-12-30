@@ -111,25 +111,39 @@
 		#{order_addr1}, #{order_addr2}, #{order_msg})
 	</insert>
 	
+	<!-- 검색결과 조회 페이징  -->
 	<select id="searchlist" resultType="mk_2ndhand_bookVO">
 		select * from 2ndhand_book 
 		<include refid="search"></include>
 		limit #{skip},#{pageAmount}
 	</select>
 	
+	<!-- 검색 결과 갯수  -->
 	<select id="countsearch" resultType="int">
 		select count(*) from 2ndhand_book 
 		<include refid="search"></include>
 	</select>
 	
-	<!-- 반복 sql문  -->
+	<!-- 검색 sql문  -->
 	<sql id="search">
 		<choose>
+			<when test="searchOption == 'lowprice'">
+				where b2_sellstatus = 0
+				order by b2_highestprice
+			</when>
+			<when test="searchOption == 'highprice'">
+				where b2_sellstatus = 0
+				order by b2_highestprice desc
+			</when>
+			<when test="searchOption == 'date'">
+				where b2_sellstatus = 0
+				order by b2_startdate
+			</when>
 			<when test="searchOption == 'b2_category'">
-				where b2_category = #{keyword}
+				where b2_category = #{keyword} and b2_sellstatus = 0
 			</when>
 			<when test="searchOption == 'b2_bookstatus'">
-				where b2_bookstatus = #{keyword}
+				where b2_bookstatus = #{keyword} and b2_sellstatus = 0
 			</when>
 			<otherwise>
 				where b2_sellstatus = #{keyword}

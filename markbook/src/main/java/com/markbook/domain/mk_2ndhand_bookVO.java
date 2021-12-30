@@ -5,7 +5,7 @@ import java.sql.Date;
 public class mk_2ndhand_bookVO {
 
 	private int b2_num;
-	private int b2_seller_num;
+	private String b2_seller_id;
 	private String b2_buyer_id;	
 	private int b2_startprice;
 	private int b2_highestprice;
@@ -19,18 +19,17 @@ public class mk_2ndhand_bookVO {
 	private Date b2_startdate;
 	private Date b2_enddate;
 	private String b2_sellstatus;
-	
 	public int getB2_num() {
 		return b2_num;
 	}
 	public void setB2_num(int b2_num) {
 		this.b2_num = b2_num;
 	}
-	public int getB2_seller_num() {
-		return b2_seller_num;
+	public String getB2_seller_id() {
+		return b2_seller_id;
 	}
-	public void setB2_seller_num(int b2_seller_num) {
-		this.b2_seller_num = b2_seller_num;
+	public void setB2_seller_id(String b2_seller_id) {
+		this.b2_seller_id = b2_seller_id;
 	}
 	public String getB2_buyer_id() {
 		return b2_buyer_id;
@@ -113,12 +112,13 @@ public class mk_2ndhand_bookVO {
 	
 	@Override
 	public String toString() {
-		return "mk_2ndhand_bookVO [b2_num=" + b2_num + ", b2_seller_num=" + b2_seller_num + ", b2_buyer_id="
-				+ b2_buyer_id + ", b2_startprice=" + b2_startprice + ", b2_highestprice=" + b2_highestprice
-				+ ", b2_title=" + b2_title + ", b2_category=" + b2_category + ", b2_content=" + b2_content
-				+ ", b2_image=" + b2_image + ", b2_writer=" + b2_writer + ", b2_publisher=" + b2_publisher
-				+ ", b2_bookstatus=" + b2_bookstatus + ", b2_startdate=" + b2_startdate + ", b2_enddate=" + b2_enddate
-				+ ", b2_sellstatus=" + b2_sellstatus + "]";
+		return "mk_2ndhand_bookVO [b2_num=" + b2_num + ", b2_seller_id=" + b2_seller_id + ", b2_buyer_id=" + b2_buyer_id
+				+ ", b2_startprice=" + b2_startprice + ", b2_highestprice=" + b2_highestprice + ", b2_title=" + b2_title
+				+ ", b2_category=" + b2_category + ", b2_content=" + b2_content + ", b2_image=" + b2_image
+				+ ", b2_writer=" + b2_writer + ", b2_publisher=" + b2_publisher + ", b2_bookstatus=" + b2_bookstatus
+				+ ", b2_startdate=" + b2_startdate + ", b2_enddate=" + b2_enddate + ", b2_sellstatus=" + b2_sellstatus
+				+ "]";
 	}
+	
 	
 }

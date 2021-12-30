@@ -63,8 +63,12 @@
                                         </div>
                                         <p>(120 Review)</p>
                                     </div>
-                                    <a href="${pageContext.request.contextPath}/mk_2ndTrans/bookbid?b2_num=${bvo.b2_num }" class="white-btn mr-10">입찰하기</a>
-                                    <a href="${pageContext.request.contextPath}/mk_2ndTrans/bookmodify?b2_num=${bvo.b2_num }" class="white-btn mr-10">상품수정</a>
+                                    <c:if test="${bvo.b2_seller_id != m_id && bvo.b2_sellstatus == 0 }">                                    
+                                    	<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookbid?b2_num=${bvo.b2_num }" class="white-btn mr-10">입찰하기</a>
+                                    </c:if>
+                                    <c:if test="${bvo.b2_seller_id == m_id && bvo.b2_sellstatus == 0}">
+                                    	<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookmodify?b2_num=${bvo.b2_num }" class="white-btn mr-10">상품수정</a>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +103,7 @@
                     <!-- Tab 1 -->  
                     <div class="row">
                         <div class="offset-xl-1 col-lg-9">
-                            <p>판매자 아이디: ${m_id }</p>
+                            <p>판매자 아이디: ${bvo.b2_seller_id }</p>
                             <p>카테고리: ${bvo.b2_category }</p>
                             <p>작가: ${bvo.b2_writer }</p>
                             <p>출판사: ${bvo.b2_publisher }</p>
