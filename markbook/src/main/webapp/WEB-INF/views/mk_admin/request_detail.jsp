@@ -2,11 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<style>
-#btn{
-margin: 20%;
-}
-</style>
 
 <%@ include file="header.jsp"%>
 <script type="text/javascript">
@@ -26,27 +21,28 @@ function go() {
 			<div class="card-body">
 				<div class="col-xl-12">
 					<div class="border-bottom pb-3 mb-6">
+					<table>
+					<tr>
+			<td  style="width:92%; ">
 						<h2 class="h4">
 							요청게시판 
-			
-                         <c:choose >
-                                    		<c:when test="${page.r_result == 0}"> <span class="badge badge-pill badge-success">신청중</span></c:when>
-                                    		<c:when test="${page.r_result  == 1 }"> <span class="badge badge-pill badge-info">처리중</span></c:when>
-                                    		<c:when test="${page.r_result  == 2 }"> <span class="badge badge-pill badge-danger">취소됨</span></c:when>
-                                    		<c:when test="${page.r_result  == 3 }"> <span class="badge badge-pill badge-light">완료</span></c:when>
-                                    </c:choose>
         </h2>
+			</td>
+			<td style="width:8%; ">
+			                         <c:choose >
+                                    		<c:when test="${page.r_result == 0}"> <span class="btn btn-success mb-3 mr-3">신청중</span></c:when>
+                                    		<c:when test="${page.r_result  == 1 }"> <span class="btn btn-info mb-3 mr-3">처리중</span></c:when>
+                                    		<c:when test="${page.r_result  == 2 }"> <span class="btn btn-danger mb-3 mr-3">취소됨</span></c:when>
+                                    		<c:when test="${page.r_result  == 3 }"> <span class="btn btn-light mb-3 mr-3">완료</span></c:when>
+                                    </c:choose>
+        </td>
+        </tr>
+        </table>
 <!-- ㅇㅇㅇ -->
 <div class="tab-content bg-lighter" id="pills-tabContent-6">
                                         <div class="tab-pane fade p-4 show active" id="pills-result-6" role="tabpanel" aria-labelledby="pills-result-tab-6">
                                             <table class="table table-bordered">
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">First</th>
 
-                                                </tr>
-                                                </thead>
                                                 <tbody>
                                                 <tr>
                                                     <th scope="row">제목</th>
@@ -90,7 +86,7 @@ function go() {
 							</div>
 						</div>
 					</div>
-<button type="button" class="btn btn-soft-primary mb-3 mr-3" onclick="go();" id="btn3">목록</button>
+<button type="button" class="btn btn-soft-primary mb-3 mr-3" onclick="go();" id="btn3" style="text-align: center;">목록</button>
 				</div>
 			</div>
 		</div>

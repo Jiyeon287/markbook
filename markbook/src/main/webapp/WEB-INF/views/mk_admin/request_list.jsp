@@ -7,46 +7,6 @@
 <meta charset="UTF-8">
 
 <style>
-.dropdown.dropdown-lg .dropdown-menu {
-    margin-top: -1px;
-    padding: 6px 20px;
-}
-.input-group-btn .btn-group {
-    display: flex !important;
-}
-.btn-group .btn {
-    border-radius: 0;
-    margin-left: -1px;
-}
-.btn-group .btn:last-child {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.btn-group .form-horizontal .btn[type="submit"] {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.form-horizontal .form-group {
-    margin-left: 0;
-    margin-right: 0;
-}
-.form-group .form-control:last-child {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-@media screen and (min-width: 768px) {
-    #adv-search {
-        width: 500px;
-        margin: 0 auto;
-    }
-    .dropdown.dropdown-lg {
-        position: static !important;
-    }
-    .dropdown.dropdown-lg .dropdown-menu {
-        min-width: 500px;
-    }
-}
 
 .mmbox{
 width: 90%;
@@ -59,17 +19,19 @@ margin-left: 30%;
 <script type="text/javascript">
 
 
-
+// @@@@@@@@@@@@  팝업창  @@@@@@@@@@@
 function fun23(num){
+	var searchType = document.getElementsByName("searchType")[0].value;
+	var keyword =  document.getElementsByName("keyword")[0].value;
 
-    var pop = window.open("./request_adminpopup?r_num="+num,"신청결과","width=600,height=600, scrollbars=yes, resizable=yes"); 
+    var pop = window.open("./request_adminpopup?r_num="+num+"&pgnum="+${select}+"&result="+${result}+ "&searchType=" + searchType + "&keyword=" + keyword,"신청결과","width=600,height=600, scrollbars=yes, resizable=yes"); 
 //     alert(document.RForm.booook.value);
 
     pop.focus();
     
     }
 
-
+//@@@@@@@@@@@@@  검색창   @@@@@@@@@@@@@
 function btn23(){
 
    
@@ -102,9 +64,9 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">요청게시판 </div>
+                        <div class="h3 mb-0"><a href="./request_list?pgnum=1">요청게시판 </a></div>
                     </div>
-<!-- ============================================ 검색창======================================================================-->
+<!-- ============================================ 검색창 시작======================================================================-->
 <div class="tab-content bg-lighter" id="pills-tabContent-7-3">
                                     <div class="tab-pane fade p-4 show active" id="pills-result-7-3" role="tabpanel" aria-labelledby="pills-result-tab-7-3">
  <div>
@@ -139,7 +101,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 </div>
 <br>
 
-<!----------------------------------------- 검색창--------------------------------------------------->
+<!-- ============================================ 검색창 끝======================================================================-->
                     <!-- Users -->
                     <div class="table-responsive-xl">
                         <table class="table text-nowrap mb-0">
@@ -152,7 +114,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                                 <th class="font-weight-semi-bold border-top-0 py-2">Date</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">
                                 <select class="form-control" id="exampleFormControlSelect1" onchange="location.href=this.value">
-                                <option>상태</option>
+                                <option value="./request_list?pgnum=1">상태</option>
                                 <option value="./request_list?pgnum=1&result=0"  <c:if test="${result eq 0}">selected</c:if>>신청중</option>
                                 <option value="./request_list?pgnum=1&result=1"  <c:if test="${result eq 1}">selected</c:if>>처리중</option>
                                 <option value="./request_list?pgnum=1&result=2"  <c:if test="${result eq 2}">selected</c:if>>취소됨</option>
@@ -168,7 +130,7 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                                 <td class="align-middle py-3">
                                     <div class="d-flex align-items-center">
        
-                                        <a href="./request_detail?r_num=${list.r_num }&pgnum=${select}&result=${result}">${list.r_title }</a>
+                                        <a href="./request_detail?r_num=${list.r_num }&pgnum=${select}${page.searchTypeKeyword}&result=${result}">${list.r_title }</a>
                                     </div>
                                 </td>
                                 <td class="py-3">${list.r_name }</td>
@@ -191,9 +153,11 @@ var keyword =  document.getElementsByName("keyword")[0].value;
                        
                             </tbody>
                         </table>
+                        <br>
+                        <br>
                         
-  <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination">
- <ul class="pagination justify-content-end font-weight-semi-bold mb-0">	
+<nav aria-label="Page navigation example" style="text-align: center; margin: 0 auto;">
+								<ul class="pagination justify-content-center font-weight-semi-bold">
  			<li class="page-item">					                       
 <c:if test="${page.prev}">
   <a href="./request_list?pgnum=${page.startPageNum - 1}${page.searchTypeKeyword}&result=${result}" id="datatablePaginationPrev" class="page-link" aria-label="Previous">
@@ -203,13 +167,13 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 
 <c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
 
- <li class="page-item d-none d-md-block">
+ <li class="page-item">
   <c:if test="${select != num}">
    <a href="./request_list?pgnum=${num}${page.searchTypeKeyword}&result=${result}" id="datatablePagination1" class="page-link">${num}</a>
   </c:if>    
   </li>
   
-  <li class="page-item d-none d-md-block">
+  <li class="page-item active ">
   <c:if test="${select == num}">
    <b id="datatablePagination2" class="page-link">${num}</b>   
   </c:if>

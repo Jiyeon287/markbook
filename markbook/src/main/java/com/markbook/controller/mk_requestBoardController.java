@@ -1,8 +1,10 @@
 package com.markbook.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.markbook.domain.Criteria;
+
 import com.markbook.domain.mk_requestBoardVO;
 import com.markbook.domain.Page;
-import com.markbook.domain.pageMaker;
+
 import com.markbook.service.mk_requestBoardService;
 
 @Controller
@@ -89,7 +91,8 @@ public class mk_requestBoardController {
 	public void adminRequestList(Model model,@RequestParam("pgnum") int pgnum,
 			@RequestParam(value = "searchType",required = false, defaultValue = "r_title") String searchType,
 			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword,
-			   @RequestParam(value = "result",required = false, defaultValue = "4") int result)throws Exception{	
+			   @RequestParam(value = "result",required = false, defaultValue = "4") int result
+	           )throws Exception{	
 		logger.info("@@@요청게시판 목록@@@");
         
 	
@@ -119,8 +122,18 @@ public class mk_requestBoardController {
 	    model.addAttribute("page",page);
 		model.addAttribute("select", pgnum);
 		model.addAttribute("result",result);
-	     
+		
+/**	
+ if(list.isEmpty()) {
+			 response.setContentType("text/html; charset=UTF-8");
+	            PrintWriter out = response.getWriter();
+            out.println("<script>alert('dddd'); history.go(-1);</script>");
+	            out.flush();
 
+	}
+	**/
+	     
+		
 		
 	}
 	
@@ -135,10 +148,21 @@ public class mk_requestBoardController {
 	}
 	
 	@RequestMapping(value="/mk_admin/request_adminpopup",method=RequestMethod.POST)
-	public String adminRequestPopupPOST(Model model,mk_requestBoardVO rvo)throws Exception{
+	public String adminRequestPopupPOST(Model model,mk_requestBoardVO rvo,
+			@RequestParam(value = "result",required = false, defaultValue = "4") int result,
+			@RequestParam("pgnum") int pgnum,
+			@RequestParam(value = "searchType",required = false, defaultValue = "r_title") String searchType,
+			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword
+			)throws Exception{
 		
 		service.reqeustUpdate(rvo);
 		logger.info("수정완료!");
+		
+		model.addAttribute("result",result);
+		model.addAttribute("pgnum",pgnum);
+		model.addAttribute("searchType",searchType);
+		model.addAttribute("keyword",keyword);
+		
 		
   return "/mk_admin/request_nothing";
 	}

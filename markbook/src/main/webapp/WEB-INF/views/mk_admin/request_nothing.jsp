@@ -12,8 +12,11 @@
 
 
 //팝업창에서 부모창을 다른페이지로 이동합니다.
-window.opener.location.href="./request_list?pgnum=1";
+window.opener.location.href="./request_list?pgnum="+${pgnum}+"&result="+${result};
 self.close();
+alert("됨?");
+
+//+"&searchType="+${searchType}+"&keyword="+${keyword};
 
 </script>
 
