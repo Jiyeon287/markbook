@@ -47,7 +47,7 @@
 							<input type="text" name="b2_publisher"
 								class="single-input" value="${bvo.b2_publisher }" required="required">
 						</div>
-						<div class="mt-5" style="padding-bottom: 30px;">
+						<div class="mt-5 mb-30">
 							<h4 class="mb-15">Book Description</h4>
 							<textarea name="b2_content" class="single-textarea" required="required">${bvo.b2_content }</textarea>
 						</div>
@@ -156,7 +156,10 @@
 	</form>
 	<!-- 책 수정 폼  -->
 </main>
+
+<!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
+
 <!-- 자바 스크립트 파일 연결 -->
 <script
-	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/secondbookmodify.js"></script>
+	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/modify.js"></script>

@@ -53,7 +53,7 @@
 								onblur="this.placeholder = '출판사를 입력해주세요.'" required=""
 								class="single-input">
 						</div>
-						<div class="mt-5" id="description">
+						<div class="mt-5 mb-50">
 							<h4 class="mb-15">Book Description</h4>
 							<textarea name="b2_content" class="single-textarea" required=""></textarea>
 						</div>

@@ -9,15 +9,21 @@ function modiChk() {
 		return false;
 	}
 	
+	// 사진 입력 검사
+	if (document.bookModify.b2_image.value == ''){
+		alert("사진을 입력해주세요");
+		return false;
+	}
+	
 	// 카테고리 검사
 	if (document.bookModify.b2_category.value == ''){
-		alert("카테고리를 골라주세요");
+		alert("수정할 카테고리를 골라주세요");
 		return false;
 	}
 	
     // 상품 상태 검사
 	if (document.bookModify.b2_bookstatus.value == ''){
-		alert("상품 상태를 골라주세요");
+		alert("수정할 상품 상태를 골라주세요");
 		return false;
 	}
 
