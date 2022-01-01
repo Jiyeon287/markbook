@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<!-- header 연결  -->
+<%@ include file="../include/header.jsp"%>
 <!-- css 연결  -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
-
-<!-- header 연결  -->	
-<%@ include file="../include/header.jsp"%>
+<!-- 주소설정  -->
+<c:set var="path" value="${pageContext.request.contextPath}/mk_2ndTrans/"/>
 
 <main>
 	<!-- Hero area Start-->
@@ -14,7 +14,7 @@
 			<div class="col-xl-12">
 				<div class="slider-area">
 					<div
-						class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
+						class="slider-height2 slider-bg2 d-flex align-items-center justify-content-center">
 						<div class="hero-caption hero-caption2">
 							<h2>Secondhand_book_Deals</h2>
 						</div>
@@ -42,10 +42,10 @@
 								<label class="container">문학
 										<c:choose>
 											<c:when test="${keyword == '문학'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=문학';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=문학';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=문학';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=문학';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -53,10 +53,10 @@
 									<label class="container">비문학
 										<c:choose>
 											<c:when test="${keyword == '비문학'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=비문학';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=비문학';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=비문학';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=비문학';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -64,10 +64,10 @@
 								<label class="container">자기계발서
 										<c:choose>
 											<c:when test="${keyword == '자기계발서'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=자기계발서';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=자기계발서';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=자기계발서';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=자기계발서';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -75,10 +75,10 @@
 								<label class="container">수험서
 										<c:choose>
 											<c:when test="${keyword == '수험서'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=수험서';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=수험서';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=수험서';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=수험서';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -86,10 +86,10 @@
 								<label class="container">잡지
 										<c:choose>
 											<c:when test="${keyword == '잡지'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=잡지';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=잡지';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=잡지';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=잡지';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -97,10 +97,10 @@
 								<label class="container">기타
 										<c:choose>
 											<c:when test="${keyword == '기타'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=기타';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=기타';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_category&keyword=기타';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=기타';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -115,10 +115,10 @@
 								<label class="container">최상 - 거의 새책
 										<c:choose>
 											<c:when test="${keyword == '최상'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=최상';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최상';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=최상';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최상';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -126,10 +126,10 @@
 								<label class="container">상
 										<c:choose>
 											<c:when test="${keyword == '상'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=상';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=상';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=상';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=상';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -137,10 +137,10 @@
 								<label class="container">중
 										<c:choose>
 											<c:when test="${keyword == '중'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=중';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=중';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=중';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=중';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -148,10 +148,10 @@
 								<label class="container">하
 										<c:choose>
 											<c:when test="${keyword == '하'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=하';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=하';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=하';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=하';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -159,10 +159,10 @@
 							    <label class="container">최하 - 거의 폐지
 										<c:choose>
 											<c:when test="${keyword == '최하'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=최하';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최하';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_bookstatus&keyword=최하';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최하';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -177,10 +177,10 @@
 							    <label class="container">경매중
 										<c:choose>
 											<c:when test="${keyword == '0'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_sellstatus&keyword=0';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=0';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_sellstatus&keyword=0';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=0';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -188,10 +188,10 @@
 							    <label class="container">판매완료
 										<c:choose>
 											<c:when test="${keyword == '1'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_sellstatus&keyword=1';">
+	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=1';">
 			 								</c:when>
 			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=b2_sellstatus&keyword=1';"> 
+			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=1';"> 
 			 								</c:otherwise>		
 										</c:choose>
 									<span class="checkmark"></span>
@@ -230,9 +230,9 @@
 										</c:choose>
 										<ul class="list">
 											<li data-value="조회방법" class="option selected">조회방법</li>
-											<li data-value="낮은가격순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=lowprice&keyword=a';">낮은가격순</li>
-											<li data-value="높은가격순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=highprice&keyword=a';">높은가격순</li>
-											<li data-value="과거등록순" class="option" onclick="location.href='${pageContext.request.contextPath}/mk_2ndTrans/search?searchOption=date&keyword=a';">과거등록순</li>
+											<li data-value="낮은가격순" class="option" onclick="location.href='${path}search?searchOption=lowprice&keyword=a';">낮은가격순</li>
+											<li data-value="높은가격순" class="option" onclick="location.href='${path}search?searchOption=highprice&keyword=a';">높은가격순</li>
+											<li data-value="과거등록순" class="option" onclick="location.href='${path}search?searchOption=date&keyword=a';">과거등록순</li>
 										</ul>
 									</div>
 								</div>
@@ -246,19 +246,19 @@
 									<div class="properties pb-30">
 										<div class="properties-card">
 											<div class="properties-img" id="listimg">
-												<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">
+												<a href="${path}bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">
 													<img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}"
 														 alt="">
 												</a>
 											</div>
 											<div class="properties-caption properties-caption2 text-center">
 												<h3>
-													<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">${bvo.b2_title }</a>
+													<a href="${path}bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">${bvo.b2_title }</a>
 												</h3>
 												<p>${bvo.b2_writer }</p>
 												<div class="properties-footer">
 													<div class="price">
-														<a href="${pageContext.request.contextPath}/mk_2ndTrans/bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">														
+														<a href="${path}bookinfo?b2_num=${bvo.b2_num }&pageNum=${pm.cri.pageNum }">														
 															<span> ${bvo.b2_highestprice } 원</span>
 														</a>
 														<p>${bvo.b2_startdate }</p>

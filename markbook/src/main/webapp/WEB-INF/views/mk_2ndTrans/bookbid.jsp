@@ -1,23 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- header 연결  -->
 <%@ include file="../include/header.jsp"%>
-
-
-<style type="text/css">
-.features-img {
-	position: relative;
-	overflow: hidden;
-	width: 800px;
-	height: 600px;
-	padding-bottom: 50px;
-}
-
-.features-img>img {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-}
-</style>
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
 
 <main>
 	<!-- Hero area Start-->
@@ -26,7 +12,7 @@
 			<div class="col-xl-12">
 				<div class="slider-area">
 					<div
-						class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
+						class="slider-height2 slider-bg2 d-flex align-items-center justify-content-center">
 						<div class="hero-caption hero-caption2">
 							<h2>입찰 등록</h2>
 						</div>
@@ -44,7 +30,7 @@
 				<div class="col-lg-8">
 					<div class="row">
 						<div class="col-12">
-							<div class="features-img">
+							<div class="features-img" id="bidimg">
 								<img
 									src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}"
 									alt="">
@@ -78,19 +64,19 @@
 						<form class="form-contact contact_form" action="" method="post" name="registerform">
 							<div class="form-group">
 								<div class="media contact-info media-body">
-									<h6>현재 최고가</h6>
+									<h3>현재 최고가</h3>
 								</div>
 								<input class="form-control" name="b2_highestprice" id="b2_highestprice" value="${bvo.b2_highestprice }"
 									type="text" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<div class="media contact-info media-body">
-									<h6>입찰 가격</h6>
+									<h3>입찰 가격</h3>
 								</div>
 								<input class="form-control" name="bid_price" id="bid_price"
 									type="number">
 							</div>
-							<div class="form-group mt-3">
+							<div class="form-group mt-5">
 								<button type="button" onclick="registerCheck();"
 									class="button button-contactForm boxed-btn">입찰하기</button>
 								<button type="button" onclick="history.back();"
@@ -105,27 +91,9 @@
 	<!-- 입찰 등록 폼  -->
 </main>
 
-<script>
-	//입찰 유효성 검사
-	function registerCheck() {
-		
-		var bid_price = $("#bid_price").val();
-		var b2_price = Number($("#b2_highestprice").val());
-
-		if ($("#bid_price").val() == "") {
-			alert("입찰 가격을 입력해 주세요");
-			$("#bid_price").focus();
-			return false;
-		} else if (bid_price < b2_price) {
-			alert("현재 최고가 보다 높은 입찰 가격을 입력해 주세요");
-			$("#bid_price").focus();
-			return false;
-		} else {
-			alert("입찰에 성공했습니다.");
-			document.registerform.submit();
-		}
-
-	} // 입찰 유효성 검사 끝
-</script>
-
+<!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
+
+<!-- 자바 스크립트 파일 연결 -->
+<script
+	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/bid.js"></script>

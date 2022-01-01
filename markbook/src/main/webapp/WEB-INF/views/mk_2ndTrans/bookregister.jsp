@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
-<!-- css 연결  -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">	
-	
+	pageEncoding="UTF-8"%>	
 <!-- header 연결  -->	
 <%@ include file="../include/header.jsp"%>
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">	
 
 <main>
 	<!-- Hero area Start-->
@@ -14,7 +12,7 @@
 			<div class="col-xl-12">
 				<div class="slider-area">
 					<div
-						class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
+						class="slider-height2 slider-bg2 d-flex align-items-center justify-content-center">
 						<div class="hero-caption hero-caption2">
 							<h2>Secondhand_book_Deals</h2>
 						</div>
@@ -62,8 +60,7 @@
 				<div class="col-lg-4 col-md-4 mt-sm-30">
 					<div class="mt-5" id="image">
 						<h4 class="mb-30">Book Image</h4>
-						<input type="file" name="b2_image" id="b2_image"
-							multiple="multiple">
+						<input type="file" name="b2_image" id="b2_image">
 					</div>
 					<div class="single-element-widget mt-30">
 						<h4 class="mb-30">Book Category</h4>
@@ -150,7 +147,7 @@
 							<input type="date" name="b2_enddate" required="" class="single-input">
 						</div>
 						<div class="form-group mt-5 ml-90">
-							<button type="submit" class="genric-btn success circle arrow">판매등록</button>
+							<button type="submit" class="genric-btn danger circle arrow">판매등록</button>
 							<button type="button" class="genric-btn primary circle arrow"
 								onclick="location.href='./booklist';">목록으로</button>
 						</div>
@@ -161,6 +158,8 @@
 	</form>
 	<!-- 책 등록 폼  -->
 </main>
+
+<!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
 
 <!-- 자바 스크립트 파일 연결 -->

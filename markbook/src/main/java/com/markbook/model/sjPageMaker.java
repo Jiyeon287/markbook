@@ -35,7 +35,7 @@ public class sjPageMaker {
 	}
 	
 	public void CalcData() {
-		System.out.println(" -----  페이징 처리에 필요한 정보 계산 -----");
+		System.out.println(" -----  페이징 처리에 필요한 정보 계산 시작 -----");
 		
 		endPage = (int)Math.ceil(cri.getPageNum()/(double)displayPageNum) * displayPageNum;
 		
@@ -51,7 +51,7 @@ public class sjPageMaker {
 		
 		next = endPage * cri.getPageAmount() >= totalCount? false : true;
 		
-		System.out.println(" -----  페이징 처리에 필요한 정보 계산 -----");
+		System.out.println(" -----  페이징 처리에 필요한 정보 계산 완료 -----");
 	}
 
 	// get/set

@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
-<!-- css 연결  -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
-	
+	pageEncoding="UTF-8"%>	
 <!-- header 연결  -->	
 <%@ include file="../include/header.jsp"%>
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
 
 <main>
 	<!-- Hero area Start-->
@@ -14,7 +12,7 @@
 			<div class="col-xl-12">
 				<div class="slider-area">
 					<div
-						class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
+						class="slider-height2 slider-bg2 d-flex align-items-center justify-content-center">
 						<div class="hero-caption hero-caption2">
 							<h2>INFO - Modify</h2>
 						</div>

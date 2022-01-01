@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<!-- HEADER 연결  -->	
 <%@ include file="../include/header.jsp" %>
+
+<!-- 오늘날짜 변수저장  -->
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
 
 <main>
     <!-- Hero area Start-->
@@ -27,9 +33,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Total</th>
+                                <th scope="col">StartPrice</th>
+                                <th scope="col">CurrentPrice</th>
+                                <th scope="col">Bid-EndDate</th>
                                 <th scope="col">Payment progress</th>
                             </tr>
                         </thead>
@@ -47,21 +53,26 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>${cvo.b2_highestprice }</h5>
-                                </td>
-                                <td>
-                                    <div class="product_count">
-                                        <span class="input-number-decrement"> <i class="ti-minus"></i></span>
-                                        <input class="input-number" type="text" value="1" min="0" max="10">
-                                        <span class="input-number-increment"> <i class="ti-plus"></i></span>
-                                    </div>
+                                    <h5>${cvo.b2_startprice }</h5>
                                 </td>
                                 <td>
                                     <h5>${cvo.b2_highestprice }</h5>
                                 </td>
                                 <td>
-                                     <a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout?b2_num=${cvo.b2_num }">checkout</a>
+                                	<h5>${cvo.b2_enddate }</h5>
                                 </td>
+                                <c:choose>
+                                	<c:when test="${cvo.b2_enddate < today }">
+                                		<td>
+                                     	<a class="btn checkout_btn" href="/markbook/mk_2ndTrans/bookcheckout?b2_num=${cvo.b2_num }">checkout</a>
+                                		</td>
+                                	</c:when>
+                                	<c:otherwise>
+                     					<td>
+                                     		<h5>경매 마감 전</h5>
+                                		</td>           	
+                                	</c:otherwise>
+                                </c:choose>
                             </tr>
                             </c:forEach>
                         </tbody>

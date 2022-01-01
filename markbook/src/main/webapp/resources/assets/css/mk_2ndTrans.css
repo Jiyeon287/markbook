@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* booklist, search  */
+
 #listimg {
 	display: inline-block;
 	width: 100%;
@@ -16,4 +17,35 @@
 
 #image {
 	padding-top: 70px;
+}
+
+/* bookbid  */
+
+#bidimg {
+	position: relative;
+	overflow: hidden;
+	width: 800px;
+	height: 800px;
+	padding-bottom: 50px;
+}
+
+#bidimg>img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+/* book info  */
+
+#infoimg {
+	position: relative;
+	overflow: hidden;
+	width: 500px;
+	height: 500px;
+}
+
+#infoimg>img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
 }

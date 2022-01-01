@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<!-- header 연결  -->	
 <%@ include file="../include/header.jsp" %>
 
 <main>
@@ -18,7 +20,6 @@
         </div> 
     </div>
     <!--  Hero area End -->
-
     <!--? Checkout Area Start-->
     <section class="checkout_area section-padding">
         <div class="container">
@@ -89,18 +90,10 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div class="payment_item active">
-                                <div class="radion_btn">
-                                    <input type="radio" id="f-option6" name="selector">
-                                    <label for="f-option6">Paypal </label>
-                                    <img src="assets/img/gallery/card.jpg" alt="">
-                                    <div class="check"></div>
-                                </div>
-                                <p> Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode. </p>
-                            </div>
-                            <div class="creat_account checkout-cap">
-                                <input type="checkbox" id="selector" name="selector">
-                                <label for="f-option8">I’ve read and accept the  <a href="#">terms &amp; conditions*</a> </label>
+                            <div class="payment_item active mt-5 mb-5 text-center">
+                                <p> 결제는 오직 무통장 입금만 가능합니다.<br> 
+                                    국민은행 이소정 224224-22-4353333<br>
+                    			    영업방침 상 환불, 교환 절대 불가합니다.</p>
                             </div>
                             <button class="btn w-100" onclick="Checkout()">Proceed to Checkout </button>
                         </div>
@@ -113,42 +106,9 @@
 
 </main>
 
-<script>
-//서브밋 함수
-function Checkout() {
-		
-	if ($("#order_name").val() == "") {
-		alert("이름을 입력해 주세요");
-		$("#order_name").focus();
-		return false;
-	} else if ($("#order_phone").val() == "") {
-		alert("전화번호를 입력해 주세요");
-		$("#order_phone").focus();
-		return false;
-	} else if ($("#order_addr1").val() == "") {
-		alert("기본주소를 입력해 주세요");
-		$("#order_addr1").focus();
-		return false;
-	} else if ($("#order_addr2").val() == "") {
-		alert("상세주소를 입력해 주세요");
-		$("#order_addr2").focus();
-		return false;
-	} else if ($("#order_msg").val() == "") {
-		alert("주문메세지를 입력해 주세요");
-		$("#order_msg").focus();
-		return false;
-	} else if ($("#selector").val() == "") {
-		alert("주문 조건에 동의해 주세요");
-		$("#selector").focus();
-		return false;
-	} else{
-		alert("주문에 성공했습니다.");
-		document.bookcheckout.submit();
-	} 
-	
-} // 주문등록 유효성 검사 끝
-
-</script>
-	
-
+<!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
+
+<!-- 자바 스크립트 파일 연결 -->
+<script
+	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/checkout.js"></script>

@@ -65,8 +65,7 @@
 	<update id="priceupdate">
 		update 2ndhand_book
 		set
-		b2_highestprice =
-		#{b2_highestprice},
+		b2_highestprice = #{b2_highestprice}, 
 		b2_buyer_id = #{b2_buyer_id}
 		where b2_num = #{b2_num}
 	</update>

@@ -1,21 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>
-
-<style type="text/css">
-.features-img {
-	position: relative;
-	overflow: hidden;
-	width: 500px;
-	height: 500px;
-}
-
-.features-img>img {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-}
-</style>
+<!-- header 연결  -->
+<%@ include file="../include/header.jsp"%>
+<!-- css 연결  -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/mk_2ndTrans.css">
 
 <main>
 	<!-- Hero area Start-->
@@ -24,7 +12,7 @@
 			<div class="col-xl-12">
 				<div class="slider-area">
 					<div
-						class="slider-height2 slider-bg4 d-flex align-items-center justify-content-center">
+						class="slider-height2 slider-bg2 d-flex align-items-center justify-content-center">
 						<div class="hero-caption hero-caption2">
 							<h2>Secondhand_book_Deals</h2>
 						</div>
@@ -34,7 +22,6 @@
 		</div>
 	</div>
 	<!--  Hero area End -->
-<main>
     <!--  services-area start-->
     <div class="services-area2">
         <div class="container">
@@ -44,7 +31,7 @@
                         <div class="col-xl-12">
                             <!-- Single -->
                             <div class="single-services d-flex align-items-center mb-0">
-                                <div class="features-img">
+                                <div class="features-img" id="infoimg">
                                     <img src="${pageContext.request.contextPath}/resources/upload/${bvo.b2_image}" alt="">
                                 </div>
                                 <div class="features-caption">
@@ -78,7 +65,7 @@
         </div>
     </div>
     <!-- services-area End-->
-    <!--Books review Start -->
+    <!--Books info Start -->
     <section class="our-client section-padding best-selling">
         <div class="container">
             <div class="row">
@@ -103,13 +90,14 @@
                     <!-- Tab 1 -->  
                     <div class="row">
                         <div class="offset-xl-1 col-lg-9">
-                            <p>판매자 아이디: ${bvo.b2_seller_id }</p>
                             <p>카테고리: ${bvo.b2_category }</p>
                             <p>작가: ${bvo.b2_writer }</p>
                             <p>출판사: ${bvo.b2_publisher }</p>
                             <p>상품상태: ${bvo.b2_bookstatus }</p>
-                            <p>현재 최고가: ${bvo.b2_highestprice }</p>
+                            <p>판매자 아이디: ${bvo.b2_seller_id }</p>
                             <p>경매 시작가: ${bvo.b2_startprice }</p>
+                            <p>현재 최고가: ${bvo.b2_highestprice }</p>
+                            <p>경매 마감일: ${bvo.b2_enddate }</p>
                          </div>
                     </div>
                 </div>
@@ -132,7 +120,8 @@
 			</div>
 		</div>
     </section>
-    <!-- Books review End -->
+    <!--Books info END -->
 </main>
 
+<!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
