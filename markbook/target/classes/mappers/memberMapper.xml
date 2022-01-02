@@ -67,4 +67,10 @@
 		where m_id = #{m_id}
 	</select>
 	
+	<!-- 비밀번호 확인 -->
+	<select id="passChk" resultType="Boolean">
+		select count(*) from member_info
+		where m_id = #{m_id} and m_pw = #{m_pw}
+	</select>
+	
  </mapper>

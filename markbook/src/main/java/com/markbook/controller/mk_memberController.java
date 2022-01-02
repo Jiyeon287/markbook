@@ -64,6 +64,7 @@ public class mk_memberController {
 		
 		if (flag) {
 			session.setAttribute("m_id", mvo.getM_id());
+			
 			out.print("<script>location.href='/markbook/index';</script>");
 			out.flush();
 		}
@@ -212,6 +213,17 @@ public class mk_memberController {
 
 		service.findPw(response, mvo);
         
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="passChk", method=RequestMethod.POST)
+	public boolean passChk(mk_memberVO mvo, HttpSession session) throws Exception {
+		
+		mvo.setM_id((String)session.getAttribute("m_id"));
+		
+		System.out.println("비밀번호 확인 : "+mvo.getM_pw());
+				
+		return service.passChk(mvo);
 	}
 	
 	@RequestMapping(value="/myProfile", method=RequestMethod.GET)

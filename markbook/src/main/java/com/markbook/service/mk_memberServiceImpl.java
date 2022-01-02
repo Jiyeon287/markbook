@@ -161,6 +161,12 @@ public class mk_memberServiceImpl implements mk_memberService {
 		return mdao.profile(m_id);
 	}
 
+	@Override
+	public boolean passChk(mk_memberVO mvo) throws Exception {
+	
+		return mdao.passChk(mvo);
+	}
+
 //	@Override
 //	public String emailChk(String m_id) throws Exception {
 //		String m_email = mdao.emailChk(m_id);

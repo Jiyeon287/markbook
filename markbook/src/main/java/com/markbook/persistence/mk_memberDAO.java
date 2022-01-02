@@ -35,4 +35,7 @@ public interface mk_memberDAO {
 	
 	// 프로필
 	public mk_memberVO profile(String m_id) throws Exception;
+	
+	// 비밀번호 확인
+	public boolean passChk(mk_memberVO mvo) throws Exception;
 }

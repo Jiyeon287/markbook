@@ -98,6 +98,12 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		return sqlSession.selectOne(namespace + ".profile", m_id);
 	}
 
+	@Override
+	public boolean passChk(mk_memberVO mvo) throws Exception {
+		
+		return sqlSession.selectOne(namespace + ".passChk", mvo);
+	}
+
 //	@Override
 //	public String emailChk(String m_email) throws Exception {
 //		

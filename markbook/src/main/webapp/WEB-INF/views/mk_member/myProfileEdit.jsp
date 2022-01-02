@@ -77,7 +77,7 @@
 				</div>
 				<input type="hidden" name="m_email" id="in" value=""/> 
 				<div class="register-footer" style="margin-top:30px;">
-	                <p> Do you want to change your password? <a href="#">Change</a> here</p>
+	                <p> Do you want to change your password? <a href="javascript:void(0);" onclick="changePass();">Change</a> here</p>
 					<button class="submit-btn3">Edit</button>
 				</div>
 			</div>

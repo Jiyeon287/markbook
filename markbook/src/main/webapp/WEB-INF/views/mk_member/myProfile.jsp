@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="${pageContext.request.contextPath }/resources//assets/js/member.js"></script>
 
 	<div class="register-form-area" style="margin-top:20px; margin-bottom:20px;">
 		<div class="register-form text-center">
@@ -49,7 +50,7 @@
 				</div>
 				<div class="register-footer" style="margin-top:30px;">
 				 	<p></p>
-					<button type="button" onclick="location.href='/markbook/mk_member/myProfileEdit?id=${memberInfo.m_id}';"class="submit-btn3">Edit Profile</button>
+					<button type="button" onclick="chkPass('${memberInfo.m_id}');" class="submit-btn3">Edit Profile</button>
 				</div>
 			</div>
 		</div>
