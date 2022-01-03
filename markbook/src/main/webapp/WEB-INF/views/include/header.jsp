@@ -127,6 +127,7 @@
 										<li><a href="${pageContext.request.contextPath }/about">About us</a></li>
 										<li><a href="#">BookList</a></li>
 										<li><a href="${pageContext.request.contextPath }/mk_2ndTrans/booklist">Deals</a></li>
+										<li><a href="#">My Page</a></li>
 									</ul>
 								</nav>
 							</div>
