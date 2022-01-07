@@ -1,4 +1,4 @@
-<%@ include file="include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 <main>
     <!-- slider Area Start-->
     <div class="slider-area">
@@ -60,7 +60,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-8">
                     <div class="section-tittle text-center mb-55">
-                        <h2>Best Selling Books Ever</h2>
+                        <h2>Latest Published items</h2>
                     </div>
                 </div>
             </div>
@@ -1298,4 +1298,4 @@
 </div>
 
 
-<%@ include file="include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>

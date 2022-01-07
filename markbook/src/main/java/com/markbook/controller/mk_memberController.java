@@ -123,9 +123,7 @@ public class mk_memberController {
 		String m_phone = (String) response1.get("mobile");
 
 		session.setAttribute("m_id", m_id); 
-		session.setAttribute("m_name", m_name);
-		session.setAttribute("m_email", m_email); 
-		session.setAttribute("m_phone", m_phone);
+
 		
 		//5. 소셜로그인을 한 적이 없으면 db에 회원정보 넣음, 소셜로그인 한적있으면 세션으로 저장만
 

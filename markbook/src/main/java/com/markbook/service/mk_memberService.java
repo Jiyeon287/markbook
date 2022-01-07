@@ -1,7 +1,5 @@
 package com.markbook.service;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 
 import com.markbook.domain.mk_memberVO;
