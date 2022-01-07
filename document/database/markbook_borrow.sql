@@ -24,12 +24,14 @@ DROP TABLE IF EXISTS `borrow`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `borrow` (
   `bor_num` int(11) NOT NULL,
-  `bor_m_num` int(11) DEFAULT NULL,
+  `bor_m_id` varchar(45) DEFAULT NULL,
   `bor_date` date DEFAULT NULL,
   `bor_b_num` int(11) DEFAULT NULL,
   `bor_redate` date DEFAULT NULL,
   `bor_goship` int(11) DEFAULT NULL,
-  PRIMARY KEY (`bor_num`)
+  PRIMARY KEY (`bor_num`),
+  KEY `FK_member_TO_borrow_1_idx` (`bor_m_id`),
+  CONSTRAINT `FK_member_TO_borrow_1` FOREIGN KEY (`bor_m_id`) REFERENCES `member_info` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:39
+-- Dump completed on 2022-01-07 16:25:33

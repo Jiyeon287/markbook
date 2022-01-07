@@ -24,13 +24,20 @@ DROP TABLE IF EXISTS `book_request`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `book_request` (
   `r_num` int(11) NOT NULL,
+  `r_m_id` varchar(45) DEFAULT NULL,
   `r_name` varchar(45) DEFAULT NULL,
   `r_writer` varchar(45) DEFAULT NULL,
   `r_content` varchar(5000) DEFAULT NULL,
-  `r_image` varchar(1000) DEFAULT NULL,
   `r_result` int(11) DEFAULT NULL,
-  `r_id_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`r_num`)
+  `r_upload_date` date DEFAULT NULL,
+  `r_publisher` varchar(45) DEFAULT NULL,
+  `r_ISBN` varchar(45) DEFAULT NULL,
+  `r_price` int(11) DEFAULT NULL,
+  `r_admin_comment` varchar(45) DEFAULT NULL,
+  `r_title` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`r_num`),
+  KEY `FK_member_TO_book_request_1_idx` (`r_m_id`),
+  CONSTRAINT `FK_member_TO_book_request_1` FOREIGN KEY (`r_m_id`) REFERENCES `member_info` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -52,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:39
+-- Dump completed on 2022-01-07 16:25:33

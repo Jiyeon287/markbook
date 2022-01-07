@@ -25,14 +25,18 @@ DROP TABLE IF EXISTS `calendar`;
 CREATE TABLE `calendar` (
   `cal_num` int(11) NOT NULL,
   `bor_num` int(11) DEFAULT NULL,
-  `bor_m_num` int(11) DEFAULT NULL,
+  `bor_m_id` varchar(45) DEFAULT NULL,
   `cal_title` varchar(45) DEFAULT NULL,
   `cal_content` varchar(1000) DEFAULT NULL,
   `cal_start` date DEFAULT NULL,
   `cal_end` date DEFAULT NULL,
   `cal_rental` date DEFAULT NULL,
   `cal_real_end` date DEFAULT NULL,
-  PRIMARY KEY (`cal_num`)
+  PRIMARY KEY (`cal_num`),
+  KEY `FK_member_TO_calendar_1_idx` (`bor_m_id`),
+  KEY `FK_borrow_TO_calendar_1_idx` (`bor_num`),
+  CONSTRAINT `FK_borrow_TO_calendar_1` FOREIGN KEY (`bor_num`) REFERENCES `borrow` (`bor_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_member_TO_calendar_1` FOREIGN KEY (`bor_m_id`) REFERENCES `member_info` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:40
+-- Dump completed on 2022-01-07 16:25:35

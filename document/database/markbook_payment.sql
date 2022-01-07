@@ -25,19 +25,21 @@ DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `pay_num` int(11) NOT NULL,
   `order_num` int(11) DEFAULT NULL,
-  `order_m_num` int(11) DEFAULT NULL,
+  `order_id` varchar(45) DEFAULT NULL,
   `bor_num` int(11) DEFAULT NULL,
   `pay_date` date DEFAULT NULL,
   `pay_method` varchar(45) DEFAULT NULL,
   `pay_status` int(11) DEFAULT NULL,
   `pay_price` varchar(45) DEFAULT NULL,
-  `pay_addr1` varchar(1000) DEFAULT NULL,
-  `pay_addr2` varchar(100) DEFAULT NULL,
-  `pay_phone` varchar(45) DEFAULT NULL,
   `pay_ship_price` varchar(45) DEFAULT NULL,
-  `pay_msg` varchar(1000) DEFAULT NULL,
   `pay_ship_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pay_num`)
+  PRIMARY KEY (`pay_num`),
+  KEY `FK_member_TO_payment_1_idx` (`order_id`),
+  KEY `FK_bookorder_TO_payment_1_idx` (`order_num`),
+  KEY `FK_borrow_TO_payment_1_idx` (`bor_num`),
+  CONSTRAINT `FK_bookorder_TO_payment_1` FOREIGN KEY (`order_num`) REFERENCES `book_order` (`order_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_borrow_TO_payment_1` FOREIGN KEY (`bor_num`) REFERENCES `borrow` (`bor_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_member_TO_payment_1` FOREIGN KEY (`order_id`) REFERENCES `member_info` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:40
+-- Dump completed on 2022-01-07 16:25:35

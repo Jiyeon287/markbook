@@ -23,21 +23,21 @@ DROP TABLE IF EXISTS `member_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `member_info` (
-  `m_num` int(11) NOT NULL,
-  `m_id` varchar(45) DEFAULT NULL,
+  `m_id` varchar(45) NOT NULL,
   `m_pw` varchar(45) DEFAULT NULL,
-  `m_addr1` varchar(1000) DEFAULT NULL,
+  `m_addr1` varchar(100) DEFAULT NULL,
   `m_addr2` varchar(45) DEFAULT NULL,
   `m_email` varchar(100) DEFAULT NULL,
   `m_phone` varchar(45) DEFAULT NULL,
-  `m_image` varchar(1000) DEFAULT NULL,
-  `m_regdate` date DEFAULT NULL,
+  `m_image` varchar(100) DEFAULT NULL,
+  `m_regdate` timestamp NULL DEFAULT NULL,
   `m_idnum1` varchar(45) DEFAULT NULL,
   `m_idnum2` varchar(45) DEFAULT NULL,
   `m_count` int(11) DEFAULT NULL,
   `m_over` int(11) DEFAULT NULL,
   `m_name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`m_num`)
+  `m_status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`m_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -47,6 +47,7 @@ CREATE TABLE `member_info` (
 
 LOCK TABLES `member_info` WRITE;
 /*!40000 ALTER TABLE `member_info` DISABLE KEYS */;
+INSERT INTO `member_info` VALUES ('admin','admin','서울 강남구 가로수길 5','가로수','admin@gmail.com','01012341234',NULL,'2021-11-17 10:00:54','123456','1234567',0,0,'관리자',0);
 /*!40000 ALTER TABLE `member_info` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:39
+-- Dump completed on 2022-01-07 16:25:33

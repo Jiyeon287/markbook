@@ -25,8 +25,17 @@ DROP TABLE IF EXISTS `book_order`;
 CREATE TABLE `book_order` (
   `order_num` int(11) NOT NULL,
   `order_2b_num` int(11) DEFAULT NULL,
-  `order_m_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`order_num`)
+  `order_id` varchar(45) DEFAULT NULL,
+  `order_name` varchar(45) DEFAULT NULL,
+  `order_phone` varchar(45) DEFAULT NULL,
+  `order_addr1` varchar(100) DEFAULT NULL,
+  `order_addr2` varchar(45) DEFAULT NULL,
+  `order_msg` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`order_num`),
+  KEY `FK_2nd_book_TO_book_order_1_idx` (`order_2b_num`),
+  KEY `FK_member_TO_book_order_1_idx` (`order_id`),
+  CONSTRAINT `FK_2nd_book_TO_book_order_1` FOREIGN KEY (`order_2b_num`) REFERENCES `2ndhand_book` (`b2_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_member_TO_book_order_1` FOREIGN KEY (`order_id`) REFERENCES `member_info` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:39
+-- Dump completed on 2022-01-07 16:25:34

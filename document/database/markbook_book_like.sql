@@ -24,9 +24,12 @@ DROP TABLE IF EXISTS `book_like`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `book_like` (
   `b_num` int(11) NOT NULL,
-  `m_num` int(11) DEFAULT NULL,
+  `m_id` varchar(45) DEFAULT NULL,
   `like_chk` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`b_num`)
+  PRIMARY KEY (`b_num`),
+  KEY `FK_member_TO_book_like_2_idx` (`m_id`),
+  CONSTRAINT `FK_book_TO_book_like_1` FOREIGN KEY (`b_num`) REFERENCES `book` (`b_num`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_member_TO_book_like_2` FOREIGN KEY (`m_id`) REFERENCES `member_info` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-11 20:58:39
+-- Dump completed on 2022-01-07 16:25:36
