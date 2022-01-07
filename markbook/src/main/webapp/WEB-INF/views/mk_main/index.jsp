@@ -1,4 +1,4 @@
-<%@ include file="include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 <main>
     <!-- slider Area Start-->
     <div class="slider-area">
@@ -1298,4 +1298,4 @@
 </div>
 
 
-<%@ include file="include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
