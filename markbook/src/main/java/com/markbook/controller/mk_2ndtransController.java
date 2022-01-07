@@ -1,20 +1,30 @@
 package com.markbook.controller;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.markbook.domain.SearchVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.model.sjCriteria;
@@ -278,26 +288,38 @@ public class mk_2ndtransController {
 		return "redirect:/mk_2ndTrans/booklist";
 	}
 	
-	// 중고책 검색결과
+	// 중고책 검색결과 - 낮은가격순, 높은가격순, 과거등록순
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchlist (String searchOption, String keyword, sjCriteria cri, Model model) throws Exception {
+	public String searchlist (String option, sjCriteria cri, Model model) throws Exception {
 		
-		logger.info("C: search() 호출");
+		logger.info("C: searchlist() 호출");
 		
-		// 페이징 처리 정보 생성
-		sjPageMaker pm = new sjPageMaker();
+		SearchVO svo = new SearchVO();
+		svo.setOption(option);
+		
+		// 페이징 처리 정보 생성 
+		sjPageMaker pm = new sjPageMaker(); 
 		pm.setCri(cri);
-		pm.setTotalCount(service.countSearch(searchOption, keyword));
-		
-		// Criteria 객체 정보 저장(pageStart/pageSize)
-		model.addAttribute("bookList", service.searchListAll(searchOption, keyword, cri));
+		pm.setTotalCount(service.countSearch(svo));
+		  
+		// Criteria 객체 정보 저장(pageStart/pageSize) 
+		model.addAttribute("bookList", service.searchListAll(svo, cri)); 
 		model.addAttribute("pm", pm);
-		model.addAttribute("searchOption", searchOption);
-		model.addAttribute("keyword", keyword);
-		model.addAttribute("count", service.countSearch(searchOption, keyword));
+		model.addAttribute("option", svo.getOption()); 
+		model.addAttribute("count", service.countSearch(svo));
+		 
+		return "/mk_2ndTrans/search";				
+	}
+	
+	// 중고책 검색결과 - 카테고리 선택별
+	@ResponseBody
+	@RequestMapping(value = "/cateSearch", method = RequestMethod.POST)
+	public String cateSearch (@RequestParam String data) throws Exception {
 		
-		return "/mk_2ndTrans/search";
-				
+		logger.info("C: catesearch() 호출");
+		logger.info(data);
+	
+		return "/mk_2ndTrans/search";				
 	}
 	
 

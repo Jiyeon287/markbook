@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.markbook.domain.SearchVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -146,21 +147,21 @@ public class mk_2ndtransServiceImpl implements mk_2ndtransService {
 
 	// 서치 리스트
 	@Override
-	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword, sjCriteria cri) throws Exception {
+	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception {
 		
 		logger.info(" S : searchListAll() 호출 !");
 
-		return tdao.searchListAll(searchOption, keyword, cri);
+		return tdao.searchListAll(svo, cri);
 
 	}
 
 	// 서치 카운트
 	@Override
-	public int countSearch(String searchOption, String keyword) throws Exception {
+	public int countSearch(SearchVO svo) throws Exception {
 		
 		logger.info(" S : countSearch() 호출 !");
 
-		return tdao.countSearch(searchOption, keyword);
+		return tdao.countSearch(svo);
 	}
 
 }

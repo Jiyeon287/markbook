@@ -28,81 +28,39 @@
 	<div class="listing-area pt-50 pb-50">
 		<div class="container">
 			<div class="row">
-				<!--Left content -->
+				<!-- Left content -->
 				<div class="col-xl-4 col-lg-4 col-md-6">
 					<!-- Category Listing start -->
 					<div class="category-listing mb-50">
 						<!-- single one -->
-						<div class="single-listing">
+						<div class="single-listing ml-100">
 							<!-- select-Categories  -->
 							<div class="select-Categories pb-30">
 								<div class="small-tittle mb-20">
 									<h4>Filter by Category</h4>
 								</div>
-								<label class="container">문학
-										<c:choose>
-											<c:when test="${keyword == '문학'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=문학';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=문학';"> 
-			 								</c:otherwise>		
-										</c:choose>
+								<label class="container">문학 
+									<input type="checkbox" name="b2_category" id="b2_category" value="문학"> 
+									<span class="checkmark" ></span>
+								</label>
+								<label class="container">비문학 
+									<input type="checkbox" name="b2_category" id="b2_category" value="비문학"> 
+									<span class="checkmark"></span>
+								</label> 
+								<label class="container">자기계발서 
+									<input type="checkbox" name="b2_category" id="b2_category" value="자기계발서"> 
+									<span class="checkmark"></span>
+								</label> 
+								<label class="container">수험서 
+									<input type="checkbox" name="b2_category" id="b2_category" value="수험서"> 
+									<span class="checkmark"></span>
+								</label> 
+								<label class="container">잡지 
+									<input type="checkbox" name="b2_category" id="b2_category" value="잡지"> 
 									<span class="checkmark"></span>
 								</label>
-									<label class="container">비문학
-										<c:choose>
-											<c:when test="${keyword == '비문학'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=비문학';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=비문학';"> 
-			 								</c:otherwise>		
-										</c:choose>
-									<span class="checkmark"></span>
-								</label>
-								<label class="container">자기계발서
-										<c:choose>
-											<c:when test="${keyword == '자기계발서'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=자기계발서';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=자기계발서';"> 
-			 								</c:otherwise>		
-										</c:choose>
-									<span class="checkmark"></span>
-								</label>
-								<label class="container">수험서
-										<c:choose>
-											<c:when test="${keyword == '수험서'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=수험서';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=수험서';"> 
-			 								</c:otherwise>		
-										</c:choose>
-									<span class="checkmark"></span>
-								</label>
-								<label class="container">잡지
-										<c:choose>
-											<c:when test="${keyword == '잡지'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=잡지';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=잡지';"> 
-			 								</c:otherwise>		
-										</c:choose>
-									<span class="checkmark"></span>
-								</label>
-								<label class="container">기타
-										<c:choose>
-											<c:when test="${keyword == '기타'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_category&keyword=기타';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=기타';"> 
-			 								</c:otherwise>		
-										</c:choose>
+								<label class="container">기타 
+									<input type="checkbox" name="b2_category" id="b2_category" value="기타"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -112,97 +70,50 @@
 								<div class="small-tittle mb-20">
 									<h4>Filter by BookStatus</h4>
 								</div>
-								<label class="container">최상 - 거의 새책
-										<c:choose>
-											<c:when test="${keyword == '최상'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최상';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최상';"> 
-			 								</c:otherwise>		
-										</c:choose>
+								<label class="container">최상 - 거의 새책 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="최상"> 
 									<span class="checkmark"></span>
 								</label>
-								<label class="container">상
-										<c:choose>
-											<c:when test="${keyword == '상'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=상';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=상';"> 
-			 								</c:otherwise>		
-										</c:choose>
+							    <label class="container">상 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="상"> 
 									<span class="checkmark"></span>
 								</label>
-								<label class="container">중
-										<c:choose>
-											<c:when test="${keyword == '중'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=중';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=중';"> 
-			 								</c:otherwise>		
-										</c:choose>
+								<label class="container">중 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="중"> 
 									<span class="checkmark"></span>
 								</label>
-								<label class="container">하
-										<c:choose>
-											<c:when test="${keyword == '하'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=하';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=하';"> 
-			 								</c:otherwise>		
-										</c:choose>
+								<label class="container">하 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="하"> 
 									<span class="checkmark"></span>
 								</label>
 							    <label class="container">최하 - 거의 폐지
-										<c:choose>
-											<c:when test="${keyword == '최하'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최하';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최하';"> 
-			 								</c:otherwise>		
-										</c:choose>
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="최하"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
 							<!-- select-Categories End -->
 							<!-- select-Categories start -->
-							<div class="select-Categories pb-50">
-								<div class="small-tittle mb-20">
+							<div class="select-Categories pb-30">
+								<div class="small-tittle mb-15">
 									<h4>Filter by SalesStatus</h4>
 								</div>
-							    <label class="container">경매중
-										<c:choose>
-											<c:when test="${keyword == '0'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=0';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=0';"> 
-			 								</c:otherwise>		
-										</c:choose>
+							    <label class="container">경매중 
+									<input type="checkbox" name="b2_sellstatus" id="b2_sellstatus" value="0"> 
 									<span class="checkmark"></span>
 								</label>
-							    <label class="container">판매완료
-										<c:choose>
-											<c:when test="${keyword == '1'}">
-	  											<input type="checkbox" checked="checked active" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=1';">
-			 								</c:when>
-			 								<c:otherwise>
-			 									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=1';"> 
-			 								</c:otherwise>		
-										</c:choose>
+								<label class="container">판매완료 
+									<input type="checkbox" name="b2_sellstatus" id="b2_sellstatus" value="1"> 
 									<span class="checkmark"></span>
 								</label>
-								<!-- select-Categories End -->
 							</div>
+							<!-- select-Categories End -->
+						<button type="button" 
+								class="button button-contactForm boxed-btn" onclick="Search();">검색하기</button>
 						</div>
 					</div>
-					<!-- Job Category Listing End -->
+					<!-- Category Listing End -->
 				</div>
-				<!--?  Right content -->
+				<!--  Right content -->
 				<div class="col-xl-8 col-lg-8 col-md-6">
 					<div class="row justify-content-end">
 						<div class="col-xl-4">
@@ -230,9 +141,9 @@
 										</c:choose>
 										<ul class="list">
 											<li data-value="조회방법" class="option selected">조회방법</li>
-											<li data-value="낮은가격순" class="option" onclick="location.href='${path}search?searchOption=lowprice&keyword=a';">낮은가격순</li>
-											<li data-value="높은가격순" class="option" onclick="location.href='${path}search?searchOption=highprice&keyword=a';">높은가격순</li>
-											<li data-value="과거등록순" class="option" onclick="location.href='${path}search?searchOption=date&keyword=a';">과거등록순</li>
+											<li data-value="낮은가격순" class="option" onclick="location.href='${path}search?option=lowprice';">낮은가격순</li>
+											<li data-value="높은가격순" class="option" onclick="location.href='${path}search?option=highprice';">높은가격순</li>
+											<li data-value="과거등록순" class="option" onclick="location.href='${path}search?option=date';">과거등록순</li>
 										</ul>
 									</div>
 								</div>
@@ -314,3 +225,7 @@
 
 <!-- footer 연결  -->
 <%@ include file="../include/footer.jsp"%>
+
+<!-- 자바 스크립트 파일 연결 -->
+<script
+	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/list.js"></script>

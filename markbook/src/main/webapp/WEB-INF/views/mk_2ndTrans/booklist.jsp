@@ -102,7 +102,7 @@
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">판매완료 
-									<input type="checkbox" name="b2_sellstatus" id="b2_sellstatus" value="0"> 
+									<input type="checkbox" name="b2_sellstatus" id="b2_sellstatus" value="1"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -128,9 +128,9 @@
 										<span class="current">조회방법</span>
 										<ul class="list">
 											<li data-value="조회방법" class="option selected">조회방법</li>
-											<li data-value="낮은가격순" class="option" onclick="location.href='${path}search?searchOption=lowprice&keyword=a';">낮은가격순</li>
-											<li data-value="높은가격순" class="option" onclick="location.href='${path}search?searchOption=highprice&keyword=a';">높은가격순</li>
-											<li data-value="과거등록순" class="option" onclick="location.href='${path}search?searchOption=date&keyword=a';">과거등록순</li>
+											<li data-value="낮은가격순" class="option" onclick="location.href='${path}search?option=lowprice';">낮은가격순</li>
+											<li data-value="높은가격순" class="option" onclick="location.href='${path}search?option=highprice';">높은가격순</li>
+											<li data-value="과거등록순" class="option" onclick="location.href='${path}search?option=date';">과거등록순</li>
 										</ul>
 									</div>
 								</div>

@@ -2,6 +2,7 @@ package com.markbook.service;
 
 import java.util.List;
 
+import com.markbook.domain.SearchVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -43,11 +44,11 @@ public interface mk_2ndtransService {
 	public void bookchechout(book_orderVO bvo) throws Exception;
 	
 	// 서치 리스트
-	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword, sjCriteria cri) throws Exception;
+	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception;
 	
 	// 서치 레코드 갯수
-	public int countSearch(String searchOption, String keyword) throws Exception;
-	
+	public int countSearch(SearchVO svo) throws Exception;
+
 	
 	
 

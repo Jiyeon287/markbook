@@ -19,6 +19,16 @@ public class mk_2ndhand_bookVO {
 	private Date b2_startdate;
 	private Date b2_enddate;
 	private String b2_sellstatus;
+	
+	private String searchOption;
+	
+	public String getSearchOption() {
+		return searchOption;
+	}
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
+	
 	public int getB2_num() {
 		return b2_num;
 	}

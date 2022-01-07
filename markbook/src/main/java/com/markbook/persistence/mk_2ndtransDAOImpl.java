@@ -2,7 +2,6 @@ package com.markbook.persistence;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -11,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.markbook.domain.SearchVO;
 import com.markbook.domain.book_orderVO;
 import com.markbook.domain.mk_2ndhand_bookVO;
 import com.markbook.domain.mk_memberVO;
@@ -150,16 +150,15 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 		logger.info(" DAO : 주문 입력완료");
 	}
 	
-	// 서치 리스트
+	// 조회 결과 리스트
 	@Override
-	public List<mk_2ndhand_bookVO> searchListAll(String searchOption, String keyword, sjCriteria cri) throws Exception {
+	public List<mk_2ndhand_bookVO> searchListAll(SearchVO svo, sjCriteria cri) throws Exception {
 		
 		logger.info(" DAO : searchListAll() 호출 ");
 						
 		// 검색옵션과 페이징 값을 맵에 저장
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword);
+		map.put("option", svo.getOption());
 		map.put("skip", cri.getSkip());
 		map.put("pageAmount", cri.getPageAmount());
 				
@@ -168,16 +167,11 @@ public class mk_2ndtransDAOImpl implements mk_2ndtransDAO {
 	
 	// 서치 카운트
 	@Override
-	public int countSearch(String searchOption, String keyword) throws Exception {
+	public int countSearch(SearchVO svo) throws Exception {
 		
 		logger.info(" DAO : countSearch() 호출 ");
 		
-		// 검색옵션과 키워드를 맵에 저장
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("searchOption", searchOption);
-		map.put("keyword", keyword);
-		
-		return sqlSession.selectOne(namespace + ".countsearch", map);
+		return sqlSession.selectOne(namespace + ".countsearch", svo);
 	}
 
 	

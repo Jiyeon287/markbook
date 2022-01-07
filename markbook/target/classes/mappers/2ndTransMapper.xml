@@ -98,8 +98,8 @@
 		values(#{order_id}, #{order_b2_num}, #{order_name}, #{order_phone}, #{order_addr1}, #{order_addr2}, #{order_msg})
 	</insert>
 	
-	<!-- 검색결과 조회 페이징  -->
-	<select id="searchlist" resultType="mk_2ndhand_bookVO">
+	<!-- 리스트 선택 결과 페이징  -->
+	<select id="searchlist" parameterType="hashmap" resultType="mk_2ndhand_bookVO">
 		select * from 2ndhand_book 
 		<include refid="search"></include>
 		limit #{skip},#{pageAmount}
@@ -114,29 +114,17 @@
 	<!-- 검색 sql문  -->
 	<sql id="search">
 		<choose>
-			<when test="searchOption == 'lowprice'">
+			<when test="option == 'lowprice'">
 				where b2_sellstatus = 0
 				order by b2_highestprice
 			</when>
-			<when test="searchOption == 'highprice'">
+			<when test="option == 'highprice'">
 				where b2_sellstatus = 0
 				order by b2_highestprice desc
 			</when>
-			<when test="searchOption == 'date'">
+			<otherwise>
 				where b2_sellstatus = 0
 				order by b2_startdate
-			</when>
-			<when test="searchOption == 'b2_category'">
-				where b2_category = #{keyword} and b2_sellstatus = 0
-				order by b2_startdate desc
-			</when>
-			<when test="searchOption == 'b2_bookstatus'">
-				where b2_bookstatus = #{keyword} and b2_sellstatus = 0
-				order by b2_startdate desc
-			</when>
-			<otherwise>
-				where b2_sellstatus = #{keyword}
-				order by b2_startdate desc
 			</otherwise>
 		</choose>
 	</sql>
