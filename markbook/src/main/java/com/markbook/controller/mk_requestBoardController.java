@@ -91,11 +91,9 @@ public class mk_requestBoardController {
 	public void adminRequestList(Model model,@RequestParam("pgnum") int pgnum,
 			@RequestParam(value = "searchType",required = false, defaultValue = "r_title") String searchType,
 			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword,
-			   @RequestParam(value = "result",required = false, defaultValue = "4") int result
-	           )throws Exception{	
+			   @RequestParam(value = "result",required = false, defaultValue = "4") int result)throws Exception{	
 		logger.info("@@@요청게시판 목록@@@");
-        
-	
+
 		Page page=new Page();
 		
 	    page.setNum(pgnum);
@@ -117,24 +115,14 @@ public class mk_requestBoardController {
 		page.setKeyword(keyword);
 		
 		List<mk_requestBoardVO> list = service.requestList(page.getDisplayPost(), page.getPostNum(), searchType, keyword,result);
-
+		
+		
 		model.addAttribute("list", list);   
 	    model.addAttribute("page",page);
 		model.addAttribute("select", pgnum);
 		model.addAttribute("result",result);
 		
-/**	
- if(list.isEmpty()) {
-			 response.setContentType("text/html; charset=UTF-8");
-	            PrintWriter out = response.getWriter();
-            out.println("<script>alert('dddd'); history.go(-1);</script>");
-	            out.flush();
 
-	}
-	**/
-	     
-		
-		
 	}
 	
 	@RequestMapping(value="/mk_admin/request_adminpopup",method=RequestMethod.GET)

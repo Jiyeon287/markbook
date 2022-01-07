@@ -43,6 +43,8 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 
 
 
+
+
 </script>
 
 <%@ include file="header.jsp"%>
@@ -102,6 +104,11 @@ var keyword =  document.getElementsByName("keyword")[0].value;
 <br>
 
 <!-- ============================================ 검색창 끝======================================================================-->
+<%--    <c:choose > --%>
+<%--                                     		<c:when test="${list.r_title == 0}"> <span onclick="not()" ></span></c:when> --%>
+
+<%--                                     </c:choose> --%>
+
                     <!-- Users -->
                     <div class="table-responsive-xl">
                         <table class="table text-nowrap mb-0">

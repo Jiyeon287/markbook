@@ -28,7 +28,7 @@ function go() {
 							요청게시판 
         </h2>
 			</td>
-			<td style="width:8%; ">
+			<td style="width:10%; ">
 			                         <c:choose >
                                     		<c:when test="${page.r_result == 0}"> <span class="btn btn-success mb-3 mr-3">신청중</span></c:when>
                                     		<c:when test="${page.r_result  == 1 }"> <span class="btn btn-info mb-3 mr-3">처리중</span></c:when>
@@ -92,5 +92,5 @@ function go() {
 		</div>
 		<%@ include file="footer.jsp"%>
 	</div>
-</div>
+
 </html>

@@ -63,9 +63,9 @@
  <form class="form-contact comment_form" action="./add" id="commentForm" method="post" name="RForm" onsubmit="return check()">
  <input type="hidden" value="${r_num} " name="r_num">
   <input type="hidden" value="0" name="r_result">
-   <div class="col-sm-12">
+   <div class="col-sm-6">
     <div class="form-group">
-    
+    <br>
     <label>제목</label>
     <input class="form-control" type="text" name="r_title" placeholder="제목">
     </div>

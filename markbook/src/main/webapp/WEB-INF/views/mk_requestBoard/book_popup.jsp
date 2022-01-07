@@ -20,34 +20,41 @@
 
 
 
+<style>
+table{
+border:5px solid red;
 
+}
+
+</style>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>책 검색</title>
 
 
 
-<!-- <div class="blog_right_sidebar"> -->
-<!--                         <aside class="single_sidebar_widget search_widget"> -->
+<div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget search_widget">
                             
-<!--                                 <div class="form-group m-0"> -->
-<!--                                     <div class="input-group"> -->
-<!--                                         <input type="text" class="form-control"  id="query" name="Search"> -->
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control"  id="query" name="Search" placeholder="검색어를 입력하시오.">
                                
-<!--                                             <button class="boxed-btn2" id="search">Search</button> -->
-<!--                                         </div> -->
-<!--                                     </div> -->
+                                            <button class="boxed-btn2" id="search">Search</button>
+                                        </div>
+                                    </div>
                                
                            
-<!--                         </aside> -->
+                        </aside>
                   
-<!--                     </div> -->
+                    </div>
 
-    <input type="text" id="query" name="Search">
-    <button id="search">검색</button>nnnn
+<!--     <input type="text" id="query" name="Search"> -->
+<!--     <button id="search">검색</button> -->
  
-<!--     <div></div> -->
-<span></span>
+<br>
+    <div id="here"></div>
+
 
 
  <script type="text/javascript">
@@ -95,7 +102,7 @@
             var pageNum = 1;
  
             $("#search").click(function () {
-                $("div").html("");
+                $("#here").html("");
  
                 $.ajax({
                     method: "GET",
@@ -117,13 +124,41 @@
                     	var thumbnail=msg.documents[i].thumbnail;
                     	
 //                     	$("div").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+');\">'+title +"</a>");
-                    	$("span").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +"</a>");
+                        $("#here").append("<table>");
+                        $("#here").append("<tr>");
+                        $("#here").append("<th>");
+                    	$("#here").append('<a href="\javascript:data('+"'"+title +"'"+','+"'"+ISBN +"'"+','+"'"+publisher +"'"+','+"'"+authors +"'"+','+"'"+price +"'"+');\">'+ title +"</a>");
+                        $("#here").append("</th>");
+                        $("#here").append("<th rowspan='4'");
+                        $("#here").append("<img src='" + thumbnail + "' /><br>");
+                        $("#here").append("</th>");
+                        $("#here").append("</tr>");
+                        
+                        $("#here").append("<tr>");
+                        $("#here").append("<td>");
+                        $("#here").append("<strong>출판사:</strong> " + publisher + "<br>");
+                        $("#here").append("</td>");
+                        $("#here").append("<td>");
+                        $("#here").append("</td>");                       
+                        $("#here").append("</tr>");
                     	
-                    	
-                        $("span").append("<strong>출판사:</strong> " + publisher + "<br>");
-                        $("span").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
-                        $("span").append("<strong>ISBN:</strong> " + msg.documents[i].isbn + "...<br>");
-                        $("span").append("<img src='" + thumbnail + "' /><br>");
+                        $("#here").append("<tr>");
+                        $("#here").append("<td>");
+                        $("#here").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
+                        $("#here").append("</td>");
+                        $("#here").append("<td>");
+                        $("#here").append("</td>");   
+                        $("#here").append("</tr>");
+                        
+                        $("#here").append("<tr>");
+                        $("#here").append("<td>");
+                        $("#here").append("<strong>ISBN:</strong> " + msg.documents[i].isbn + "...<br>");
+                        $("#here").append("</td>");       
+                        $("#here").append("<td>");
+                        $("#here").append("</td>");   
+                        $("#here").append("</tr>");
+                        
+                        $("#here").append("</table>");
                         
                     }
                 });
@@ -153,11 +188,11 @@
                         	var thumbnail=msg.documents[i].thumbnail
                         	
                         	
-                          	 $("span").append("<h2><a  href=\'javascript:data("+ title +");\'>"+ title +"</a></h2>");
-                            $("span").append("<strong>출판사:</strong> " + publisher + "<br>");
-                            $("span").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
-                            $("span").append("<img src='" + thumbnail + "' /><br>");
-                            $("span").append("<img src='" + thumbnail + "' /><br>");
+                          	 $("#here").append("<h2><a  href=\'javascript:data("+ title +");\'>"+ title +"</a></h2>");
+                            $("#here").append("<strong>출판사:</strong> " + publisher + "<br>");
+                            $("#here").append("<strong>요약:</strong> " + msg.documents[i].contents + "...<br>");
+                            $("#here").append("<img src='" + thumbnail + "' /><br>");
+                            $("#here").append("<img src='" + thumbnail + "' /><br>");
                         }
                     });
  
@@ -168,6 +203,6 @@
  
         
     </script>
-f
+
 </body>
 </html>
