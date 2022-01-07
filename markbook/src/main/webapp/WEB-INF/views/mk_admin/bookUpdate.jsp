@@ -17,15 +17,13 @@
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
 								<form action="" method="post" id="bookUpdate" name="bookUpdate">
+									<input type="hidden" name="b_name" value="${bvo.b_name }">
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlInput1">책이름</label> -->
 										<strong class="d-block mb-1">책이름</strong> <input type="text"
-											class="form-control" id="b_name" name="b_name" value="${bvo.b_name }">
+											class="form-control" id="b_name" name="b_name"
+											value="${bvo.b_name }">
 									</div>
-
-									<!-- <div class="alert alert-primary alert-left-bordered border-primary alert-dismissible d-flex p-3 p-md-4 mb-0 fade show" role="alert">
-    									<i class="gd-info-alt icon-text mr-2 mt-1" style="margin-top: 2px;"></i> -->
 
 									<div>
 										<strong class="d-block mb-1">카테고리</strong>
@@ -72,7 +70,6 @@
 									</div>
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlFile1">이미지</label> -->
 										<strong class="d-block mb-1">이미지</strong> <input type="file"
 											class="gd-image" id="exampleFormControlFile1">
 									</div>
@@ -85,20 +82,17 @@
 											rows="2">${bvo.b_content }</textarea>
 									</div>
 									<div class="form-group">
-										<!-- <label for="exampleFormControlTextarea1">작가</label> -->
 										<strong class="d-block mb-1">작가</strong>
 										<textarea class="form-control" id="b_writer" name="b_writer"
 											rows="1">${bvo.b_writer }</textarea>
 									</div>
 									<div class="form-group">
-										<!-- <label for="exampleFormControlTextarea1">출판사</label> -->
 										<strong class="d-block mb-1">출판사</strong>
 										<textarea class="form-control" id="b_publisher"
 											name="b_publisher" rows="1">${bvo.b_publisher }</textarea>
 									</div>
 
 									<div class="form-group">
-										<!-- <label for="exampleFormControlSelect1">대출횟수</label> -->
 										<strong class="d-block mb-1">대출횟수</strong> <select
 											class="form-control" id="b_count" name="b_count">
 											<option>1</option>
@@ -109,7 +103,6 @@
 										</select>
 									</div>
 									<div class="form-group">
-										<!-- <label for="exampleFormControlSelect2">현재수량</label> -->
 										<strong class="d-block mb-1">현재수량</strong> <select multiple
 											class="form-control" id="b_amount" name="b_amount">
 											<option>1</option>
@@ -151,7 +144,8 @@
 									</div>
 
 
-									<button type="submit" class="btn btn-warning mb-2 mr-2" onclick="location.href='./bookList';">
+									<button type="submit" class="btn btn-warning mb-2 mr-2"
+										onclick="location.href='./bookList';">
 										<span class="align-middle">수정하기</span> <i
 											class="gd-shopping-cart-full icon-text align-middle ml-3"></i>
 									</button>

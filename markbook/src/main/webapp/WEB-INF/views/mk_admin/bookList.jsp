@@ -59,7 +59,7 @@ function fun23(num){
                                     <tr>
                                         <td class="py-3">${bvo.b_num}</td>
                                         <td>
-                                        	<a href="/mk_admin/bookList?b_num=${bvo.b_num }" onclick="fun23(${bvo.b_num })" >${bvo.b_name }</a>
+                                        	<a href="#" onclick="fun23(${bvo.b_num })" >${bvo.b_name }</a>
                                             <div class="book-img">
 												<img src="${pageContext.request.contextPath }/resources/grains-master/public/img/book.PNG" alt="Graindashboard" style="width: 55px; height: 55px;"></a>
 											</div>

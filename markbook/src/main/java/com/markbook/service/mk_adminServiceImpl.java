@@ -17,7 +17,6 @@ public class mk_adminServiceImpl implements mk_adminService {
 	@Inject
 	private mk_adminDAO madao;
 	
-	
 	// 도서 등록
 	@Override
 	public void bookRegister(mk_bookVO bvo) throws Exception {

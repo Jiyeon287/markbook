@@ -10,16 +10,18 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-xl-12">
-			<!-- Breadcrumb -->
-                    <nav class="d-none d-md-block" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="#">Books</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">book register</li>
-                        </ol>
-                    </nav>
+				
+					<!-- Breadcrumb -->
+                    	<nav class="d-none d-md-block" aria-label="breadcrumb">
+                        	<ol class="breadcrumb">
+                            	<li class="breadcrumb-item">
+                                	<a href="#">Books</a>
+                            	</li>
+                            	<li class="breadcrumb-item active" aria-current="page">book register</li>
+                        	</ol>
+                    	</nav>
                     <!-- End Breadcrumb -->
+                    
 					<div class="border-bottom pb-3 mb-6">
 						<h5 class="font-weight-semi-bold mb-0">BOOK REGISTER</h5>
 						<div class="tab-content bg-lighter" id="pills-tabContent-2">
@@ -27,7 +29,7 @@
 								role="tabpanel" aria-labelledby="pills-result-tab-2">
 
 								<form action="./bookRegister" method="post" name="">
-									<input type="hidden" value="${b_num }" name="b_num">
+									<input type="hidden" value="${b_name }" name="b_name">
 									<input type="hidden" value="0" name="b_able">
 									<div class="form-group">
 										<!-- <label for="exampleFormControlInput1">책이름</label> -->
