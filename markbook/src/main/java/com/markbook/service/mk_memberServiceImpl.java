@@ -53,13 +53,10 @@ public class mk_memberServiceImpl implements mk_memberService {
 		
 		response.setContentType("text/html;charset=utf-8");
 		mk_memberVO ck = mdao.readMember(vo.getM_id());
-		System.out.println("db:"+ck.toString());
-		System.out.println("jsp:"+vo.toString());
 		PrintWriter out = response.getWriter();
 		
 		//가입된 아이디가 없으면
 		if(mdao.memberIdChk(vo.getM_id()) == 0) {
-//			out.print("등록되지 않은 아이디입니다.");
 			out.print("<script>alert('등록되지 않은 아이디입니다.'); history.back();</script>");
 			out.close();
 		}
@@ -67,7 +64,9 @@ public class mk_memberServiceImpl implements mk_memberService {
 		else if(!vo.getM_email().equals(ck.getM_email())) {
 			out.print("<script>alert('등록되지 않은 이메일입니다.'); history.back();</script>");
 			out.close();
+
 		}else {
+
 		String pw = "";
 		for (int i = 0; i < 12; i++) {
 			pw += (char) ((Math.random() * 26) + 97);
@@ -105,24 +104,6 @@ public class mk_memberServiceImpl implements mk_memberService {
 
 		// 받는 사람 E-Mail 주소
 		String to = vo.getM_email();
-//		try {
-//			HtmlEmail email = new HtmlEmail();
-//			email.setDebug(true);
-//			email.setCharset(charSet);
-//			email.setSSLOnConnect(true);
-//			email.setHostName(hostSMTP);
-//			email.setSmtpPort(465); //네이버 이용시 587
-//
-//			email.setAuthentication(hostSMTPid, hostSMTPpwd);
-//			email.setStartTLSEnabled(true);
-//			email.addTo(mail, charSet);
-//			email.setFrom(fromEmail, fromName, charSet);
-//			email.setSubject(subject);
-//			email.setHtmlMsg(msg);
-//			email.send();
-//		} catch (Exception e) {
-//			System.out.println("메일발송 실패 : " + e);
-//		}
 
 		try {
 			// 메일 내용 넣을 객체와, 이를 도와주는 Helper 객체 생성
@@ -166,12 +147,6 @@ public class mk_memberServiceImpl implements mk_memberService {
 	
 		return mdao.passChk(mvo);
 	}
-
-//	@Override
-//	public String emailChk(String m_id) throws Exception {
-//		String m_email = mdao.emailChk(m_id);
-//		return m_email;
-//	}
 
 
 }

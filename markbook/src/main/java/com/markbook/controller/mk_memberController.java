@@ -44,7 +44,6 @@ public class mk_memberController {
 	public void memberLoginGET(HttpSession session, Model model) throws Exception {
 		System.out.println("로그인");
 		
-		//지연 네이버로그인
 		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */ 
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 		System.out.println("네이버:" + naverAuthUrl);
@@ -107,12 +106,6 @@ public class mk_memberController {
 		
 		//1. 로그인 사용자 정보를 읽어온다. 
 		apiResult = naverLoginBO.getUserProfile(oauthToken); 
-		//String형식의 json데이터
-		/** apiResult json 구조 
-		 {"resultcode":"00", 
-		 "message":"success", 
-		 "response":{"id":"33666449","nickname":"shinn****","age":"20-29",
-		 "gender":"M","email":"sh@naver.com","name":"\uc2e0\ubc94\ud638"}} **/
 
 		//2. String형식인 apiResult를 json형태로 바꿈 
 		JSONParser parser = new JSONParser(); 
@@ -123,20 +116,22 @@ public class mk_memberController {
 		//Top레벨 단계 _response 파싱 
 		JSONObject response1 = (JSONObject)jsonObj.get("response"); 
 		//response의 nickname값 파싱 
-		String m_id = (String) response1.get("id"); 
+		String m_id = (String) response1.get("id");
+		m_id = "naver-"+m_id.substring(0,7);
 		String m_name = (String) response1.get("name"); 
 		String m_email = (String) response1.get("email"); 
 		String m_phone = (String) response1.get("mobile");
 
-		session.setAttribute("m_id", m_id.substring(0, 7)); 
+		session.setAttribute("m_id", m_id); 
 		session.setAttribute("m_name", m_name);
 		session.setAttribute("m_email", m_email); 
 		session.setAttribute("m_phone", m_phone);
 		
 		//5. 소셜로그인을 한 적이 없으면 db에 회원정보 넣음, 소셜로그인 한적있으면 세션으로 저장만
+
 		int idcheck = service.memberIdChk(m_id);
 		if(idcheck==0) {
-			mvo.setM_id(m_id.substring(0, 7));
+			mvo.setM_id(m_id);
 			mvo.setM_name(m_name);
 			mvo.setM_email(m_email);
 			mvo.setM_phone(m_phone);

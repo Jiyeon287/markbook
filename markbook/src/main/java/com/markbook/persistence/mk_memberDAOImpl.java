@@ -1,7 +1,5 @@
 package com.markbook.persistence;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -104,11 +102,5 @@ public class mk_memberDAOImpl implements mk_memberDAO {
 		return sqlSession.selectOne(namespace + ".passChk", mvo);
 	}
 
-//	@Override
-//	public String emailChk(String m_email) throws Exception {
-//		
-//		String m_id = sqlSession.selectOne(namespace+".", m_email);
-//		return m_id;
-//	}
 
 }
