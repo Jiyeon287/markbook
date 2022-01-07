@@ -33,34 +33,34 @@
 					<!-- Category Listing start -->
 					<div class="category-listing mb-50">
 						<!-- single one -->
-						<div class="single-listing">
+						<div class="single-listing ml-100">
 							<!-- select-Categories  -->
 							<div class="select-Categories pb-30">
 								<div class="small-tittle mb-20">
 									<h4>Filter by Category</h4>
 								</div>
 								<label class="container">문학 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=문학';"> 
-									<span class="checkmark"></span>
+									<input type="checkbox" name="b2_category" id="b2_category" value="문학"> 
+									<span class="checkmark" ></span>
 								</label>
 								<label class="container">비문학 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=비문학';"> 
+									<input type="checkbox" name="b2_category" id="b2_category" value="비문학"> 
 									<span class="checkmark"></span>
 								</label> 
 								<label class="container">자기계발서 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=자기계발서';"> 
+									<input type="checkbox" name="b2_category" id="b2_category" value="자기계발서"> 
 									<span class="checkmark"></span>
 								</label> 
 								<label class="container">수험서 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=수험서';"> 
+									<input type="checkbox" name="b2_category" id="b2_category" value="수험서"> 
 									<span class="checkmark"></span>
 								</label> 
 								<label class="container">잡지 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=잡지';"> 
+									<input type="checkbox" name="b2_category" id="b2_category" value="잡지"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">기타 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_category&keyword=기타';"> 
+									<input type="checkbox" name="b2_category" id="b2_category" value="기타"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -71,42 +71,44 @@
 									<h4>Filter by BookStatus</h4>
 								</div>
 								<label class="container">최상 - 거의 새책 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최상';"> 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="최상"> 
 									<span class="checkmark"></span>
 								</label>
 							    <label class="container">상 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=상';"> 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="상"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">중 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=중';"> 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="중"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">하 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=하';"> 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="하"> 
 									<span class="checkmark"></span>
 								</label>
 							    <label class="container">최하 - 거의 폐지
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_bookstatus&keyword=최하';"> 
+									<input type="checkbox" name="b2_bookstatus" id="b2_bookstatus" value="최하"> 
 									<span class="checkmark"></span>
 								</label>
 							</div>
 							<!-- select-Categories End -->
 							<!-- select-Categories start -->
-							<div class="select-Categories pb-50">
-								<div class="small-tittle mb-20">
+							<div class="select-Categories pb-30">
+								<div class="small-tittle mb-15">
 									<h4>Filter by SalesStatus</h4>
 								</div>
 							    <label class="container">경매중 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=0';"> 
+									<input type="checkbox" name="b2_sellstatus" id="b2_sellstatus" value="0"> 
 									<span class="checkmark"></span>
 								</label>
 								<label class="container">판매완료 
-									<input type="checkbox" onclick="location.href='${path}search?searchOption=b2_sellstatus&keyword=1';"> 
+									<input type="checkbox" name="b2_sellstatus" id="b2_sellstatus" value="0"> 
 									<span class="checkmark"></span>
 								</label>
-								<!-- select-Categories End -->
 							</div>
+							<!-- select-Categories End -->
+						<button type="button" 
+								class="button button-contactForm boxed-btn" onclick="Search();">검색하기</button>
 						</div>
 					</div>
 					<!-- Category Listing End -->
@@ -209,3 +211,7 @@
 
 <!-- footer 등록  -->
 <%@ include file="../include/footer.jsp"%>
+
+<!-- 자바 스크립트 파일 연결 -->
+<script
+	src="${pageContext.request.contextPath }/resources/assets/js/mk_2ndTrans/list.js"></script>
